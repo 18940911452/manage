@@ -1,0 +1,34 @@
+<ul>
+    <#if list?exists&&(list?size>0)>
+        <#list list as mi>
+            <li class="h38">
+                <input type="hidden" class="page_data" data-total="${total}"/>
+                <span class="first" style="display:none;"><#if mi.uuid??>${mi.uuid}</#if></span>
+                <span class="second" style="display:none;"><#if mi.gid??>${mi.gid}</#if></span>
+                <span class="dataquality_w20"><#if mi.cname??>${mi.cname}</#if></span>
+                <span class="dataquality_w20"><#if mi.name??>${mi.name}</#if></span>
+                <#if mi.error??>
+                	<span class="dataquality_w10" title='${mi.error}'>${mi.error}</span>
+                	<#else>
+                		<span class="dataquality_w10"></span>
+                		</#if>
+                	
+                <span class="dataquality_w20"><#if mi.rule??>${mi.rule}</#if></span>
+                <span class="dataquality_w10"><#if mi.grade??>${mi.grade}</#if></span>
+                <span class="dataquality_w5"><#if mi.principal??>${mi.principal}</#if></span>
+                <#if (mi.state=0)>
+                	<span class="dataquality_w5">有效数据</span>
+                	<span class="dataquality_w10"><i class="fa fa-eye fz13 mr5" onclick="view_details01(this)"></i><i class="fa fa-close fz13" title="删除" onclick="remove_CT(this)"></i></span>
+                	<#else>
+                	<span class="dataquality_w5">无效数据</span>
+                		<span class="dataquality_w10"><i class="fa fa-eye fz13 mr5" onclick="view_details01(this)"></i><i class="fa fa-edit fz13 mr5" title="修改" onclick="modify_label01(this)"></i><i class="fa fa-close fz13" title="删除" onclick="remove_CT(this)"></i></span>
+                		</#if>
+            </li>
+        </#list>
+        <#else>
+
+            <script>
+                $("#see_list").html("<img src='../../images/zanwu.png' class='imgStyle'>");
+            </script>
+    </#if>
+</ul>

@@ -1,0 +1,391 @@
+#content {
+  padding: 0;
+  background-color: #F7F7F7;
+  padding-bottom: 50px;
+}
+.gridster .gs-w {
+  box-shadow: none;
+  margin-bottom: 10px !important;
+}
+#analysisDetail #analysisModular .compar_info_count .content-box .content_ .nowCount {
+    font-size: 50px;
+    color: #fff;
+    position: absolute;
+    top: 0%;
+     margin-top: -30px; 
+}
+#analysisDetail #analysisModular .compar_info_count .content-box .content_{
+	display: block;
+}
+#analysisDetail #analysisModular .compar_info_count .content-box .content_>div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 100%;
+}
+#analysisDetail #analysisModular .content-box {
+  background-color: #FeFeFe;
+  box-shadow: none;
+  margin: 0;
+}
+#analysisDetail #analysisModular .compar_info_count {
+  padding: 0 10px;
+}
+#analysisDetail #analysisModular .top_ten_rankings ul {
+  margin-bottom: 0;
+}
+.compar_info_count_widgth{
+	height: 140px !important;
+}
+.compar_info_count_widgth>div{
+	height: 140px;
+}
+#analysisDetail #analysisModular .compar_info_count .content-box .echarts3-title {
+  border-color: transparent;
+}
+
+
+@media (max-width: 768px)
+.content {
+    margin: 0;
+    padding: 0px;
+}
+.content {
+    margin: 0 0 0 0px;
+    background: inherit;
+}
+body{
+	padding: 0;
+}
+.mini-nav .content{
+	margin: 0;
+}
+@media (max-width: 768px)
+.content {
+    margin: 0;
+    padding: 0px;
+}
+.table-wrapper{
+	left: 0;
+	top: 0;
+}
+.sidebar-minified .content{
+	margin: 0;
+}
+
+.mainInfoList {
+  width: 100%;
+  padding-bottom: 15px;
+  border-bottom: 1px dashed #e6e6e6;
+  position: relative;
+}
+.mainInfoList:last-child {
+  border-bottom: none;
+}
+.mainInfoList.similariesList {
+  background-color: #e6eff2;
+}
+.mainInfoList .infoInputBox {
+  position: relative;
+  top: 5px;
+}
+.mainInfoList .mainInfo {
+  padding: 10px 0 0 5px;
+}
+.mainInfoList .mainInfo .logoBox {
+  height: 50px;
+  width: 50px;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  display: inline-block;
+}
+.mainInfoList .mainInfo .infoTitle {
+  /* display: inline-block; */
+  font-size: 16px;
+  color: #494949;
+  width: 100%;
+  height: auto !important;
+  font-weight: 700;
+  color: #222 !important;
+  cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box !important;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  max-height: 3em;
+  line-height: 1.5em !important;
+  white-space: normal !important;
+}
+.mainInfoList .mainInfo .textContantBox {
+  font-size: 15px;
+  width: 100%;
+  margin: 10px 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  max-height: 3em;
+  line-height: 1.5em;
+  cursor: pointer;
+}
+.mainInfoList .mainInfo .textContantBox.textContantBoxTop {
+  color: gray;
+}
+.mainInfoList .mainInfo .textContantBox.textContantBoxTop span.marke-red {
+  color: gray;
+}
+.mainInfoList .mainInfo .textContantBox.textContantBoxBottom {
+  color: #262626;
+}
+.mainInfoList .mainInfo .bottomBar {
+  width: 100%;
+  height: 24px;
+  line-height: 24px;
+  font-size: 14px;
+  padding: 5px 0;
+  position: relative;
+}
+.mainInfoList .mainInfo .bottomBar span.pull-left + span {
+  margin-left: 20px;
+}
+.mainInfoList .mainInfo .bottomBar span.pull-right {
+  margin-right: 20px;
+}
+/* .mainInfoList .mainInfo .bottomBar span.similarityListBtn:hover {
+  color: #21c7ce;
+} */
+.mainInfoList .mainInfo .bottomBar span.similarityListBtn {
+  display: none;
+}
+.mainInfoList .mainInfo .bottomBar a.linkUrl {
+  color: #21c7ce;
+}
+.mainInfoList .mainInfo .bottomBar span.dataDate {
+  display: none;
+}
+.mainInfoList .mainInfo .bottomBar span.mobileDate {
+  display: inline-block !important;
+}
+.mainInfoList .classifyBox {
+  height: 30px;
+  width: 50px;
+  line-height: 30px;
+  text-align: center;
+  font-size: 15px;
+  color: #666;
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  border: 1px solid #ccc;
+}
+
+/* #analysisModular [class*="_widgth"] {
+	height: 300px;
+}
+
+#analysisModular [class*="_widgth"] >div {
+	height: 100%;
+} */
+
+#analysisModular .site_count_widgth,
+#analysisModular .info_count_widgth,
+#analysisModular .emotion_destribute_widgth,
+#analysisModular .location_destribute_widgth,
+#analysisModular .entityCount_widgth,
+#analysisModular .echarts-mobile ,
+#analysisModular .hot_world_widgth,
+#analysisModular .city_destribute_widgth,
+#analysisModular .hot_topic_widgth{
+	height: 300px;
+}
+
+#analysisModular .site_count_widgth>div,
+#analysisModular .info_count_widgth>div,
+#analysisModular .emotion_destribute_widgth>div,
+#analysisModular .location_destribute_widgth>div,
+#analysisModular .entityCount_widgth>div,
+#analysisModular .echarts-mobile>div ,
+#analysisModular .hot_world_widgth>div,
+#analysisModular .city_destribute_widgth>div,
+#analysisModular .hot_topic_widgth>div{
+	height: 100%;
+}
+
+#analysisModular>div{
+	margin-bottom: 20px;
+	min-height: 150px;
+	position: relative;
+}
+
+#content{
+	min-height: 100%;
+}
+/*body,.main-wrapper,#content{
+	height: 100%;
+}*/
+
+.weui-panel__ft{
+	background: #fff;
+}
+.weui-cell_link:hover,.weui-cell_link:focus{
+	text-decoration: none !important;
+	color: #23527c !important;
+}
+/*#analysisModular .content-box .content_{
+	padding-bottom: 0;
+}*/
+.search_infos .content_,.top_ten_rankings .content_{
+	padding: 0;
+}
+.mainInfoList,.topTenListBox li{
+	padding: 10px !important;
+}
+.mainInfoList{
+	padding-top: 0 !important;
+}
+.mainInfoList:active,.topTenListBox li:active{
+	    background-color: #ececec;
+}
+#analysisDetail #analysisModular .top_ten_rankings .topTenListBox ul li .leftBox > span:nth-child(2) {
+    width: calc(100% - 28px);
+    
+    padding: 0;
+}
+#analysisDetail #analysisModular .top_ten_rankings .topTenListBox ul li .leftBox > span:nth-child(2) a{
+	color: #000;
+  text-decoration: none;
+}
+#analysisDetail #analysisModular .top_ten_rankings .topTenListBox ul li .leftBox{
+	font-size: 15px;
+}
+#analysisDetail #analysisModular .compar_info_count .content-box .content_ .lastCount {
+    position: absolute;
+    right: 26px;
+    bottom: 25px;
+    color: #fff;
+}
+.search_infos .textContantBoxTop{
+	display: none !important;
+}
+#analysisDetail #analysisModular .compar_info_count .content-box .content-title .echarts3-title {
+  padding-left: 0;
+}
+
+#analysisDetail #analysisModular .time_line .cbp_tmtimeline {
+  margin: 0;
+}
+#analysisDetail #analysisModular .time_line .cbp_tmtimeline:before {
+  width: 2px;
+  left: 10px;
+  background: #65AEE8;
+  margin-left: 0;
+}
+#analysisDetail #analysisModular .time_line .cbp_tmtimeline > li {
+  position: relative;
+}
+#analysisDetail #analysisModular .time_line .cbp_tmtimeline > li::before {
+  content: " ";
+  height: 10px;
+  width: 10px;
+  background: #65AEE8;
+  border-radius: 50%;
+  position: absolute;
+  top: 15px;
+  left: 6px;
+  box-shadow: 0 0 0 4px rgba(175, 220, 248, 0.5);
+}
+#analysisDetail #analysisModular .time_line .cbp_tmtimeline > li .cbp_tmtime {
+  display: none;
+}
+#analysisDetail #analysisModular .time_line .cbp_tmtimeline > li .cbp_tmlabel {
+  background: #fff;
+  border: 1px solid #65AEE8;
+  padding: 0;
+  margin-left: 36px;
+  padding-top: 25px;
+}
+#analysisDetail #analysisModular .time_line .cbp_tmtimeline > li .cbp_tmlabel::before {
+  right: 100%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-right-color: #65AEE8;
+  border-width: 12px;
+  top: 8px;
+}
+#analysisDetail #analysisModular .time_line .cbp_tmtimeline > li .cbp_tmlabel::after {
+  border-right-color: #fff;
+}
+#analysisDetail #analysisModular .time_line .cbp_tmtimeline > li .cbp_tmlabel .hiddenTimeBox {
+  display: inline-block;
+  position: absolute;
+  top: 7px;
+  right: 25px;
+}
+#analysisDetail #analysisModular .time_line .cbp_tmtimeline > li .cbp_tmlabel .hiddenTimeBox span:first-child {
+  color: #FF5700;
+}
+#analysisDetail #analysisModular .time_line .cbp_tmtimeline > li .cbp_tmlabel .hiddenTimeBox span:last-child {
+  color: #97B2C8;
+  font-size: 15px;
+}
+#analysisDetail #analysisModular .time_line .mainInfoList {
+  width: 100%;
+  padding-bottom: 15px;
+  border-bottom: 1px dashed #e6e6e6;
+  position: relative;
+}
+
+#analysisDetail #analysisModular .newsHotRanking .mainInfoList {
+  padding-left: 25px !important;
+}
+#analysisDetail #analysisModular .newsHotRanking .mainInfoList .linkUrl {
+  display: none;
+}
+
+#analysisDetail #analysisModular .top_ten_rankings .topTenListBox ul li.minWidthStyle .leftBox {
+  margin-bottom: 5px;
+}
+#analysisDetail #analysisModular .top_ten_rankings .topTenListBox ul li.minWidthStyle .leftBox > span:nth-child(2) {
+  white-space: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  max-height: 2.8em;
+  line-height: 1.4em;
+}
+#analysisDetail #analysisModular .news_hot_ranking .mainInfoList .indexBox {
+  top: 12px;
+}
+
+#analysisDetail #analysisModular .top_ten_rankings .topTenListBox ul li .rightBox > span.dataDate {
+  display: none;
+}
+#analysisDetail #analysisModular .top_ten_rankings .topTenListBox ul li .rightBox > span.modileDate {
+  display: inline-block !important;
+}
+
+
+.moments_btn{
+	display: none;bottom: 20px;right: 50%;position: fixed;z-index: 100;
+	margin-right: -35px;
+	width: 70px;
+	height: 34px;
+	border-radius: 17px;
+	padding: 0;
+	background: #fff;
+	box-shadow: 0 0 10px #999;
+	background: rgba(0,0,0,.35);
+	background: rgb(63,125,183);
+}
+.moments_btn img{
+	width: 30px;
+}

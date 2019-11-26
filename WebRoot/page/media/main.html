@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_938457_5ipe9u8lwor.css"/>
+		<style type="text/css">
+		body,header,*{margin: 0;padding: 0;}
+		.contList{width: 60%;margin: 0 auto;background: #fff;height: 900px;border-radius: 4px;padding: 10px 10px;}
+		.contBox p{text-align: center;padding: 20px 0;}
+		.contBox{background: url(img/back.jpg) no-repeat;background-size:100%;}
+		.titleListHeader{    font-size: 18px;color: #262626;border-left: 3px solid #3FB1E3;padding-left: 10px;
+    		line-height: 20px;}
+    	.listBox{height: calc(100% - 20px);overflow: auto;}
+    	.mainInfo{padding: 20px 0 0 5px;}
+    	.mainInfo .textContantBox {
+		    font-size: 15px;
+		    width: 100%;
+		    margin: 10px 0;
+		    overflow: hidden;
+		    text-overflow: ellipsis;
+		    display: -webkit-box;
+		    -webkit-box-orient: vertical;
+		    -webkit-line-clamp: 2;
+		    max-height: 3em;
+		    line-height: 1.5em;
+		    cursor: pointer;
+		}
+		.mainInfo .infoTitle a {
+		    color: #34487c;
+		    font-weight: 700;
+		    text-decoration: none;
+    		outline: none !important;
+		}
+		.bottomBar span{margin-right: 20px;    width: 100%;
+    height: 24px;
+    line-height: 24px;
+    font-size: 14px;
+    padding: 5px 0;color: #76828E;}
+		</style>
+	</head>
+	<body>
+		<div class="contBox">
+			<p><img src="img/xhs.png"/></p>
+			<div class="contList">
+				<div class="titleListHeader">
+					最新内容
+				</div>
+				<div class="listBox">
+					<div class="mainInfo ">
+						<div style="display:flex; align-items: center;">
+							<div class="infoTitle textContantBoxFunc" title="新华网">
+								<a target="_blank" href="https://player.v.news.cn/api/v1/getPlayPage?uuid=1_1a20e72966714fc295a9d816818dc691&amp;vid=9daf4f8265c79101&amp;playType=0">新华网</a>
+							</div>
+						</div>
+						<div style="cursor: pointer;">
+							<div class="textContantBox textContantBoxTop textContantBoxFunc">
+								
+							</div>
+						</div>
+						<div class="bottomBar">
+							<span class="pull-left dataSource" title="数据源">
+										<i class="iconfont icon-diqiu" style="color: #1D4FD4;"></i>
+										新华网
+							</span>
+							<span class="pull-left dataDate" title="时间">2019-01-11 16:49:16</span>
+									<span class="pull-left interactData" title="媒体级别">中央媒体</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+	<script>
+		(function(){
+			$.ajax({
+		         type : "get", //jquey是不支持post方式跨域的
+		         async:false,
+		         url : "http://wxservice.wengetech.com/wenhaiFt/analysis_al/mod2/searchInfos/bHWs4Dals_qJsdItG1Sy__?pageNo=1&pageSize=10&Rtype=json", //跨域请求的URL
+		         dataType : "jsonp",
+		         //传递给请求处理程序，用以获得jsonp回调函数名的参数名(默认为:callback)
+		         jsonp: "jsoncallback",
+		         //自定义的jsonp回调函数名称，默认为jQuery自动生成的随机函数名
+		         jsonpCallback:"success_jsonpCallback",
+		         //成功获取跨域服务器上的json数据后,会动态执行这个callback函数
+		         success : function(json){ 
+		             console.log(json); 
+		         } 
+		     }); 
+		})()
+	</script>
+	</body>
+</html>

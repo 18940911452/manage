@@ -1,0 +1,36 @@
+<div class="modal fade" id="add_edit_topicModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document" style="width: 40%;">
+      <div class="modal-content">
+        <div class="modal-header modalBack" style="background: #c93931;">
+          <h4 class="modal-title" id="topicModal_name" style="color:#fff;">添加选题</h4>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+              	<div class="col-md-12 seeList" style="margin-bottom: 20px;">
+                	<input id="topicModal_input_name" type="text" placeholder="请输入选题名称" class="form-control" />
+              	</div>
+              	<div class="col-md-12 seeList" id="editor" style="margin-bottom: 20px;">
+                	<textarea id="topicModal_des" class="form-control" placeholder="请输入选题描述" rows="6"></textarea>
+              	</div>
+              	<div class="col-md-12 seeList" >
+                    <input id="topicModal_keyword" placeholder="" type="text" class="tags tags_drag form-control" data-role="tagsinput"/>
+                    <span id="topicModal_add">抽取关键字</span>
+                </div>
+          </div>
+        </div>
+        <div class="modal-footer" style="text-align: center;margin:15px 0;padding: 6px 103px;">
+            <button type="button" class="btn btn-primary" data-dismiss="modal"style="background: #b5b5b5;border:0;" >取消</button>
+          <button type="button" class="btn btn-primary topicModal_sure"  style="border: 0;">确定</button>
+        </div>
+      </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+	$("#topicModal_keyword").tagsinput('removeAll');
+	
+	//$('#tags_2').tagsinput('add',item);
+	
+	$('#topicModal_keyword').tagsinput('items')!= ''
+	
+</script>

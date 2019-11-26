@@ -1,0 +1,228 @@
+<div class="dataflow_con col-md-12 c m mt10">
+    <div class="bd2">
+        <div class="metadata_weizhi">
+            <p class="nav-top-title">
+                <span class="yijiname">大数据资源池管理</span><em class="arrow_one">&gt;</em>
+                <span class="erjiname">应用技巧管理</span><!--<em class="arrow_two">&gt;</em>-->
+            </p>
+        </div>
+        <div class="col-md-12 dataflow_bg1 pt10">
+        	<div class="h100p">
+        		<div id="username_yonghu" class="col-md-3 p0 tar h34p col0 pr50"></div>
+        		<div class="col-md-3 p0 tal h34p">
+        			<span class="colo0">子集用户：</span>
+        			<select id="selected_box" class="form-control w50b disbl" onchange="changeoption(this)"></select>
+        		</div>
+        		<div id="thire" class="col-md-3 p0 tal h34p cm_hide">
+        			<span class="colo0">子集用户：</span>
+        			<select id="selected_box01" class="form-control w50b disbl" onchange="changeoption02(this)"></select>
+        		</div>
+        		<div id="four" class="col-md-3 p0 tal h34p cm_hide">
+        			<span class="colo0">子集用户：</span>
+        			<select id="selected_box02" class="form-control w50b disbl" onchange="changeoption03(this)"></select>
+        		</div>
+        		<div></div>
+        	</div>
+        	<div class="col-md-6" id="box_abc" style="border-right:1px dashed #000;">
+        		<div id="echarts1" style="width:100%;height:400px;"></div>
+        	</div>
+        	<div class="col-md-6">
+        		<div id="echarts2" style="height:400px;"></div>
+        	</div>
+        </div>
+    </div>
+</div>
+
+<script>
+	var UN = $("#hidden_box_N").attr("data");
+	$("#username_yonghu").html("<p>当前用户：<span>"+UN+"</span></p>");
+	/*下拉框*/
+	addSelect();
+	function addSelect(){
+		$.post("system/mod1/loadUnderUser",function(data){
+			$("#selected_box").empty();
+			for(var i=0;i<data.length;i++){
+				var outhtml = "<option value="+data[i].id+">"+data[i].username+"</option>";
+				$("#selected_box").append(outhtml);
+			}
+			var id = $("#selected_box option:selected").attr("value");
+			seebar(id);
+			seepie(id);
+		})
+	}
+	
+	function changeoption(obj){
+		var id = $(obj).find("option:selected").attr("value");
+		var oneid = $(obj).find("option:first").attr("value");
+		if(oneid == id){
+			$("#thire").addClass("cm_hide");
+			$("#four").addClass("cm_hide");
+			seebar(id);
+			seepie(id);
+		}else{
+			$("#thire").removeClass("cm_hide");
+			$("#four").addClass("cm_hide");
+			$("#selected_box01").empty();
+			$.post("system/mod1/loadUnderUserByUid",{uid:id},function(data){
+				if(data !=""){
+					for(var i=0;i<data.length;i++){
+						var outhtml = "<option value="+data[i].id+">"+data[i].username+"</option>";
+						$("#selected_box01").append(outhtml);
+					}
+					var id = $("#selected_box01 option:selected").attr("value");
+					seebar(id);
+					seepie(id);
+				}else{
+					$("#thire").addClass("cm_hide");
+				}
+			})
+		}
+		
+	}
+	
+	function changeoption02(obj){
+		var id = $(obj).find("option:selected").attr("value");
+		var oneid = $(obj).find("option:first").attr("value");
+		if(oneid == id){
+			$("#four").addClass("cm_hide");
+			seebar(id);
+			seepie(id);
+		}else{
+			$("#four").removeClass("cm_hide");
+			$("#selected_box02").empty();
+			$.post("system/mod1/loadUnderUserByUid",{uid:id},function(data){
+				if(data !=""){
+					for(var i=0;i<data.length;i++){
+						var outhtml = "<option value="+data[i].id+">"+data[i].username+"</option>";
+						$("#selected_box02").append(outhtml);
+					}
+					var id = $("#selected_box02 option:selected").attr("value");
+					seebar(id);
+					seepie(id);
+				}else {
+					$("#four").addClass("cm_hide");
+				}
+			})
+		}
+	}
+	
+	function changeoption03(obj){
+		var id = $(obj).find("option:selected").attr("value");
+		seebar(id);
+		seepie(id);
+	}
+	
+	/*柱状图*/
+	function seebar(id){
+		$("#box_abc").html("<div id=\"echarts1\" style=\"width:100%;height:400px;\"></div>");
+		var myChart01 = echarts.init(document.getElementById("echarts1"));
+		$.post("system/mod1/showUserActionByTime",{uid:id},function(data){
+			var key = Object.getOwnPropertyNames(data);
+			var arr = data[key];
+			var times = Object.getOwnPropertyNames(data[key]);
+			var dataKey = Object.getOwnPropertyNames(data[key][times[0]]);
+			var seriesA = [];
+			for(var j=0;j<dataKey.length;j++){
+				var obj = {};
+				obj.name = dataKey[j];
+				obj.type = "bar";
+				obj.stack = '总量';
+				var normal = {};
+				normal.show = true;
+				normal.position = 'insideRight';
+				obj.label = normal;
+				var data01 = [];
+				for(var i=0;i<times.length;i++){
+					var value = arr[times[i]][dataKey[j]];
+					data01.push(value);
+				}	
+				obj.data = data01;
+				seriesA.push(obj);
+			}
+			option1 = {
+			    tooltip : {
+			        trigger: 'axis',
+			        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+			            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+			        }
+			    },
+			    legend: {
+			        data: dataKey,
+			    },
+			    grid: {
+			    	top:'22%',
+			        left: '3%',
+			        right: '4%',
+			        bottom: '3%',
+			        containLabel: true
+			    },
+			    xAxis:  {
+			        type: 'value'
+			    },
+			    yAxis: {
+			        type: 'category',
+			        data: times,
+			    },
+			    series: seriesA,
+			};
+			myChart01.setOption(option1);
+			
+		})
+	}
+	
+	
+	
+	
+	/*饼图*/
+	function seepie(id){
+		$.post("system/mod1/showUserAction",{uid:id},function(data){
+			var key = Object.getOwnPropertyNames(data);
+			var keys = Object.getOwnPropertyNames(data[key]); 
+			var myChart02 = echarts.init(document.getElementById("echarts2"));
+			var dataArr = [];
+			var objData = data[key];
+			var str = key +"用户访问次数";
+			for(var i=0;i<keys.length;i++){
+				var obj = {};
+				obj.value = objData[keys[i]];
+				obj.name = keys[i];
+				dataArr.push(obj);
+			}
+			option2 = {
+			    title : {
+			        text: str,
+			        x:'center'
+			    },
+			    tooltip : {
+			        trigger: 'item',
+			        formatter: "{a} <br/>{b} : {c} ({d}%)"
+			    },
+			    legend: {
+			        orient: 'vertical',
+			        left: 'left',
+			        data: keys,
+			    },
+			    series : [
+			        {
+			            name: '访问次数',
+			            type: 'pie',
+			            radius : '55%',
+			            center: ['50%', '60%'],
+			            data:dataArr,
+			            itemStyle: {
+			                emphasis: {
+			                    shadowBlur: 10,
+			                    shadowOffsetX: 0,
+			                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+			                }
+			            }
+			        }
+			    ]
+			};
+			myChart02.setOption(option2);
+		})
+		
+	}
+	
+	
+</script>

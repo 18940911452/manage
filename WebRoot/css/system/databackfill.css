@@ -1,0 +1,42 @@
+.databack_w10{float:left;width:10%;color:rgb(95,95,95);text-align:center;}
+.databack_w20{float:left;width:20%;color:rgb(95,95,95);text-align:center;}
+.databack_w25{float:left;width:25%;color:rgb(95,95,95);text-align:center;}
+.borderB{border-bottom:1px dashed #ddd;height:39px;line-height:39px;}
+.lastSpan span{cursor:pointer;}
+.button_anniu span{display:inline-block;width:100px;text-align:center;height:35px;line-height:35px;background:#ccc;margin-right:15px;cursor:pointer;border-radius:5px;}
+.buttonAnniu span{display:inline-block;width:100px;text-align:center;height:35px;line-height:35px;background:#ccc;margin-right:15px;cursor:pointer;border-radius:5px;}
+.button_anniu02 span{display:inline-block;width:100px;text-align:center;height:35px;line-height:35px;background:#ccc;margin-right:15px;cursor:pointer;border-radius:5px;}
+.activeSpan{background:#009ae2 !important;}
+#describe h3{display:inline-block;width:30%;vertical-align:top;text-align:right;color:rgb(95,95,95);font-size:18px;}
+#describe textarea{width:65%;height:100px;border-radius:5px;padding:5px;}
+#describe01 h3{display:inline-block;width:30%;vertical-align:top;text-align:right;color:rgb(95,95,95);font-size:18px;}
+#describe01 textarea{width:65%;height:100px;border-radius:5px;padding:5px;}
+.mt15px{margin-top:15px;}
+.bgcolor03{color:green !important;}
+.bgcolor02{color:red!important;}
+.bgcolor01{color:orange!important;}
+.Istyle{color:#ddd;}
+.cp{cursor:pointer;}
+.table_navRight{position: absolute;bottom: 5px;right: 5%;width: 700px;height: 30px;}
+.table_navRight>ul{width:100%;height:30px;line-height:30px;}
+.table_navRight>ul>li{width: 130px;height: 30px;line-height:30px;cursor: pointer;border-radius: 6px 6px 0px 0px;display: inline-block;background: #fff;color: #000;border-bottom: none;}
+.addfield{width:65%;max-height:300px;overflow-y: auto;}
+.mt35px{margin-top:35px;}
+.fs18{font-size:16px;color:rgb(95,95,95);margin-right:5px;}
+.colorS{color:rgb(95,95,95)}
+
+
+.projectile{width:100%;min-height:200px;margin-bottom:20px;}
+	.projectile .left{width:10%;float:left;text-align:center;line-height:200px;}
+	.projectile .right{width:90%;min-height:200px;float:left;border:1px dashed #fff;padding:20px 10px 0px 20px;position:relative;}
+	.mask{width:100%;height:100%;background:rgba(0,0,0,.3);position:absolute;top:0px;left:0px;}
+	.ml30px{margin-left:30px;}
+	.tableUse h5{width:100%;height:30px;background: url(../images/navname/beijingse.png)repeat-x;margin:0px;}
+	.backuae_w20{float:left;width:20%;height:30px;line-height:30px;text-align:center;border: 1px solid #2d3d55;}
+	.backuae_w30{float:left;width:30%;height:30px;line-height:30px;text-align:center;border: 1px solid #2d3d55;}
+	.backuae_w50{float:left;width:50%;height:30px;line-height:30px;text-align:center;border: 1px solid #2d3d55;}
+.mt10px{margin-top:10px;}
+.metadata_form01{float:left !important;width:100%;}
+.metadata_form01 h3{float: left;width: 30%;text-align: right;font-weight: normal;font-size: 1.025em;margin-top: 6px;}
+.mh200{min-height:200px;}
+.tixingfh{color: red;vertical-align: top;font-size: 32px;}

@@ -1,0 +1,34 @@
+<ul>
+    <#if page?exists&&(page?size>0)>
+        <#list page as mi>
+            <li class="borderB">
+                <input type="hidden" class="page_data" data-total="${total}"/>
+                <span class="first" style="display:none;"><#if mi.id??>${mi.id}</#if></span>
+                <span class="second" style="display:none;"><#if mi.tableField??>${mi.tableField}</#if></span>
+                <span class="databack_w20 hf"><#if mi.themename??>${mi.themename}</#if></span>
+	            <span class="databack_w25 hf"><#if mi.themeId??>${mi.themeId}</#if></span>
+	            <span class="databack_w10 hf"><#if mi.subscribeuser??>${mi.subscribeuser}</#if></span>
+	            <span class="databack_w25 hf"><#if mi.subscribeTime??>${mi.subscribeTime}</#if></span>
+	            <#if mi.status??>
+	            	<#if (mi.status==0)>
+	            		<span class="databack_w10 hf bgcolor01">待审核</span>
+	            		<span class="databack_w10 hf lastSpan"><i onclick="displayDetail(this)" title="查看详情" class="fa fa-eye cp"></i></span>
+	            		<#elseif (mi.status==1)>
+	            			<span class="databack_w10 hf bgcolor02">审核未通过</span>
+	            			<span class="databack_w10 hf lastSpan" title="查看详情"><i class="fa fa-eye cp Istyle"></i></span>
+	            			<#elseif (mi.status==2)>
+	            				<span class="databack_w10 hf bgcolor03">审核通过</span>
+	            				<span class="databack_w10 hf lastSpan"><i class="fa fa-eye cp Istyle"></i></span>
+	            			</#if>
+	            </#if>
+	            
+                
+            </li>
+        </#list>
+        <#else>
+
+            <script>
+                $("#useexamine_list").html("<img src='images/zanwu.png' class='imgStyle'>");
+            </script>
+    </#if>
+</ul>

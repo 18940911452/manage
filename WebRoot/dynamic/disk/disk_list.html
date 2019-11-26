@@ -1,0 +1,39 @@
+<ul>
+    <#if mInfoList?exists&&(mInfoList?size>0)>
+        <#list mInfoList as mi>
+            <li class="borderB">
+                <input type="hidden" class="page_data" data-total="${total}"/>
+                <span style="display:none;" class="first"><#if mi.uuid??>${mi.uuid}</#if></span>
+                <span class="dataflow_w10 hf bgColor" style="text-align: center;" title="${mi.fileName}"><#if mi.fileName??>${mi.fileName}</#if></span>
+                <span class="dataflow_w10 hf bgColor" style="height:100%;" title="${mi.recordType}"><#if mi.recordType??>${mi.recordType}</#if></span>
+                <span class="dataflow_w10 hf bgColor" title="${mi.filePath}"><#if mi.filePath??>${mi.filePath}</#if></span>
+                <span class="dataflow_w10 hf bgColor" title="${mi.targetPath}"><#if mi.targetPath??>${mi.targetPath}</#if></span>
+                <span class="dataflow_w10 hf bgColor" title="${mi.ip_address}"><#if mi.ip_address??>${mi.ip_address}</#if></span>
+                <span class="dataflow_w10 hf bgColor" title="${mi.modifyTime}"><#if mi.modifyTime??>${mi.modifyTime}</#if></span>
+                <span class="dataflow_w10 hf bgColor" title="${mi.filePathBak}"><#if mi.filePathBak??>${mi.filePathBak}</#if></span>
+                <span class="dataflow_w10 hf bgColor" title="${mi.beginTime}"><#if mi.beginTime??>${mi.beginTime}</#if></span>
+                <span class="dataflow_w10 hf bgColor" title='${mi.endTime}'><#if mi.endTime??>${mi.endTime}</#if></span>
+                
+                <#if mi.status??>
+                	<#if (mi.status ==1)>
+                		<span class="dataflow_w5 hf bgColor01">下载中</span>
+                		<span class="dataflow_w5 hf bgColor">< class="fa fa-download fz13"></i></span>
+                		<#elseif (mi.status ==2)>
+                			<span class="dataflow_w5 hf bgColor02">下载失败</span>
+                			<span class="dataflow_w5 hf bgColor"><i onclick="againdownload(this)" class="fa fa-download fz13" title='重新下载'></i></span>
+                			<#elseif (mi.status ==3)>
+                				<span class="dataflow_w5 hf bgColor03">等待中</span>
+                				<span class="dataflow_w5 hf bgColor"><i onclick="againdownload(this)" class="fa fa-download fz131" title='重新下载'></i></span>
+                				</#if>
+                </#if>
+                
+                
+            </li>
+        </#list>
+        <#else>
+
+            <script>
+                $("#disk_list").html("<img src='images/zanwu.png' class='imgStyle'>");
+            </script>
+    </#if>
+</ul>

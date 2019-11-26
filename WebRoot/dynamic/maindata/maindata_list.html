@@ -1,0 +1,127 @@
+<#--<ul>
+<#if mInfoList?exists&&(mInfoList?size>0)>	
+	<#list mInfoList as mi>
+		<input type="hidden" class="page_data" data-total="${total}"/>
+		
+		<li>
+			<span class="first cm_hide" hidden><#if mi.gid??>${mi.gid}</#if></span>
+			<span class="second cm_hide" hidden><#if mi.uuid??>${mi.uuid}</#if></span>
+			<span class="content_content_left cm_hide"><input type="checkbox" /></span>
+			<div class="content_content_right">
+				<h4 class="text_color" title="${mi.title}"><#if mi.title??>${mi.title}</#if></h4>
+				<p class="text_color wnte" title="${mi.content}"><#if mi.content??>${mi.content}</#if></p>
+				<div class="content_content_right_bottom">
+					<span class="span_box">
+						<span class="span_style text_color">来源：</span><span class="text_color titleStyle formsource" title="${mi.source}" ><#if mi.source??>${mi.source}</#if></span>
+					</span>
+					<#if mi.person??>
+					<span class="span_box">
+						<span class="span_style text_color">人员：</span><span class="text_color titleStyle" title="${mi.person}"><#if mi.person??>${mi.person}</#if></span>
+					</span>
+					</#if>
+					<#if mi.commodity??>
+					<span class="span_box">
+						<span class="span_style text_color">商品：</span><span class="text_color  titleStyle" title="${mi.commodity}"><#if mi.commodity??>${mi.commodity}</#if></span>
+					</span>
+					</#if>
+					<#if mi.car??>
+					<span class="span_box">
+						<span class="span_style text_color">车辆：</span><span class="text_color titleStyle" title='${mi.car}'><#if mi.car??>${mi.car}</#if></span>
+					</span>
+					</#if>
+					<#if mi.enterprise??>
+					<span class="span_box">
+						<span class="span_style text_color">企业：</span><span class="text_color titleStyle" title="${mi.enterprise}"><#if mi.enterprise??>${mi.enterprise}</#if></span>
+					</span>
+					</#if>
+					<#if mi.diyu??>
+					<span class="span_box">
+						<span class="span_style text_color">地域：</span><span class="text_color titleStyle"><#if mi.diyu??>${mi.diyu}</#if></span>
+					</span>
+					</#if>
+					<div class="content_content_right_bottom_right cm_hide">
+						<span ><i class="fa fa-briefcase projectile_frame" data-toggle="tooltip" data-placement="bottom" title="工具"></i></span>
+						<span ><i class="fa fa-tags labelAddB" title="标签"></i></span>
+						
+							<#if (mi.shoucangziduan?? && mi.shoucangziduan=='1')>
+								<span class="text_color_red"><i class="fa fa-heart text_color_red collection" data-toggle="tooltip" data-placement="bottom" title="收藏"></i></span>
+								<#else>
+									<span><i class="fa fa-heart-o text_color collection" data-toggle="tooltip" data-placement="bottom" title="收藏"></i></span>
+									</#if>
+						
+						
+						<span ><i class="iconfont icon-lianjie1 text_color  detail_list" data-toggle="tooltip" data-placement="bottom" title="详情" style="font-size:17px;"></i></span>
+					</div>
+				</div>
+			</div>
+		</li>
+	</#list>
+<#else>
+	
+<script>
+	$("#ul_list_li").html("<img src='../../img/zanwu.png' class=\"imgStyle2\">")
+</script>
+</#if>
+
+<#if mi.pubtime??>
+                		<span class="spansTY01"><#if mi.pubtime??>${mi.pubtime}</#if></span>
+                		<span class="spansty02"><#if mi.chahuoriqi??>${mi.chahuoriqi}</#if></span>
+                		<#else>
+                			<span class="spansTY05"></span>
+                	</#if>
+
+</ul>-->
+
+
+
+<ul>
+<#if mInfoList?exists&&(mInfoList?size>0)>	
+	<#list mInfoList as mi>
+		<input type="hidden" id="hidden_input" class="page_data" data-total="${total}"/>
+		
+		<li class="bb1px p010px">
+            <p class="h34">
+            	<span class="left_span_i"><i class="fa fa-caret-right activeSpanI" onclick="changeSH(this)"></i></span>
+                <span class="spanSty0104"><i class="fa fa-navicon" onclick="showxiangqing(this)" title="详情" data_type="${mi.gid}"></i></span>
+                <span class="spanSty0105" >案件编号：<span id="bianhao"><#if mi.anjianbianhao??>${mi.anjianbianhao}</#if></span></span>
+                <#if (mi.pubtime?? && mi.pubtime !="")>
+	                <span class="spanSty0106">
+	                	<span style="background:rgb(255,250,232);position:relative;width:50px;height:30px;display:inline-block;">
+	                		<span class="spansTY01"><#if mi.pubtime??>${mi.pubtime}</#if>年</span>
+	                		<span class="spansty02"><#if mi.chahuoriqi??>${mi.chahuoriqi}</#if></span>
+	                	</span>
+	                	<span class="cm_hide">案件名称：</span><span id="spanName01" class="ml30px fontsW maxw" title="${mi.title}"><#if mi.title??>${mi.title}</#if></span></span>
+	                	<span class="ml50px1" style="color:#009ae2;">系统来源：<span><#if mi.source??>${mi.source}</#if></span></span>
+	                	<span class="ml50px h34">详情：<span class="spanSty01008 w1200" title="${mi.content}"><#if mi.content??>${mi.content}</#if></span>
+	                </span>
+                		<#else>
+                			<span class="spanSty0106">
+                				<span class="cm_hide">案件名称：</span><span class="ml30px fontsW"><#if mi.title??>${mi.title}</#if></span></span>
+                				<span class="ml50px1" style="color:#009ae2;">系统来源：<span><#if mi.source??>${mi.source}</#if></span></span>
+                				<span class="ml50px h34">详情：<span class="spanSty01008 w1200" title="${mi.content}"><#if mi.content??>${mi.content}</#if></span>
+                			</span>
+                	
+                	
+                
+                </#if>
+            </p>
+            <ul id="ul_dispaly" class="cm_hide" style="border:1px solid #ccc;">
+                <li>
+                	<p class="pl15">人员：<span class="nameSpan"><#if mi.person??>${mi.person}</#if></span></p>
+        			<p class="pl15">商品：<span class="nameSpan"><#if mi.commodity??>${mi.commodity}</#if></span></p>
+        			<p class="pl15">立案日期：<span><#if mi.lianriqi??>${mi.lianriqi}</#if></span></p>
+        			<p class="pl15">企业：<span><#if mi.enterprise??>${mi.enterprise}</#if></span></p>
+        			<p class="pl15 bdno">运输工具：<span><#if mi.diyu??>${mi.diyu}</#if></span></p>
+        		</li>
+        	</ul>
+        </li>
+	</#list>
+<#else>
+	
+<script>
+	$("#ul_list_li").html("<img src='../../images/zanwu.png' class=\"imgStyle2\">")
+	$("#ul_li_list02").html("<img src='../../images/zanwu.png' class=\"imgStyle2\">")
+</script>
+</#if>
+
+</ul>

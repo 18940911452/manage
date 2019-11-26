@@ -1,0 +1,106 @@
+<#include "/_largeScreen_al_layout.html"/>
+<@layout>
+<div class="xiangBox">
+	<!--<div class="xiangHaderBox">
+		<ul>
+			<li class="fanhui"><i class="iconfont icon-zuo"></i></li>
+			<li>任务进度</li>
+			<li></li>
+		</ul>
+	</div>-->
+	<div class="upzheng">
+		<div class="title">更新进度</div>
+		<div class="upload"></div>
+		<div class="jindutiao">
+			<div class="scale_panel"id="div1">
+				<div class="scale" id="bar3">
+					<div id="title3"></div>
+					<span id="btn3"></span>
+				</div> 
+			</div> 
+		</div>
+		<div class="textBox">
+			<textarea name="" rows="3"></textarea>
+		</div>
+		<div class="submitBtn">提交</div>
+	</div>
+</div>
+<script>
+	var alldata = JSON.parse(localStorage.getItem('allData'));
+	function GetQueryString(name) {
+	     var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+	     var r = window.location.search.substr(1).match(reg);
+	     if(r!=null)return  unescape(r[2]); return null;
+	}
+	
+	var div1 = document.querySelector('#div1');
+    var div2 = document.querySelector('#btn3');
+    var div3 = document.querySelector('#title3');
+	//限制最大宽高，不让滑块出去
+	var maxW = div1.clientWidth-20;
+	$('.upload').html(GetQueryString('plan'))
+	$('#btn3').css('left',maxW*(parseInt(GetQueryString('plan'))/100)+'px')
+	$('#title3').css('width',maxW*(parseInt(GetQueryString('plan'))/100)+'px')
+	//手指触摸开始，记录div的初始位置
+	div2.addEventListener('touchstart', function(e) {
+	 var ev = e || window.event;
+	 var touch = ev.targetTouches[0];
+	 oL = touch.clientX - div2.offsetLeft;
+	 document.addEventListener("touchmove", defaultEvent, false);
+	});
+	//触摸中的，位置记录
+	div2.addEventListener('touchmove', function(e) {
+	 var ev = e || window.event;
+	 var touch = ev.targetTouches[0];
+	 var oLeft = touch.clientX - oL;
+	 if(oLeft < 0) {
+	 	oLeft = 0;
+	 } else if(oLeft >= maxW) {
+	 	oLeft = maxW;
+	 }
+	 div3.style.width = oLeft+'px'
+	 $('.upload').html(parseInt(100*(oLeft/maxW))+'%')
+	 div2.style.left = oLeft + 'px';
+	});
+	//触摸结束时的处理
+	div2.addEventListener('touchend', function() {
+	 document.removeEventListener("touchmove", defaultEvent);
+	});
+	//阻止默认事件
+	function defaultEvent(e) { 
+	 e.preventDefault();
+	}
+	$('.submitBtn').click(function(){
+		/*alldata.planList.push({
+			id:alldata.planList[0].id,
+			task_con_pro:$('.textBox textarea').val(),
+			task_id:alldata.planList[0].task_id,
+			update_time:"2018-12-11 21:08:59",
+			user_id:alldata.planList[0].user_id,
+			user_name:alldata.planList[0].user_name,
+			user_type:alldata.planList[0].user_name,
+		})*/
+		let taskId = alldata.planList[0].task_id;
+		let data={
+			task_id:taskId,
+			taskPlan:$('.textBox textarea').val(),
+			plan:$('.upload').html()
+		}
+		$.post('report/mod2/appUpdataTaskProgress',{userId:alldata.planList[0].user_id,data:JSON.stringify(data)},function(data){
+			console.log(data)
+			if(data.code==1){
+				swal({ 
+				   title: "成功!",
+				   type: "success",
+				   timer: 1500, 
+				   showConfirmButton: false 
+				});
+				window.open('webx?id='+GetQueryString('id'))
+			}
+		})
+	})
+	$('.fanhui').click(function(){
+		window.open('webx?id='+GetQueryString('id'))
+	})
+</script>
+</@layout>

@@ -1,0 +1,32 @@
+<ul>
+<#if mInfoList?exists&&(mInfoList?size>0)>	
+	<#list mInfoList as mi>
+		<input type="hidden" id="hidden_input03" class="page_data" data-total="${total}"/>
+		
+		<li class="bb1px p010px">
+            <p class="h34">
+            	<span class="left_span_i"><i class="fa fa-caret-right activeSpanI" onclick="changeSH(this)"></i></span>
+                <span class="spanSty0104"><i class="fa fa-navicon" onclick="showxiangqing(this)" title="详情" data_type="${mi.gid}"></i></span>
+                <span class="spanSty0105" >案件编号：<span id="bianhao"><#if mi.anjianbianhao??>${mi.anjianbianhao}</#if></span></span>
+                <span class="spanSty0106"><span style="background:#ccc;"><#if mi.pubtime??>${mi.pubtime}</#if></span><span class="cm_hide">案件名称：</span><span class="ml30px fontsW"><#if mi.anjianmingcheng??>${mi.anjianmingcheng}</#if></span></span>
+                <span class="ml50px1" style="color:#009ae2;">系统来源：<span><#if mi.source??>${mi.source}</#if></span></span>
+            </p>
+            <ul id="ul_dispaly" class="cm_hide" style="border:1px solid #ccc;">
+                <li>
+                	<p class="pl15">人员：<span class="nameSpan"><#if mi.person??>${mi.person}</#if></span></p>
+        			<p class="pl15">商品：<span class="nameSpan"><#if mi.commodity??>${mi.commodity}</#if></span></p>
+        			<p class="pl15">立案日期：<span><#if mi.lianriqi??>${mi.lianriqi}</#if></span></p>
+        			<p class="pl15">企业：<span><#if mi.enterprise??>${mi.enterprise}</#if></span></p>
+        			<p class="pl15 bdno">运输工具：<span><#if mi.diyu??>${mi.diyu}</#if></span></p>
+        		</li>
+        	</ul>
+        </li>
+	</#list>
+<#else>
+	
+<script>
+	$("#ul_list_li").html("<img src='../../img/zanwu.png' class=\"imgStyle2\">")
+</script>
+</#if>
+
+</ul>

@@ -1,0 +1,280 @@
+<style type="text/css">
+	.search_box{
+		padding: 0 25px;
+	}
+	.search_box>div{
+		height: 50px;
+	    line-height: 50px;
+	    display: inline-block;
+	    position: relative;
+	}
+	.modal-header .close{margin: 0;}
+	.search_box>div>input{
+		display: inline-block;
+    	width: 250px;
+	    padding-left: 25px;
+	    vertical-align: middle;
+	}
+	.search_box>div>span{
+		color: #999;
+	}
+	.search_box>div>i{
+		position: absolute;
+	    left: 80px;
+	    top: 17px;
+	    font-size: 15px;
+	    color: #999;
+	}
+	.add_conifg_task{
+		float: right;
+	    color: #c93931;
+	    font-size: 40px;
+	    cursor: pointer;
+	}
+	.oper_div {
+		display: none;
+	}
+	.page_info {
+		background-color: #e6765b;
+	}
+	.ipage-number{
+		color: #fff;
+	}
+	.clue_add_form>div{
+		padding: 8px 60px;
+	}
+	.clue_add_form>div>span{
+		display: inline-block;
+	    width: 80px;
+	    margin-right: 5px;
+	    font-size: 14px;
+	    line-height: 30px;
+	    color: #010101;
+	}
+	.clue_add_form>div>input{
+		display: inline-block;
+		width: 70%;
+		vertical-align: middle;
+	}
+	.config_keywrod,.config_keywrod_no{
+		width: calc(100% - 183px) !important;
+		display: inline-block;
+	    margin-left: 4px;
+	    margin-right: 10px;
+	}
+	.clue_add_form>div>i{
+		font-size: 34px;
+	    color: #c93931;
+	    cursor: pointer;
+	    float: right;
+	    margin-right: 100px;
+	}
+	.btn.btn-primary{
+		background-color: #c93931;
+    	border-color: #c93931;
+	}
+</style>
+<div class="search_box">
+	<div>
+		<span>选题名称：</span>
+		<input type="text" placeholder="输入选题名称进行查询" class="form-control search_task_input"  />
+		<i class="fa fa-search"></i>
+		<button class="btn btn-primary search_task_btn">查询</button>
+	</div>
+	<button type="button" class="btn btn-primary addList " style="float: right;    margin-top: 10px;">+</button>
+</div>
+<div class="listTable" id="task_configure_list">
+	
+</div>
+<!--添加、编辑-->
+<div id="edit_configModal" data-backdrop="static" data-keyboard="false" class="modal fade">
+	<div class="modal-dialog" role="document" style="width: 40%;margin-top: 110px;margin-bottom: 0;">
+		<div class="modal-content">
+			<!-- <div class="modal-header" style="background-image: url(images/bg.png);background-size: 100% 100%;background-repeat: no-repeat;color: white;font-size: 16px;"> -->
+			<div class="modal-header" style="background: #c93931;background-size: 100% 100%;background-repeat: no-repeat;color: white;font-size: 16px;">
+				编辑选题
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			</div>
+			<div class="modal-body" style="padding: 10px 15px;">
+				<div class="clue_add_form clearfix" style="height: 200px;overflow-y: auto;">
+					<div class="col-md-12">
+						<span>选题名称：</span>
+						<input type="text" placeholder="请输入选题名称" class="form-control edit_config_task_name" />
+					</div>
+					<div class="col-md-12">
+						<span>&nbsp;&nbsp;&nbsp;&nbsp;描述：</span><textarea rows="3" class="form-control config_keywrod"></textarea>
+					</div>
+				</div>
+				<div style="text-align: center;margin:15px 0;padding: 6px 150px;">
+					<button style="" type="button" class="btn btn-primary add_xiansuo_btn_ok">确认提交</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="add_configModal" data-backdrop="static" data-keyboard="false" class="modal fade">
+	<div class="modal-dialog" role="document" style="width: 40%;margin-top: 110px;margin-bottom: 0;">
+		<div class="modal-content">
+			<!-- <div class="modal-header" style="background-image: url(images/bg.png);background-size: 100% 100%;background-repeat: no-repeat;color: white;font-size: 16px;"> -->
+			<div class="modal-header" style="background: #c93931;background-size: 100% 100%;background-repeat: no-repeat;color: white;font-size: 16px;">
+				添加选题
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			</div>
+			<div class="modal-body" style="padding: 10px 15px;">
+				<div class="clue_add_form clearfix" style="height: 200px;overflow-y: auto;">
+					<div class="col-md-12">
+						<span>选题名称：</span>
+						<input type="text" placeholder="请输入选题名称" class="form-control config_task_name" />
+					</div>
+					<div class="col-md-12">
+						<span>&nbsp;&nbsp;&nbsp;&nbsp;描述：</span><textarea rows="3" class="form-control config_keywrod"></textarea>
+					</div>
+					<div class="col-md-12">
+						<span>&nbsp;&nbsp;&nbsp;&nbsp;时间：</span><input type="text" placeholder="创建时间" id="config_task_date" class="form-control config_task_date" />
+					</div>
+				</div>
+				<div style="text-align: center;margin:15px 0;padding: 6px 150px;">
+					<button style="" type="button" class="btn btn-primary add_xiansuo_btn_ok">确认提交</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	//	添加配置任务
+	var optionSet1 = {
+		maxDate: moment(),
+		singleDatePicker: true,
+		showDropdowns: true,
+		timePicker: true,
+	    timePickerIncrement: 1,
+	    timePicker12Hour:false,
+	    timePickerSeconds : true, 
+	    showSecond: true,
+		format: 'YYYY-MM-DD HH:mm:ss',
+	};
+	$('#config_task_date').daterangepicker(optionSet1);
+	var tid ;
+	$(".addList").unbind("click").click(function () {
+		$("#add_configModal").modal("show");
+		$('#add_configModal .config_task_name').val('');
+		$('#add_configModal .config_keywrod').val('');
+	});
+	$('#add_configModal .add_xiansuo_btn_ok').click(function(){
+		let name = $('#add_configModal .config_task_name').val();
+		let des = $('#add_configModal .config_keywrod').val();
+		let create_time = $('#add_configModal #config_task_date').val();
+		$.post('report/mod3/addSelecteInfo',{name:name,des:des,create_time:create_time},function(data){
+			if(data.status == 1){
+				load_configure_list();
+				swal({ 
+				   title: "添加成功!",
+				   type: "success",
+				   timer: 2000, 
+				   showConfirmButton: false 
+				});
+			} else {
+				swal({ 
+				   title: "添加失败!",
+				   type: "error",
+				   timer: 2000, 
+				   showConfirmButton: false 
+				});
+			}
+		})
+	})
+	load_configure_list();
+	//	查询
+	$(".search_task_btn").unbind("click").click(function () {
+		load_configure_list();
+	});
+	
+	function load_configure_list() {
+		let option = {};
+		option.param = {
+			keyword : $.trim($(".search_task_input").val()),
+			path : "dynamic/topic_list.html"
+		};
+		option.callback = function () {
+			//	编辑
+			$(".user_edit").unbind("click").click(function () {
+				tid = $(this).attr("b_id");
+				$("#edit_configModal").modal("show");
+				$("#edit_configModal .edit_config_task_name").val('');
+				$("#edit_configModal .config_keywrod").val('');
+				let name = $(this).parent().parent().find('td').eq(1).html();
+				let miao = $(this).parent().parent().find('td').eq(2).html();
+				$("#edit_configModal .edit_config_task_name").val(name);
+				$("#edit_configModal .config_keywrod").val(miao);
+			});
+			//	删除
+			$(".user_delete").unbind("click").click(function () {
+				let id =$(this).attr('d_id');
+				swal({ 
+				   title: "确定删除此条数据吗？", 
+				   type: "warning",
+				   showCancelButton: true, 
+				   confirmButtonColor: "#DD6B55",
+				   confirmButtonText: "确定", 
+				   cancelButtonText: "取消",
+				   closeOnConfirm: false, 
+				   closeOnCancel: false	
+				},function(isConfirm){ 
+				  if (isConfirm) { 
+				  	$.post("report/mod3/deleSelecteInfo",{tId:id},function (data) {
+						if(data.status == 1){
+							load_configure_list();
+							swal({ 
+							   title: "已成功删除!",
+							   type: "success",
+							   timer: 2000, 
+							   showConfirmButton: false 
+							});
+						} else {
+							swal({ 
+							   title: "删除失败!",
+							   type: "error",
+							   timer: 2000, 
+							   showConfirmButton: false 
+							});
+						}
+					})
+				  } else { 
+				    $(".sweet-alert").fadeOut(100);
+						$(".sweet-overlay").fadeOut(100);
+				  } 
+				});
+			});
+		};
+		option.pageSize = 20;
+		new iPage.PageLoad("task_configure_list","report/mod3/getSelecteInfo",option).init();
+	}
+	$("#edit_configModal .add_xiansuo_btn_ok").unbind("click").click(function () {
+		var param = {
+			name : $("#edit_configModal .edit_config_task_name").val(),
+			des : $("#edit_configModal .config_keywrod").val(),
+			tId : tid
+		}
+		$.post("report/mod3/editSelecteInfo",param,function (data) {
+			if(data.message == "success") {
+				swal({ 
+				   title: "编辑成功!",
+				   type: "success",
+				   timer: 2000, 
+				   showConfirmButton: false 
+				});
+				$("#edit_configModal").modal("hide");
+				load_configure_list();
+			} else {
+				swal({ 
+				   title: "编辑失败!",
+				   type: "error",
+				   timer: 2000,
+				   showConfirmButton: false 
+				});
+			}
+		});
+		
+	});
+</script>

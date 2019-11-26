@@ -1,0 +1,292 @@
+li{list-style: none;}
+#app{overflow: hidden;height: 100%;position: relative;}
+.paddingLeft{padding-left: 0;margin-bottom: 0;}
+.cheseText{font-size: 30px;margin-bottom: 0;padding-top: 15px;padding-left: 17px;letter-spacing: 5px;text-shadow: 5px 0 10px #525252;position: relative;}
+.cheseText2{font-size: 18px;position: absolute;bottom: 0;left: 362px;letter-spacing:0;text-shadow:none;color:rgb(36,36,36);}
+.xietongBox{background: url(../images/q2/head.png) no-repeat;background-size: 100% 100%; border-bottom: 0px;padding-left:8px;color: #fff;height: 60px;font-weight: 700;}
+.rightBox{line-height: 60px;text-align: right;}
+.menubox li{list-style: none;line-height: 60px;font-size: 14px;text-align: center; position: relative;}
+.menubox li a{color:#fff;display: inline-block; width: 66px; height: 60px;}
+.menubox ul{padding-left: 0;}
+.iconfontRight{float: right;margin-right: 20px;font-size: 30px;margin-top: 13px;}
+.listMenu{background: #c93931;height: 100%;}
+.menuListHide{display:none;}
+.menuListHide li{font-size: 12px;color: #000;cursor: pointer;}
+.menuListHide li:hover{background: #732b2e;color: #fff;}
+.menubox .active{background: #732b2e;color: #fff;}
+
+.menuListHide{
+	position: absolute;
+	left: 66px;
+    top: 0;
+    width: 100px;
+    z-index:1111;
+    background: #ecf0f4;
+}
+
+
+.loadPath{padding: 20px 10px;}
+.formData label{color: #878787;}
+.formData .form-group{/** margin-right: 20px;**/}
+.formData .addList{float: right;}
+.listTable{padding-top: 30px;}
+li span{display: inline-block; width: 66px;}
+.listTable thead{background: #c93931;color: #fff;}
+.listTable thead th,.listTable tbody td{text-align: center;}
+.listTable thead th{line-height: 29px !important;}
+.listTable tbody td span{margin-right: 10px;cursor: pointer;}
+.listTable tbody tr:nth-of-type(even) {background: #eff5fb;}
+.seeName{font-size: 16px;color: #707070;text-align: right;}
+.seeText{font-size: 16px;color: #000;}
+.seeList{margin-top: 20px;}
+#myModal1 .seeText li{line-height: initial;}
+.jinduBox{width: 100%;background: #cdd4da;height: 20px;border-radius: 10px;}
+.jinduT{width: 60%;background: #c93931;color: #fff;text-align: right;margin-right: 30px;height: 100%;border-radius:10px ;font-size: 12px;line-height: 20px;padding-right: 10px;}
+.seeText li{float: left;margin-right: 30px;line-height: 34px;}
+.seeText li i{color: #c93931;font-size: 18px;margin-right: 5px;}
+.imgBoxB{width: 35px;height: 35px;border-radius: 2px;border: 1px solid #3b85c6;display: inline-block;}
+.seeTexjddd{color: #c93931;}
+.tableJind {width: 100%;border: 1px solid #b5b5b5;}
+#myModal1 .tableJind li{padding-left: 10px;margin: 0;line-height: 30px;}
+.tableJind ul{border-bottom:1px solid #b5b5b5;margin: 0;}
+.tableJind ul:nth-of-type(1){color: #ff8a00;}
+.tableJind ul:nth-last-of-type(1){border: none;}
+.tableJind li:nth-of-type(1){width: 50%;border-right:1px solid #b5b5b5;}
+.tableJind li:nth-of-type(2){width: 50%;}
+tbody tr{cursor: pointer;}
+.listTable tbody tr:hover{background: #eff5fb;}
+.search_box{
+	padding: 0 25px;
+}
+.search_box>div{
+	height: 50px;
+    line-height: 50px;
+    display: inline-block;
+    position: relative;
+}
+.search_box>div>input{
+	display: inline-block;
+	width: 250px;
+    padding-left: 25px;
+    vertical-align: middle;
+}
+.search_box>div>span{
+	color: #999;
+}
+.search_box>div>i{
+	position: absolute;
+    left: 80px;
+    top: 17px;
+    font-size: 15px;
+    color: #999;
+}
+.add_conifg_task{
+	float: right;
+    color: #3b85c6;
+    font-size: 40px;
+    cursor: pointer;
+}
+.oper_div {
+	display: none;
+}
+.page_info {
+	background-color: #e6765b;
+	margin: 0;
+}
+.ipage-fenye-btn{
+	padding: 5px 0 0 0;
+}
+.ipage-number{
+  /* color: #c93931; */
+  color: #fff;
+}
+.ipage-fenye-btn input[type="text"]{
+	vertical-align: middle;
+}
+.clue_add_form>div{
+	padding: 8px 60px;
+}
+.clue_add_form>div>span{
+	display: inline-block;
+    width: 80px;
+    margin-right: 5px;
+    font-size: 14px;
+    color: #010101;
+}
+.clue_add_form>div>input{
+	display: inline-block;
+	width: 70%;
+	vertical-align: middle;
+}
+.config_keywrod,.config_keywrod_no{
+	width: calc(70% - 50px) !important;
+    margin-left: 4px;
+    margin-right: 10px;
+}
+.clue_add_form>div>i{
+	font-size: 34px;
+    color: #3b85c6;
+    cursor: pointer;
+    float: right;
+    margin-right: 100px;
+}
+.btn.btn-primary{
+	background-color: #c93931;
+	border-color: #c93931;
+}
+.modalBack{
+  background: #c93931
+  /* background-image: url(images/bg.png);background-size: 100% 100%;
+  background-repeat: no-repeat;color: white;font-size: 16px; */
+}
+.scale_panel{
+	font-size:12px;
+	color:#999;
+	width:100%;
+	line-height:18px; 
+	border-radius: 10px;
+}
+.scale_panel .r{
+	float:right;
+}
+.scale span{
+	background:url(images/tbtn.png) no-repeat; 
+	width:14px;
+	height:30px; 
+	position:absolute; 
+	left:-2px;
+	top:-5px;
+	cursor:pointer;
+}
+.scale{ background-repeat: repeat-x; background-position: 0 100%; background-color: #cdd4da; border-left: 1px #83BBD9 solid;  width: 100%; height: 20px; position: relative; font-size: 12px; border-radius: 10px;
+color: #fff; text-align: right;}
+.scale div{ background-repeat: repeat-x; background-color: #3b85c6;  height:20px; width: 0;border-radius: 10px;}
+.delete{cursor: pointer;}
+.addPropList{width: 100px;height: 200px;overflow-y: auto;border-radius: 5px;border: 1px solid #eee;position: absolute;bottom: 0;right: -100px;background: #fff;
+display: none;z-index: 99;
+}
+.addPropList li{text-align: center;float: none;margin: 0;line-height: 30px;cursor: pointer;}
+.addPropList li:hover{background: #eee;}
+.addProp{position: relative;}
+.fileLoadBox ul li{float: none;}
+.fileLoadBox ul li span{cursor: pointer;}
+.file-drop-zone{height: 200px!important;overflow-y: auto;}
+.krajee-default.file-preview-frame{width: 200px;}
+.modal-header .close span{
+	color: #fff;
+    font-size: 28px;
+}
+.redColor{color: #FF0000;}
+.chosen-container,.chosen-container-multi .chosen-choices li.search-field input[type="text"]{width: 100%!important;}
+.chosen-container-multi .chosen-choices{border: 1px solid #ccc;}
+.chosen-container-multi .chosen-choices{border-radius:4px;}
+
+
+
+/* 标签 样式 */
+/* .bootstrap-tagsinput {
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-bottom: 18px;
+  padding: 6px 1px 1px 6px;
+  text-align: left;
+  font-size: 0;
+} */
+
+.bootstrap-tagsinput .badge {
+  border-radius: 4px;
+  background-color: #ebedef;
+  color: #7b8996;
+  font-size: 13px;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  overflow: hidden;
+  margin: 0 5px 5px 0;
+
+
+  padding: 6px 28px 6px 14px;
+  transition: .25s linear;
+}
+
+.bootstrap-tagsinput .badge > span {
+  color: white;
+  padding: 0 10px 0 0;
+  cursor: pointer;
+  font-size: 12px;
+  position: absolute;
+  right: 0;
+  text-align: right;
+  text-decoration: none;
+  top: 0;
+  width: 100%;
+  bottom: 0;
+  z-index: 2;
+}
+
+.bootstrap-tagsinput .badge > span:after {
+  content: "x";
+  font-family: "Flat-UI-Pro-Icons";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 27px;
+}
+
+@media (hover: hover) {
+  .bootstrap-tagsinput .badge {
+    padding: 6px 21px;
+  }
+  .bootstrap-tagsinput .badge > span {
+    opacity: 0;
+    filter: "alpha(opacity=0)";
+    transition: opacity .25s linear;
+  }
+  .bootstrap-tagsinput .badge:hover {
+    background-color: #16a085;
+    color: white;
+    padding-right: 28px;
+    padding-left: 14px;
+  }
+  .bootstrap-tagsinput .badge:hover > span {
+    padding: 0 10px 0 0;
+    opacity: 1;
+    -webkit-filter: none;
+            filter: none;
+  }
+}
+
+
+.bootstrap-tagsinput input[type="text"] {
+  font-size: 14px;
+  border: none;
+  box-shadow: none;
+  outline: none;
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+  width: auto !important;
+  max-width: inherit;
+  min-width: 80px;
+  vertical-align: top;
+  height: 29px;
+  color: #34495e;
+}
+
+	.tagsinput-primary {
+  margin-bottom: 0;
+}
+
+.tagsinput-primary .bootstrap-tagsinput {
+  margin-bottom: 0;
+}
+.tagsinput-primary{position: relative;}
+.tagsinputBox{position: absolute;top: 39px;width: 100%;max-height: 200px;overflow-y: auto;background: #fff;border: 1px solid #ccc;border-top: none;z-index: 99;display: none;}
+.tagsinputBox li{line-height: 30px;cursor: pointer;padding-left: 20px;}
+.tagsinputBox li:hover{background: #eee;}
+.tagsinput-primary .badge {
+  background-color: #3b85c6;
+  color: white;
+}
+.ipage-fenye-on,.ipage-fenye-on:hover{background: #c93931;}

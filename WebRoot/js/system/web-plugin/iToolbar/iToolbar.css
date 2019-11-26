@@ -1,0 +1,47 @@
+div.iToolbar_container{
+	position: fixed;
+	z-index: 2030;
+	bottom: 0px;
+	white-space:nowrap;
+	-webkit-transform: translate(-50%);
+    transform: translate(-50%);
+    left: 50%;
+    background: rgba(200,200,200,0.5);
+}
+span.iToolbar_icon_group{
+	overflow: hidden;
+	display: inline-block;
+	background: #1c84c6;
+	height: 30px;
+	margin: 10px;
+	border-radius: 5px;
+}	
+
+span.iToolbar_icon_single{
+	
+}
+
+span.iToolbar_icon_single.iToolbar_icon_img{
+	
+}
+
+span.iToolbar_icon_single .iToolbar_icon_button{
+	color: #fff;
+	/**background: #1c84c6;**/
+	background: rgba(0,140,186,1);
+	border: none;
+	height: 30px;
+	border-left: 1px solid #1a7bb9;
+	padding: 0 10px;
+}
+span.iToolbar_icon_single:nth-of-type(1) .iToolbar_icon_button{
+	border:none
+}
+span.iToolbar_icon_single .iToolbar_icon_button:hover { 
+	/**background: #1a7bb9; **/
+	background: rgba(250,128,114,1);
+} 
+span.iToolbar_icon_single .iToolbar_icon_button:focus{
+    outline: 0;
+    /**background: #1a7bb9;**/ 
+}

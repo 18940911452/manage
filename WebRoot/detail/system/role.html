@@ -1,0 +1,216 @@
+<link rel="stylesheet" href="../../css/system/jsTree.css">
+<script src="../../js/system/jstree.js"></script>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" style="min-width:800px;min-height:400px;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    <span class="department department">添加角色</span>
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="col-md-6 br1">
+                    <div class="keywordscategoryid1 mt10">
+                        <div class="col-md-4 tar" >角色名:</div>
+                        <div class="col-md-8 tal"><input type="text" class="h34 form-control roleName"></div>
+                    </div>
+                    <div class="keywordscategoryid1 mt10 cm_hide">
+                        <div class="col-md-4 tar">角色类型:</div>
+                        <div class="col-md-8 tal roleType"><input type="radio" name="roleType"  value="3">部门管理员<input type="radio" name="roleType" value="4">普通用户</div>
+                    </div>
+                    <div class="keywordscategoryid1 mt10">
+                        <div class="col-md-4 tar">所属单位:</div>
+                        <div class="col-md-8 tal"><select name="" id="select_company" class="form-control"></select></div>
+                    </div>
+                    <div class="keywordscategoryid1 mt10">
+                        <div class="col-md-4 tar">所属部门:</div>
+                        <div class="col-md-8 tal"><select name="" id="select_department" class="form-control"></select></div>
+                    </div>
+                    <div class="keywordscategoryid1 mt10">
+                        <button class="btn btn-primary" id="preservation">保存</button>
+                        <input type="text" class="hidden_btn"  hidden>
+                    </div>
+                </div>
+                <div class="col-md-6" id="loadtree">
+                    <label class="cb">菜单权限：</label>
+                    <div id="partree">
+
+                    </div>
+                </div>
+                <div style="clear: both"></div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script>
+$("#preservation").unbind("click").click(function(){
+    var data_type = $(".hidden_btn").attr("data_type");
+    if(data_type == "0"){
+        /*修改*/
+        var roleName = $.trim($(".roleName").val());
+        var id = $.trim($(".hidden_btn").val());
+        $.post("system/mod1/updateSysRolePerm",{id:id,roleName:roleName},function(data){
+   		    addUserAction(editRole.action,editRole.action_content,roleName);
+            load_jiaose_list();
+        })
+    }else if(data_type == "1"){
+        /*增加*/
+        addRole();
+    }
+    $("#myModal").modal("hide");
+});
+
+
+
+</script>
+
+<!--<script>
+    $("#preservation").unbind("click").click(function(){
+        var data_type = $(".hidden_btn").attr("data_type");
+        var auto_id = $(this).data("id");
+        //var optype = $('#jurisdictionModal').find(".operation_type").html();
+        var url = "system/mod1/updateSysRolePerm";
+        //var level = $("input[type=radio][name=is_validate]:checked").val();
+        var institution = $("#select_company").val();
+        var department = $("#select_department").val();
+        var name = $.trim($(".roleName").val());
+        var auto_id = $.trim($(".hidden_btn").val());
+        if (name=='') {
+            alert('请输入用户名');
+            return
+        }
+        if(data_type == "0"){
+            url = "system/mod1/updateSysRolePerm";
+            var param = {'name':name,'level':level,'permids':checkbox_temp,'department':department,'institution':institution};
+        }else if(data_type == "1"){
+            url = "system/mod1/addSysRole";
+            var param = {'roleName':name,'permids':checkbox_temp,id:auto_id};
+        }
+        $.post(url,param,function(data){
+            if(data){
+                $("#myModal").modal("hide");
+                load_jiaose_list();
+            }
+        })
+    })
+</script>-->
+
+<script type="text/javascript">
+    var datas;
+    var arr = [];
+    var arrs = [];
+    $.get('system/mod1/getSysAllPerm', function(data) {//从后台获取权限全集
+        $.each(data, function(i,v) {
+            var dd = {};
+            dd.id = v.id;
+            dd.text = v.name;
+            if (v.pid==0) {
+                dd.parent = '#'
+            }else{
+                dd.parent = v.pid
+            }
+            arrs.push(dd)
+        });
+        tree(data)
+    });
+
+    function tree(obj) {
+        window.localStorage.jstree='';
+        $('#partree').html('<div id="tree"></div>');
+        datas = [];
+        $.each(arrs, function(i,v) {
+            datas.push($.extend(true, {}, v))
+        });
+        var code = [];
+        $.each(obj, function(i,v) {
+            code.push(v.pid)
+        });
+        for(x in datas){
+            var id = datas[x].id;
+            for(v in code){
+                if (code[v] == id) {
+                    datas[x].state = {"selected": true,"opened" : true}
+                }
+            }
+        }
+        for(z in datas){
+            if (datas[z].state==null) {
+                $.each(datas,function (i,v) {
+                    if (datas[z].parent==v.id) {
+                        v.state=null
+                    }
+                })
+            }
+        }
+        for(a in datas){
+            if (datas[a].state==null) {
+                $.each(datas,function (i,v) {
+                    if (datas[a].parent==v.id) {
+                        v.state=null
+                    }
+                })
+            }
+        }
+        $('#tree').jstree({
+            'core': {
+                'expand_selected_onload':false,
+                'data': datas
+            },
+            "checkbox": {
+                "keep_selected_style": false
+            },
+            "plugins": ["checkbox","state"]
+
+        });
+        $('#tree').on("changed.jstree", function(e, d) {
+            var arr = d.selected.concat();
+            $.each(d.selected, function(i, v) {
+                for(z in datas) {
+                    if(datas[z].id == v) {
+                        arr.push(datas[z].parent)
+                    }
+                }
+            });
+            $.each(arr, function(x, z) {
+                for(a in datas) {
+                    if(datas[a].id == z) {
+                        arr.push(datas[a].parent)
+                    }
+                }
+            });
+            checkbox_temp = '';
+            $.each(arr.unique3(), function(i, v) {
+                if(v != '#') {
+                    if(checkbox_temp == "") {
+                        checkbox_temp = v
+                    } else {
+                        checkbox_temp += "," +v;
+                    }
+                }
+            })
+        });
+    }
+
+    Array.prototype.unique3 = function() {
+        var res = [];
+        var json = {};
+        for(var i = 0; i < this.length; i++) {
+            if(!json[this[i]]) {
+                res.push(this[i]);
+                json[this[i]] = 1;
+            }
+        }
+        return res;
+    };
+</script>
+
+
+
+
+
+

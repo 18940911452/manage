@@ -1,0 +1,22 @@
+<ul>
+    <#if list?exists&&(list?size>0)>
+        <#list list as mi>
+            <li class="h38">
+                <input type="hidden" class="page_data" data-total="${total}"/><span class="firstS" style="display:none;"><#if mi.r_id??>${mi.r_id}</#if></span>
+                <span class="dataquality_w15 hf"><#if mi.r_name??>${mi.r_name}</#if></span><span class="dataquality_w20 hf"><#if mi.r_content??>${mi.r_content}</#if></span><span class="dataquality_w10 hf">
+                     <#if mi.r_status??>
+                        <#if (mi.r_status==0)>未使用
+                            <#else>使用中
+                        </#if>
+                    </#if>
+
+                </span><span class="dataquality_w15 hf"><#if mi.r_use_num??>${mi.r_use_num}</#if></span><span class="dataquality_w15 hf"><#if mi.r_editor??>${mi.r_editor}</#if></span><span id="versionS" class="dataquality_w15 hf" style=\"text-align: center;\"><#if mi.r_version??>${mi.r_version}</#if></span><span class="dataquality_w10 hf"><i class="fa fa-eye mr5 cm_hide" onclick="view_details(this)"></i><i class="fa fa-edit mr5 fz13 cpS" title="修改" onclick="modify_label(this)"></i><i class="fa fa-close fz13 cpS" title="删除" onclick="remove_C(this)"></i></span>
+            </li>
+        </#list>
+        <#else>
+
+            <script>
+                $("#rule_list").html("<img src='../../images/zanwu.png' class='imgStyle'>");
+            </script>
+    </#if>
+</ul>

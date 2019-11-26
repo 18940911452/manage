@@ -1,0 +1,199 @@
+<!-- 模态框（Modal） -->
+<div
+  class="modal fade"
+  id="myModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="myModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-hidden="true"
+        >
+          &times;
+        </button>
+        <h4 class="modal-title" id="myModalLabel">
+          <span class="department">添加机构信息</span>
+        </h4>
+      </div>
+      <div class="modal-body">
+        <div class="metadata_modal department">
+          <!-- <div class="metadata_form">
+                        <h3>媒体名称：</h3>
+                        <p><select id="mediaName" class="form-control"></select></p>
+                    </div> -->
+          <div class="metadata_form">
+            <h3>机构名称：</h3>
+            <p>
+              <input type="text" class="form-control bumen1" /><span class="cr"
+                >*</span
+              >
+            </p>
+          </div>
+          <div class="metadata_form">
+            <h3>领导：</h3>
+            <p><input type="text" class="form-control bumen2" /></p>
+          </div>
+          <div class="metadata_form">
+            <h3>联系人：</h3>
+            <p><input type="text" class="form-control bumen3" /></p>
+          </div>
+          <div class="metadata_form">
+            <h3>经度：</h3>
+            <p><input type="text" class="form-control bumen3 jd" /></p>
+          </div>
+          <div class="metadata_form">
+            <h3>纬度：</h3>
+            <p><input type="text" class="form-control bumen3 wd" /></p>
+          </div>
+          <div class="metadata_form">
+            <h3>地址：</h3>
+            <p><input type="text" class="form-control bumen4" /></p>
+          </div>
+          <div class="metadata_form">
+            <h3>电话：</h3>
+            <p><input type="text" class="form-control bumen5" /></p>
+          </div>
+
+          <!--                     <div class="metadata_form"> -->
+          <!--                         <h3>所属单位：</h3> -->
+          <!--                         <p><select id="danwei" class="form-control"></select></p> -->
+          <!--                     </div> -->
+          <div class="c"></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id="confirmBtn">
+          确定
+        </button>
+        <input type="text" id="hidden_id" hidden />
+        <button type="button" class="btn btn-default" data-dismiss="modal">
+          关闭
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  $("#confirmBtn")
+    .unbind()
+    .click(function() {
+      var hidden_idV = $("#hidden_id").val();
+      var name = $.trim($(".bumen1").val());
+      var leader = $.trim($(".bumen2").val());
+      var contacter = $.trim($(".bumen3").val());
+      var address = $.trim($(".bumen4").val());
+      var telephone = $.trim($(".bumen5").val());
+      var fax = $.trim($(".bumen6").val());
+      var email = $.trim($(".bumen7").val());
+      //              var note = $.trim($(".bumen8").val());
+      //  var mediaId = $("#mediaName option:selected").attr("value");
+      var mediaId = $("#mediaName option:selected").attr("id");
+      var longitude = $(".jd").val() ? $(".jd").val() : -1;
+      var latitude = $(".wd").val() ? $(".wd").val() : -1;
+      var phone_re = /^(?:13\d|15\d|18\d)\d{5}(\d{3}|\*{3})$/;
+      var mail_re = /^([a-zA-Z0-9_\.\-])+\@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/g;
+
+      if (telephone != "" && !phone_re.test(telephone)) {
+        alert("您的手机格式不正确");
+        return false;
+      }
+      if (email != "" && !mail_re.test(email)) {
+        alert("您的邮箱格式不正确");
+        return false;
+      }
+      var param = {
+        name: name,
+        leader: leader,
+        contacter: contacter,
+        address: address,
+        telephone: telephone,
+        fax: fax,
+        email: email,
+        //                 'note':note,
+        mediaId: mediaId,
+        longitude: longitude,
+        latitude: latitude
+      };
+      if (name == "") {
+        alert("部门名称不能为空！");
+      } else {
+        $.post("system/mod1/addInstitution",param,function (data) {
+            if (data.massage == "success") {
+              addUserAction(
+                addDepartment.action,
+                addDepartment.action_content,
+                name
+              );
+              alert("添加成功！");
+              load_bumen_list();
+            } else {
+              alert(data.massage);
+            }
+            $("#myModal").modal("hide");
+        })  
+      }
+      //         if(hidden_idV==""){
+      //             ////添加的方法
+
+      //         }else{
+      //             ////编辑的方法
+      //             var id=$.trim($("#hidden_id").val());
+      //             var name = $.trim($(".bumen1").val());
+      //             var leader = $.trim($(".bumen2").val());
+      //             var contacter = $.trim($(".bumen3").val());
+      //             var address = $.trim($(".bumen4").val());
+      //             var telephone = $.trim($(".bumen5").val());
+      //             var fax = $.trim($(".bumen6").val());
+      //             var email = $.trim($(".bumen7").val());
+      // //             var note = $.trim($(".bumen8").val());
+      //             var mediaId = $("#mediaName option:selected").attr("value");
+      //             var option = {
+      //                 'id':id,
+      //                 'name':name,
+      //                 'leader':leader,
+      //                 'contacter':contacter,
+      //                 'address':address,
+      //                 'telephone':telephone,
+      //                 'fax':fax,
+      //                 'email':email,
+      // //                 'note':note,
+      //                 'mediaId':mediaId
+      //             };
+
+      //             var phone_re=/^(?:13\d|15\d|18\d)\d{5}(\d{3}|\*{3})$/;
+      // 			var mail_re=/^([a-zA-Z0-9_\.\-])+\@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/g;
+
+      // 			 if(telephone !="" && !phone_re.test(telephone)){
+      // 			 	alert("您的手机格式不正确");
+      // 			 	return false;
+      // 			 }
+      // 			 if(email !="" && !mail_re.test(email)){
+      // 			 	alert("您的邮箱格式不正确");
+      // 			 	return false;
+      // 			 }
+      //             if(name == ""){
+      //                 alert("部门名称不能为空！")
+      //             }else {
+      // 				$.ajax({
+      // 			         type : "post",
+      // 			         url : "system/mod1/editDepartment",
+      // 			         dataType : "json",
+      // 			         data: option,
+      // 			         success : function(data){
+      // 			        	 addUserAction(editDepartment.action,editDepartment.action_content,name);
+      // 			        	 load_bumen_list();
+      // 			         }
+      // 			     });
+      //                 $("#myModal").modal("hide");
+      //             }
+
+      //         }
+    });
+</script>

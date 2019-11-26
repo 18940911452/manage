@@ -1,0 +1,234 @@
+.ipage {
+}
+.ipage input:not([type="image"]), .ipage textarea {
+	box-sizing:content-box;
+}
+.ipage .page_end {
+/*background: url(./images/load_end.png);*/
+}
+.ipage .page_more {
+/*background: url(./images/load_more.png);*/
+}
+.ipage .page_loading{
+	padding: 32px 32px;
+	background: url(./images/scroll_loading_02.gif) no-repeat;
+}
+.ipage .item_t {
+	padding:8px;
+}
+.ipage .item_t .img {
+	background-color: #FFFFFF;
+	margin: 0 auto;
+	position: relative;
+	width: 210px;
+	min-height: 120px;
+}
+.ipage .item_t .img a {
+	display: block;
+}
+.ipage .item_t .img a:hover {
+	background: #000;
+}
+.ipage .item_t .img a:hover img {
+	filter: alpha(opacity=80);
+	-khtml-opacity: 0.8;
+	opacity: 0.8;
+	-webkit-transition: all 0.3s ease-out;
+	-khtml-transition: all 0.3s ease-out;
+}
+.ipage .item_t .title {
+	padding: 8px 0;
+	line-height: 18px;
+}
+/* to_top */
+.ipage .to_top a, .to_top a:hover {
+	background: url("./images/gotop.png") no-repeat
+}
+.ipage .to_top a {
+	background-position: 0 0;
+	float: left;
+	height: 50px;
+	overflow: hidden;
+	width: 50px;
+	position: fixed;
+	bottom: 35px;
+	cursor: pointer;
+	right: 20px;
+	_position: absolute;
+	_right: auto;
+ _left: expression(eval(document.documentElement.scrollLeft+document.documentElement.clientWidth-this.offsetWidth)-(parseInt(this.currentStyle.marginLeft, 10)||0)-(parseInt(this.currentStyle.marginRight, 10)||20));
+ _top: expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight-(parseInt(this.currentStyle.marginTop, 10)||20)-(parseInt(this.currentStyle.marginBottom, 10)||20)));
+}
+.ipage .to_top a:hover {
+	background-position: -51px 0px;
+}
+/* 翻页*/
+/*.ipage-fenye-off {
+border: 1px solid #ccc;
+color: #ccc;
+padding-right: 6px;
+padding-left: 6px;
+padding-bottom: 2px;
+padding-top: 2px;
+margin-right: 5px; 
+background-color: #fff;
+cursor:default;
+}
+*/
+
+/*.ipage-fenye-on {
+border: 1px solid #ccdbe4;
+text-decoration: none;
+margin-right: 5px;
+
+cursor:pointer;
+
+height: 28px;
+background: url(../images/btn.png);
+padding: 0 20px;
+display: inline-block;
+border-radius: 3px;
+color: #fff;
+line-height: 28px;
+font-size: 13px;
+
+}*/
+/*.ipage-fenye-on:hover {
+border: 1px ssolid #2b55af;
+color: #fff;
+background: #3666d4;
+}
+
+.ipage-fenye {border-top: none;}
+.ipage-fenye-info { float:right; color:#444; font-size:13px; margin: 0 5px; padding-top: 7px; padding-bottom: 5px;}
+.ipage-fenye-btn { float:right; color:#444; text-align:right; font-size:13px; margin: 0 5px; padding-top: 7px; padding-bottom: 5px;}
+.ipage-fenye-export { float:left; color:#444; text-align:right; font-size:13px; margin: 0 5px 0 15px; padding-top: 7px; padding-bottom: 5px;}
+.ipage-number { color:#F03333; font-size:13px;}
+*/
+
+
+/* 翻页*/
+.ipage-fenye {
+	border-top: none;
+	text-shadow: 0px 1px 1px white;
+	text-decoration: none;
+	text-align: center;
+	/* height: 28px; */
+	/* line-height: 28px; */
+	padding: 0px 10px;
+	font-weight: 250;
+	font-size: 1px;
+	vertical-align: middle;
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	margin: 7px;
+	overflow: hidden;
+}
+.ipage-fenye-off {
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-ms-border-radius: 3px;
+	-o-border-radius: 3px;
+	border-radius: 3px;
+	display: inline-block;
+	vertical-align: middle;
+	border: 1px solid rgb(212, 212, 212);
+	height: 28px;
+	line-height: 28px;
+	padding: 0px 10px;
+	color: rgb(102, 102, 102);
+	margin:0px 3px;
+}
+.ipage-fenye-on {
+	box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.5) inset, 0px 1px 2px rgba(0, 0, 0, 0.2);
+	background: -moz-linear-gradient(center top, rgb(67, 150, 204), rgb(50, 121, 167)) repeat scroll 0% 0% transparent;
+	display: inline-block;
+	vertical-align: middle;
+	border: 1px solid rgb(212, 212, 212);
+	height: 28px;
+	line-height: 28px;
+	padding: 0px 10px;
+	font-weight: 300;
+	color: rgb(102, 102, 102);
+	text-shadow: 0px 1px 1px white;
+	text-decoration: none;
+	text-align: center;
+	border-radius: 3px;
+	transition-property: background, color;
+	transition-duration: 0.3s;
+	box-shadow: none;
+	background: none repeat scroll 0% 0% rgb(67, 150, 204);
+	color: white;
+	text-shadow: none;
+	border: medium none;
+	cursor:pointer;
+	margin:5px 3px;
+	
+}
+.ipage-fenye-on:hover {
+	background: #00b5e5;
+	
+}
+.ipage-fenye-on:hover {
+	background: #00b5e5;
+}
+.ipage-fenye-info {
+	float:right;
+	color:#444;
+	font-size:13px;
+	margin: 8px;
+	padding-top: 7px;
+	padding-bottom: 5px;
+}
+.ipage-fenye-btn {
+	float:right;
+	color:#444;
+	text-align:right;
+	font-size:13px;
+	margin: 0 5px;
+	padding-top: 7px;
+	padding-bottom: 5px;
+}
+.ipage-fenye-export {
+	float:left;
+	color:#444;
+	text-align:right;
+	font-size:13px;
+	margin: 0 5px 0 15px;
+	padding-top: 7px;
+	padding-bottom: 5px;
+}
+.ipage-fenye-oper {
+	float:left;
+	color:#444;
+	text-align:right;
+	font-size:13px;
+	margin: 0 5px 0 15px;
+	padding-top: 7px;
+	padding-bottom: 5px;
+}
+.ipage-number {
+	color:#F03333;
+	font-size:13px;
+}
+.ipage-fenye-btn input[type="text"] {
+	width:55px;
+	margin-left:5px;
+	margin-right:5px;
+	border: 2px solid rgb(220, 228, 236);
+	color: rgb(52, 73, 94);
+	font-family: "Lato", sans-serif;
+	font-size: 13px;
+	text-align:center;
+	padding: 4px 9px 4px 7px;
+	text-indent: 1px;
+	border-radius: 6px;
+	box-shadow: none;
+}
+
+
+.ipage-fenye-on{
+	background: #17a293;
+}
+.ipage-fenye-on:hover{
+	background: #17a293;
+}

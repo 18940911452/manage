@@ -1,0 +1,2581 @@
+/* --------------- common --------------- */
+.btn.btn-selfblue {
+  height: 30px;
+  font-size: 16px;
+  line-height: 30px;
+  border-radius: 4px;
+}
+.btn.btn-little {
+  padding: 2px 20px !important;
+  border: 1px solid;
+  border-radius: 20px;
+}
+.bgc-orange {
+  background-color: #fb9678 !important;
+  border-color: #fb9678 !important;
+  color: #fff !important;
+  border-radius: 4px;
+}
+.bgc-orange.btn:hover {
+  background-color: #fa7953 !important;
+  border-color: #fa7953 !important;
+}
+.col-orange {
+  color: #fb9678 !important;
+  border-color: #fb9678 !important;
+}
+.col-orange.btn {
+  color: #fb9678 !important;
+  border-color: #fb9678 !important;
+}
+.col-orange.btn:hover {
+  color: #fa7953 !important;
+  border-color: #fa7953 !important;
+}
+.bgc-cyan {
+  background-color: #01c0c8 !important;
+  border-color: #01c0c8 !important;
+  color: #fff !important;
+}
+.bgc-cyan.btn:hover {
+  background-color: #c93931 !important;
+  border-color: #c93931 !important;
+}
+.col-cyan {
+  color: #01c0c8 !important;
+  border-color: #01c0c8 !important;
+}
+.col-cyan.btn {
+  color: #01c0c8 !important;
+  border-color: #01c0c8 !important;
+}
+.col-cyan.btn:hover {
+  color: #c93931 !important;
+  border-color: #c93931 !important;
+}
+.bgc-blue {
+  background-color: #c93931 !important;
+  border-color: #c93931 !important;
+  color: #fff !important;
+}
+.bgc-blue.btn:hover {
+  background-color: #c93931 !important;
+  border-color: #c93931 !important;
+}
+.col-blue {
+  color: #c93931 !important;
+  border-color: #c93931 !important;
+}
+.col-blue.btn {
+  color: #c93931 !important;
+  border-color: #c93931 !important;
+}
+.col-blue.btn:hover {
+  color: #c93931 !important;
+  border-color: #c93931 !important;
+}
+.btn.btn-default {
+  background-color: #c0c0c0;
+  border-color: #c0c0c0;
+  border-radius: 4px;
+  color: #fff;
+}
+.btn.btn-default:hover {
+  color: #fff;
+  background-color: #aaa;
+}
+.btn.btn-primary {
+  background-color: #c93931;
+  border-color: #c93931;
+}
+.btn.btn-primary:hover {
+  background-color: #c93931;
+  border-color: #c93931;
+}
+.showSweetAlert h2 {
+  font-size: 18px;
+}
+.showSweetAlert p {
+  font-size: 15px;
+}
+.showSweetAlert .sa-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row-reverse;
+}
+.showSweetAlert button {
+  font-size: 15px;
+  padding: 8px 24px;
+}
+.showSweetAlert button.confirm {
+  background-color: #fb9678 !important;
+  border-color: #fb9678 !important;
+  color: #fff !important;
+  border-radius: 5px;
+}
+.showSweetAlert button.confirm:hover {
+  background-color: #fa7953 !important;
+}
+.showSweetAlert button.cancel {
+  background-color: #c0c0c0;
+  border-color: #c0c0c0;
+  color: #fff;
+  box-shadow: 0 1px 1.5px 1px rgba(0, 0, 0, 0.12);
+}
+.showSweetAlert button.cancel:hover {
+  background-color: #aaa;
+}
+.showSweetAlert button:hover {
+  color: #fff !important;
+}
+.checkbox i:before {
+  width: 15px;
+  height: 15px;
+  top: 0;
+  border-radius: 3px;
+  border: none;
+  background-color: #e0e0e0;
+  cursor: pointer;
+  z-index: 1;
+}
+.checkbox i:after {
+  padding-left: 2px;
+  border-radius: 3px;
+  line-height: 14px;
+  cursor: pointer;
+  z-index: 1;
+}
+.checkbox input:active + i:before {
+  color: #fff;
+  background-color: black;
+}
+.checkbox input:focus + i:before {
+  border: none;
+  outline: none;
+}
+.checkbox input:checked + i::after {
+  color: #fff !important;
+  background-color: #FB9678;
+}
+.disabled {
+  pointer-events: none;
+  cursor: default;
+  opacity: 0.6;
+}
+.iconfont.icon-combinedshape::before {
+  margin: 0 !important;
+}
+.iconfont.icon-baogao::before {
+  margin: 0 !important;
+}
+.iconfont.icon-zhuangong-::before {
+  margin: 0 !important;
+}
+.iconfont[class^="icon-"]:before,
+.iconfont[class*=" icon-"]:before {
+  font-family: "iconfont" !important;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+  background: #fff;
+  padding: 6px 12px;
+  color: #c93931 !important;
+  margin: 0;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+  border-color: #c93931;
+  background: #fff;
+  color: #c93931 !important;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.current {
+  color: #fff !important;
+  background: #c93931;
+  border-color: #c93931;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+  background: #c93931;
+  border-color: #c93931;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.previous {
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.previous:hover {
+  border-right: 1px solid #c93931;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.next {
+  border-right: 1px solid transparent;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.next:hover {
+  border-right: 1px solid #c93931;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled {
+  background-color: #fff;
+}
+/* --------------- mod1 --------------- */
+#searchTopBox {
+  width: 100%;
+  margin: -20px -30px -66px;
+  padding: 20px 30px 66px;
+  box-sizing: content-box;
+  background: url('../img/indexbg.png') no-repeat center 100px;
+  background-color: #fff;
+  background-origin: padding-box;
+  background-attachment: fixed;
+  padding-bottom: 0;
+}
+#searchTopBox .email-container {
+  padding: 0 200px;
+}
+#searchTopBox .logo {
+  text-align: center;
+  margin-top: 80px;
+  margin-bottom: 40px;
+}
+#searchTopBox .logo img {
+  display: inline-block;
+}
+#searchTopBox .search-input-box input.search-input {
+  border: 1px solid #c93931;
+  background-color: #fafafa;
+  color: #444;
+}
+#searchTopBox .search-input-box .history-search-box label {
+  float: left;
+  color: #747474;
+  font-size: 15px;
+}
+#searchTopBox .search-input-box .history-search-box .labelContent {
+  float: left;
+  width: 530px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+#searchTopBox .search-input-box .history-search-box .labelContent a {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+  color: #01246a;
+  font-size: 15px;
+}
+#searchTopBox .search-input-box .history-search-box .labelContent span {
+  cursor: pointer;
+  margin-left: 10px;
+  font-size: 12px;
+}
+#searchTopBox .search-input-box .history-search-box .labelContent span:hover {
+  color: #e46a76;
+}
+#searchTopBox .inbox-body {
+  margin-top: 40px;
+  padding-bottom: 0;
+  position: relative;
+}
+#searchTopBox .inbox-body .dataTables_wrapper {
+  margin-top: 0;
+}
+#searchTopBox .inbox-body .mail-option {
+  margin-bottom: 0;
+}
+#searchTopBox .inbox-body .mail-option .searchInputBox {
+  position: relative;
+}
+#searchTopBox .inbox-body .mail-option .searchInputBox .tableSearhInput {
+  height: 30px;
+  width: 0;
+  padding: 0;
+  outline: none;
+  transition: all 0.35s ease-out;
+  background-color: transparent;
+}
+#searchTopBox .inbox-body .mail-option .searchInputBox .tableSearhIcon {
+  position: absolute;
+  top: 7px;
+  left: -20px;
+  color: #acacac;
+  transition: all 0.5s ease-out;
+  font-size: 18px;
+  cursor: pointer;
+}
+#searchTopBox .inbox-body .mail-option .searchInputBox .tableSearhDelIcon {
+  position: absolute;
+  top: 8px;
+  right: 6px;
+  color: #acacac;
+  display: none;
+}
+#searchTopBox table .btn-group {
+  box-shadow: none;
+}
+#searchTopBox table#mod1_Table {
+  color: #747474;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+  font-size: 15px;
+}
+#searchTopBox table#mod1_Table th {
+  background-image: none;
+}
+#searchTopBox table#mod1_Table thead .sorting:after {
+  margin-left: 10px;
+  font-weight: 100;
+}
+#searchTopBox table#mod1_Table thead .sorting_asc:after {
+  margin-left: 10px;
+  font-weight: 100;
+}
+#searchTopBox table#mod1_Table thead .sorting_desc:after {
+  margin-left: 10px;
+  font-weight: 100;
+}
+#searchTopBox table#mod1_Table tr {
+  height: 45px;
+}
+#searchTopBox table#mod1_Table tr td {
+  vertical-align: middle;
+  padding: 7px !important;
+  text-align: center;
+}
+#searchTopBox table#mod1_Table tr td:nth-of-type(2) {
+  text-align: left;
+}
+#searchTopBox table#mod1_Table thead th {
+  background-color: #F7F7F7;
+  border-bottom: none;
+  width: 16%;
+}
+#searchTopBox table#mod1_Table thead th.textCenter {
+  text-align: center;
+}
+#searchTopBox table#mod1_Table tbody tr.even {
+  background-color: #fbfbfb;
+}
+#searchTopBox table#mod1_Table tbody tr.even th {
+  vertical-align: middle;
+}
+#searchTopBox table#mod1_Table tbody tr:hover {
+  background-color: #F4F8FE;
+}
+#searchTopBox table#mod1_Table tbody tr td.textCenter {
+  text-align: center;
+}
+/* --------------- mod2 --------------- */
+body #advancedTopBox {
+  color: #404040;
+}
+body #advancedTopBox .bootstrap-tagsinput .tag [data-role="remove"] {
+  font-family: FontAwesome;
+  font-weight: 100;
+  position: absolute;
+  top: 5px;
+  right: -2px;
+}
+body #advancedTopBox .bootstrap-tagsinput .tag [data-role="remove"]::after {
+  content: "\f00d";
+}
+div#advancedTopBox {
+  margin: -20px -30px -66px;
+  padding: 20px 30px 55px;
+  background-color: #fff;
+}
+div#advancedTopBox .popover.editable-container.editable-popup.bottom {
+  margin-left: 10px;
+}
+div#advancedTopBox .popover.editable-container.editable-popup textarea {
+  min-width: 400px;
+  min-height: 100px;
+}
+div#advancedTopBox i.fa {
+  cursor: pointer;
+}
+div#advancedTopBox .email-container .inbox-head .topBar .pull-left {
+  height: 34px;
+  line-height: 30px;
+}
+div#advancedTopBox .email-container .inbox-head .topBar .pull-left .advancedTab {
+  font-size: 18px;
+  font-weight: 700;
+  color: #333;
+}
+div#advancedTopBox .email-container .inbox-head .topBar i.fa-caret-down,
+div#advancedTopBox .email-container .inbox-head .topBar i.fa-caret-up {
+  font-size: 30px;
+}
+div#advancedTopBox .email-container .inbox-head .keywordInput .bootstrap-tagsinput {
+  min-height: 84px;
+  height: auto;
+  position: relative;
+  background-color: #fafafa;
+  border-color: #cfcfcf;
+}
+div#advancedTopBox .email-container .inbox-head .keywordInput .bootstrap-tagsinput input {
+  min-width: 100px;
+}
+div#advancedTopBox .email-container .inbox-head .keywordInput .bootstrap-tagsinput input::-webkit-input-placeholder {
+  color: #bbb;
+}
+div#advancedTopBox .email-container .inbox-head .keywordInput .label.advanced_tags_button {
+  display: block !important;
+  padding: 6px 8px;
+  cursor: pointer;
+  max-width: 100%;
+  width: fit-content;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-right: 22px;
+  position: relative;
+  width: -moz-fit-content;
+}
+div#advancedTopBox .email-container .inbox-head .keywordInput span.keywordIcon {
+  position: absolute;
+  top: 6px;
+  right: 16px;
+}
+div#advancedTopBox .email-container .inbox-head .keywordInput span.keywordIcon i {
+  font-size: 14px;
+  color: #555;
+  position: relative;
+}
+div#advancedTopBox .email-container .inbox-head .keywordInput span.keywordIcon .textBox {
+  font-size: 14px;
+  position: absolute;
+  top: 15px;
+  right: -1px;
+  width: 450px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  background-color: #fff;
+  z-index: 100;
+  display: none;
+}
+div#advancedTopBox .email-container .inbox-head .general_box .bootstrap-tagsinput {
+  background-color: #fafafa;
+  border-color: #cfcfcf;
+  min-height: 84px;
+  height: auto;
+}
+div#advancedTopBox .email-container .inbox-head .general_box .bootstrap-tagsinput .tags_button_drag {
+  padding: 6px 8px;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  position: relative;
+  padding-right: 22px;
+}
+div#advancedTopBox .email-container .inbox-head .general_box .bootstrap-tagsinput .label.tags_button {
+  margin-bottom: 0;
+}
+div#advancedTopBox .email-container .inbox-head .general_box .bootstrap-tagsinput input {
+  min-width: 100px;
+  vertical-align: top;
+  line-height: 27px;
+}
+div#advancedTopBox .email-container .inbox-head .general_box .bootstrap-tagsinput input::-webkit-input-placeholder {
+  color: #bbb;
+}
+div#advancedTopBox .email-container .inbox-head .screenBox {
+  margin-top: 20px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+div#advancedTopBox .email-container .inbox-head .screenBox div.checkbox {
+  padding-left: 95px !important;
+}
+div#advancedTopBox .email-container .inbox-head .screenBox div.checkbox .labelTitleBox {
+  position: absolute;
+  left: 0;
+  top: 12px;
+}
+div#advancedTopBox .email-container .inbox-head .screenBox div.checkbox span.labelTitle {
+  width: 70px;
+  display: inline-block;
+  text-align-last: justify;
+}
+div#advancedTopBox .email-container .inbox-head .screenBox div.checkbox label {
+  width: 85px;
+  margin: 2px 0;
+  user-select: none;
+}
+div#advancedTopBox .email-container .inbox-head .screenBox div.checkbox + .checkbox {
+  margin-top: 0;
+}
+div#advancedTopBox .email-container .inbox-head .screenBox div.checkbox .chosen-container {
+  margin-left: 14px;
+}
+div#advancedTopBox .email-container .inbox-head .screenBox div.checkbox .chosen-container input.default {
+  min-width: 100px;
+}
+div#advancedTopBox .email-container .inbox-head .screenBox .mediaInput {
+  width: 50%;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+div#advancedTopBox .email-container .inbox-head .hiddenToggleBox {
+  padding-top: 0;
+}
+div#advancedTopBox .email-container .inbox-body .screenInfoBox {
+  line-height: 28px;
+  font-size: 14px;
+  color: #555;
+  border-radius: 4px;
+  position: relative;
+  background-color: #f5f5f5;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  padding: 10px 300px 10px 5px;
+}
+div#advancedTopBox .email-container .inbox-body .screenInfoBox #screenInfoListBox {
+  width: 100%;
+  display: flex;
+  justify-content: left;
+}
+div#advancedTopBox .email-container .inbox-body .screenInfoBox #screenInfoListBox .screenInfoList {
+  padding: 0 5px;
+  margin: 0 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 20%;
+  min-width: 75px;
+  border: 1px solid #d9d9d9;
+  border-radius: 3px;
+  position: relative;
+  background-color: #fff;
+  padding-right: 17px;
+}
+div#advancedTopBox .email-container .inbox-body .screenInfoBox #screenInfoListBox .screenInfoList.keywordBox {
+  padding: 0 5px;
+}
+div#advancedTopBox .email-container .inbox-body .screenInfoBox #screenInfoListBox .screenInfoList.dateBox {
+  padding: 0 5px;
+}
+div#advancedTopBox .email-container .inbox-body .screenInfoBox #screenInfoListBox .screenInfoList .screenInfoTitle {
+  font-weight: 700;
+}
+div#advancedTopBox .email-container .inbox-body .screenInfoBox #screenInfoListBox .screenInfoList .screenInfoListDelBtn {
+  position: absolute;
+  top: 6px;
+  right: 3px;
+}
+div#advancedTopBox .email-container .inbox-body .screenInfoBox #screenInfoListBox2 {
+  width: 100%;
+  display: none;
+}
+div#advancedTopBox .email-container .inbox-body .screenInfoBox #screenInfoListBox2 .screenInfoList {
+  padding: 0 7px;
+  margin: 3px 5px;
+  display: inline-block;
+  border: 1px solid #d9d9d9;
+  border-radius: 3px;
+  background-color: #fff;
+}
+div#advancedTopBox .email-container .inbox-body .screenInfoBox #screenInfoListBox2 .screenInfoList .screenInfoTitle {
+  font-weight: 700;
+}
+div#advancedTopBox .email-container .inbox-body .screenInfoBox #screenInfoListBox2 .screenInfoList .screenInfoListDelBtn {
+  margin-left: 3px;
+}
+div#advancedTopBox .email-container .inbox-body .screenInfoBox .screenBtnBox {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  right: 10px;
+}
+div#advancedTopBox .email-container .inbox-body .screenInfoBox .screenBtnBox button {
+  margin-right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+div#advancedTopBox .email-container .inbox-body .screenInfoBox .screenBtnBox button#saveBtn {
+  background-color: transparent !important;
+  border: 1px solid;
+}
+div#advancedTopBox .email-container .inbox-body .screenInfoBox .screenBtnBox #hehehe {
+  position: absolute;
+  top: 0px;
+  right: -23px;
+  opacity: 0;
+}
+div#advancedTopBox .email-container .inbox-body .screenInfoBox .screenBtnBox #hehehe:hover {
+  opacity: 0.6;
+}
+div#advancedTopBox .email-container .inbox-body .tabbable {
+  margin-bottom: 0;
+}
+div#advancedTopBox .email-container .inbox-body .tabbable .nav {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 0;
+  list-style: none;
+}
+div#advancedTopBox .email-container .inbox-body .tabbable .nav li a:hover {
+  background-color: transparent;
+}
+div#advancedTopBox .email-container .inbox-body .tabbable .nav-tabs {
+  background-color: #FFF;
+  border-bottom: 1px solid #e6e6e6;
+}
+div#advancedTopBox .email-container .inbox-body .tabbable .nav-tabs li a {
+  padding: 11px 20px;
+  margin-right: 0;
+  min-width: 60px;
+  text-align: center;
+  border-radius: 0;
+  color: #404040;
+  border-width: 0;
+  font-size: 14px;
+  cursor: pointer;
+}
+div#advancedTopBox .email-container .inbox-body .tabbable .nav-tabs li a:hover {
+  color: #fb9678;
+}
+div#advancedTopBox .email-container .inbox-body .tabbable .nav-tabs li.active {
+  border: none;
+}
+div#advancedTopBox .email-container .inbox-body .tabbable .nav-tabs li.active a {
+  background: 0;
+  border: 0 !important;
+  border-right-width: 0 !important;
+  border-bottom: 3px solid #fb9678 !important;
+  border-color: #dee2e6 #dee2e6 #EEE;
+  box-shadow: none;
+  color: #fb9678 !important;
+}
+div#advancedTopBox .email-container .inbox-body .tab-content .tab-pane {
+  -webkit-box-shadow: none;
+}
+div#advancedTopBox .email-container .inbox-body .tab-content .tab-pane .mainInfoChartBox {
+  padding: 0;
+}
+div#advancedTopBox .email-container .inbox-body .tab-content .tab-pane .mainInfoChartBox .content-box {
+  overflow: auto;
+  background-color: #fafafa;
+  border: 1px solid #e6e6e6;
+}
+/* --------------- analysis --------------- */
+#analysisBox {
+  width: 100%;
+  padding: 50px 200px 0;
+  background: url('../img/analysisBg.png') no-repeat center top;
+}
+#analysisBox .addModalBox {
+  margin-bottom: 10px;
+}
+#analysisBox .btn i:first-child {
+  margin: 0;
+}
+#analysisBox table#analysisTable {
+  color: #747474;
+  font-size: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.07);
+  border: 1px solid #e9eef2;
+}
+#analysisBox table#analysisTable th {
+  background-image: none;
+}
+#analysisBox table#analysisTable thead .sorting:after {
+  margin-left: 10px;
+  font-weight: 100;
+}
+#analysisBox table#analysisTable thead .sorting_asc:after {
+  margin-left: 10px;
+  font-weight: 100;
+}
+#analysisBox table#analysisTable thead .sorting_desc:after {
+  margin-left: 10px;
+  font-weight: 100;
+}
+#analysisBox table#analysisTable tr {
+  height: 45px;
+}
+#analysisBox table#analysisTable tr td {
+  vertical-align: middle;
+  padding: 7px !important;
+  text-align: center;
+}
+#analysisBox table#analysisTable tr td:nth-of-type(2) {
+  text-align: left;
+}
+#analysisBox table#analysisTable thead th {
+  background-color: #F7F7F7;
+  border-bottom: none;
+  width: 16%;
+}
+#analysisBox table#analysisTable thead th.textCenter {
+  text-align: center;
+}
+#analysisBox table#analysisTable tbody tr.even {
+  background-color: #fbfbfb;
+}
+#analysisBox table#analysisTable tbody tr.even th {
+  vertical-align: middle;
+}
+#analysisBox table#analysisTable tbody tr:hover {
+  background-color: #F4F8FE;
+}
+#analysisBox table#analysisTable tbody tr td.textCenter {
+  text-align: center;
+}
+#analysisBox table#analysisTable tbody tr td.analysisTdFunc {
+  cursor: pointer;
+}
+#analysisBox table#analysisTable .btn-group {
+  box-shadow: none;
+}
+#analysisBox .searchInputBox {
+  position: relative;
+  margin-right: 20px;
+}
+#analysisBox .searchInputBox .tableSearhInput {
+  height: 30px;
+  width: 0;
+  padding: 0;
+  outline: none;
+  transition: all 0.35s ease-out;
+  background-color: transparent;
+}
+#analysisBox .searchInputBox .tableSearhIcon {
+  position: absolute;
+  top: 7px;
+  left: -20px;
+  color: #acacac;
+  transition: all 0.5s ease-out;
+  font-size: 18px;
+  cursor: pointer;
+}
+#analysisBox .searchInputBox .tableSearhDelIcon {
+  position: absolute;
+  top: 8px;
+  right: 6px;
+  color: #acacac;
+  display: none;
+}
+/* ------------- analysisDetail --------------- */
+#analysisDetail {
+  position: relative;
+}
+#analysisDetail #analysisTool {
+  height: 34px;
+  padding-right: 8px;
+  padding-left: 5px;
+}
+#analysisDetail #analysisTool #analysis_infoSelect_chosen {
+  border-radius: 5px;
+}
+#analysisDetail #analysisTool #analysis_infoSelect_chosen ul.chosen-choices {
+  border-radius: 3px;
+}
+#analysisDetail #analysisTool #analysis_infoSelect_chosen a.chosen-single {
+  background: none;
+  border-radius: 3px;
+  border-color: #e9e9e9;
+  background-color: #fff;
+}
+#analysisDetail #analysisTool #analysis_infoSelect_chosen div.chosen-drop {
+  border-color: #e9e9e9;
+}
+#analysisDetail #analysisTool #analysis_infoSelect_chosen div.chosen-drop input {
+  border-color: #e9e9e9;
+}
+#analysisDetail #analysisTool #analysis_rename {
+  width: 220px;
+  height: 31px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 0 5px;
+  color: #333;
+}
+#analysisDetail #analysisTool .analysis_date_box {
+  position: relative;
+  width: 250px;
+}
+#analysisDetail #analysisTool .analysis_date_box i.iconfont {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  font-size: 18px;
+  pointer-events: none;
+}
+#analysisDetail #analysisTool .analysis_date_box #analysis_date {
+  width: 100%;
+  text-align: center;
+  padding-right: 30px;
+}
+#analysisDetail #analysisTool .topBtnBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #e6e6e6;
+  border-radius: 4px;
+  margin-right: 10px;
+  background-color: #fff;
+  padding: 2px;
+  cursor: pointer;
+}
+#analysisDetail #analysisTool .topBtnBox > i {
+  font-size: 20px;
+}
+#analysisDetail #analysisTool .topBtnBox .dropdownBox .container-fluid {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#analysisDetail #analysisTool .topBtnBox.optionBtn .optionBox {
+  display: none;
+}
+#analysisDetail #analysisTool .topBtnBox.optionBtn .optionBox span {
+  line-height: 1em;
+  padding: 7px 8px;
+  border: 1px solid #e6e6e6;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: none;
+}
+#analysisDetail #analysisTool .topBtnBox.optionBtn .optionBox span#addNewAnalysisModal {
+  border-color: #c93931;
+  color: #c93931;
+}
+#analysisDetail #analysisTool .topBtnBox.optionBtn .optionBox span#addNewAnalysisModal:hover {
+  color: #fff;
+  background-color: #c93931;
+}
+#analysisDetail #analysisTool .topBtnBox.optionBtn .optionBox span#saveNewAnalysisModal {
+  border-color: #fb9678;
+  color: #fb9678;
+}
+#analysisDetail #analysisTool .topBtnBox.optionBtn .optionBox span#saveNewAnalysisModal:hover {
+  color: #fff;
+  background-color: #fa7953;
+}
+#analysisDetail #analysisTool .topBtnBox.optionBtn .optionBox span#optionCancel {
+  border-color: transparent;
+  border-color: #ccc;
+}
+#analysisDetail #analysisTool .topBtnBox.optionBtn .optionBox span#optionCancel:hover {
+  color: #fff;
+  background-color: #aaa;
+}
+#analysisDetail #analysisTool .topBtnBox.shareBtn {
+  padding: 5px 10px;
+  right: -25px;
+}
+#analysisDetail #analysisTool.fixedStyle {
+  position: fixed;
+  top: 70px;
+  left: 115px;
+  right: 38px;
+  z-index: 1040;
+  height: 56px;
+  padding: 10px 0;
+  background-color: #F1F4F5;
+}
+#analysisDetail #analysisModular {
+  /* 时间轴 */
+}
+#analysisDetail #analysisModular .gs-w .content-title .content-tools {
+  display: none;
+}
+#analysisDetail #analysisModular .gs-w.hoverStyle {
+  cursor: all-scroll !important;
+}
+#analysisDetail #analysisModular .gs-w.hoverStyle .content_ * {
+  cursor: all-scroll !important;
+  pointer-events: none;
+}
+#analysisDetail #analysisModular .gs-w.hoverStyle .content-title .content-tools {
+  display: block;
+}
+#analysisDetail #analysisModular .gs-w.hoverStyle:hover {
+  background-color: #eff8ff;
+  box-shadow: 0px 0px 4px #c93931;
+}
+#analysisDetail #analysisModular .gs-w.hoverStyle:hover > div > div {
+  box-shadow: 0px 0px 4px #c93931;
+  opacity: .7;
+}
+#analysisDetail #analysisModular .gs-w .small-box.content_::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+#analysisDetail #analysisModular .content-box {
+  box-shadow: none;
+}
+#analysisDetail #analysisModular .content-box .content-title .echarts3-title {
+  font-size: 18px;
+  color: #262626;
+  border-left: 3px solid #c93931;
+  padding-left: 10px;
+  line-height: 18px;
+}
+#analysisDetail #analysisModular .search_infos_ipage {
+  height: 100%;
+  overflow-y: auto;
+  padding-right: 5px;
+}
+#analysisDetail #analysisModular .search_infos_ipage .mainInfoList {
+  width: 100%;
+  padding-bottom: 15px;
+  border-bottom: 1px dashed #e6e6e6;
+  position: relative;
+}
+#analysisDetail #analysisModular .search_infos_ipage .mainInfoList:last-child {
+  border-bottom: none;
+}
+#analysisDetail #analysisModular .search_infos_ipage .mainInfoList.similariesList {
+  background-color: #e6eff2;
+}
+#analysisDetail #analysisModular .search_infos_ipage .mainInfoList .infoInputBox {
+  position: relative;
+  top: 5px;
+}
+#analysisDetail #analysisModular .search_infos_ipage .mainInfoList .mainInfo {
+  padding: 10px 0 0 5px;
+}
+#analysisDetail #analysisModular .search_infos_ipage .mainInfoList .mainInfo .logoBox {
+  height: 50px;
+  width: 50px;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  display: inline-block;
+}
+#analysisDetail #analysisModular .search_infos_ipage .mainInfoList .mainInfo .infoTitle {
+  display: inline-block;
+  font-size: 16px;
+  height: 30px;
+  line-height: 30px;
+  font-weight: 700;
+  color: #34487c;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+}
+#analysisDetail #analysisModular .search_infos_ipage .mainInfoList .mainInfo .infoTitle a {
+  color: #34487c;
+}
+#analysisDetail #analysisModular .search_infos_ipage .mainInfoList .mainInfo .textContantBox {
+  font-size: 15px;
+  width: 100%;
+  margin: 10px 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  max-height: 3em;
+  line-height: 1.5em;
+  cursor: pointer;
+}
+#analysisDetail #analysisModular .search_infos_ipage .mainInfoList .mainInfo .textContantBox.textContantBoxTop {
+  color: gray;
+  cursor: default;
+}
+#analysisDetail #analysisModular .search_infos_ipage .mainInfoList .mainInfo .textContantBox.textContantBoxTop span.marke-red {
+  color: gray;
+}
+#analysisDetail #analysisModular .search_infos_ipage .mainInfoList .mainInfo .textContantBox.textContantBoxBottom {
+  color: #262626;
+}
+#analysisDetail #analysisModular .search_infos_ipage .mainInfoList .mainInfo .bottomBar {
+  width: 100%;
+  height: 24px;
+  line-height: 24px;
+  font-size: 14px;
+  padding: 5px 0;
+  position: relative;
+}
+#analysisDetail #analysisModular .search_infos_ipage .mainInfoList .mainInfo .bottomBar span.pull-left + span {
+  margin-left: 20px;
+}
+#analysisDetail #analysisModular .search_infos_ipage .mainInfoList .mainInfo .bottomBar span.pull-right {
+  margin-right: 20px;
+}
+#analysisDetail #analysisModular .search_infos_ipage .mainInfoList .mainInfo .bottomBar span.similarityListBtn {
+  cursor: default;
+}
+#analysisDetail #analysisModular .search_infos_ipage .mainInfoList .mainInfo .bottomBar a.linkUrl {
+  color: #21c7ce;
+}
+#analysisDetail #analysisModular .search_infos_ipage .mainInfoList .mainInfo .bottomBar span.mobileDate {
+  display: none;
+}
+#analysisDetail #analysisModular .search_infos_ipage .mainInfoList .classifyBox {
+  height: 30px;
+  width: 50px;
+  line-height: 30px;
+  text-align: center;
+  font-size: 15px;
+  color: #666;
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  border: 1px solid #ccc;
+}
+#analysisDetail #analysisModular .search_infos_ipage::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+#analysisDetail #analysisModular .ipage-fenye {
+  display: none;
+}
+#analysisDetail #analysisModular .compar_info_count .content-box {
+  background-color: #01c0c8;
+}
+#analysisDetail #analysisModular .compar_info_count .content-box .content-title .echarts3-title {
+  font-size: 18px;
+  color: #fff;
+}
+#analysisDetail #analysisModular .compar_info_count .content-box .content_ {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+#analysisDetail #analysisModular .compar_info_count .content-box .content_ .topText {
+  color: #fff;
+  position: absolute;
+  top: 0;
+  left: 21px;
+}
+#analysisDetail #analysisModular .compar_info_count .content-box .content_ .nowCount {
+  font-size: 50px;
+  color: #fff;
+  margin-top: -50px;
+}
+#analysisDetail #analysisModular .compar_info_count .content-box .content_ .lastCount {
+  position: absolute;
+  right: 26px;
+  bottom: 40px;
+  color: #fff;
+}
+#analysisDetail #analysisModular .compar_info_count .content-box .content_ .lastCount .countBox {
+  border: 1px solid #fff;
+  padding: 3px 8px;
+  border-radius: 15px;
+  background: #fff;
+  color: #c93931;
+  margin-left: 10px;
+}
+#analysisDetail #analysisModular .compar_info_count .content-box .content_ .lastCount .countBox i {
+  margin-right: 3px;
+}
+#analysisDetail #analysisModular .emotion_destribute .emotionCountBox {
+  height: 70px;
+  width: 100px;
+  position: absolute;
+  right: 20px;
+  border-radius: 7px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #fff;
+}
+#analysisDetail #analysisModular .emotion_destribute .emotionCountBox.emotionCountBox1 {
+  top: 45px;
+}
+#analysisDetail #analysisModular .emotion_destribute .emotionCountBox.emotionCountBox2 {
+  top: 125px;
+}
+#analysisDetail #analysisModular .emotion_destribute .emotionCountBox.emotionCountBox3 {
+  top: 205px;
+}
+#analysisDetail #analysisModular .top_ten_rankings {
+  /* .topTenTable {
+        width: 100%;
+        thead {
+          tr {
+            background-color: #fafafa;
+            th {
+              border-bottom: none;
+              height: 44px;
+              vertical-align:middle;
+              &.tableCenter {
+                text-align:center;
+              }
+            }
+          }
+          
+        }
+        tbody {
+          tr {
+            // background-color: #fafafa;
+            td {
+              height: 44px;
+              // border-bottom: none;
+              vertical-align:middle;
+              color: #262626;
+              overflow: hidden;
+              text-overflow:ellipsis;
+              white-space: nowrap;
+              max-width: 320px;
+              border-top: 1px dashed #e6e6e6;
+              &.tableCenter {
+                text-align:center;
+              }
+              &:last-child {
+                color: #fb9678;
+              }
+              &:nth-child(2) {
+                a {
+                  color: #2e4786;
+                }
+              }
+              &:first-child {
+                color: #fff;
+                span.tdBar {
+                  display: inline-block;
+                  height: 20px;
+                  width: 20px;
+                  border-radius: 50%;
+                  line-height: 20px;
+                  text-align: center;
+                  background-color: #8eb9f5;
+                }
+              }
+            }
+            &:first-child td:first-child span.tdBar {
+              background-color: #f54545;
+            }
+            &:nth-child(2) td:first-child span.tdBar {
+              background-color: #ff8547;
+            }
+            &:nth-child(3) td:first-child span.tdBar {
+              background-color: #ffac38;
+            }
+          }
+        }
+      } */
+}
+#analysisDetail #analysisModular .top_ten_rankings .content_ {
+  height: calc(100% - 50px);
+  overflow-y: auto;
+  padding-top: 0;
+}
+#analysisDetail #analysisModular .top_ten_rankings .topTenListBox ul {
+  padding-left: 0;
+}
+#analysisDetail #analysisModular .top_ten_rankings .topTenListBox ul li {
+  display: block;
+  line-height: 44px;
+  border-top: 1px dashed #e6e6e6;
+  color: #262626;
+}
+#analysisDetail #analysisModular .top_ten_rankings .topTenListBox ul li .leftBox {
+  width: 55%;
+  float: left;
+}
+#analysisDetail #analysisModular .top_ten_rankings .topTenListBox ul li .leftBox > span {
+  float: left;
+  padding: 0 5px;
+}
+#analysisDetail #analysisModular .top_ten_rankings .topTenListBox ul li .leftBox > span:first-child {
+  width: 40px;
+}
+#analysisDetail #analysisModular .top_ten_rankings .topTenListBox ul li .leftBox > span:first-child span.tdBar {
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  line-height: 20px;
+  text-align: center;
+  background-color: #8eb9f5;
+  color: #fff;
+}
+#analysisDetail #analysisModular .top_ten_rankings .topTenListBox ul li .leftBox > span:nth-child(2) {
+  width: calc(100% - 50px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#analysisDetail #analysisModular .top_ten_rankings .topTenListBox ul li .leftBox > span:nth-child(2) a {
+  color: #2e4786;
+}
+#analysisDetail #analysisModular .top_ten_rankings .topTenListBox ul li .rightBox {
+  width: 45%;
+  float: right;
+}
+#analysisDetail #analysisModular .top_ten_rankings .topTenListBox ul li .rightBox > span {
+  float: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 0 5px;
+}
+#analysisDetail #analysisModular .top_ten_rankings .topTenListBox ul li .rightBox > span:first-child {
+  width: calc(100% - 225px);
+  padding-left: 0;
+}
+#analysisDetail #analysisModular .top_ten_rankings .topTenListBox ul li .rightBox > span:nth-child(2) {
+  width: 145px;
+}
+#analysisDetail #analysisModular .top_ten_rankings .topTenListBox ul li .rightBox > span:nth-child(3) {
+  color: #fb9678;
+  width: 80px;
+  padding-right: 0;
+}
+#analysisDetail #analysisModular .top_ten_rankings .topTenListBox ul li .rightBox > span:nth-child(3) > span {
+  font-size: 12px;
+  color: #fb9678;
+  margin-right: 4px;
+}
+#analysisDetail #analysisModular .top_ten_rankings .topTenListBox ul li .rightBox > span.modileDate {
+  display: none;
+}
+#analysisDetail #analysisModular .top_ten_rankings .topTenListBox ul li:first-child .leftBox > span:first-child span.tdBar {
+  background-color: #f54545;
+}
+#analysisDetail #analysisModular .top_ten_rankings .topTenListBox ul li:nth-child(2) .leftBox > span:first-child span.tdBar {
+  background-color: #ff8547;
+}
+#analysisDetail #analysisModular .top_ten_rankings .topTenListBox ul li:nth-child(3) .leftBox > span:first-child span.tdBar {
+  background-color: #ffac38;
+}
+#analysisDetail #analysisModular .top_ten_rankings .topTenListBox ul li.minWidthStyle {
+  height: auto;
+  line-height: 25px;
+  padding: 5px 0;
+}
+#analysisDetail #analysisModular .top_ten_rankings .topTenListBox ul li.minWidthStyle .leftBox {
+  width: 100%;
+}
+#analysisDetail #analysisModular .top_ten_rankings .topTenListBox ul li.minWidthStyle .leftBox span:first-child {
+  width: auto;
+  line-height: 20px;
+}
+#analysisDetail #analysisModular .top_ten_rankings .topTenListBox ul li.minWidthStyle .leftBox span:first-child span.tdBar {
+  height: 16px;
+  width: 16px;
+  line-height: 16px;
+  font-size: 12px;
+}
+#analysisDetail #analysisModular .top_ten_rankings .topTenListBox ul li.minWidthStyle .rightBox {
+  width: 100%;
+  padding-left: 25px;
+}
+#analysisDetail #analysisModular .top_ten_rankings .topTenListBox ul li.minWidthStyle .rightBox > span.modileDate {
+  display: none;
+}
+#analysisDetail #analysisModular .time_line .timeLineBox::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+#analysisDetail #analysisModular .time_line .cbp_tmtimeline {
+  margin: 0;
+}
+#analysisDetail #analysisModular .time_line .cbp_tmtimeline:before {
+  width: 2px;
+  left: 120px;
+  background: #65AEE8;
+  margin-left: 0;
+}
+#analysisDetail #analysisModular .time_line .cbp_tmtimeline > li {
+  position: relative;
+}
+#analysisDetail #analysisModular .time_line .cbp_tmtimeline > li::before {
+  content: " ";
+  height: 10px;
+  width: 10px;
+  background: #65AEE8;
+  border-radius: 50%;
+  position: absolute;
+  top: 15px;
+  left: 116px;
+  box-shadow: 0 0 0 4px rgba(175, 220, 248, 0.5);
+}
+#analysisDetail #analysisModular .time_line .cbp_tmtimeline > li .cbp_tmtime {
+  width: 175px;
+  padding-right: 85px;
+}
+#analysisDetail #analysisModular .time_line .cbp_tmtimeline > li .cbp_tmtime span:first-child {
+  font-size: 20px;
+  color: #65AEE8;
+}
+#analysisDetail #analysisModular .time_line .cbp_tmtimeline > li .cbp_tmtime span:last-child {
+  font-size: 15px;
+  color: #bdd0db;
+}
+#analysisDetail #analysisModular .time_line .cbp_tmtimeline > li .cbp_tmlabel {
+  background: #fff;
+  border: 1px solid #65AEE8;
+  padding: 0 20px;
+  margin-left: 160px;
+}
+#analysisDetail #analysisModular .time_line .cbp_tmtimeline > li .cbp_tmlabel::before {
+  right: 100%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-right-color: #65AEE8;
+  border-width: 12px;
+  top: 8px;
+}
+#analysisDetail #analysisModular .time_line .cbp_tmtimeline > li .cbp_tmlabel::after {
+  border-right-color: #fff;
+}
+#analysisDetail #analysisModular .time_line .cbp_tmtimeline > li .cbp_tmlabel .hiddenTimeBox {
+  display: none;
+}
+#analysisDetail #analysisModular .time_line .mainInfoList {
+  width: 100%;
+  padding-bottom: 15px;
+  border-bottom: 1px dashed #e6e6e6;
+  position: relative;
+}
+#analysisDetail #analysisModular .time_line .mainInfoList:last-child {
+  border-bottom: none;
+}
+#analysisDetail #analysisModular .time_line .mainInfoList.similariesList {
+  background-color: #e6eff2;
+}
+#analysisDetail #analysisModular .time_line .mainInfoList .checkbox {
+  display: none;
+}
+#analysisDetail #analysisModular .time_line .mainInfoList .infoInputBox {
+  position: relative;
+  top: 5px;
+}
+#analysisDetail #analysisModular .time_line .mainInfoList .mainInfo {
+  padding: 10px 0 0 0px;
+  position: relative;
+}
+#analysisDetail #analysisModular .time_line .mainInfoList .mainInfo .infoTitle {
+  display: inline-block;
+  font-size: 16px;
+  color: #262626;
+  height: auto;
+  line-height: 25px;
+  font-weight: 700;
+  white-space: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  max-height: 50px;
+  cursor: pointer;
+  margin-bottom: 5px;
+}
+#analysisDetail #analysisModular .time_line .mainInfoList .mainInfo .infoTitle a {
+  color: #262626;
+}
+#analysisDetail #analysisModular .time_line .mainInfoList .mainInfo .textContantBox {
+  font-size: 15px;
+  width: 100%;
+  min-height: 40px;
+  margin: 10px 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  max-height: 3em;
+  line-height: 1.5em;
+  cursor: pointer;
+}
+#analysisDetail #analysisModular .time_line .mainInfoList .mainInfo .textContantBox.textContantBoxTop {
+  color: gray;
+}
+#analysisDetail #analysisModular .time_line .mainInfoList .mainInfo .textContantBox.textContantBoxTop span.marke-red {
+  color: red;
+}
+#analysisDetail #analysisModular .time_line .mainInfoList .mainInfo .textContantBox.textContantBoxBottom {
+  color: #494949;
+}
+#analysisDetail #analysisModular .time_line .mainInfoList .mainInfo .bottomBar {
+  width: 100%;
+  height: 24px;
+  line-height: 24px;
+  font-size: 14px;
+  padding: 5px 0;
+  position: relative;
+  color: #404040;
+}
+#analysisDetail #analysisModular .time_line .mainInfoList .mainInfo .bottomBar span.pull-left + span {
+  margin-left: 20px;
+}
+#analysisDetail #analysisModular .time_line .mainInfoList .mainInfo .bottomBar span.pull-right {
+  margin-right: 20px;
+}
+#analysisDetail #analysisModular .time_line .mainInfoList .mainInfo .bottomBar a.linkUrl {
+  color: #21c7ce;
+}
+#analysisDetail #analysisModular .time_line .mainInfoList .mainInfo .bottomBar span.mobileDate {
+  display: none;
+}
+#analysisDetail #analysisModular .news_hot_ranking .newsHotRanking::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+#analysisDetail #analysisModular .news_hot_ranking .mainInfoList {
+  width: 100%;
+  padding-bottom: 15px;
+  border-bottom: 1px dashed #e6e6e6;
+  position: relative;
+  padding-left: 25px;
+}
+#analysisDetail #analysisModular .news_hot_ranking .mainInfoList:last-child {
+  border-bottom: none;
+}
+#analysisDetail #analysisModular .news_hot_ranking .mainInfoList.similariesList {
+  background-color: #e6eff2;
+}
+#analysisDetail #analysisModular .news_hot_ranking .mainInfoList .indexBox {
+  position: absolute;
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  line-height: 18px;
+  text-align: center;
+  background-color: #8eb9f5;
+  color: #fff;
+  top: 15px;
+  left: 5px;
+}
+#analysisDetail #analysisModular .news_hot_ranking .mainInfoList:first-child .indexBox {
+  background-color: #f54545;
+}
+#analysisDetail #analysisModular .news_hot_ranking .mainInfoList:nth-child(2) .indexBox {
+  background-color: #ff8547;
+}
+#analysisDetail #analysisModular .news_hot_ranking .mainInfoList:nth-child(3) .indexBox {
+  background-color: #ffac38;
+}
+#analysisDetail #analysisModular .news_hot_ranking .mainInfoList .infoInputBox {
+  position: relative;
+  top: 5px;
+}
+#analysisDetail #analysisModular .news_hot_ranking .mainInfoList .mainInfo {
+  padding: 10px 0 0 5px;
+}
+#analysisDetail #analysisModular .news_hot_ranking .mainInfoList .mainInfo .infoTitle {
+  display: inline-block;
+  font-size: 16px;
+  height: 30px;
+  line-height: 30px;
+  font-weight: 700;
+  color: #34487c;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+}
+#analysisDetail #analysisModular .news_hot_ranking .mainInfoList .mainInfo .infoTitle a {
+  color: #494949;
+}
+#analysisDetail #analysisModular .news_hot_ranking .mainInfoList .mainInfo .textContantBox {
+  font-size: 15px;
+  width: 100%;
+  margin: 10px 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  max-height: 3em;
+  line-height: 1.5em;
+  cursor: pointer;
+}
+#analysisDetail #analysisModular .news_hot_ranking .mainInfoList .mainInfo .textContantBox.textContantBoxTop {
+  color: gray;
+}
+#analysisDetail #analysisModular .news_hot_ranking .mainInfoList .mainInfo .textContantBox.textContantBoxTop span.marke-red {
+  color: gray;
+}
+#analysisDetail #analysisModular .news_hot_ranking .mainInfoList .mainInfo .textContantBox.textContantBoxBottom {
+  color: #262626;
+}
+#analysisDetail #analysisModular .news_hot_ranking .mainInfoList .mainInfo .bottomBar {
+  width: 100%;
+  height: 24px;
+  line-height: 24px;
+  font-size: 14px;
+  padding: 5px 0;
+  position: relative;
+}
+#analysisDetail #analysisModular .news_hot_ranking .mainInfoList .mainInfo .bottomBar span.pull-left + span {
+  margin-left: 20px;
+}
+#analysisDetail #analysisModular .news_hot_ranking .mainInfoList .mainInfo .bottomBar span.pull-right {
+  margin-right: 20px;
+}
+#analysisDetail #analysisModular .news_hot_ranking .mainInfoList .mainInfo .bottomBar a.linkUrl {
+  color: #21c7ce;
+}
+#analysisDetail #analysisModular .news_hot_ranking .mainInfoList .mainInfo .bottomBar span.mobileDate {
+  display: none;
+}
+#analysisDetail #analysisModular .news_hot_ranking .mainInfoList .classifyBox {
+  height: 30px;
+  width: 50px;
+  line-height: 30px;
+  text-align: center;
+  font-size: 15px;
+  color: #666;
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  border: 1px solid #ccc;
+}
+#analysisDetail #modalPreviewBox {
+  position: fixed;
+  top: 120px;
+  left: calc(100% - 236px);
+  right: 35px;
+  padding-right: 10px;
+  overflow-y: auto;
+  bottom: 75px;
+}
+#analysisDetail #modalPreviewBox::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+#analysisDetail #modalPreviewBox ul {
+  padding-left: 30px;
+  margin: 0;
+  position: relative;
+}
+#analysisDetail #modalPreviewBox ul::before {
+  content: "";
+  position: absolute;
+  width: 1px;
+  top: 20px;
+  left: 18px;
+  bottom: 20px;
+  background-color: #CFDAE4;
+}
+#analysisDetail #modalPreviewBox ul li {
+  line-height: 41px;
+  font-size: 15px;
+  position: relative;
+  font-weight: 700;
+  color: #333;
+  user-select: none;
+}
+#analysisDetail #modalPreviewBox ul li::before {
+  content: "";
+  position: absolute;
+  width: 9px;
+  height: 4px;
+  top: 18px;
+  left: -16px;
+  background-color: #CFDAE4;
+}
+#analysisDetail #modalPreviewBox ul li.active::before {
+  background-color: #c93931;
+}
+#analysisDetail #modalPreviewBox ul li > span {
+  position: relative;
+}
+#analysisDetail #modalPreviewBox ul li > span .modulNum {
+  position: absolute;
+  height: 14px;
+  width: 14px;
+  border-radius: 50%;
+  background-color: #FF466B;
+  color: #fff;
+  line-height: 14px;
+  text-align: center;
+  top: 1px;
+  right: -18px;
+  font-size: 12px;
+  font-weight: normal;
+  cursor: pointer;
+  display: none;
+}
+#analysisDetail #modalPreviewBox ul li.active > span {
+  color: #c93931;
+}
+#analysisDetail #modalPreviewBox ul li .modulListBox {
+  border: 1px solid #e9e9e9;
+  position: relative;
+  font-size: 12px;
+  max-width: 100%;
+  padding: 5px 0 0 5px;
+  border-radius: 4px;
+  border-top-left-radius: 0;
+  line-height: normal;
+  background-color: #fff;
+  display: none;
+}
+#analysisDetail #modalPreviewBox ul li .modulListBox::before {
+  content: '';
+  width: 0;
+  height: 0;
+  border-width: 0 10px 10px;
+  border-style: solid;
+  border-color: transparent transparent #dbdbdb;
+  position: absolute;
+  top: -11px;
+  left: 0px;
+}
+#analysisDetail #modalPreviewBox ul li .modulListBox::after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-width: 0 10px 10px;
+  border-style: solid;
+  border-color: transparent transparent #fff;
+  position: absolute;
+  top: -10px;
+  left: 0px;
+}
+#analysisDetail #modalPreviewBox ul li .modulListBox .modulList {
+  border: 1px solid #e9e9e9;
+  display: inline-block;
+  line-height: 12px;
+  padding: 5px;
+  font-weight: normal;
+  border-radius: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  max-width: calc(95%);
+  padding-right: 16px;
+  margin-right: 3px;
+}
+#analysisDetail #modalPreviewBox ul li .modulListBox .modulList .nameText {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+  display: inline-block;
+  cursor: pointer;
+}
+#analysisDetail #modalPreviewBox ul li .modulListBox .modulList i {
+  font-size: 12px;
+  position: absolute;
+  right: -1px;
+  top: 6px;
+  cursor: pointer;
+}
+#analysisDetail #modalPreviewBox ul li .modulListBox .modulList i:hover {
+  color: #e46a76;
+}
+#analysisChart .cbp_tmtimeline {
+  margin: 0;
+}
+#analysisChart .cbp_tmtimeline:before {
+  width: 2px;
+  left: 120px;
+  background: #65AEE8;
+  margin-left: 0;
+}
+#analysisChart .cbp_tmtimeline > li {
+  position: relative;
+}
+#analysisChart .cbp_tmtimeline > li.active:before {
+  background: #f00 !important;
+  box-shadow: 0 0 0 4px rgba(255, 0, 0, 0.5);
+}
+#analysisChart .cbp_tmtimeline > li.active .cbp_tmlabel {
+  border: 1px solid #f00 !important;
+}
+#analysisChart .cbp_tmtimeline > li.active .cbp_tmlabel::before {
+  border-right-color: #f00 !important;
+}
+#analysisChart .cbp_tmtimeline > li::before {
+  content: " ";
+  height: 10px;
+  width: 10px;
+  background: #65AEE8;
+  border-radius: 50%;
+  position: absolute;
+  top: 15px;
+  left: 116px;
+  box-shadow: 0 0 0 4px rgba(175, 220, 248, 0.5);
+}
+#analysisChart .cbp_tmtimeline > li .cbp_tmtime {
+  width: 175px;
+  padding-right: 85px;
+}
+#analysisChart .cbp_tmtimeline > li .cbp_tmtime span:first-child {
+  font-size: 20px;
+  color: #65AEE8;
+}
+#analysisChart .cbp_tmtimeline > li .cbp_tmtime span:last-child {
+  font-size: 15px;
+  color: #bdd0db;
+}
+#analysisChart .cbp_tmtimeline > li .cbp_tmlabel {
+  background: #fff;
+  border: 1px solid #65AEE8;
+  padding: 0 20px;
+  margin-left: 160px;
+}
+#analysisChart .cbp_tmtimeline > li .cbp_tmlabel::before {
+  right: 100%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-right-color: #65AEE8;
+  border-width: 12px;
+  top: 8px;
+}
+#analysisChart .cbp_tmtimeline > li .cbp_tmlabel::after {
+  border-right-color: #fff;
+}
+#analysisChart .cbp_tmtimeline > li .cbp_tmlabel .hiddenTimeBox {
+  display: none;
+}
+#analysisChart .timeLineBox .mainInfoList {
+  width: 100%;
+  padding-bottom: 15px;
+  border-bottom: 1px dashed #e6e6e6;
+  position: relative;
+}
+#analysisChart .timeLineBox .mainInfoList:last-child {
+  border-bottom: none;
+}
+#analysisChart .timeLineBox .mainInfoList.similariesList {
+  background-color: #e6eff2;
+}
+#analysisChart .timeLineBox .mainInfoList .checkbox {
+  display: none;
+}
+#analysisChart .timeLineBox .mainInfoList .infoInputBox {
+  position: relative;
+  top: 5px;
+}
+#analysisChart .timeLineBox .mainInfoList .mainInfo {
+  padding: 10px 0 0 0px;
+  position: relative;
+}
+#analysisChart .timeLineBox .mainInfoList .mainInfo .infoTitle {
+  display: inline-block;
+  font-size: 16px;
+  color: #262626;
+  height: auto;
+  line-height: 25px;
+  font-weight: 700;
+  white-space: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  max-height: 50px;
+  cursor: pointer;
+  margin-bottom: 5px;
+}
+#analysisChart .timeLineBox .mainInfoList .mainInfo .infoTitle a {
+  color: #262626;
+}
+#analysisChart .timeLineBox .mainInfoList .mainInfo .textContantBox {
+  font-size: 15px;
+  width: 100%;
+  min-height: 40px;
+  margin: 10px 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  max-height: 3em;
+  line-height: 1.5em;
+  cursor: pointer;
+}
+#analysisChart .timeLineBox .mainInfoList .mainInfo .textContantBox.textContantBoxTop {
+  color: gray;
+}
+#analysisChart .timeLineBox .mainInfoList .mainInfo .textContantBox.textContantBoxTop span.marke-red {
+  color: red;
+}
+#analysisChart .timeLineBox .mainInfoList .mainInfo .textContantBox.textContantBoxBottom {
+  color: #494949;
+}
+#analysisChart .timeLineBox .mainInfoList .mainInfo .bottomBar {
+  width: 100%;
+  height: 24px;
+  line-height: 24px;
+  font-size: 14px;
+  padding: 5px 0;
+  position: relative;
+  color: #404040;
+}
+#analysisChart .timeLineBox .mainInfoList .mainInfo .bottomBar span.pull-left + span {
+  margin-left: 20px;
+}
+#analysisChart .timeLineBox .mainInfoList .mainInfo .bottomBar span.pull-right {
+  margin-right: 20px;
+}
+#analysisChart .timeLineBox .mainInfoList .mainInfo .bottomBar a.linkUrl {
+  color: #21c7ce;
+}
+#analysisChart .timeLineBox .mainInfoList .mainInfo .bottomBar span.mobileDate {
+  display: none;
+}
+#analysisChart .newsHotRanking .mainInfoList {
+  width: 100%;
+  padding-bottom: 15px;
+  border: 1px solid transparent;
+  border-bottom-color: #e6e6e6;
+  position: relative;
+  padding-left: 25px;
+}
+#analysisChart .newsHotRanking .mainInfoList:last-child {
+  border-bottom: none;
+}
+#analysisChart .newsHotRanking .mainInfoList.similariesList {
+  background-color: #e6eff2;
+}
+#analysisChart .newsHotRanking .mainInfoList.active {
+  border: 1px solid #f00;
+  border-radius: 5px;
+}
+#analysisChart .newsHotRanking .mainInfoList .indexBox {
+  position: absolute;
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  line-height: 18px;
+  text-align: center;
+  background-color: #8eb9f5;
+  color: #fff;
+  top: 15px;
+  left: 5px;
+}
+#analysisChart .newsHotRanking .mainInfoList:first-child .indexBox {
+  background-color: #f54545;
+}
+#analysisChart .newsHotRanking .mainInfoList:nth-child(2) .indexBox {
+  background-color: #ff8547;
+}
+#analysisChart .newsHotRanking .mainInfoList:nth-child(3) .indexBox {
+  background-color: #ffac38;
+}
+#analysisChart .newsHotRanking .mainInfoList .infoInputBox {
+  position: relative;
+  top: 5px;
+}
+#analysisChart .newsHotRanking .mainInfoList .mainInfo {
+  padding: 10px 0 0 5px;
+}
+#analysisChart .newsHotRanking .mainInfoList .mainInfo .infoTitle {
+  display: inline-block;
+  font-size: 16px;
+  height: 30px;
+  line-height: 30px;
+  font-weight: 700;
+  color: #34487c;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+}
+#analysisChart .newsHotRanking .mainInfoList .mainInfo .infoTitle a {
+  color: #34487c;
+}
+#analysisChart .newsHotRanking .mainInfoList .mainInfo .textContantBox {
+  font-size: 15px;
+  width: 100%;
+  margin: 10px 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  max-height: 3em;
+  line-height: 1.5em;
+  cursor: pointer;
+}
+#analysisChart .newsHotRanking .mainInfoList .mainInfo .textContantBox.textContantBoxTop {
+  color: gray;
+}
+#analysisChart .newsHotRanking .mainInfoList .mainInfo .textContantBox.textContantBoxTop span.marke-red {
+  color: gray;
+}
+#analysisChart .newsHotRanking .mainInfoList .mainInfo .textContantBox.textContantBoxBottom {
+  color: #262626;
+}
+#analysisChart .newsHotRanking .mainInfoList .mainInfo .bottomBar {
+  width: 100%;
+  height: 24px;
+  line-height: 24px;
+  font-size: 14px;
+  padding: 5px 0;
+  position: relative;
+}
+#analysisChart .newsHotRanking .mainInfoList .mainInfo .bottomBar span.pull-left + span {
+  margin-left: 20px;
+}
+#analysisChart .newsHotRanking .mainInfoList .mainInfo .bottomBar span.pull-right {
+  margin-right: 20px;
+}
+#analysisChart .newsHotRanking .mainInfoList .mainInfo .bottomBar a.linkUrl {
+  color: #21c7ce;
+}
+#analysisChart .newsHotRanking .mainInfoList .mainInfo .bottomBar span.mobileDate {
+  display: none;
+}
+#analysisChart .newsHotRanking .mainInfoList .classifyBox {
+  height: 30px;
+  width: 50px;
+  line-height: 30px;
+  text-align: center;
+  font-size: 15px;
+  color: #666;
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  border: 1px solid #ccc;
+}
+/*  --------------- display ---------------  */
+#displayBox {
+  width: 100%;
+  padding: 50px 200px 0;
+}
+#displayBox .addModalBox {
+  margin-bottom: 10px;
+}
+#displayBox table#displayTable {
+  color: #747474;
+  font-size: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.07);
+  border: 1px solid #e9eef2;
+}
+#displayBox table#displayTable th {
+  background-image: none;
+}
+#displayBox table#displayTable thead .sorting:after {
+  margin-left: 10px;
+  font-weight: 100;
+}
+#displayBox table#displayTable thead .sorting_asc:after {
+  margin-left: 10px;
+  font-weight: 100;
+}
+#displayBox table#displayTable thead .sorting_desc:after {
+  margin-left: 10px;
+  font-weight: 100;
+}
+#displayBox table#displayTable tr {
+  height: 45px;
+}
+#displayBox table#displayTable tr td {
+  vertical-align: middle;
+  padding: 7px !important;
+  text-align: center;
+}
+#displayBox table#displayTable tr td:nth-of-type(2) {
+  text-align: left;
+}
+#displayBox table#displayTable thead th {
+  background-color: #F7F7F7;
+  border-bottom: none;
+  width: 16%;
+}
+#displayBox table#displayTable thead th.textCenter {
+  text-align: center;
+}
+#displayBox table#displayTable tbody tr.even {
+  background-color: #fbfbfb;
+}
+#displayBox table#displayTable tbody tr.even th {
+  vertical-align: middle;
+}
+#displayBox table#displayTable tbody tr:hover {
+  background-color: #F4F8FE;
+}
+#displayBox table#displayTable tbody tr td.textCenter {
+  text-align: center;
+}
+#displayBox table#displayTable tbody tr td.displayTdFunc {
+  cursor: pointer;
+}
+#displayBox table#displayTable .btn-group {
+  box-shadow: none;
+}
+#displayBox .searchInputBox {
+  position: relative;
+  margin-right: 20px;
+}
+#displayBox .searchInputBox .tableSearhInput {
+  height: 30px;
+  width: 0;
+  padding: 0;
+  outline: none;
+  transition: all 0.35s ease-out;
+  background-color: transparent;
+}
+#displayBox .searchInputBox .tableSearhIcon {
+  position: absolute;
+  top: 7px;
+  left: -20px;
+  color: #acacac;
+  transition: all 0.5s ease-out;
+  font-size: 18px;
+  cursor: pointer;
+}
+#displayBox .searchInputBox .tableSearhDelIcon {
+  position: absolute;
+  top: 8px;
+  right: 6px;
+  color: #acacac;
+  display: none;
+}
+#addDisplayModal .chosen-container {
+  width: 84% !important;
+  border-radius: 5px;
+  margin-left: 33px;
+}
+#addDisplayModal .chosen-container ul.chosen-choices {
+  border-radius: 3px;
+}
+#addDisplayModal .chosen-container a.chosen-single {
+  background: none;
+  border-radius: 3px;
+  border-color: #e9e9e9;
+  background-color: #fff;
+  box-shadow: none;
+}
+#addDisplayModal .chosen-container div.chosen-drop {
+  border-color: #e9e9e9;
+}
+#addDisplayModal .chosen-container div.chosen-drop input {
+  border-color: #e9e9e9;
+}
+#addDisplayModal .modal-body {
+  width: 100%;
+}
+#addDisplayModal .modal-body .topInputBox {
+  width: 100%;
+  padding: 0 30px;
+  margin-bottom: 20px;
+}
+#addDisplayModal .modal-body .topInputBox > input[type="text"] {
+  border-radius: 3px;
+  border: 1px solid #e6e6e6;
+  height: 30px;
+  width: 84%;
+  margin-left: 33px;
+  padding: 0 5px;
+}
+#addDisplayModal .modal-body .modalSelectListBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+}
+#addDisplayModal .modal-body .modalSelectListBox .modalSelectList {
+  width: 23%;
+}
+#addDisplayModal .modal-body .modalSelectListBox .modalSelectList .file-item {
+  margin: 0;
+  background-color: #fff;
+}
+#addDisplayModal .modal-body .modalSelectListBox .modalSelectList .file-item .file-preview {
+  height: 60px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 3px;
+  background-color: #fff;
+}
+#addDisplayModal .modal-body .modalSelectListBox .modalSelectList .file-item .file-preview i {
+  font-size: 30px;
+  padding: 3px;
+  background: #fff;
+  color: #666;
+}
+#addDisplayModal .modal-body .modalSelectListBox .modalSelectList .file-item .file-preview.active i {
+  color: #01c0c8;
+}
+#addDisplayModal .modal-body .modalSelectListBox .modalSelectList .file-item .file-info {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+#addDisplayModal .modal-footer {
+  border-top: none;
+}
+#addDisplayModal .bootstrap-tagsinput {
+  background-color: #fff;
+  border-color: #cfcfcf;
+  min-height: 84px;
+  height: auto;
+}
+#addDisplayModal .bootstrap-tagsinput .label.addDisplay_tags_button {
+  margin-bottom: 0;
+  position: relative;
+  padding-right: 22px;
+}
+#addDisplayModal .bootstrap-tagsinput input {
+  min-width: 100px;
+  vertical-align: top;
+  line-height: 27px;
+}
+#addDisplayModal .bootstrap-tagsinput input::-webkit-input-placeholder {
+  color: #bbb;
+}
+#addDisplayModal .bootstrap-tagsinput .tag [data-role="remove"] {
+  font-family: 'FontAwesome';
+  font-weight: 100;
+  position: absolute;
+  top: 3px;
+  right: -3px;
+}
+#addDisplayModal .bootstrap-tagsinput .tag [data-role="remove"]::after {
+  content: "\f00d";
+}
+/*  --------------- tag ---------------  */
+#tagBox {
+  width: 100%;
+  padding: 50px 200px 0;
+  background: url('../img/analysisBg.png') no-repeat center top;
+}
+#tagBox .addModalBox {
+  margin-bottom: 10px;
+}
+#tagBox .btn i:first-child {
+  margin: 0;
+}
+#tagBox table#tagTable {
+  color: #747474;
+  font-size: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.07);
+  border: 1px solid #e9eef2;
+}
+#tagBox table#tagTable th {
+  background-image: none;
+}
+#tagBox table#tagTable thead .sorting:after {
+  margin-left: 10px;
+  font-weight: 100;
+}
+#tagBox table#tagTable thead .sorting_asc:after {
+  margin-left: 10px;
+  font-weight: 100;
+}
+#tagBox table#tagTable thead .sorting_desc:after {
+  margin-left: 10px;
+  font-weight: 100;
+}
+#tagBox table#tagTable tr {
+  height: 45px;
+}
+#tagBox table#tagTable tr td {
+  vertical-align: middle;
+  padding: 7px !important;
+}
+#tagBox table#tagTable thead th {
+  background-color: #F7F7F7;
+  border-bottom: none;
+  width: 16%;
+}
+#tagBox table#tagTable thead th.textCenter {
+  text-align: center;
+}
+#tagBox table#tagTable tbody tr.even {
+  background-color: #fbfbfb;
+}
+#tagBox table#tagTable tbody tr.even th {
+  vertical-align: middle;
+}
+#tagBox table#tagTable tbody tr:hover {
+  background-color: #F4F8FE;
+}
+#tagBox table#tagTable tbody tr td.textCenter {
+  text-align: center;
+}
+#tagBox table#tagTable .btn-group {
+  box-shadow: none;
+}
+#tagBox .searchInputBox {
+  position: relative;
+  margin-right: 20px;
+}
+#tagBox .searchInputBox .tableSearhInput {
+  height: 30px;
+  width: 0;
+  padding: 0;
+  outline: none;
+  transition: all 0.35s ease-out;
+  background-color: transparent;
+}
+#tagBox .searchInputBox .tableSearhIcon {
+  position: absolute;
+  top: 7px;
+  left: -20px;
+  color: #acacac;
+  transition: all 0.5s ease-out;
+  font-size: 18px;
+  cursor: pointer;
+}
+#tagBox .searchInputBox .tableSearhDelIcon {
+  position: absolute;
+  top: 8px;
+  right: 6px;
+  color: #acacac;
+  display: none;
+}
+/*  --------------- setting ---------------  */
+#settingBox {
+  width: 100%;
+  padding: 50px 200px 0;
+  background: url('../img/analysisBg.png') no-repeat center top;
+}
+#settingBox .addModalBox {
+  margin-bottom: 10px;
+}
+#settingBox .btn i:first-child {
+  margin: 0;
+}
+#settingBox table#settingTable {
+  color: #747474;
+  font-size: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.07);
+  border: 1px solid #e9eef2;
+}
+#settingBox table#settingTable th {
+  background-image: none;
+}
+#settingBox table#settingTable thead .sorting:after {
+  margin-left: 10px;
+  font-weight: 100;
+}
+#settingBox table#settingTable thead .sorting_asc:after {
+  margin-left: 10px;
+  font-weight: 100;
+}
+#settingBox table#settingTable thead .sorting_desc:after {
+  margin-left: 10px;
+  font-weight: 100;
+}
+#settingBox table#settingTable tr {
+  height: 45px;
+}
+#settingBox table#settingTable tr td {
+  vertical-align: middle;
+  padding: 7px !important;
+}
+#settingBox table#settingTable thead th {
+  background-color: #F7F7F7;
+  border-bottom: none;
+}
+#settingBox table#settingTable thead th.textCenter {
+  text-align: center;
+}
+#settingBox table#settingTable tbody tr.even {
+  background-color: #fbfbfb;
+}
+#settingBox table#settingTable tbody tr.even th {
+  vertical-align: middle;
+}
+#settingBox table#settingTable tbody tr:hover {
+  background-color: #F4F8FE;
+}
+#settingBox table#settingTable tbody tr td.textCenter {
+  text-align: center;
+}
+#settingBox table#settingTable .btn-group {
+  box-shadow: none;
+}
+#settingBox .searchInputBox {
+  position: relative;
+  margin-right: 20px;
+}
+#settingBox .searchInputBox .tableSearhInput {
+  height: 30px;
+  width: 0;
+  padding: 0;
+  outline: none;
+  transition: all 0.35s ease-out;
+  background-color: transparent;
+}
+#settingBox .searchInputBox .tableSearhIcon {
+  position: absolute;
+  top: 7px;
+  left: -20px;
+  color: #acacac;
+  transition: all 0.5s ease-out;
+  font-size: 18px;
+  cursor: pointer;
+}
+#settingBox .searchInputBox .tableSearhDelIcon {
+  position: absolute;
+  top: 8px;
+  right: 6px;
+  color: #acacac;
+  display: none;
+}
+#cralwerKeywordsBox {
+  width: 100%;
+  padding: 50px 200px 0;
+  background: url('../img/analysisBg.png') no-repeat center top;
+}
+#cralwerKeywordsBox .addModalBox {
+  margin-bottom: 10px;
+}
+#cralwerKeywordsBox .btn i:first-child {
+  margin: 0;
+}
+#cralwerKeywordsBox #cralwerKeywords_date {
+  width: calc(100% - 75px);
+  display: inline-block;
+}
+#cralwerKeywordsBox table#cralwerKeywordsTable {
+  color: #747474;
+  font-size: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.07);
+  border: 1px solid #e9eef2;
+}
+#cralwerKeywordsBox table#cralwerKeywordsTable th {
+  background-image: none;
+}
+#cralwerKeywordsBox table#cralwerKeywordsTable thead .sorting:after {
+  margin-left: 10px;
+  font-weight: 100;
+}
+#cralwerKeywordsBox table#cralwerKeywordsTable thead .sorting_asc:after {
+  margin-left: 10px;
+  font-weight: 100;
+}
+#cralwerKeywordsBox table#cralwerKeywordsTable thead .sorting_desc:after {
+  margin-left: 10px;
+  font-weight: 100;
+}
+#cralwerKeywordsBox table#cralwerKeywordsTable tr {
+  height: 45px;
+}
+#cralwerKeywordsBox table#cralwerKeywordsTable tr td {
+  vertical-align: middle;
+  padding: 7px !important;
+}
+#cralwerKeywordsBox table#cralwerKeywordsTable thead th {
+  background-color: #F7F7F7;
+  border-bottom: none;
+}
+#cralwerKeywordsBox table#cralwerKeywordsTable thead th.textCenter {
+  text-align: center;
+}
+#cralwerKeywordsBox table#cralwerKeywordsTable tbody tr.even {
+  background-color: #fbfbfb;
+}
+#cralwerKeywordsBox table#cralwerKeywordsTable tbody tr.even th {
+  vertical-align: middle;
+}
+#cralwerKeywordsBox table#cralwerKeywordsTable tbody tr:hover {
+  background-color: #F4F8FE;
+}
+#cralwerKeywordsBox table#cralwerKeywordsTable tbody tr td.textCenter {
+  text-align: center;
+}
+#cralwerKeywordsBox table#cralwerKeywordsTable .btn-group {
+  box-shadow: none;
+}
+#cralwerKeywordsBox .searchInputBox {
+  position: relative;
+  margin-right: 20px;
+}
+#cralwerKeywordsBox .searchInputBox .tableSearhInput {
+  height: 30px;
+  width: 0;
+  padding: 0;
+  outline: none;
+  transition: all 0.35s ease-out;
+  background-color: transparent;
+}
+#cralwerKeywordsBox .searchInputBox .tableSearhIcon {
+  position: absolute;
+  top: 7px;
+  left: -20px;
+  color: #acacac;
+  transition: all 0.5s ease-out;
+  font-size: 18px;
+  cursor: pointer;
+}
+#cralwerKeywordsBox .searchInputBox .tableSearhDelIcon {
+  position: absolute;
+  top: 8px;
+  right: 6px;
+  color: #acacac;
+  display: none;
+}
+#saveSearch .hiddenBox {
+  margin-top: 10px;
+  display: none;
+}
+#saveSearch .hiddenBox > div {
+  padding: 10px 0;
+}
+#saveSearch .checkbox input[type="checkbox"]:checked + i::after {
+  padding-right: 2px;
+}
+.mainInfoChartBox {
+  height: calc(100vh - 200px);
+}
+.mainInfoChartBox > .content-box {
+  height: calc((100% - 40px) / 3);
+  margin-bottom: 20px;
+}
+.mainInfoChartBox > .content-box > .content-content {
+  height: calc(100% - 33px);
+  position: relative;
+}
+.mainInfoChartBox > .content-box > .content-content > div {
+  height: calc(100% - 0px);
+}
+#mainInfoListBox {
+  height: calc(100vh - 250px) !important;
+}
+#analysisLayout {
+  border: none;
+  box-shadow: none;
+  background: rgba(27, 34, 38, 0.8);
+}
+#analysisLayout ul li {
+  width: 100%;
+  box-sizing: border-box;
+}
+#analysisLayout ul li span {
+  float: left;
+  width: 100%;
+  padding: 7px 0;
+  padding-left: 55px;
+}
+#analysisLayout ul li span:hover {
+  background-color: #333;
+}
+#analysisLayout ul li span a {
+  padding: 0;
+  border: 1px solid transparent;
+  text-decoration: none;
+  color: #ccc;
+  line-height: 35px;
+  display: block;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+#analysisLayout ul li span a:hover {
+  color: #c93931;
+  text-decoration: none;
+}
+.sidebar-minified #analysisLayout {
+  left: 78px;
+  width: 340px;
+  padding: 0 25px 10px;
+}
+.sidebar-minified #analysisLayout ul li {
+  width: 100%;
+  height: 45px;
+  text-align: center;
+  border-top: 1px solid #686a6b;
+  padding: 10px 0;
+  box-sizing: border-box;
+}
+.sidebar-minified #analysisLayout ul li:last-child {
+  border-bottom: none;
+}
+.sidebar-minified #analysisLayout ul li span {
+  width: 33%;
+  padding: 0;
+}
+.sidebar-minified #analysisLayout ul li span:hover {
+  background-color: transparent;
+}
+.sidebar-minified #analysisLayout ul li span a {
+  line-height: 25px;
+  font-size: 15px;
+  padding: 5px 10px;
+  display: inline;
+}
+.sidebar-minified #analysisLayout ul li span a:hover {
+  border: 1px solid #c93931;
+  border-radius: 4px;
+  color: #c93931;
+}
+.sidebar-minified .sidebar .nav li:hover > a > .title {
+  background: #1b2226;
+  top: 0;
+  left: 74px;
+  box-shadow: none;
+  color: #bac8e0;
+}
+.sidebar-minified .sidebar .nav li:hover > a > .title:hover {
+  color: #c93931;
+}
+.sidebar-minified .sidebar .nav li:hover > a > .title.hiddenTitle {
+  display: none;
+}
+.sidebar-minified #displayLayout.collapse {
+  min-width: 100px;
+  left: 79px;
+  top: 0;
+  background-color: #1b2226;
+}
+.sidebar-minified #displayLayout.collapse ul li {
+  text-align: center;
+  border-top: 1px solid #686a6b;
+  box-sizing: border-box;
+}
+.sidebar-minified #displayLayout.collapse ul li:last-child {
+  border-bottom: none;
+}
+.sidebar-minified #displayLayout.collapse ul li a {
+  text-decoration: none;
+  padding-top: 12px;
+  padding-bottom: 13px;
+}
+.sidebar-minified #settingLayout.collapse {
+  min-width: 100px;
+  left: 79px;
+  top: 0;
+  background-color: #1b2226;
+}
+.sidebar-minified #settingLayout.collapse ul li {
+  text-align: center;
+  border-top: 1px solid #686a6b;
+  box-sizing: border-box;
+}
+.sidebar-minified #settingLayout.collapse ul li:last-child {
+  border-bottom: none;
+}
+.sidebar-minified #settingLayout.collapse ul li a {
+  text-decoration: none;
+  padding-top: 12px;
+  padding-bottom: 13px;
+}
+.sidebar-minified #settingLayout.collapse ul li a span {
+  color: #bac8e0;
+}
+.xyClassFon {
+  cursor: pointer;
+  display: block;
+}
+.members-sidebar .members-group {
+  padding-bottom: 0;
+}
+.members-sidebar .members-group .form-group {
+  margin-top: 10px;
+  margin-bottom: 0;
+}

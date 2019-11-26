@@ -1,0 +1,342 @@
+Table: audience_user_info	Remarks: 报道指挥--地图受众 用户表
+---------------+----------------+------+-----+---------+---------
+ Field         | Type           | Null | Key | Default | Remarks 
+---------------+----------------+------+-----+---------+---------
+ id            | INT(10)        | NO   | PRI |         |         
+ username      | VARCHAR(255)   | YES  |     |         | 用户名     
+ mobile_phone  | VARCHAR(255)   | YES  |     |         |         
+ email         | VARCHAR(255)   | YES  |     |         |         
+ address       | VARCHAR(255)   | YES  |     |         |         
+ createtime    | DATETIME(26)   | YES  |     |         |         
+ regip         | VARCHAR(255)   | YES  |     |         |         
+ insert_time   | DATETIME(26)   | YES  |     |         |         
+ country_code  | VARCHAR(255)   | YES  |     |         | 国家标识，分析获得
+ country       | VARCHAR(255)   | YES  |     |         | 国家名 分析获得
+ city          | VARCHAR(255)   | YES  |     |         | 城市名 分析获得
+ province      | VARCHAR(255)   | YES  |     |         | 省份名 分析获得
+ lot           | DOUBLE(255,10) | YES  |     |         | 经度      
+ lat           | DOUBLE(255,10) | YES  |     |         | 纬度      
+ yh_profession | VARCHAR(255)   | YES  |     |         |         
+ profession    | INT(10)        | YES  |     |         |         
+ set           | INT(10)        | YES  |     |         | 1 男  2 女
+ birthyear     | VARCHAR(255)   | YES  |     |         |         
+ birthmonth    | VARCHAR(255)   | YES  |     |         |         
+ birthdate     | VARCHAR(255)   | YES  |     |         |         
+ inst_id       | INT(10)        | YES  |     |         | 单位id 关联manage_institution主键
+---------------+----------------+------+-----+---------+---------
+
+Table: history_dialogue
+-------------+---------------+------+-----+-------------------+---------
+ Field       | Type          | Null | Key | Default           | Remarks 
+-------------+---------------+------+-----+-------------------+---------
+ id          | INT(10)       | NO   | PRI |                   |         
+ user_id     | INT(10)       | YES  |     |                   |         
+ dtype       | INT(10)       | YES  |     |                   | 1单聊 2 群聊
+ group_id    | INT(10)       | YES  |     |                   | 群id     
+ to_user_id  | INT(10)       | YES  |     |                   |         
+ status      | INT(10)       | YES  |     |                   | 1有效     0无效 （如果注销号，此表信息也删除）
+ create_time | TIMESTAMP(26) | YES  |     | CURRENT_TIMESTAMP |         
+-------------+---------------+------+-----+-------------------+---------
+
+Table: im_action_plan
+------------+---------------+------+-----+---------+---------
+ Field      | Type          | Null | Key | Default | Remarks 
+------------+---------------+------+-----+---------+---------
+ id         | INT(10)       | NO   | PRI |         |         
+ uid        | VARCHAR(255)  | YES  |     |         | 发布者uid  
+ type       | TINYINT(3)    | YES  |     |         | 1 文本 2 图片 3视频 4文件
+ title      | VARCHAR(255)  | YES  |     |         |         
+ content    | VARCHAR(8000) | YES  |     |         |         
+ url        | VARCHAR(255)  | YES  |     |         |         
+ readstatus | TINYINT(3)    | YES  |     | 0       | 阅读状态, 1已读  0未读
+ toUser     | VARCHAR(255)  | YES  |     |         | 需要接受的用户，多个用户用逗号隔开
+ time       | TIMESTAMP(26) | YES  |     |         |         
+------------+---------------+------+-----+---------+---------
+
+Table: im_file_mange
+--------------+---------------+------+-----+-------------------+---------
+ Field        | Type          | Null | Key | Default           | Remarks 
+--------------+---------------+------+-----+-------------------+---------
+ id           | INT(10)       | NO   | PRI |                   |         
+ name         | VARCHAR(255)  | YES  |     |                   | 文件名     
+ url          | VARCHAR(255)  | YES  |     |                   |         
+ type         | INT(10)       | YES  |     |                   | 文件类型：1.doc 2.docx 3.xlsx 4 xls 5pdf 6rar 7zip 8txt  9其他
+ size         | DOUBLE(22)    | YES  |     |                   | 文件大小 单位KB
+ from_user_id | VARCHAR(255)  | YES  |     |                   | 文件发送者   
+ to_user_id   | VARCHAR(255)  | YES  |     |                   | 文件接收者   
+ time         | TIMESTAMP(26) | YES  |     | CURRENT_TIMESTAMP |         
+--------------+---------------+------+-----+-------------------+---------
+
+Table: im_history_message
+--------------+---------------+------+-----+-------------------+---------
+ Field        | Type          | Null | Key | Default           | Remarks 
+--------------+---------------+------+-----+-------------------+---------
+ id           | INT(10)       | NO   | PRI |                   |         
+ fingerPrint  | VARCHAR(150)  | NO   | PRI |                   | 指纹码，保证消息唯一避免重复
+ from_user_id | VARCHAR(11)   | YES  |     |                   | 来源用户id  
+ to_user_id   | VARCHAR(11)   | YES  |     |                   | 接收者id   
+ content      | TEXT(65535)   | YES  |     |                   |         
+ c_type       | INT(10)       | YES  |     |                   | 聊天类型：1单聊 ， 2群聊
+ utype        | INT(10)       | YES  |     |                   | 聊天内容类型：单聊：1文本  2.图片 3.语音 4.视频 5 文件
+ send_num     | INT(10)       | YES  |     |                   |         
+ send_status  | INT(10)       | YES  |     |                   | 1离线消息，0历史消息
+ status       | INT(10)       | YES  |     | 1                 | 1有效     0无效
+ source_type  | TINYINT(3)    | YES  |     |                   | 0未知  1移动端   2网页端 
+ send_time    | VARCHAR(255)  | YES  |     |                   |         
+ create_time  | TIMESTAMP(26) | YES  |     | CURRENT_TIMESTAMP |         
+--------------+---------------+------+-----+-------------------+---------
+
+Table: im_inform
+------------+---------------+------+-----+---------+---------
+ Field      | Type          | Null | Key | Default | Remarks 
+------------+---------------+------+-----+---------+---------
+ id         | INT(10)       | NO   | PRI |         |         
+ uid        | VARCHAR(255)  | YES  |     |         | 发布者uid  
+ type       | TINYINT(3)    | YES  |     |         | 1 文本 2 图片 3视频 4文件
+ title      | VARCHAR(255)  | YES  |     |         |         
+ content    | VARCHAR(8000) | YES  |     |         |         
+ url        | VARCHAR(255)  | YES  |     |         |         
+ readstatus | TINYINT(3)    | YES  |     | 0       | 阅读状态, 1已读  0未读
+ toUser     | VARCHAR(255)  | YES  |     |         | 需要接受的用户，多个用户用逗号隔开
+ time       | TIMESTAMP(26) | YES  |     |         |         
+------------+---------------+------+-----+---------+---------
+
+Table: im_offline_message
+--------------+---------------+------+-----+-------------------+---------
+ Field        | Type          | Null | Key | Default           | Remarks 
+--------------+---------------+------+-----+-------------------+---------
+ id           | INT(10)       | NO   | PRI |                   |         
+ group_id     | INT(10)       | YES  |     |                   | 群id ，如果不是群消息则 -1
+ from_user_id | INT(10)       | YES  |     |                   |         
+ to_user_id   | INT(10)       | YES  |     |                   |         
+ content      | TEXT(65535)   | YES  |     |                   |         
+ utype        | INT(10)       | YES  |     |                   | 1文本  2.图片 3.语音 4.视频 5 文件
+ status       | INT(10)       | YES  |     |                   | 1有效     0无效
+ send_time    | TIMESTAMP(26) | YES  |     |                   | 发送时间    
+ create_time  | TIMESTAMP(26) | YES  |     | CURRENT_TIMESTAMP |         
+--------------+---------------+------+-----+-------------------+---------
+
+Table: manage_depart	Remarks: 部门表
+-------------+--------------+------+-----+---------+---------
+ Field       | Type         | Null | Key | Default | Remarks 
+-------------+--------------+------+-----+---------+---------
+ dep_id      | INT(10)      | NO   | PRI |         | 自增id    
+ dep_name    | VARCHAR(255) | YES  |     |         | 部门名称    
+ inst_id     | INT(10)      | YES  |     |         | 单位id    
+ status      | INT(10)      | NO   |     | 0       | 0 正常  -1 删除
+ create_time | DATETIME(26) | YES  |     |         | 新增时间    
+ contacter   | VARCHAR(255) | YES  |     |         | 联系人     
+ address     | VARCHAR(255) | YES  |     |         | 地址      
+ tel         | VARCHAR(255) | YES  |     |         | 联系电话    
+ leader      | VARCHAR(255) | YES  |     |         | 领导      
+ email       | VARCHAR(255) | YES  |     |         | 邮箱      
+ media_id    | INT(10)      | YES  |     |         | 所属媒体    
+-------------+--------------+------+-----+---------+---------
+
+Table: manage_group
+-------------+---------------+------+-----+-------------------+---------
+ Field       | Type          | Null | Key | Default           | Remarks 
+-------------+---------------+------+-----+-------------------+---------
+ group_id    | INT(10)       | NO   | PRI |                   |         
+ group_name  | VARCHAR(255)  | NO   |     |                   | 群名      
+ icon        | VARCHAR(100)  | YES  |     |                   | 图标      
+ create_time | TIMESTAMP(26) | YES  |     | CURRENT_TIMESTAMP | 创建日期    
+ status      | INT(10)       | YES  |     | 0                 | 状态：200有效 0未成功 1解散
+ group_type  | INT(10)       | YES  |     | 1                 | 群类别  0中央控制中心 1普通聊天群  2,事件上报
+ breaker     | VARCHAR(50)   | YES  |     |                   | 解散者     
+-------------+---------------+------+-----+-------------------+---------
+
+Table: manage_group_user_task_rel
+-----------+----------------------+------+-----+---------+---------
+ Field     | Type                 | Null | Key | Default | Remarks 
+-----------+----------------------+------+-----+---------+---------
+ id        | INT(10)              | NO   | PRI |         | 自增id    
+ group_id  | INT(10)              | NO   |     |         | 群组id    
+ user_id   | INT(10)              | NO   |     |         | 用户id    
+ user_type | INT(10)              | YES  |     |         | 用户类型：1群主 2群成员
+ task_id   | INT(10)              | YES  |     |         | 选题id    
+ content   | LONGTEXT(2147483647) | YES  |     |         | 聊天内容    
+ pubtime   | DATETIME(26)         | YES  |     |         | 发布时间    
+-----------+----------------------+------+-----+---------+---------
+
+Table: manage_institution	Remarks: 机构表
+--------------+------------------+------+-----+-------------------+---------
+ Field        | Type             | Null | Key | Default           | Remarks 
+--------------+------------------+------+-----+-------------------+---------
+ id           | INT UNSIGNED(10) | NO   | PRI |                   | 单位id    
+ uuid         | VARCHAR(255)     | NO   |     |                   |         
+ name         | VARCHAR(100)     | YES  |     |                   | 单位名称    
+ system_code  | INT(10)          | NO   |     |                   |         
+ leader       | VARCHAR(100)     | YES  |     |                   | 负责人     
+ contacter    | VARCHAR(100)     | YES  |     |                   | 联系人     
+ telephone    | VARCHAR(100)     | YES  |     |                   | 电话      
+ fax          | VARCHAR(100)     | YES  |     |                   | 传真      
+ address      | VARCHAR(200)     | YES  |     |                   | 地址      
+ zip_code     | VARCHAR(200)     | YES  |     |                   | 邮编      
+ email        | VARCHAR(100)     | YES  |     |                   | 电子邮件    
+ web          | VARCHAR(100)     | YES  |     |                   | 网站      
+ note         | VARCHAR(100)     | YES  |     |                   | 备注      
+ create_time  | TIMESTAMP(26)    | YES  |     | CURRENT_TIMESTAMP | 创建时间    
+ dbIP         | VARCHAR(50)      | YES  |     |                   | 数据库IP和端口
+ dbindex      | INT(10)          | YES  |     |                   | 数据序号：对应数据库名称尾名称（也是对应industry）
+ status       | TINYINT(3)       | NO   |     | 0                 | 状态：0-正常 -1 失效
+ sprint_flag  | VARCHAR(255)     | YES  |     |                   | 对用采编系统的标识
+ caibian_host | VARCHAR(255)     | YES  |     |                   | 采编主机    
+ longitude    | DOUBLE(22)       | YES  |     | 0                 | 经度      
+ latitude     | DOUBLE(22)       | NO   |     | 0                 | 纬度      
+ app_id       | VARCHAR(50)      | YES  |     |                   | 声网app_id
+ app_secret   | VARCHAR(50)      | YES  |     |                   | 声网app_secreat
+ jpush_key    | VARCHAR(50)      | YES  |     |                   | 极光app_key
+ jpush_secret | VARCHAR(50)      | YES  |     |                   | 极光secret
+ password     | VARCHAR(255)     | YES  |     |                   |         
+ public_key   | VARCHAR(255)     | YES  |     |                   |         
+ private_key  | VARCHAR(1024)    | YES  |     |                   |         
+ tenent_id    | INT(10)          | YES  |     |                   | 组织id，对应iam的im_tenant的主键,在sso创建组织时生成
+--------------+------------------+------+-----+-------------------+---------
+
+Table: manage_media
+------------+--------------+------+-----+---------+---------
+ Field      | Type         | Null | Key | Default | Remarks 
+------------+--------------+------+-----+---------+---------
+ media_id   | INT(10)      | NO   | PRI |         | 自增id    
+ media_name | VARCHAR(255) | YES  |     |         | 媒体名称    
+ icon       | VARCHAR(500) | YES  |     |         | 媒体logo  
+ inst_id    | INT(10)      | YES  |     |         |         
+------------+--------------+------+-----+---------+---------
+
+Table: manage_perm
+-------------+--------------+------+-----+---------+---------
+ Field       | Type         | Null | Key | Default | Remarks 
+-------------+--------------+------+-----+---------+---------
+ id          | INT(10)      | NO   | PRI |         | 自增id    
+ url         | VARCHAR(100) | YES  |     |         |         
+ name        | VARCHAR(100) | YES  |     |         |         
+ name_en     | VARCHAR(100) | YES  |     |         | 英文名称    
+ name_pt     | VARCHAR(100) | YES  |     |         | 葡文名称    
+ icon        | VARCHAR(100) | YES  |     |         |         
+ pid         | INT(10)      | NO   |     |         | 父id：0-顶级节点
+ status      | TINYINT(3)   | NO   |     | 0       | 是否启用： 0，是；-1，否
+ path        | VARCHAR(100) | YES  |     |         | 访问路径    
+ parent_name | VARCHAR(100) | YES  |     |         | 父菜单名称   
+-------------+--------------+------+-----+---------+---------
+
+Table: manage_role
+----------------+---------------+------+-----+-------------------+---------
+ Field          | Type          | Null | Key | Default           | Remarks 
+----------------+---------------+------+-----+-------------------+---------
+ id             | INT(10)       | NO   | PRI |                   | 自增id    
+ name           | VARCHAR(255)  | YES  |     |                   | 角色名称    
+ level          | INT(10)       | YES  |     | 3                 | 角色级别    1，超级管理用户；2，单位管理用户；3，部门管理员；4，普通用户
+ user_id        | INT(10)       | YES  |     |                   | 操作人     
+ dep_id         | INT(10)       | YES  |     |                   | 操作人所在部门 
+ institution_id | INT(10)       | YES  |     |                   | 操作人所在单位 
+ create_time    | TIMESTAMP(26) | YES  |     | CURRENT_TIMESTAMP | 创建时间    
+ sys_type       | INT(10)       | YES  |     | 1                 | 用于不同用户在策划和移动融媒展示的模块权限 1：策划  2：移动融媒 
+----------------+---------------+------+-----+-------------------+---------
+
+Table: manage_role_perm_rel
+--------+---------+------+-----+---------+---------
+ Field  | Type    | Null | Key | Default | Remarks 
+--------+---------+------+-----+---------+---------
+ rid    | INT(10) | NO   | PRI |         | 角色id    
+ pid    | INT(10) | NO   | PRI |         | 权限id    
+ status | INT(10) | YES  |     | 0       | 0-正常  1-删除
+--------+---------+------+-----+---------+---------
+
+Table: manage_role_user_rel
+--------+---------+------+-----+---------+---------
+ Field  | Type    | Null | Key | Default | Remarks 
+--------+---------+------+-----+---------+---------
+ rid    | INT(10) | NO   | PRI |         |         
+ uid    | INT(10) | NO   | PRI |         |         
+ status | INT(10) | YES  |     | 0       | 0-正常    -1-删除
+--------+---------+------+-----+---------+---------
+
+Table: manage_user_info	Remarks: 用户信息表
+-------------+---------------+------+-----+---------------------------------+---------
+ Field       | Type          | Null | Key | Default                         | Remarks 
+-------------+---------------+------+-----+---------------------------------+---------
+ user_id     | INT(10)       | NO   | PRI |                                 |         
+ user_name   | VARCHAR(255)  | NO   |     |                                 | 用户名     
+ password    | VARCHAR(255)  | NO   |     |                                 | 密码      
+ nick_name   | VARCHAR(100)  | YES  |     |                                 | 昵称      
+ icon        | VARCHAR(100)  | YES  |     | chatsource/headicon/default.jpg | 图标      
+ dep_id      | INT(10)       | YES  |     |                                 | 账户所属的部门 
+ sex         | INT(10)       | YES  |     | 2                               | 0是女  1男   2是未知
+ email       | VARCHAR(100)  | YES  |     |                                 | 邮箱      
+ nation      | VARCHAR(100)  | YES  |     |                                 | 民族      
+ birthdate   | VARCHAR(50)   | YES  |     |                                 | 出生日期：1991-01-01
+ tel         | VARCHAR(50)   | YES  |     |                                 | 电话      
+ create_time | TIMESTAMP(26) | YES  |     | CURRENT_TIMESTAMP               | 创建日期    
+ status      | INT(10)       | YES  |     | 1                               | 状态：0，无效；1，有效
+ token       | VARCHAR(300)  | YES  |     |                                 |         
+ longitude   | DOUBLE(22)    | YES  |     | 0                               | 经度      
+ latitude    | DOUBLE(22)    | YES  |     | 0                               | 纬度      
+ pushToken   | VARCHAR(300)  | YES  |     |                                 |         
+ update_time | TIMESTAMP(26) | YES  |     |                                 |         
+ sort        | TINYINT(3)    | NO   |     | 0                               |         
+ error_times | INT(10)       | YES  |     |                                 | 登录时输入错误次数，大于5次则冻结，status字段值为0
+ lock_time   | DATETIME(26)  | YES  |     |                                 | 账号冻结时间  
+ app_status  | INT(10)       | YES  |     | 0                               | 判断当前用户是否打开应用
+-------------+---------------+------+-----+---------------------------------+---------
+
+Table: manage_user_info_copy1	Remarks: 用户信息表
+-------------+---------------+------+-----+-------------------+---------
+ Field       | Type          | Null | Key | Default           | Remarks 
+-------------+---------------+------+-----+-------------------+---------
+ user_id     | INT(10)       | NO   | PRI |                   |         
+ user_name   | VARCHAR(255)  | NO   |     |                   | 用户名     
+ password    | VARCHAR(255)  | NO   |     |                   | 密码      
+ nick_name   | VARCHAR(100)  | YES  |     |                   | 昵称      
+ icon        | VARCHAR(100)  | YES  |     |                   | 图标      
+ dep_id      | INT(10)       | YES  |     |                   | 账户所属的部门 
+ sex         | INT(10)       | YES  |     | 2                 | 0是女  1男   2是未知
+ email       | VARCHAR(100)  | YES  |     |                   | 邮箱      
+ nation      | VARCHAR(100)  | YES  |     |                   | 民族      
+ birthdate   | VARCHAR(50)   | YES  |     |                   | 出生日期：1991-01-01
+ tel         | VARCHAR(50)   | YES  |     |                   | 电话      
+ create_time | TIMESTAMP(26) | YES  |     | CURRENT_TIMESTAMP | 创建日期    
+ status      | INT(10)       | YES  |     | 1                 | 状态：0，无效；1，有效
+ token       | VARCHAR(300)  | YES  |     |                   |         
+ longitude   | DOUBLE(22)    | YES  |     | 0                 | 经度      
+ latitude    | DOUBLE(22)    | YES  |     | 0                 | 纬度      
+ pushToken   | VARCHAR(300)  | YES  |     |                   |         
+ update_time | TIMESTAMP(26) | YES  |     |                   |         
+ media_id    | INT(10)       | YES  |     |                   |         
+ sort        | TINYINT(3)    | NO   |     | 0                 |         
+ error_times | INT(10)       | YES  |     |                   | 登录时输入错误次数，大于5次则冻结，status字段值为0
+ lock_time   | DATETIME(26)  | YES  |     |                   | 账号冻结时间  
+-------------+---------------+------+-----+-------------------+---------
+
+Table: manager_user_record	Remarks: 日志表
+----------------+----------------------+------+-----+-------------------+---------
+ Field          | Type                 | Null | Key | Default           | Remarks 
+----------------+----------------------+------+-----+-------------------+---------
+ id             | INT(10)              | NO   | PRI |                   | 主键id    
+ uid            | INT(10)              | NO   |     |                   | 用户id    
+ username       | VARCHAR(255)         | YES  |     |                   | 用户名     
+ action         | VARCHAR(255)         | YES  |     |                   | 动作  比如：登录，检索，查看，删除等
+ address        | VARCHAR(255)         | YES  |     |                   | 地址： 例如：大数据资源池管理> 系统配置管理> 部门管理
+ ip             | VARCHAR(255)         | YES  |     |                   | 登录ip    
+ browser        | VARCHAR(255)         | YES  |     |                   | 浏览器和版本  
+ mac            | VARCHAR(255)         | YES  |     |                   | 电脑mac地址 
+ duration       | VARCHAR(255)         | YES  |     |                   | 时长,指停留时长
+ status         | INT(10)              | YES  |     | 1                 | 0 无效  1有效
+ cation_content | VARCHAR(255)         | YES  |     |                   | 动作内容    
+ insert_time    | TIMESTAMP(26)        | YES  |     | CURRENT_TIMESTAMP | 插入时间    
+ remarks        | LONGTEXT(2147483647) | YES  |     |                   | 备注      
+ updateUserid   | INT(10)              | YES  |     |                   | 操作用户id  
+ updateUserName | VARCHAR(100)         | YES  |     |                   | 操作用户名称  
+ updateTime     | DATETIME(26)         | YES  |     |                   | 更新时间    
+----------------+----------------------+------+-----+-------------------+---------
+
+Table: media_store_info	Remarks: 调用媒资库地址信息
+-------------+--------------+------+-----+---------+---------
+ Field       | Type         | Null | Key | Default | Remarks 
+-------------+--------------+------+-----+---------+---------
+ id          | INT(10)      | NO   | PRI |         | id      
+ inst_id     | INT(10)      | YES  |     |         | 机构id    
+ url         | VARCHAR(255) | YES  |     |         | 媒资库调用地址 
+ resourceUrl | VARCHAR(255) | YES  |     |         | 资源的访问地址 
+-------------+--------------+------+-----+---------+---------
+

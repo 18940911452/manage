@@ -1,0 +1,29 @@
+.iframe-box,.config-box{
+	height: 100vh;
+	overflow: auto;
+	
+}
+.iframe-box{
+	overflow: hidden;
+	padding: 0;
+}
+.config-box>.ibox{
+	margin-bottom: 25px;
+	/* padding-bottom: 10px; */
+	/* border-bottom: 1px solid #999; */
+}
+.config-box>.ibox>h4{
+	font-weight: 600;
+}
+iframe{
+	width: 1920px;
+	width: 3840px;
+	height: 1080px;
+	border: 0;
+}
+#app>#my_dock_manager {
+   z-index: initial
+}
+#moduleBox button{
+	margin-right: 6px;
+}

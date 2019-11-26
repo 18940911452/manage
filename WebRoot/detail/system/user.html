@@ -1,0 +1,235 @@
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    <span class="user userTitle">添加用户信息</span>
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="metadata_modal user">
+                    <div class="metadata_form">
+                        <h3>用户名称：</h3>
+                        <p><input type="text" class="form-control userName" ><span class="cr">*</span></p>
+                    </div>
+                    <div class="metadata_form">
+                        <h3>真实姓名：</h3>
+                        <p><input type="text" class="form-control nameV"><span class="cr">*</span></p>
+                    </div>
+                    <div class="metadata_form">
+                        <h3>电话：</h3>
+                        <p><input type="text" class="form-control phoneV"><span class="cr">*</span></p>
+                    </div>
+                    <div class="metadata_form">
+                        <h3>邮件：</h3>
+                        <p><input type="text" class="form-control emailV"></p>
+                    </div>
+<!--                     <div class="metadata_form"> -->
+<!--                         <h3>单位：</h3> -->
+<!--                         <p> -->
+<!--                             <select name="" id="select_company" class="form-control" onchange="companyC()"></select><span class="cr">*</span> -->
+<!--                         </p> -->
+<!--                     </div> -->
+                    <div class="metadata_form">
+                        <h3>所属机构：</h3>
+                        <p>
+                            <!-- <select name="" id="select_media" class="form-control" onchange="changeMedia()"> -->
+                            <select id="selectjg1" class="form-control"></select>
+                            <span class="cr">*</span>
+                        </p>
+                    </div>
+                    <div class="metadata_form">
+                        <h3>所属媒体：</h3>
+                        <p>
+                            <select name="" id="select_media1" class="form-control" onchange="changeMedia(this)">
+                            </select><span class="cr">*</span>
+                        </p>
+                    </div>
+                    <div class="metadata_form">
+                        <h3>部门：</h3>
+                        <p>
+                            <select name="" id="select_department1" class="form-control">
+                            </select><span class="cr">*</span>
+                        </p>
+                    </div>
+                    <div class="metadata_form">
+                        <h3>角色：</h3>
+                        <p><select name="" id="select_role1" class="form-control">
+                            
+                        </select><span class="cr">*</span></p>
+                    </div>
+                    <div class="metadata_form cm_hide" hidden>
+                        <h3>u_key：</h3>
+                        <p>
+                            <select name="" id="select_u_key" class="form-control"></select>
+                        </p>
+                    </div>
+                    <div class="c"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="confirmBtn">
+                    确定
+                </button>
+                <input type="text" class="hidden_id" hidden>
+                <button type="button" class="btn btn-default closeBtn" data-dismiss="modal">关闭
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+     $.post("system/mod1/findInstitution",function ( data ) {
+        var str = ''
+        data.forEach( function ( v , i) {
+            str += "<option id="+v.id+">"+v.name+"</option>"
+        })
+        $("#selectjg1").html(str);
+        $("#selectjg1").unbind().change(function () {
+            var id= $('#selectjg1 option:selected').attr("id")?$('#selectjg1 option:selected').attr("id"):"";
+            $.post("system/mod1/findMediaByInsId",{insId:id},function ( info ) {
+            var str = "<option id=''></option>";
+                info.data.forEach( function ( v , i) {
+                    str += "<option id="+v.media_id+">"+v.media_name+"</option>"
+                })
+                $("#select_media1").html(str);
+            })
+            var url = "";
+
+            var jgid = $('#selectjg1 option:selected').attr("id");
+            $.post("system/mod1/findDepartByInsIdPlus", {"insId":jgid}, function(data) {
+                var datas = data.data;
+                var str = "";
+                console.log(data);
+                if(datas[0]) {
+                    for (var i = 0; i < datas.length; i++) {
+                        str += "<option value='" + datas[i].depId + "'>" + datas[i].dep +
+                            "</option>";
+                    }
+                }
+                $("#select_department1").html(str);
+            });
+        })
+        var sId = $("#selectjg1").find("option").eq(0).attr("id");
+        $.post("system/mod1/findMediaByInsId",{insId:sId},function ( info ) {
+                var str = "<option id=''></option>";
+                info.data.forEach( function ( v , i) {
+                    str += "<option id="+v.media_id+">"+v.media_name+"</option>"
+                })
+                $("#select_media1").html(str);
+                $("#select_department1").empty();
+                var param = {};
+                var mediaId = $('#select_media1 option').attr("id");
+                var jgid = $('#selectjg1 option:selected').attr("id");
+                var url = "";
+                if(mediaId) {
+                    param.mediaId = mediaId;
+                    url = "system/mod1/findDepartByMediaId";
+                }else {
+                    param.insId = jgid;
+                    url = "system/mod1/findDepartByInsIdPlus";
+                }
+                $.post(url, param, function(data) {
+                    var datas = data.data;
+                    var str = "";
+                    if(datas[0].dep_id) {
+                        for (var i = 0; i < datas.length; i++) {
+                            str += "<option value='" + datas[i].dep_id + "'>" + datas[i].dep_name +
+                                "</option>";
+                        }
+                    }else {
+                        for (var i = 0; i < datas.length; i++) {
+                            str += "<option value='" + datas[i].depId + "'>" + datas[i].dep +
+                                "</option>";
+                        }
+                    }
+                    $("#select_department1").html(str);
+                });
+        })
+    })
+    $("#confirmBtn").unbind("click").click(function(){
+        
+        var data_type = $(".hidden_id").attr("data_type");
+        if(data_type == "0"){
+            /*修改*/
+            var userName = $.trim($(".userName").val());
+            var nameV = $.trim($(".nameV").val());
+            var passwordV = $.trim($(".passwordV").val());
+            var phoneV = $.trim($(".phoneV").val());
+            var emailV = $.trim($(".emailV").val());
+            var select_company = $("#select_company").val();
+            // var select_media = $("#select_media").val();
+            var select_department = $("#select_department1 option:selected").attr("value")
+            var insId = $("#selectjg1 option:selected").attr("id")
+            var mediaId = $("#select_media1 option:selected").attr("id")
+            var roleId = $("#select_role1 option:selected").attr("value")
+            // var select_role = $("#select_role").val();
+            var select_u_key = $("#select_u_key").val();
+            var id = $.trim($(".hidden_id").val());
+			
+			var phone_re=/^(?:13\d|15\d|18\d)\d{5}(\d{3}|\*{3})$/;
+			var mail_re=/^([a-zA-Z0-9_\.\-])+\@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/g;
+			if(phoneV != "" && !phone_re.test(phoneV)){
+				alert("您的手机格式不正确");
+				return false;
+			} 
+			if(emailV != "" && !mail_re.test(emailV)){
+				alert("您的邮箱格式不正确");
+				return false;
+			}
+            var option = {
+                "id":id,
+                "username":userName,
+                "roleId":roleId,
+                "password":passwordV,
+                "uk_id":select_u_key,
+                "personName":nameV,
+                "email":emailV,
+                "tel":phoneV,
+                "inst_id":select_company,
+                "mediaId":mediaId,
+                "insId":insId,
+                "dep_id":select_department
+            };
+            var optionJ =JSON.stringify(option);
+            if(userName ==""){
+                alert("用户名称不能为空！")
+            }else if(nameV ==""){
+                alert("真实姓名不能为空！")
+            }else if(phoneV ==""){
+                alert("电话不能为空！")
+            }else{
+            	$.ajax({
+			         type : "post", 
+			         url : "system/mod1/editUser", 
+			         dataType : "json",
+			         data: option,
+			         success : function(data){ 
+			        	 if(data.massage == "success"){
+			        		 addUserAction(editUser.action,editUser.action_content,userName);
+		                        alert("修改成功！");
+		                        load_yonghu_list();
+		                    }else{
+                                alert("修改失败！");
+                            }
+			         } 
+			     }); 
+                $("#myModal").modal("hide");
+            }
+        }else if(data_type=="1"){
+            /*添加*/
+            addUser();
+        }
+
+
+    })
+    
+    
+</script>
+
+
+

@@ -1,0 +1,68 @@
+<ul>
+<#if mInfoList?exists&&(mInfoList?size>0)>	
+	<#list mInfoList as mi>
+		<input type="hidden" id="hidden_input" class="page_data" data-total="${total}"/>
+		
+		<li class="bb1px p010px">
+            <p class="h34">
+            	<span class="left_span_i"><i class="fa fa-caret-right activeSpanI" onclick="changeSH(this)"></i></span>
+                <span class="spanSty0106"><span>案件基本信息</span></span>
+            </p>
+            <div id="jibenxx" class="h64p mat10">
+                <h4>
+	            	<span class="span_h20">案件编号</span>
+	            	<span class="span_h20">案件名称</span>
+	            	<span class="span_h20">接案时间</span>
+	            	<span class="span_h20"> 查获时间</span>
+	            	<span class="span_h10">案件类型</span>
+	            	<span class="span_h10">案件详情</span>
+	            </h4>
+	            <p>
+	                <span class="span_h20"><#if mi.AJBH??>${mi.AJBH}</#if></span>
+	                <marquee class="span_h20" direction=left  scrolldelay=\"1\" title="${mi.AJMC}"><#if mi.AJMC??>${mi.AJMC}</#if></marquee>
+	                <span class="span_h20"><#if mi.JARQ??>${mi.JARQ}</#if></span>
+	                <span class="span_h20"><#if mi.CHRQ??>${mi.CHRQ}</#if></span>
+	                <span class="span_h10"><#if mi.AJLX??>${mi.AJLX}</#if></span>
+	                <#if mi.JYAQ??>
+	                	<span class="span_h10"><i class="fa fa-navicon cp" dataT="${mi.JYAQ}" onclick="see_detail(this)" title="详情"></i></span>
+	                	<#else>
+	                		<span class="span_h10"><i class="fa fa-navicon cp" onclick="see_detail(this)" title="详情"></i></span>
+	                		</#if>
+	            </p>
+            </div>
+            <ul id="ul_dispaly" class="cm_hide" >
+            	<li class="first">
+            		<p class="h34 p5l38"><span class="left_span_i left_span02"></span>案件材料</p>
+            		<div>
+            			<p class="tac bd1 color1 pbd">结构化</p>
+            		</div>
+            		<div>
+            			<p class="tac bd1 color1 pbd">非结构化</p>
+            		</div>
+            	</li>
+		        <li class="second">
+		        	<p class="h34 p5l38"><span class="left_span_i left_span02"></span>案件要素</p>
+		        	<#if mi.YSXYR??>
+		        		<p class="h34 p5l38"><span class="w120p">人员：</span><#if mi.YSXYR??>${mi.YSXYR}</#if></p>
+		        		<#else>
+		        			<p></p>
+		        	</#if>
+		        	<#if mi.YSQYMC??>
+		        		<p class="h34 p5l38"><span class="w120p">企业：</span><#if mi.YSQYMC??>${mi.YSQYMC}</#if></p>
+		        	</#if>
+		        	<#if mi.YSGJ??>
+		        		<p class="h34 p5l38"><span class="w120p">运输工具：</span><#if mi.YSGJ??>${mi.YSGJ}</#if></p>
+		        	</#if>
+		        	
+		        </li>
+        	</ul>
+        </li>
+	</#list>
+<#else>
+	
+<script>
+	$("#ul_list_li").html("<img src='../../images/zanwu.png' class=\"imgStyle2\">")
+</script>
+</#if>
+
+</ul>

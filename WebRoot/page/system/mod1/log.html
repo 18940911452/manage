@@ -1,0 +1,70 @@
+<div class="dataflow_con col-md-12 c m mt10">
+	<div class="bd2">
+		<div class="metadata_weizhi">
+			<p class="nav-top-title">
+				<!--                 <span class="yijiname">大数据资源池管理</span><em class="arrow_one">&gt;</em> -->
+				<!--                 <span class="erjiname">系统配置管理</span><em class="arrow_two">&gt;</em> -->
+				<span class="sanjiname">操作日志</span>
+			</p>
+		</div>
+		<div class="col-md-12 dataflow_bg1 pt10">
+			<div>
+				<div class="col-md-10">
+
+				</div>
+				<div class="col-md-12 service_add tarb  h35">
+					<input id="searchIpt" type="text" placeholder="请输入查询条件..." style="width: 250px;height: 31px;line-height: 31px;color: #000;border-radius: 5px;"/>
+					<span id="searchBtn" style="background-color: #009ae2;color: #fff;padding: 5px 15px;border-radius: 5px;cursor: pointer;">搜索</span>
+				</div>
+			</div>
+			<div class="col-md-12 mth10 p0">
+				<div id="department" class="metadata_list c m bk">
+					<h3>
+						<span class="service_w20 hf">用户名</span>
+						<span class="service_w20 hf">动作</span>
+						<span class="service_w20 hf">动作内容</span>
+						<span class="service_w20 hf">ip地址</span>
+						<span class="service_w20 hf">操作时间</span>
+					</h3>
+					<ul class="c m" id="log_list">
+						<!--<li>
+                        <span class="service_w25">实体抽取服务</span>
+                        <span class="service_w25">192.168.10.25</span>
+                        <span class="service_w25">2018-08-17  12:01:01</span>
+                        <span class="service_w25"><i class="fa fa-edit"></i><i class="fa fa-trash"></i></span>
+                    </li>-->
+
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+
+	/*列表*/
+	load_log_list();
+
+	function load_log_list() {
+		var option = new Object();
+		option.param = {
+			'path': "/dynamic/log_list.html"
+		};
+		option.pageNo = 1;
+		option.pageSize = 10;
+		option.callback = function() {
+
+		};
+		var obj = new iPage.PageLoad("log_list", "action/getInfoAction?searchKey=" + $('#searchIpt').val(), option);
+		obj.init();
+		//         addUserActionRecord('管理系统首页>系统配置管理 ','查询','查询系统配置管理下部门管理字段');
+	}
+
+
+	/*搜索按钮*/
+	$("#searchBtn").unbind("click").click(function() {
+		load_log_list();
+	});
+
+
+</script>

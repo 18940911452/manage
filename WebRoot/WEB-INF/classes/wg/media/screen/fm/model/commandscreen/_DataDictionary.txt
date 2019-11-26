@@ -1,0 +1,559 @@
+Table: app_version	Remarks: app版本表
+--------------+---------------+------+-----+-------------------+---------
+ Field        | Type          | Null | Key | Default           | Remarks 
+--------------+---------------+------+-----+-------------------+---------
+ auto_id      | INT(10)       | NO   | PRI |                   |         
+ app_version  | VARCHAR(100)  | YES  |     |                   | APP版本号  
+ app_path     | VARCHAR(400)  | YES  |     |                   | apk访问路径 
+ note         | VARCHAR(1000) | YES  |     |                   | 备注      
+ insert_time  | TIMESTAMP(26) | YES  |     | CURRENT_TIMESTAMP | 插入时间    
+ type         | INT(10)       | YES  |     |                   | 1:ios   2:andriod
+ iosUpdate    | VARCHAR(255)  | YES  |     | NO                | ios是否强制更新
+ iosMsg       | VARCHAR(255)  | YES  |     |                   | ios更新提示 
+ version_code | INT(10)       | YES  |     |                   | andriod版本更新code值
+--------------+---------------+------+-----+-------------------+---------
+
+Table: application_setting
+-----------+--------------+------+-----+---------+---------
+ Field     | Type         | Null | Key | Default | Remarks 
+-----------+--------------+------+-----+---------+---------
+ id        | INT(10)      | NO   | PRI |         | 主键      
+ app_key   | VARCHAR(255) | YES  |     |         | 配置键值    
+ app_value | VARCHAR(255) | YES  |     |         | 配置值     
+ status    | INT(10)      | YES  |     |         | 开关，默认值为1（0 关闭，1 开启）
+ app_desc  | VARCHAR(255) | YES  |     |         | 描述      
+-----------+--------------+------+-----+---------+---------
+
+Table: archive_file
+----------------+--------------+------+-----+---------+---------
+ Field          | Type         | Null | Key | Default | Remarks 
+----------------+--------------+------+-----+---------+---------
+ file_id        | INT(10)      | NO   | PRI |         | 主键      
+ file_name      | VARCHAR(255) | YES  |     |         | 文件名称    
+ data_type      | VARCHAR(255) | YES  |     |         | 文件类型1图片 2其他 3视频
+ file_desc      | VARCHAR(255) | YES  |     |         | 文件描述（冗余）
+ file_path      | VARCHAR(255) | YES  |     |         | 上传路径    
+ create_psn_id  | VARCHAR(255) | YES  |     |         | 上传人     
+ create_time    | DATETIME(26) | YES  |     |         | 上传时间    
+ file_size      | DOUBLE(11)   | YES  |     |         | 文件大小 kb 
+ file_ext       | VARCHAR(10)  | YES  |     |         | 文件后缀    
+ content_type   | VARCHAR(255) | YES  |     |         | 文件类型    
+ thumbnail_path | VARCHAR(255) | YES  |     |         | 缩略图路径   
+----------------+--------------+------+-----+---------+---------
+
+Table: business_file_relation
+-----------+--------------+------+-----+---------+---------
+ Field     | Type         | Null | Key | Default | Remarks 
+-----------+--------------+------+-----+---------+---------
+ file_id   | INT(10)      | NO   |     |         | 文件id    
+ data_id   | INT(10)      | YES  |     |         | 业务数据主键  
+ data_type | VARCHAR(255) | YES  |     |         | 业务类型 1任务，2稿件，3素材，4选题，5策划方案，6竞品分析
+ id        | INT(10)      | NO   | PRI |         | 关系表主键   
+-----------+--------------+------+-----+---------+---------
+
+Table: compilatio_spread	Remarks: 报道指挥大屏- 采编发模块--互动量数据
+---------+--------------+------+-----+---------+---------
+ Field   | Type         | Null | Key | Default | Remarks 
+---------+--------------+------+-----+---------+---------
+ id      | INT(10)      | NO   | PRI |         | 主键id    
+ name    | VARCHAR(255) | YES  |     |         | 传播效果名称，如网站发布量，微信阅读量等
+ num     | VARCHAR(20)  | YES  |     |         |         
+ inst_id | INT(10)      | YES  |     |         | 单位id 关联manage_institution主键
+---------+--------------+------+-----+---------+---------
+
+Table: const_dictionary	Remarks: 字典常量表
+----------------+--------------+------+-----+---------+---------
+ Field          | Type         | Null | Key | Default | Remarks 
+----------------+--------------+------+-----+---------+---------
+ id             | INT(10)      | NO   | PRI |         | 字典表主键   
+ category       | VARCHAR(255) | YES  |     |         | 常量类别    
+ category_code  | VARCHAR(255) | YES  |     |         | 类别代码    
+ category_name  | VARCHAR(255) | YES  |     |         | 类别名称    
+ category_value | VARCHAR(10)  | YES  |     |         | 类别对应的值（冗余）
+ seq_no         | INT(10)      | YES  |     |         | 排序      
+----------------+--------------+------+-----+---------+---------
+
+Table: draft
+------------------------+--------------+------+-----+---------+---------
+ Field                  | Type         | Null | Key | Default | Remarks 
+------------------------+--------------+------+-----+---------+---------
+ d_id                   | INT(10)      | NO   | PRI |         | 自增id    
+ draft_name             | VARCHAR(500) | YES  |     |         | 稿件名     
+ draft_theme            | VARCHAR(500) | YES  |     |         | 稿件主题    
+ draft_content          | TEXT(65535)  | YES  |     |         | 稿件内容    
+ belong_to_media        | VARCHAR(255) | YES  |     |         | 所属媒体    
+ upload_time            | DATETIME(26) | YES  |     |         | 上传时间    
+ draft_type             | VARCHAR(2)   | YES  |     |         | 稿件类型 (1：文字类型，2：视频类型，3：url类型）
+ draft_status           | VARCHAR(255) | YES  |     |         | 稿件状态 2：待审核 1：审核通过 0：已驳回 3：转审
+ updatetime             | DATETIME(26) | YES  |     |         | 更新时间    
+ draft_path             | VARCHAR(255) | YES  |     |         | 稿件路径    
+ draft_publish_platform | VARCHAR(255) | YES  |     |         | 发布平台    
+ auditor                | VARCHAR(255) | YES  |     |         | 审核人     
+ belong_to_topic        | VARCHAR(255) | YES  |     |         | 所属选题    
+ upload_person          | INT(10)      | YES  |     |         | 上传人     
+ url                    | VARCHAR(200) | YES  |     |         | url类型的链接
+ is_send                | INT(10)      | YES  |     |         | 终审通过稿件是否推送给云迹 0未推送，1已推送
+ version                | INT(10)      | YES  |     |         | 稿件版本    
+------------------------+--------------+------+-----+---------+---------
+
+Table: draft_relation
+---------------+--------------+------+-----+---------+---------
+ Field         | Type         | Null | Key | Default | Remarks 
+---------------+--------------+------+-----+---------+---------
+ d_id          | INT(10)      | NO   | PRI |         | 自增ID    
+ draft_id      | INT(10)      | YES  |     |         | 稿件id    
+ auditor       | VARCHAR(255) | YES  |     |         | 审核人     
+ audit_time    | DATETIME(26) | YES  |     |         | 审核时间    
+ audit_opinion | VARCHAR(255) | YES  |     |         | 审核意见    
+ audit_status  | VARCHAR(255) | YES  |     |         | 状态      
+ commit_psn_id | INT(10)      | YES  |     |         | 提交人     
+ commit_time   | DATETIME(26) | YES  |     |         | 提交时间    
+---------------+--------------+------+-----+---------+---------
+
+Table: im_feedback	Remarks: 掌上融媒意见反馈表
+-------------+---------------+------+-----+---------+---------
+ Field       | Type          | Null | Key | Default | Remarks 
+-------------+---------------+------+-----+---------+---------
+ id          | INT(10)       | NO   | PRI |         |         
+ content     | VARCHAR(1000) | YES  |     |         | 反馈内容    
+ user_id     | INT(10)       | YES  |     |         | 用户id    
+ tell        | VARCHAR(11)   | YES  |     |         | 手机号     
+ inster_time | DATETIME(26)  | YES  |     |         | 添加时间    
+-------------+---------------+------+-----+---------+---------
+
+Table: interview_plan	Remarks: 任务模块，采访计划详情
+-------------+---------------+------+-----+---------+---------
+ Field       | Type          | Null | Key | Default | Remarks 
+-------------+---------------+------+-----+---------+---------
+ id          | INT(10)       | NO   | PRI |         | 主键      
+ task_id     | INT(10)       | YES  |     |         | 任务主键    
+ content     | VARCHAR(1000) | YES  |     |         | 采访内容    
+ status      | INT(10)       | YES  |     |         | 0未完成 1已完成
+ create_time | DATETIME(26)  | YES  |     |         | 创建时间    
+-------------+---------------+------+-----+---------+---------
+
+Table: manage_client_video	Remarks: 报道指挥大屏-媒体具体-客户端图片与视频
+-------------+--------------+------+-----+---------+---------
+ Field       | Type         | Null | Key | Default | Remarks 
+-------------+--------------+------+-----+---------+---------
+ auto_id     | BIGINT(19)   | NO   | PRI |         |         
+ link        | VARCHAR(255) | YES  |     |         | 链接地址    
+ description | VARCHAR(255) | YES  |     |         | 描述      
+ type        | TINYINT(3)   | YES  |     |         | 类型,1-客户端轮播图片,2-本地视频 3-直播流
+ status      | TINYINT(3)   | NO   |     | 1       | 1-正常,0-已失效
+ inst_id     | BIGINT(19)   | YES  |     |         | 单位id 关联manage_institution主键
+-------------+--------------+------+-----+---------+---------
+
+Table: manage_media_matrix	Remarks: 报道指挥大屏-媒体矩阵---微信微博矩阵
+-------------+--------------+------+-----+---------+---------
+ Field       | Type         | Null | Key | Default | Remarks 
+-------------+--------------+------+-----+---------+---------
+ auto_id     | BIGINT(19)   | NO   | PRI |         |         
+ name        | VARCHAR(255) | YES  |     |         | 名称      
+ uid         | VARCHAR(255) | YES  |     |         | 资源标识,比如微信公众号,微博链接
+ icon        | VARCHAR(255) | YES  |     |         | 图片在服务器上位置
+ description | VARCHAR(500) | YES  |     |         | 描述      
+ type        | TINYINT(3)   | YES  |     | 1       | 类型,1-微信,2-微博
+ status      | BIT(1)       | YES  |     | 1       | 1-正常,0-已失效
+ sort        | INT(10)      | YES  |     | 0       | 排序,值越大越靠前
+ inst_id     | BIGINT(19)   | YES  |     |         | 单位id 关联manage_institution主键
+-------------+--------------+------+-----+---------+---------
+
+Table: meeting	Remarks: 会议表
+---------------------+--------------+------+-----+---------+---------
+ Field               | Type         | Null | Key | Default | Remarks 
+---------------------+--------------+------+-----+---------+---------
+ m_id                | INT(10)      | NO   | PRI |         | 会议id    
+ meeting_name        | VARCHAR(255) | YES  |     |         | 会议名称    
+ meeting_content     | VARCHAR(255) | YES  |     |         | 会议内容    
+ meeting_place       | VARCHAR(255) | YES  |     |         | 会议地点    
+ meeting_participant | VARCHAR(255) | YES  |     |         | 会议成员    
+ start_date          | DATE(10)     | YES  |     |         | 会议开始时间（yyyy-mm-dd）
+ end_date            | DATE(10)     | YES  |     |         | 会议结束时间（yyyy-mm-dd）
+ meeting_year        | INT(10)      | YES  |     |         | 会议时间具体年份
+ meeting_month       | VARCHAR(2)   | YES  |     |         | 会议时间月份  
+ meeting_day         | VARCHAR(2)   | YES  |     |         | 会议时间具体某天
+ start_time          | VARCHAR(20)  | YES  |     |         | 开始时间（hh:mm）
+ end_time            | VARCHAR(20)  | YES  |     |         | 结束时间（hh:mm）
+ meeting_creator     | VARCHAR(255) | YES  |     |         | 创建人     
+ belong_to_topic     | VARCHAR(255) | YES  |     |         | 所属选题    
+ source_id           | INT(10)      | YES  |     |         | 素材主键（关联会议纪要类型的素材）
+---------------------+--------------+------+-----+---------+---------
+
+Table: meeting_member	Remarks: 会议参与人表
+-----------------+--------------+------+-----+---------+---------
+ Field           | Type         | Null | Key | Default | Remarks 
+-----------------+--------------+------+-----+---------+---------
+ id              | INT(10)      | NO   | PRI |         | 会议参与人表的主键
+ m_id            | INT(10)      | YES  |     |         | 会议id    
+ member_psn_id   | INT(10)      | YES  |     |         | 参会人员id  
+ member_psn_name | VARCHAR(255) | YES  |     |         | 参会人名称   
+ is_principal    | INT(10)      | YES  |     |         | 是否负责人 1负责人 0参会人
+ seq_no          | INT(10)      | YES  |     |         | 排序      
+-----------------+--------------+------+-----+---------+---------
+
+Table: notice
+--------------------+---------------+------+-----+---------+---------
+ Field              | Type          | Null | Key | Default | Remarks 
+--------------------+---------------+------+-----+---------+---------
+ n_id               | INT(10)       | NO   | PRI |         | 自增id    
+ notice_name        | VARCHAR(500)  | YES  |     |         | 名称      
+ notice_desc        | VARCHAR(4000) | YES  |     |         | 描述      
+ notice_participant | VARCHAR(255)  | YES  |     |         | 参与人     
+ notice_principal   | VARCHAR(255)  | YES  |     |         | 负责人     
+ notice_level       | VARCHAR(255)  | YES  |     |         | 级别      
+ notice_status      | VARCHAR(255)  | YES  |     |         | 状态      
+ notice_days        | VARCHAR(255)  | YES  |     |         | 公示天数    
+ belong_to_topic    | VARCHAR(255)  | YES  |     |         | 所属选题    
+ createtime         | DATETIME(26)  | YES  |     |         | 创建时间    
+ updatetime         | DATETIME(26)  | YES  |     |         | 更新时间    
+--------------------+---------------+------+-----+---------+---------
+
+Table: notice_comments	Remarks: 公告评论表（项目验收需要，简单设计。若真正要用该功能，应该需要优化）
+-----------------+--------------+------+-----+---------+---------
+ Field           | Type         | Null | Key | Default | Remarks 
+-----------------+--------------+------+-----+---------+---------
+ id              | INT(10)      | NO   | PRI |         | 主键      
+ comments_psn_id | INT(10)      | YES  |     |         | 评论人id   
+ content         | VARCHAR(500) | YES  |     |         | 评论内容    
+ notice_id       | INT(10)      | YES  |     |         | 公告id    
+ create_time     | DATETIME(26) | YES  |     |         | 创建时间    
+-----------------+--------------+------+-----+---------+---------
+
+Table: notice_comments_reply	Remarks: 公告评论回复表
+--------------+--------------+------+-----+---------+---------
+ Field        | Type         | Null | Key | Default | Remarks 
+--------------+--------------+------+-----+---------+---------
+ id           | INT(10)      | NO   | PRI |         | 主键      
+ comments_id  | INT(10)      | YES  |     |         | 评论表id   
+ reply_psn_id | INT(10)      | YES  |     |         | 回复人Id   
+ content      | VARCHAR(500) | YES  |     |         | 回复内容    
+ create_time  | DATETIME(26) | YES  |     |         | 回复时间    
+--------------+--------------+------+-----+---------+---------
+
+Table: notice_data
+-------------------------+--------------+------+-----+---------+---------
+ Field                   | Type         | Null | Key | Default | Remarks 
+-------------------------+--------------+------+-----+---------+---------
+ n_id                    | INT(10)      | NO   | PRI |         | 自增id    
+ notice_data_title       | VARCHAR(255) | YES  |     |         | 标题      
+ notice_data_content     | VARCHAR(255) | YES  |     |         | 内容      
+ createtime              | DATETIME(26) | YES  |     |         | 发布时间    
+ notice_data_participant | VARCHAR(255) | YES  |     |         | 参与人     
+ notice_data_creator     | VARCHAR(255) | YES  |     |         | 发布人     
+ notice_data_status      | VARCHAR(255) | YES  |     |         | 状态      
+ updatetime              | DATETIME(26) | YES  |     |         | 更新时间    
+-------------------------+--------------+------+-----+---------+---------
+
+Table: notice_log
+-----------------+--------------+------+-----+---------+---------
+ Field           | Type         | Null | Key | Default | Remarks 
+-----------------+--------------+------+-----+---------+---------
+ n_id            | INT(10)      | NO   | PRI |         | 通知日志表id 
+ read_person     | VARCHAR(255) | YES  |     |         | 查看人员    
+ belong_to_topic | VARCHAR(255) | YES  |     |         | 所属选题    
+ status          | VARCHAR(255) | YES  |     |         | 状态      
+ createtime      | DATETIME(26) | YES  |     |         | 创建时间    
+ notice_id       | INT(10)      | YES  |     |         | 关联日志id  
+ read_time       | DATETIME(26) | YES  |     |         | 查看时间    
+-----------------+--------------+------+-----+---------+---------
+
+Table: notice_member	Remarks: 通知成员表
+-----------------+--------------+------+-----+---------+---------
+ Field           | Type         | Null | Key | Default | Remarks 
+-----------------+--------------+------+-----+---------+---------
+ id              | INT(10)      | NO   | PRI |         | 主键      
+ notice_id       | INT(10)      | YES  |     |         | 通知id    
+ member_psn_id   | INT(10)      | YES  |     |         | 参与人员id  
+ member_psn_name | VARCHAR(255) | YES  |     |         | 参与人名称   
+ is_principal    | INT(10)      | YES  |     |         | 是否负责人 1负责人 0参会人
+ seq_no          | INT(10)      | YES  |     |         | 排序      
+-----------------+--------------+------+-----+---------+---------
+
+Table: notification_information	Remarks: 登录通知信息表
+---------+--------------+------+-----+---------+---------
+ Field   | Type         | Null | Key | Default | Remarks 
+---------+--------------+------+-----+---------+---------
+ id      | INT(10)      | NO   | PRI |         | 主键      
+ user_id | INT(10)      | YES  |     |         | 通知人员id  
+ content | VARCHAR(500) | YES  |     |         | 通知内容    
+ status  | INT(10)      | YES  |     |         | 状态 0未读 1已读
+---------+--------------+------+-----+---------+---------
+
+Table: open_config	Remarks: 系统用户对应调用模块配置
+-----------------+---------------------+------+-----+-------------------+---------
+ Field           | Type                | Null | Key | Default           | Remarks 
+-----------------+---------------------+------+-----+-------------------+---------
+ auto_id         | BIGINT UNSIGNED(20) | NO   | PRI |                   |         
+ sub_system_name | VARCHAR(255)        | YES  |     |                   | 子系统系统名  
+ system_code     | INT(10)             | YES  |     |                   | 不同用户大屏系统代码对应manage_institution
+ app_id          | VARCHAR(255)        | NO   |     |                   | 对应子系统的用户id
+ app_secret      | VARCHAR(255)        | YES  |     |                   | 对应子系统的加密后代码
+ token_url       | VARCHAR(255)        | NO   |     |                   | 获取token的url链接地址
+ insert_time     | TIMESTAMP(26)       | YES  |     | CURRENT_TIMESTAMP | 插入时间    
+ status          | TINYINT(3)          | YES  |     | 1                 | 记录状态：0失效 1有效
+-----------------+---------------------+------+-----+-------------------+---------
+
+Table: open_invoke_info	Remarks: 接口信息配置
+-------------+---------------------+------+-----+-------------------+---------
+ Field       | Type                | Null | Key | Default           | Remarks 
+-------------+---------------------+------+-----+-------------------+---------
+ auto_id     | BIGINT UNSIGNED(20) | NO   | PRI |                   |         
+ sys_name    | VARCHAR(255)        | YES  |     |                   |         
+ method_name | VARCHAR(255)        | YES  |     |                   | 方法名     
+ invoke_url  | VARCHAR(1024)       | YES  |     |                   |         
+ name        | VARCHAR(255)        | YES  |     |                   | 接口名     
+ param       | VARCHAR(1024)       | YES  |     |                   | 请求参数    
+ inser_time  | TIMESTAMP(26)       | YES  |     | CURRENT_TIMESTAMP |         
+ status      | TINYINT(3)          | YES  |     | 1                 | 状态 0失效，1有效
+-------------+---------------------+------+-----+-------------------+---------
+
+Table: open_layout	Remarks: 系统用户大屏布局
+-------------+----------------------+------+-----+-------------------+---------
+ Field       | Type                 | Null | Key | Default           | Remarks 
+-------------+----------------------+------+-----+-------------------+---------
+ auto_id     | BIGINT UNSIGNED(20)  | NO   | PRI |                   | 主键      
+ name        | VARCHAR(255)         | YES  |     |                   | 名称      
+ inst_id     | BIGINT(19)           | YES  |     |                   | 单位id 关联manage_institution主键
+ layout      | MEDIUMTEXT(16777215) | NO   |     |                   | 布局对象    
+ status      | TINYINT(3)           | NO   |     | 1                 | 状态：0失效，1有效
+ insert_time | TIMESTAMP(26)        | YES  |     | CURRENT_TIMESTAMP | 插入时间    
+-------------+----------------------+------+-----+-------------------+---------
+
+Table: open_module
+-------------+--------------+------+-----+-------------------+---------
+ Field       | Type         | Null | Key | Default           | Remarks 
+-------------+--------------+------+-----+-------------------+---------
+ auto_id     | BIGINT(19)   | NO   | PRI |                   |         
+ id          | VARCHAR(255) | YES  |     |                   |         
+ name        | VARCHAR(255) | YES  |     |                   |         
+ text        | VARCHAR(255) | YES  |     |                   |         
+ url         | VARCHAR(255) | YES  |     |                   |         
+ dataApiUrl  | VARCHAR(255) | YES  |     |                   |         
+ insert_time | DATETIME(26) | YES  |     | CURRENT_TIMESTAMP |         
+-------------+--------------+------+-----+-------------------+---------
+
+Table: open_ref_user_invoke	Remarks: 用户接口调用表
+----------------+---------------------+------+-----+---------+---------
+ Field          | Type                | Null | Key | Default | Remarks 
+----------------+---------------------+------+-----+---------+---------
+ auto_id        | BIGINT UNSIGNED(20) | NO   | PRI |         |         
+ inst_id        | INT(10)             | YES  |     |         | 单位id 关联manage_institution主键
+ open_invoke_id | BIGINT(19)          | YES  |     |         | 接口id    
+ requestParam   | VARCHAR(1024)       | YES  |     |         | 请求参数    
+ type           | TINYINT(3)          | YES  |     | 1       |         
+ note           | VARCHAR(255)        | YES  |     |         |         
+----------------+---------------------+------+-----+---------+---------
+
+Table: planning_scheme
+-----------------+--------------+------+-----+---------+---------
+ Field           | Type         | Null | Key | Default | Remarks 
+-----------------+--------------+------+-----+---------+---------
+ p_id            | INT(10)      | NO   | PRI |         | 策划方案主键  
+ scheme_name     | VARCHAR(500) | YES  |     |         | 策划方案名字  
+ scheme_content  | TEXT(65535)  | YES  |     |         | 策划方案内容  
+ belong_to_media | VARCHAR(255) | YES  |     |         | 所属媒体    
+ upload_time     | DATETIME(26) | YES  |     |         | 上传时间    
+ upload_person   | VARCHAR(255) | YES  |     |         | 上传人     
+ scheme_type     | VARCHAR(255) | YES  |     |         | 方案类型 (1：文字类型，2：url类型）
+ scheme_status   | VARCHAR(255) | YES  |     |         | 方案状态 2：待审核 1：审核通过 0：已驳回 3：转审
+ updatetime      | DATETIME(26) | YES  |     |         | 更新时间    
+ scheme_path     | VARCHAR(255) | YES  |     |         | 存放路径    
+ auditor         | VARCHAR(255) | YES  |     |         | 审核人     
+ belong_to_topic | VARCHAR(255) | YES  |     |         | 所属选题    
+ download_count  | INT(10)      | YES  |     |         | 下载量     
+ url             | VARCHAR(200) | YES  |     |         | url类型的链接
+-----------------+--------------+------+-----+---------+---------
+
+Table: products_analysis	Remarks: 精品分析
+-------------+--------------+------+-----+---------+---------
+ Field       | Type         | Null | Key | Default | Remarks 
+-------------+--------------+------+-----+---------+---------
+ id          | INT(10)      | NO   | PRI |         | 主键      
+ ins_name    | VARCHAR(200) | YES  |     |         | 单位名称    
+ ins_id      | INT(10)      | YES  |     |         | 单位主键，关联用户中心单位表主键
+ media_id    | INT(10)      | YES  |     |         | 媒体主键，根据单位id匹配用户中心媒体表
+ media_name  | VARCHAR(200) | YES  |     |         | 媒体名称    
+ create_time | DATETIME(26) | YES  |     |         | 创建时间    
+-------------+--------------+------+-----+---------+---------
+
+Table: red_dot
+-----------------+--------------+------+-----+---------+---------
+ Field           | Type         | Null | Key | Default | Remarks 
+-----------------+--------------+------+-----+---------+---------
+ id              | INT(10)      | NO   | PRI |         | 主键（信息提醒阅读表）
+ create_psn_id   | INT(10)      | YES  |     |         | 创建人id   
+ receive_psn_id  | INT(10)      | YES  |     |         | 接收人id   
+ data_type       | INT(10)      | YES  |     |         | 业务类型 1会议 2 任务 3 稿件审核 4 公告
+ data_id         | INT(10)      | YES  |     |         | 业务主键    
+ status          | INT(10)      | YES  |     |         | 0 未读 1已读
+ read_time       | DATETIME(26) | YES  |     |         | 阅览时间    
+ belong_to_topic | INT(10)      | YES  |     |         | 选题id    
+-----------------+--------------+------+-----+---------+---------
+
+Table: scene
+---------------+--------------+------+-----+---------+---------
+ Field         | Type         | Null | Key | Default | Remarks 
+---------------+--------------+------+-----+---------+---------
+ s_id          | INT(10)      | NO   | PRI |         | 场景id    
+ scene_name    | VARCHAR(255) | YES  |     |         | 场景名称    
+ create_time   | DATETIME(26) | YES  |     |         | 创建时间    
+ url           | VARCHAR(255) | YES  |     |         | url（有闻海提供）
+ create_psn_id | INT(10)      | YES  |     |         | 创建人     
+ type          | VARCHAR(255) | YES  |     |         | 场景类型    
+---------------+--------------+------+-----+---------+---------
+
+Table: scheme_relation
+---------------+--------------+------+-----+---------+---------
+ Field         | Type         | Null | Key | Default | Remarks 
+---------------+--------------+------+-----+---------+---------
+ s_id          | INT(10)      | NO   | PRI |         | 策划方案审核发布关联表主键
+ scheme_id     | INT(10)      | YES  |     |         | 策划方案主键  
+ auditor       | VARCHAR(255) | YES  |     |         | 审核人     
+ audit_time    | DATETIME(26) | YES  |     |         | 审核时间    
+ audit_status  | VARCHAR(255) | YES  |     |         | 状态      
+ audit_opinion | VARCHAR(255) | YES  |     |         | 审核意见    
+ commit_psn_id | INT(10)      | YES  |     |         |         
+ commit_time   | DATETIME(26) | YES  |     |         |         
+---------------+--------------+------+-----+---------+---------
+
+Table: source
+-----------------+---------------+------+-----+---------+---------
+ Field           | Type          | Null | Key | Default | Remarks 
+-----------------+---------------+------+-----+---------+---------
+ s_id            | INT(10)       | NO   | PRI |         | 自增id    
+ source_name     | VARCHAR(500)  | YES  |     |         | 名称      
+ upload_time     | DATETIME(26)  | YES  |     |         | 上传时间    
+ source_type     | VARCHAR(255)  | YES  |     |         | 类别      
+ source_path     | VARCHAR(255)  | YES  |     |         | 存放路径    
+ upload_person   | VARCHAR(255)  | YES  |     |         | 上传人员    
+ source_desc     | VARCHAR(4000) | YES  |     |         | 素材描述    
+ source_status   | VARCHAR(255)  | YES  |     |         | 状态      
+ belong_to_topic | VARCHAR(255)  | YES  |     |         | 所属选题    
+ belong_to_media | VARCHAR(255)  | YES  |     |         | 所属媒体    
+ source_label    | VARCHAR(100)  | YES  |     |         | 标签      
+ read            | INT(10)       | YES  |     |         | 阅读量     
+ download        | INT(10)       | YES  |     |         | 下载量     
+ is_push         | INT(10)       | YES  |     | 0       | 是否已推送到采编 0：未推送  1：已推送 2：推送失败3:不推送
+-----------------+---------------+------+-----+---------+---------
+
+Table: task	Remarks: 任务表
+------------------+---------------+------+-----+-------------------+---------
+ Field            | Type          | Null | Key | Default           | Remarks 
+------------------+---------------+------+-----+-------------------+---------
+ t_id             | INT(10)       | NO   | PRI |                   | 自增id    
+ task_title       | VARCHAR(500)  | YES  |     |                   | 任务标题    
+ updatetime       | DATETIME(26)  | YES  |     |                   | 更新时间    
+ task_description | VARCHAR(4000) | YES  |     |                   | 任务内容    
+ task_creator     | VARCHAR(255)  | YES  |     |                   | 创建人     
+ task_principal   | VARCHAR(255)  | YES  |     |                   | 负责人     
+ task_participant | VARCHAR(255)  | YES  |     |                   | 参与人     
+ task_progress    | VARCHAR(255)  | YES  |     |                   |  任务进度   
+ task_startTime   | TIMESTAMP(26) | YES  |     |                   | 任务开始时间  
+ create_time      | TIMESTAMP(26) | YES  |     | CURRENT_TIMESTAMP | 创建时间    
+ task_status      | VARCHAR(255)  | YES  |     |                   | 状态 已完成1，未完成0
+ belong_to_topic  | VARCHAR(255)  | YES  |     |                   | 所属选题    
+ task_endTime     | DATETIME(26)  | YES  |     |                   | 任务结束时间  
+ task_level       | VARCHAR(10)   | YES  |     |                   | 等级  （高，中，低）
+ media_id         | INT(10)       | YES  |     |                   | 所属媒体    
+ remark           | VARCHAR(255)  | YES  |     |                   | 备注      
+ delay_status     | INT(10)       | YES  |     |                   | 0正常 1申请延期，待审核 2 延期中 3退回
+------------------+---------------+------+-----+-------------------+---------
+
+Table: task_log	Remarks: 任务进度表
+------------------+---------------+------+-----+-------------------+---------
+ Field            | Type          | Null | Key | Default           | Remarks 
+------------------+---------------+------+-----+-------------------+---------
+ t_id             | INT(10)       | NO   | PRI |                   | 自增id    
+ task_id          | INT(10)       | YES  |     |                   | 任务id    
+ personal_id      | INT(10)       | YES  |     |                   | 人员id    
+ personal_type    | VARCHAR(255)  | YES  |     |                   | 人员类型    
+ operational_desc | VARCHAR(4000) | YES  |     |                   | 任务操作描述  
+ update_time      | TIMESTAMP(26) | YES  |     | CURRENT_TIMESTAMP | 更新时间    
+ createtime       | DATETIME(26)  | YES  |     |                   | 创建时间    
+ enclosure_name   | VARCHAR(255)  | YES  |     |                   | 任务操作日志附件
+ enclosure_path   | VARCHAR(255)  | YES  |     |                   | 任务操作日志附件路径
+ file_id          | INT(10)       | YES  |     |                   | 文件id    
+ pro_type         | INT(10)       | YES  |     |                   | 任务阶段类型，对应字段表，7是默认操作日志类型
+------------------+---------------+------+-----+-------------------+---------
+
+Table: task_member
+-----------------+--------------+------+-----+---------+---------
+ Field           | Type         | Null | Key | Default | Remarks 
+-----------------+--------------+------+-----+---------+---------
+ id              | INT(10)      | NO   | PRI |         | 任务参与人表的主键
+ t_id            | INT(10)      | YES  |     |         | 任务id    
+ member_psn_id   | INT(10)      | YES  |     |         | 参与人员id  
+ member_psn_name | VARCHAR(255) | YES  |     |         | 参与人名称   
+ is_principal    | INT(10)      | YES  |     |         | 是否负责人 1负责人 0参会人
+ seq_no          | INT(10)      | YES  |     |         | 排序      
+-----------------+--------------+------+-----+---------+---------
+
+Table: task_process_progress	Remarks: 任务阶段进度表
+----------------+--------------+------+-----+---------+---------
+ Field          | Type         | Null | Key | Default | Remarks 
+----------------+--------------+------+-----+---------+---------
+ id             | INT(10)      | NO   | PRI |         | 主键      
+ task_id        | INT(10)      | YES  |     |         | 任务主键    
+ pro_code       | VARCHAR(10)  | YES  |     |         | 阶段code  
+ pro_name       | VARCHAR(100) | YES  |     |         | 阶段名称(具体常量看const_dictionary)
+ pro_progress   | VARCHAR(3)   | YES  |     |         | 阶段进度    
+ total_progress | VARCHAR(3)   | YES  |     |         | 总进度，即阶段进度*占比
+----------------+--------------+------+-----+---------+---------
+
+Table: topic	Remarks: 主题表
+-------------------+---------------+------+-----+-------------------+---------
+ Field             | Type          | Null | Key | Default           | Remarks 
+-------------------+---------------+------+-----+-------------------+---------
+ t_id              | INT(10)       | NO   | PRI |                   | 自增id    
+ topic_name        | VARCHAR(200)  | YES  |     |                   | 名称      
+ topic_creator     | VARCHAR(255)  | YES  |     |                   | 创建人     
+ topic_principal   | VARCHAR(255)  | YES  |     |                   | 负责人     
+ topic_participant | VARCHAR(1025) | YES  |     |                   | 参与人     
+ belong_to_media   | VARCHAR(255)  | YES  |     |                   | 所属媒体    
+ keyword           | VARCHAR(255)  | YES  |     |                   | 关键词：用#号间隔
+ createtime        | DATETIME(26)  | YES  |     |                   | 创建时间    
+ topic_label       | VARCHAR(255)  | YES  |     |                   | 选题标签    
+ topic_desc        | VARCHAR(4000) | YES  |     |                   | 选题描述    
+ scene_id          | VARCHAR(255)  | YES  |     |                   | 场景id    
+ topic_enclosure   | VARCHAR(255)  | YES  |     |                   | 选题素材    
+ start_time        | DATETIME(26)  | YES  |     |                   | 开始时间    
+ end_time          | DATETIME(26)  | YES  |     |                   | 结束时间    
+ status            | INT(10)       | YES  |     |                   | 状态 1.进行中，2.完成， 3延期
+ update_time       | TIMESTAMP(26) | YES  |     | CURRENT_TIMESTAMP |         
+ inst_id           | INT(10)       | YES  |     |                   | 单位id 关联manage_institution主键
+-------------------+---------------+------+-----+-------------------+---------
+
+Table: topic_member
+-----------------+--------------+------+-----+---------+---------
+ Field           | Type         | Null | Key | Default | Remarks 
+-----------------+--------------+------+-----+---------+---------
+ id              | INT(10)      | NO   | PRI |         | 选题参与人表的主键
+ m_id            | INT(10)      | YES  |     |         | 选题id    
+ member_psn_id   | INT(10)      | YES  |     |         | 选题参与人员id
+ member_psn_name | VARCHAR(255) | YES  |     |         | 选题参与人名称 
+ is_principal    | INT(10)      | YES  |     |         | 是否负责人 1负责人 0参会人
+ seq_no          | INT(10)      | YES  |     |         | 排序      
+-----------------+--------------+------+-----+---------+---------
+
+Table: umeng
+-------------------------+--------------+------+-----+---------+---------
+ Field                   | Type         | Null | Key | Default | Remarks 
+-------------------------+--------------+------+-----+---------+---------
+ id                      | INT(10)      | NO   | PRI |         |         
+ name                    | VARCHAR(255) | YES  |     |         | app名称   
+ android_appkey          | VARCHAR(255) | YES  |     |         |         
+ android_appMasterSecret | VARCHAR(255) | YES  |     |         |         
+ ios_appkey              | VARCHAR(255) | YES  |     |         |         
+ ios_appMasterSecret     | VARCHAR(255) | YES  |     |         |         
+ status                  | INT(10)      | NO   |     | 0       | 是否可用 0:不可用 1:可用
+ insert_time             | DATETIME(26) | YES  |     |         | 添加时间    
+ app_info_id             | INT(10)      | YES  |     |         | 关联app_info
+ android_alias           | VARCHAR(200) | YES  |     |         | 安卓别名(单播)
+ ios_alias               | VARCHAR(200) | YES  |     |         | ios别名(单播)
+ android_path            | VARCHAR(255) | YES  |     |         | 安卓包路径   
+ ios_path                | VARCHAR(255) | YES  |     |         | ios包路径  
+ android_custom          | VARCHAR(255) | YES  |     |         | 安卓自定义行为 
+ ios_custom              | VARCHAR(255) | YES  |     |         | ios自定义行为
+-------------------------+--------------+------+-----+---------+---------
+

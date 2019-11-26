@@ -1,0 +1,366 @@
+<div class="formData">
+	<div class="col-md-12"style="padding: 0;">
+		
+	
+	  <!--<div class="form-group">
+	    <label for="exampleInputName2">任务类别：</label>
+	    <select  class="form-control" >
+	    	<option>全部</option>
+	    	<option>进行中</option>
+	    </select>
+	  </div>-->
+	  <div class="col-md-3" style="padding-left: 0;">
+	  	<div class="form-group clearfix" style="padding-left: 0;">
+		    <label for="exampleInputEmail2" style="line-height: 34px;">任务名称：</label>
+		    <input type="text" class="form-control" id="exampleInputEmail2" style="width: calc(100% - 80px);float: right;" placeholder="输入任务名称进行查询">
+		  </div>
+	  </div>
+	  <button type="button" class="btn btn-primary" id="subMitBtn">查询</button>
+	  <button type="button" class="btn btn-primary addList" >+</button>
+	</div>
+	<div id="tableListAll"></div>
+</div>
+
+<!-- 详情 -->
+<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document" style="width: 40%;">
+    <div class="modal-content">
+      <div class="modal-header modalBack">
+      	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">查看任务</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+        	<div class="col-md-12 seeList">
+        		<div class="col-md-3 seeName">
+        			任务名称：
+        		</div>
+        		<div class="col-md-9 seeText title">
+        		</div>
+        	</div>
+        	<div class="col-md-12 seeList">
+        		<div class="col-md-3 seeName">
+        			任务描述：
+        		</div>
+        		<div class="col-md-9 seeText task_desc">
+        		</div>
+        	</div>
+        	<div class="col-md-12 seeList">
+        		<div class="col-md-3 seeName">
+        			任务主题：
+        		</div>
+        		<div class="col-md-9 seeText top_arr">
+        			
+        		</div>
+        	</div>
+        	<div class="col-md-12 seeList">
+        		<div class="col-md-3 seeName">
+        			任务进度：
+        		</div>
+        		<div class="col-md-9 seeText">
+        			<div class="jinduBox">
+        				<div class="jinduT">60%</div>
+        			</div>
+        		</div>
+        	</div>
+        	<div class="col-md-12 seeList">
+        		<div class="col-md-3 seeName">
+        			负责人：
+        		</div>
+        		<div class="col-md-9 seeText principal">
+        			<ul class="clearfix paddingLeft">
+        			</ul>
+        		</div>
+        	</div>
+        	<div class="col-md-12 seeList">
+        		<div class="col-md-3 seeName">
+        			参与人员：
+        		</div>
+        		<div class="col-md-9 seeText participant">
+        			<ul class="clearfix paddingLeft">
+        			</ul>
+        		</div>
+        	</div>
+        	<!--<div class="col-md-12 seeList">
+        		<div class="col-md-3 seeName">
+        			附件：
+        		</div>
+        		<div class="col-md-9 seeText">
+        			<div class="seeTexjddd">
+        				项目需求说明
+        			</div>
+        		</div>
+        	</div>-->
+        	<div class="col-md-12 seeList">
+        		<div class="col-md-3 seeName">
+        			开始时间：
+        		</div>
+        		<div class="col-md-9 seeText start_time">
+        			
+        		</div>
+        	</div>
+        	<div class="col-md-12 seeList">
+        		<div class="col-md-3 seeName">
+        			任务跟踪进度：
+        		</div>
+        		<div class="col-md-9 seeText">
+        			<div class="tableJind">
+        				
+        			</div>
+        		</div>
+        	</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 编辑 -->
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document" style="width: 40%;">
+    <div class="modal-content">
+      <div class="modal-header modalBack" style="background: #c93931;background-size: 100% 100%;background-repeat: no-repeat;color: white;font-size: 16px;">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">编辑任务</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+        	<div class="col-md-12 seeList">
+        		<div class="col-md-3 seeName">
+        			<span class="redColor">*</span>任务名称：
+        		</div>
+        		<div class="col-md-9 seeText">
+        			<input type="text" class="form-control title"  value="" />
+        		</div>
+        	</div>
+        	<div class="col-md-12 seeList">
+        		<div class="col-md-3 seeName">
+        			任务描述：
+        		</div>
+        		<div class="col-md-9 seeText">
+        			<textarea class="form-control task_desc" rows="3"></textarea>
+        		</div>
+        	</div>
+        	<div class="col-md-12 seeList">
+        		<div class="col-md-3 seeName">
+        			<span class="redColor">*</span>任务主题：
+        		</div>
+        		<div class="col-md-9">
+        			<div class="tagsinput-primary form-group">
+					    <input name="tagsinput" class="tagsinputval"  class="tagsinput" data-role="tagsinput" placeholder="输入后回车">
+					    <div class="tagsinputBox">
+					    	<ul>
+					    	</ul>
+					    </div>
+					</div>
+        		</div>
+        	</div>
+        	<div class="col-md-12 seeList">
+        		<div class="col-md-3 seeName">
+        			<span class="redColor">*</span>开始时间：
+        		</div>
+        		<div class="col-md-9 seeText ">
+        			<input type="" name="" class="form-control" id="start_time" style="width: 50%;" readonly value="" />
+        		</div>
+        	</div>
+        	<div class="col-md-12 seeList">
+        		<div class="col-md-3 seeName">
+        			任务进度：
+        		</div>
+        		<div class="col-md-9">
+					<div class="scale_panel">
+						<div class="scale" id="bar3">
+							<div id="title3"></div>
+							<span id="btn3"></span>
+						</div> 
+					</div> 
+						
+        		</div>
+        	</div>
+        	<div class="col-md-12 seeList">
+        		<div class="col-md-3 seeName">
+        			进度描述：
+        		</div>
+        		<div class="col-md-9 seeText">
+        			<input type="text" class="form-control task_miao"  value="" />
+        		</div>
+        	</div>
+        	<div class="col-md-12 seeList">
+        		<div class="col-md-3 seeName">
+        			<span class="redColor">*</span>负责人：
+        		</div>
+        		<div class="col-md-9 seeText participantBox">
+        			<div class="col-md-1 addProp paddingLeft principallist">
+        				<button type="button" class="btn btn-primary addPropBtn ">+</button>
+        				<div class="addPropList">
+        					<ul class="clearfix paddingLeft">
+        					</ul>
+        				</div>
+        			</div>
+        			<div class="col-md-10 principal">
+        				<ul class="clearfix paddingLeft"></ul>
+        			</div>
+        		</div>
+        	</div>
+        	<div class="col-md-12 seeList">
+        		<div class="col-md-3 seeName">
+        			<span class="redColor">*</span>参与人员：
+        		</div>
+        		<div class="col-md-9 seeText participantBox">
+        			<div class="col-md-1 addProp paddingLeft participantlist">
+        				<button type="button" class="btn btn-primary addPropBtn ">+</button>
+        				<div class="addPropList">
+        					<ul class="clearfix paddingLeft">
+        					</ul>
+        				</div>
+        			</div>
+        			<div class="col-md-10 participant">
+        				<ul class="clearfix paddingLeft"></ul>
+        			</div>
+        		</div>
+        	</div>
+        	<!--<div class="col-md-12 seeList">
+        		<div class="col-md-3 seeName">
+        			附件：
+        		</div>
+        		<div class="col-md-9 seeText">
+        			<div class="seeTexjddd fileLoadBox">
+        				<div class="seeTexjddd file-loading" style="max-width: 200px;">
+        				<input type="file" class="" name="input-ficons-1[]" id="upload_file" multiple />
+        			</div>
+        				<ul class="fileBox">
+        				</ul>
+        			</div>
+        		</div>
+        	</div>-->
+        </div>
+      </div>
+      <div class="modal-footer"style="text-align: center;margin:15px 0;padding: 6px 150px;">
+        <button type="button" class="btn btn-primary btnSuccess" >确认提交</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 添加 -->
+<div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document" style="width: 40%;">
+    <div class="modal-content">
+      <div class="modal-header modalBack" style="background: #c93931;background-size: 100% 100%;background-repeat: no-repeat;color: white;font-size: 16px;">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">添加任务</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+        	<div class="col-md-12 seeList">
+        		<div class="col-md-3 seeName">
+        			<span class="redColor">*</span>任务名称：
+        		</div>
+        		<div class="col-md-9 seeText">
+        			<input type="text" class="form-control title"  value="" />
+        		</div>
+        	</div>
+        	<div class="col-md-12 seeList">
+        		<div class="col-md-3 seeName">
+        			任务描述：
+        		</div>
+        		<div class="col-md-9 seeText">
+        			<textarea class="form-control task_desc" rows="3"></textarea>
+        		</div>
+        	</div>
+        	<div class="col-md-12 seeList">
+        		<div class="col-md-3 seeName">
+        			<span class="redColor">*</span>任务主题：
+        		</div>
+        		<div class="col-md-9 ">
+        			<div class="tagsinput-primary form-group">
+					    <input name="tagsinput" class="tagsinputval" id="tagsinputval" class="tagsinput" data-role="tagsinput" placeholder="输入后回车">
+					    <div class="tagsinputBox">
+					    	<ul>
+					    	</ul>
+					    </div>
+					</div>
+        		</div>
+        	</div>
+        	<div class="col-md-12 seeList">
+        		<div class="col-md-3 seeName">
+        			<span class="redColor">*</span>开始时间：
+        		</div>
+        		<div class="col-md-9 seeText ">
+        			<input type="" name="" class="form-control" id="start_time2" style="width: 50%;" readonly value="" />
+        		</div>
+        	</div>
+        	<div class="col-md-12 seeList">
+        		<div class="col-md-3 seeName">
+        			任务进度：
+        		</div>
+        		<div class="col-md-9">
+					<div class="scale_panel">
+						<div class="scale" id="bar2">
+							<div id="title2"></div>
+							<span id="btn2"></span>
+						</div> 
+					</div> 
+						
+        		</div>
+        	</div>
+        	<div class="col-md-12 seeList">
+        		<div class="col-md-3 seeName">
+        			进度描述：
+        		</div>
+        		<div class="col-md-9 seeText">
+        			<input type="text" class="form-control task_miao" value="" />
+        		</div>
+        	</div>
+        	<div class="col-md-12 seeList">
+        		<div class="col-md-3 seeName">
+        			<span class="redColor">*</span>负责人：
+        		</div>
+        		<div class="col-md-9 seeText participantBox ">
+        			<div class="col-md-1 addProp paddingLeft principallist">
+        				<button type="button" class="btn btn-primary addPropBtn ">+</button>
+        				<div class="addPropList">
+        					<ul class="clearfix paddingLeft">
+        					</ul>
+        				</div>
+        			</div>
+        			<div class="col-md-10 principal">
+        				<ul class="clearfix paddingLeft"></ul>
+        			</div>
+        		</div>
+        	</div>
+        	<div class="col-md-12 seeList">
+        		<div class="col-md-3 seeName">
+        			<span class="redColor">*</span>参与人员：
+        		</div>
+        		<div class="col-md-9 seeText participantBox">
+        			<div class="col-md-1 addProp paddingLeft ">
+        				<button type="button" class="btn btn-primary addPropBtn ">+</button>
+        				<div class="addPropList">
+        					<ul class="clearfix paddingLeft">
+        					</ul>
+        				</div>
+        			</div>
+        			<div class="col-md-10 participant">
+        				<ul class="clearfix paddingLeft"></ul>
+        			</div>
+        		</div>
+        	</div>
+        	<!--<div class="col-md-12 seeList">
+        		<div class="col-md-3 seeName">
+        			附件：
+        		</div>
+        		<div class="col-md-9 seeText">
+        			<div class="seeTexjddd file-loading" style="max-width: 200px;">
+        				<input type="file" class="" name="input-ficons-1[]" id="upload_file2" multiple />
+        			</div>
+        		</div>
+        	</div>-->
+        </div>
+      </div>
+      <div class="modal-footer" style="text-align: center;margin:15px 0;padding: 6px 150px;">
+        <button type="button" class="btn btn-primary btnSuccess2" >确认提交</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="js/tableList1.js"></script>

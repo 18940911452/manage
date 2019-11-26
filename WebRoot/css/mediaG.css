@@ -1,0 +1,124 @@
+.listBoxXy li{list-style: none;cursor: pointer;}
+.content_::-webkit-scrollbar{width: 0;background: #000;}
+.listBoxXy li span{color: #fff;display: inline-block;line-height: 36px;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;height: 36px;
+margin-right: 3%;}
+.listBoxXy li span:nth-last-of-type(1){margin-right: 0;}
+.listBoxXy .listIndex{background: #182460;color: #fff;height: 16px;width: 20px;text-align: center;line-height: 16px;margin-bottom: 9px;
+margin-left: 13px;margin-right: 13px;}
+.listBoxXy .listTitle{width: 15%;}
+.listBoxXy .listConten{width: 40%;}
+.listBoxXy .listDate{width: 23%;}
+/* 设置不同宽度 开始*/
+#new1dsysk3tuv9 .listBoxXy .listConten{width:38%;}
+#new1dsysk3tuv9 .listBoxXy .listDate{
+    width: 28%;
+    text-align: right;
+    position: relative;
+    right: -10px;
+}
+#new1dfxvfif3 .listBoxXy .listDate{width:27%;}
+
+#gjyxlphxwy8v6 .listBoxXy .listTitle {width:22%;}
+#gjyxlphxwy8v6 .listBoxXy .listConten {width:24%;}
+#gjyxlph30cqjh .listBoxXy .listTitle {width: 22%;}
+#gjyxlph30cqjh .listBoxXy .listConten {width: 25%;}
+#gjyxlph30cqjh .listBoxXy .listhot {margin-left: 4%;}
+/* 设置不同宽度结束 */
+.listBoxXy .listhot{width: 10%;color: #76bad6;text-align: center;}
+.listBoxXy .listhot i{margin-right: 10px;}
+.listBoxXy li:nth-of-type(odd){background: rgba(38,38,48,0.9);}
+.listBoxXy li:nth-of-type(1) .listIndex{background: #6b31aa;}
+.listBoxXy li:nth-of-type(2) .listIndex{background: #4616cc;}
+.listBoxXy li:nth-of-type(3) .listIndex{background: #1337c9;}
+
+.listBoxXy li:nth-of-type(1) .listhot {color: #c02326;}
+.listBoxXy li:nth-of-type(2) .listhot {color: #f48f2c;}
+.listBoxXy li:nth-of-type(3) .listhot {color: #f5f063;}
+.listLeng{width: 100px;height: 36px;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;}
+.custom-ranking {
+    color: #FFF;
+    display: -webkit-box;
+    display: flex;
+    padding: 10px 0;
+}
+
+.custom-ranking > span {
+    flex: 3;
+    text-align: right;
+    font-size: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 80px;
+}
+.custom-ranking .custom-progress {
+    flex: 10;
+}
+.mod2 .custom-progress {
+    background: rgba(238,238,238,0.1);
+    border-radius: 0px;
+}
+.custom-progress {
+    margin-left: 10px;
+}
+.custom-progress > div {
+	width: 100%;
+    position: relative;
+    transition: width 0.8s ease-in;
+    overflow-x: hidden;
+}
+.custom-progress-bar {
+    height: 16px;
+}
+.custom-progress-num {
+    line-height: 16px;
+}
+.custom-progress{
+	background: #333;
+}
+.custom-progress-bar {
+    width: 100%;
+    background:#00aeff;
+    text-align: right;
+}
+.custom-progress-num {
+    min-width: 65px;
+    display: inline-block;
+    color: #fff;
+    font-size: 13px;
+    margin-right: 6px;
+    font-weight: 600;
+}
+.lineBox ul{height: 120px;}
+.lineBox li{float: left;width: 50%;height: 60px;color: #fff;display: inline-block;line-height: 60px;padding-left: 10%; }
+.lineBox li .iconEchats{margin-left: 20px;margin-right: 15px;color: #ffd400;font-size: 20px;}
+#echartsLine{height: calc(100% - 120px);}
+.headerBox{display: flex;}
+.headerBox li{flex: 3;height: 100%;display: flex;padding-left: 5%;flex-wrap:wrap}
+
+.headerBox li .imgBox{flex: 3;}
+.headerBox li .textBox{flex: 9;padding-left: 10%;}
+.headerBox li .haderText{flex: 12;}
+.headerBox li .textBox .iconEchats{font-size: 30px;color: #ffd400;}
+.headerBox li .textBox p{line-height: 38px;font-size: 16px;}
+.heaerMedia li .imgBox img{width: 83px;}
+.headerBox li .haderText {display: flex;}
+.headerBox li .haderText p{flex: 1;}
+.headerBox li .haderText p .fensiText{color: #8de1ff;}
+.bdmtphBox .custom-progress-bar{border-radius:25px;background:#1330a5;}
+.bdmtphBox .custom-progress-num{color: #fff;}
+.bdmtphBox .custom-ranking > span{flex: 2;}
+.bdmtphBox .custom-ranking .custom-progress{background: #333;border-radius:25px;}
+.detailBox {font-size: 32px; color: #6ed89c;padding-bottom: 30px;}
+.detailBox img{margin-right: 3%;}
+#caiEhartsBox,#bianEhartsBox,#faEhartsBox{width: 100%;height: 40%;}
+.biandetailBox{color: #835be5;}
+.fadetailBox{color: #28bcff;}
+#gjlb span.listConten{width: calc(100% - 275px) !important;}
+
+.listBoxXy.nohot .listTitle{width: 70px;}
+.listBoxXy.nohot .listConten{width: calc(100% - 230px);}
+.listBoxXy.nohot .listDate{width: 70px;}
+.listBoxXy.nohot .listhot{display: none}
+.detailBox_new .pian{font-size: 20px;}
+.detailBox_new span:nth-of-type(1){font-size: 30px;font-weight: 700;margin-left:10px;}

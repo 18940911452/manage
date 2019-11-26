@@ -1,0 +1,34 @@
+<ul>
+    <#if list?exists&&(list?size>0)>
+        <#list list as mi>
+            <li class="h38">
+                <input type="hidden" class="page_data" data-total="${total}"/>
+                <span class="first" style="display:none;"><#if mi.quality_id??>${mi.quality_id}</#if></span>
+                <span class="second" style="display:none;"><#if mi.owner_table??>${mi.owner_table}</#if></span>
+                <span class="thire" style="display:none;"><#if mi.rule??>${mi.rule}</#if></span>
+                <span class="dataquality_w10 hf listname" style="text-align: center;" title="${mi.owner_table_name}"><#if mi.owner_table_name??>${mi.owner_table_name}</#if></span>
+                <span class="dataquality_w10 hf" style="height:100%;" title="${mi.ename}"><#if mi.ename??>${mi.ename}</#if></span>
+                <span class="dataquality_w10 hf" style="text-align: center;" title="${mi.owner_system_name}"><#if mi.owner_system_name??>${mi.owner_system_name}</#if></span>
+                <#if (mi.status??)>
+                	<#if (mi.status==1)>
+                		<span class="dataquality_w10 hf">评分中</span>
+                		<#elseif (mi.status==2)>
+                			<span class="dataquality_w10 hf">评分完成</span>
+                			</#if>
+                <#else>
+                	<span class="dataquality_w10 hf"></span>
+                </#if>
+                <span class="dataquality_w15 hf"><#if mi.total_num??>${mi.total_num}</#if></span>
+                <span class="dataquality_w15 hf" style="text-align: center;"><#if mi.valid_num??>${mi.valid_num}</#if></span>
+                <span class="dataquality_w10 hf"><#if mi.grade??>${mi.grade}</#if></span>
+                <span class="dataquality_w10 hf"><#if mi.principal??>${mi.principal}</#if></span>
+                <span class="dataquality_w10 hf"><i class="fa fa-eye mr5 fz13 cpS" title="查询详情" dataTy='${mi.owner_table}' onclick="view_details(this)"></i><i class="fa fa-edit mr5 fz13 cpS" title="修改" onclick="modify_label(this)"></i><i class="fa fa-close fz13 cpS" title="删除" onclick="remove_C(this)"></i></span>
+            </li>
+        </#list>
+        <#else>
+
+            <script>
+                $("#dataquality_list").html("<img src='../images/zanwu.png'  class='imgStyle'>");
+            </script>
+    </#if>
+</ul>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <base href="${baseUrl!}/">
+    <meta charset="UTF-8">
+    <title>应用绩效管理</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script type="text/javascript" src="js/jquery-2.2.4.min.js" ></script>
+    <script type="text/javascript" src="js/bootstrap.min.js" ></script>
+
+    <!--ipage-->
+    <script src="js/web-plugin/iPage/sigroup.iPage.plugin.v4.3.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="js/web-plugin/iPage/iPage.v4.css"/>
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css"  >
+    <link rel="stylesheet" type="text/css" href="css/myCss.css" />
+	<link rel="stylesheet" href="css/dataquality.css" />
+	
+	<!-- 选择日期插件 -->
+	<script type="text/javascript" src="../../js/My97DatePicker/WdatePicker.js"></script>
+	<script type="text/javascript" src="js/echarts.js"></script>
+	
+	<script type="text/javascript" src="js/useractionrecord.js" ></script>
+</head>
+<body>
+<div class="dataflow_top">
+    <img src="../../images/navname/navloge.png" class="navloge" alt="">
+    <p class="navBiaoti">深圳样板间集成模块</p>
+    <p class="biaoti">应用绩效管理</p>
+    <div class="table_nav_right2">
+		<ul>
+			<li class="activeSpan" type="1"><span class="sfs">信息查询</span></li>
+			<li type="2"><span class="sfs">统计分析</span></li>
+		</ul>
+	</div>
+    <a href="menu/" class="cm_hide"><i title="返回" class="fa fa-home returnH"></i><span class="textS">返回首页</span></a>
+    
+</div>
+<div class="load_yonghujilu"></div>
+<input type="hidden" id="hidden_box_N" data="${session.username}" data_type='${session.login_user}' />
+</body>
+</html>
+<script>
+	
+	$(".table_nav_right2").find("li").unbind("click").click(function(){
+		$(this).addClass("activeSpan").siblings().removeClass("activeSpan");
+        var type= $(this).attr("type");
+        if(type=="1"){
+           $(".load_yonghujilu").empty().load("/page/system/action/yonghubiaoge.html");
+        }else if(type=="2"){
+            $(".load_yonghujilu").empty().load("/page/system/action/yonghutubiao.html");
+        }
+	})
+	$(".table_nav_right2 li:first").click();
+</script>
+
+

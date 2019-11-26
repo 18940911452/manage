@@ -1,0 +1,41 @@
+body{color: #333;height: 100%;width: 100%;overflow-x: hidden;font-family: "微软雅黑";background: #e8eaf0;font-size: 16px;}
+		.metadata_top{text-align: center;height: 150px;line-height: 150px;border-bottom: 1px solid #ddd;background:url("../../images/navname/beijingnav.png")center center no-repeat;background-size:100% 100%;font-size: 1.5em;position: relative;}
+		.metadata_top a{position: absolute;right: 30px;color: #333;font-size: 1.5em;}
+		#addLabel{position:relative;text-align:left;padding-left:10px;background:url("../../images/navname/beijingse.png")repeat-x;border:2px solid #fff;border-bottom:2px solid #c9d4de;height:44px;line-height:44px;border-top-left-radius:5px;border-top-right-radius:5px;}
+		#addLabel .a_style{color:#20426f;font-size:18px;font-weight: bold;}
+		#addLabel .a_style i{font-size:22px;}
+		.lableName{position:absolute;top:0px;left:210px;width:500px;height:100px;line-height:100px;border: 1px solid #000;background:#fff;z-index:10;}
+		.lableValue{height:35px;}
+		.cp{cursor:pointer;}
+		.ipage-fenye-info{color:black !important;}
+		.activeLIS{background-color:#e0e4ed !important;}
+		.oper_div{display:none !important;}
+		.yijispan{display:inline-block;width:65%; font-size:15px; overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+		.erjispan{display:inline-block;width:65%;font-size:13px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap; }
+		.imgStyle{margin-top:4%;margin-left:40%;}
+		.mr5{margin-right:5px;}
+		.navloge{position:absolute;left:85px;top:19px;}
+		.navBiaoti{position:absolute;color:#fff;top:-25px;left:235px;font-size:37px;}
+		.biaoti{position:absolute;color:#fff;left:235px;top:10px;font-size:30px;}
+		.returnH{color:#fff;position:absolute;top:20px;right:100px;}
+		.textS{top: -36px;color: #fff;font-size: 20px;position: absolute;right: 0px;width: 100px;}
+		.p0{padding:0px;}
+		.mt13{margin-top:13px;}
+		.mh770{min-height:780px;border-radius:5px;border:1px solid #b1b2c4 !important;}
+		.pr0{padding-right:0px;}
+		.nav-top{background: #fff;border: 1px solid #b1b2c4;min-height: 780px;border-radius:5px;}
+		.nav-top-title{padding-left:20px;}
+		.mth10{margin-top:15px;}
+		.bd{border:1px solid #b1b2c4;border-radius:5px;}
+		.fz15{font-size:15px; margin-right:5px;}
+		.fz13{font-size:14px!important; margin-right:5px!important;}
+		.yijiname{font-size:16px;color:#3c4d62;}
+		.hf{font-size:14px;font-family: "微软雅黑";height:39px;line-height:39px;color:#5f5f5f;}
+		.h50{min-height:300px;}
+		.styleI{font-size: 22px;color: #027cc2; cursor:pointer;}
+		.ipage-fenye-on{background:#027cc2;}
+		.tableIstyle{font-size: 18px;color: #97a9c0;}
+		.cm_hide{display:none}
+		.second_list{max-height:450px;overflow-y: auto;}
+		.imgS{position:absolute;top:40%;left:45%;}
+		.istyle_i{vertical-align:top;margin-top:12px;}

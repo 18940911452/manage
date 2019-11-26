@@ -1,0 +1,52 @@
+.new_renwu_left{float: left; width:100px;}
+.new_renwu_left img{float: left;margin-top: 18px;margin-left: 20px;}
+.new_renwu_left>div{float: left;margin-top: 40px;margin-left: 20px;width: 86px;height: 86px;}
+.new_renwu_right{float: left; width:600px;margin-left: 40px;}
+.new_renwu_right_a{background:url(../../images/new5.png) no-repeat; width:592px; height:65px; float:left; margin-top:22px;line-height: 65px;}
+.new_pic{float: left;margin-left: 25px;margin-right: 10px;margin-top: 20px;}
+.new_zi{font-size: 18px;color: #fff;float: left;width:310px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;}
+.radialObj {
+	position: relative;
+}
+
+.y20{width:25px;height: 25px;line-height: 25px;text-align: center;font-size: 8px;border-radius:100px;color: #fff;position: absolute;top: -10px;}
+.y21{width:25px;height: 25px;line-height: 25px;text-align: center;border-radius:100px;float: left;}
+.mr5{margin-right: 5px;}
+.fl{float: left;color: #fff;}
+.lan{background: #8cd0fd;}
+.huang{background: #ffed78;}
+.cheng{background: #f9986b;}
+.hong{background: #ff5f6c;}
+.hui{background: #a9b9c7;}
+.huangxian{background: #ffdf05;height:4px;width:50px;float: left;margin-top: 30px;position: relative;}
+.huixian{background: #88d7ee;height:4px;width:50px;float: left;margin-top: 30px;position: relative;}
+.huixian1{background: none;height:4px;width:50px;float: left;margin-top: 30px;position: relative;}
+.new_zi_time{font-size: 16px;width: 100px !important;float: right;margin-right: 5px;text-align: center;}
+.new_renwu_right_a font{float: right;margin-right: 10px;}
+.radialObj>div {
+	width: 90px;
+	height: 90px;
+	position: absolute;
+	top: 6px;
+	border: 2px solid #48D4EA;
+	left: 6px;
+	border-radius: 50%;
+}
+
+.radialObj>div>p {
+	margin: 0;
+	position: absolute;
+    color: #fff;
+    font-size: 30px;
+    top: 10px;
+    left: 10px;
+    width: 66px;
+    height: 66px;
+    border: 2px solid #48D4EA;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 60px;
+}
+#prg2>div,#prg2>div>p{border-color: #dc76ff;}
+#prg3>div,#prg3>div>p{border-color: #01eeb8;}
+#prg4>div,#prg4>div>p{border-color: #f54b56;}

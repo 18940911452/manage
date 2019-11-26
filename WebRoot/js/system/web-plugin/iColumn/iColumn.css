@@ -1,0 +1,46 @@
+.iColumn_conf_div{/* 配置的最外层容器  */
+  position:fixed; 
+  /* right: 40px; 
+  top: 100px; */ 
+  width:300px; 
+  line-height:30px; 
+  background: #eee;
+  border: 1px solid #3c3b3a;
+  border-radius: 3%;
+  opacity:0.9;
+  
+  /***LFY 修改 ***/
+  right: -60px;
+  bottom: 50px;
+}
+
+.iColumn_conf_div.conf_div_head{/* 配置容器的头部  */
+
+}
+.iColumn_conf_div .conf_div_body .iColumn_conf_title{
+	width: 50%;
+	display: inline-block;
+	padding-left: 5%;
+	height: 30px;
+	float: left;
+}
+.iColumn_conf_div .conf_div_body .iColumn_conf_title:nth-of-type(1){
+	width: 90%;
+}
+
+.iColumn_conf_div .conf_div_foot{/* 配置容器的尾部  */
+	margin: 10px 30%;
+}
+
+.iColumn_conf_div .conf_div_foot .iCloumn_conf_cancel_btn{
+	margin-left: 10px;
+}
+.iColumn_conf_div .conf_div_body{/* 配置容器的中部  */
+	padding-top: 10px;
+	font-size: 14px;
+	color: #000;
+}
+
+.iColumn_conf_div.conf_div_body.iColumn_conf_title{/* 配置中各列列名容器  */
+  
+}

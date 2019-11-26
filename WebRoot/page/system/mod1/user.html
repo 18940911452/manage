@@ -1,0 +1,391 @@
+<div class="dataflow_con col-md-12 c m mt10">
+	<div class="bd2">
+		<div class="metadata_weizhi">
+			<p class="nav-top-title">
+				<!--                 <span class="yijiname">大数据资源池管理</span><em class="arrow_one">&gt;</em> -->
+				<!--                 <span class="erjiname">系统配置管理</span><em class="arrow_two">&gt;</em> -->
+				<span class="sanjiname">用户管理</span>
+			</p>
+		</div>
+		<div class="col-md-12 dataflow_bg1 pt10">
+			<div>
+				<div class="col-md-11">
+					<div class="col-md-3 service_add tarb  h35" style="padding:0px;float: right;width:360px;">
+                        <span style="color:#000;font-size: 18px;">部门选择&nbsp;&nbsp;</span>
+                        <select id="searcgBm" placeholder="请输入查询条件..."
+                                style="width: 250px;height: 31px;line-height: 31px;color: #000;border-radius: 5px;">
+                        </select>
+					</div>
+					<div class="col-md-3 service_add tarb  h35" style="padding:0px;float: right;">
+                        <span style="color:#000;font-size: 18px;">机构选择&nbsp;&nbsp;</span>
+                        <select id="searcgJg" placeholder="请输入查询条件..."
+                                style="width: 250px;height: 31px;line-height: 31px;color: #000;border-radius: 5px;">
+                        </select>
+                    </div>
+				</div>
+				<div class="col-md-1 service_add tarb  h35">
+					<a id="addNewBox" typeD="1"><i class="fa fa-plus-circle"></i><span>新增用户</span></a>
+				</div>
+			</div>
+			<div class="col-md-12 mth10 p0">
+				<div id="user" class="metadata_list cm bk">
+					<h3>
+						<span class="service_w20 hf">用户名称</span>
+						<span class="service_w10 hf">真实姓名</span>
+						<span class="service_w10 hf">角色名称</span>
+						<span class="service_w10 hf">部门</span>
+						<span class="service_w10 hf">所属媒体</span>
+						<span class="service_w10 hf">单位名称</span>
+						<span class="service_w20 hf">创建时间</span>
+						<span class="service_w10 hf">操作</span>
+					</h3>
+					<ul class="c m" id="yonghu_list1">
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--加载弹出框-->
+<div class="department_detail1"></div>
+<div data-toggle="modal" data-target="#myModal" class="hidden_btn" hidden></div>
+<script>
+
+	/////加载弹出框
+	$(".department_detail1").load("detail/system/user.html");
+	// 机构选择
+	$.post("system/mod1/findInstitution",function ( data ) { 
+		var str = '',bnStr = "<option id=''></option>";
+        data.forEach( function ( v , i) {
+            str += "<option id="+v.id+">"+v.name+"</option>"
+        })
+        $("#searcgJg").html(str);
+        $("#searcgJg").unbind().change(function () {
+			var id = $("#searcgJg option:selected").attr("id")
+            $.post("system/mod1/findDepartByInsIdPlus",{insId:id},function ( info ) {
+            var str = "<option id=''></option>";
+                info.data.forEach( function ( v , i) {
+                    str += "<option id="+v.depId+">"+v.dep+"</option>"
+                })
+                $("#searcgBm").html(str);
+				// 部门选择
+				$("#searcgBm").unbind().change(function () {
+					load_yonghu_list();
+				})
+            })
+			load_yonghu_list();
+        })
+		var id = $("#searcgJg option:selected").attr("id");
+		$.post("system/mod1/findDepartByInsIdPlus",{insId:id},function ( info ) {
+                info.data.forEach( function ( v , i) {
+                    bnStr += "<option id="+v.depId+">"+v.dep+"</option>"
+                })
+                $("#searcgBm").html(bnStr);
+				// 部门选择
+				$("#searcgBm").unbind().change(function () {
+					load_yonghu_list();
+				})
+        })
+		load_yonghu_list();
+	})
+	//  用户权限进行模块处理
+	$.post("system/mod1/suchUserLevel",function ( info ) {
+		$("#searcgJg,#searcgBm").parent().hide()
+		if(info.level ==1) {
+			$("#searcgJg,#searcgBm").parent().show()
+		}else if( info.level ==2) {
+			$("#searcgBm").parent().show()
+		}
+	})
+	// company();
+	init_input();
+	$("#addNewBox").unbind("click").click(function() {
+		// company();
+		$(".userTitle").html("添加用户信息")
+		$("#myModal").modal("show");
+		$(".hidden_id").attr("data_type", "1");
+		init_input();
+		$("#select_company").attr("disabled", false);
+		$("#select_department1").attr("disabled", false);
+
+	});
+	/*单位列表*/
+	function company() {
+		$.post("system/mod1/queryInstitution", function(data) {
+			$("#select_company").empty();
+			for (var i = 0; i < data.length; i++) {
+				var outhtml = "<option value='" + data[i].manageInstitution.id + "' selected='selected'>" + data[i].manageInstitution
+					.name + "</option>";
+			}
+			$("#select_company").append(outhtml);
+			var id = $("#select_company").val();
+			department(id);
+		});
+	}
+	 /*查询媒体列表*/
+    mediaList();
+    function mediaList(){
+        $.post("system/mod1/queryMediaListByInsId",function(data){
+        	var outhtml = "";
+        	if(data != null && data.data.length != 0){
+	            for(var i=0;i<data.data.length;i++){
+	            	outhtml += "<option value='"+ data.data[i].mediaId +"'>"+ data.data[i].mediaName +"</option>";
+	            }
+        	}else{
+        		outhtml = "<option value=></option>";
+        	}
+            $("#select_media").append(outhtml);
+            var mediaId = $("#select_media").val();
+	        department(mediaId);
+        });
+    }
+	function department() {
+		$("#select_department1").empty();
+		var param = {};
+        var mediaId = $('#select_media1 option:selected').attr("id");
+		var jgid = $('#selectjg1 option:selected').attr("id");
+		var url = "";
+        if(mediaId) {
+			param.mediaId = mediaId;
+			url = "system/mod1/findDepartByMediaId";
+        }else {
+			param.insId = jgid;
+			url = "system/mod1/findDepartByInsIdPlus";
+		}
+		$.post(url, param, function(data) {
+			var datas = data.data;
+			if (JSON.stringify(datas) == "{}") {
+				$("#select_department1").empty();
+			} else {
+				var str = "";
+				if(datas[0].dep_id) {
+					for (var i = 0; i < datas.length; i++) {
+						str += "<option value='" + datas[i].dep_id + "'>" + datas[i].dep_name +
+							"</option>";
+					}
+				}else {
+					for (var i = 0; i < datas.length; i++) {
+						str += "<option value='" + datas[i].depId + "'>" + datas[i].dep +
+							"</option>";
+					}
+				}
+				$("#select_department1").html(str);
+			}
+
+		});
+	}
+	/*部门change*/
+	function changeMedia() {
+		var mediaId = $("#select_media").val();
+		// var mediaId = $('#select_media option:selected').attr("id");
+		// var jgid = $('#selectjg option:selected').attr("id");
+		department();
+	}
+
+	/*角色列表*/
+	roleList();
+	function roleList() {
+		$("#select_role1").empty();
+		$.post("system/mod1/queryRole", function(info) {
+			var data = info.data
+			if (JSON.stringify(data) == "{}") {
+				$("#select_role").empty();
+			} else {
+				for (var i = 0; i < data.length; i++) {
+					var outhtml2 = "<option value='" + data[i].id + "'>" + data[i].name + "</option>";
+					$("#select_role1").append(outhtml2);
+				}
+			}
+
+		})
+	}
+
+	function new_roleList(depId, insId, aa) {
+		$("#select_role1").empty();
+		$.post("system/mod1/queryRole", {
+			depId: depId,
+			insId: insId
+		}, function(data) {
+			for (var i = 0; i < data.length; i++) {
+				var outhtml2 = "<option value='" + data[i].roleId + "'>" + data[i].roleName + "</option>";
+			}
+			$("#select_role1").append(outhtml2);
+		});
+
+		$("#select_role1 option").each(function() { //遍历所有option
+			var txt = $(this).val(); //获取option值
+			if (txt == aa) {
+				$(this).prop("selected", true);
+			}
+		});
+	}
+
+	/*列表*/
+	load_yonghu_list();
+
+	function load_yonghu_list() {
+		var option = new Object();
+		option.param = {
+			'path': "/dynamic/yonghu_list.html"
+		};
+		var jgId = $("#searcgJg option:selected").attr("id");
+		var bmId = $("#searcgBm option:selected").attr("id");
+		jgId?option.param.insId = jgId:"";
+		bmId?option.param.depId = bmId:"";
+		option.pageNo = 1;
+		option.pageSize = 10;
+		option.callback = function() {};
+		var obj = new iPage.PageLoad("yonghu_list1", "system/mod1/loadUser", option);
+		obj.init();
+	}
+	/*修改*/
+	function modify_label(obj) {
+		$("#myModal").modal("show");
+		var id = $.trim($(obj).parent().parent().find(".first").text());
+		$(".hidden_id").attr("data_type", "0");
+		$(".hidden_id").val(id);
+		init_input();
+		$.post("system/mod1/echoUser", {
+			id: id
+		}, function(data) {
+			if (data != "") {
+				$(".userTitle").html("修改用户信息")
+				$(".userName").val(data.username);
+				$(".nameV").val(data.contacter);
+				$(".phoneV").val(data.tel);
+				$(".emailV").val(data.email);
+				setTimeout(function() {
+					$("#select_media1 option").each(function() { //遍历所有option
+						var txt = $(this).attr("value"); //获取option值
+						if (txt == data.mediaId) {
+							$(this).prop("selected", true);
+						}
+					});
+					$("#select_department1 option").each(function() { //遍历所有option
+						var txt = $(this).attr("value"); //获取option值
+						if (txt == data.depId) {
+							$(this).prop("selected", true);
+						}
+					});
+					$("#select_role option1").each(function() {
+						var txt = $(this).attr("value"); //获取option值
+						if (txt == data.rid) {
+							$(this).prop("selected", true);
+						}
+					})
+
+					$("#select_u_key option1").each(function() { //遍历所有option
+						var txt = $(this).attr("value"); //获取option值
+						if (txt == data.uk_id) {
+							$(this).prop("selected", true);
+						}
+					});
+				}, 10)
+			}
+
+		})
+	}
+
+
+	/*初始化*/
+	function init_input() {
+		$(".userName").val("");
+		$(".nameV").val("");
+		$(".passwordV").val("");
+		$(".phoneV").val("");
+		$(".emailV").val("");
+		$("#select_company option:first").prop("selected", true);
+		$("#select_department option:first").prop("selected", true);
+		$("#select_u_key option:first").prop("selected", true);
+	}
+
+
+	/*删除*/
+	function remove_C(obj) {
+		var id = $.trim($(obj).parent().parent().find(".first").text());
+		var userName = $.trim($(obj).parent().parent().find(".user_name").text());
+		if (confirm("确认删除吗")) {
+			$.post("system/mod1/deleteUser", {
+				id: id
+			}, function(data) {
+				if (data.status == "-1") {
+					alert(data.message)
+				} else {
+					alert("删除成功")
+					addUserAction(deleteUser.action, deleteUser.action_content, userName);
+					load_yonghu_list();
+				}
+			})
+		} else {
+			return
+		}
+	}
+
+
+	/*添加*/
+	function addUser() {
+		var userName = $.trim($(".userName").val());
+		var nameV = $.trim($(".nameV").val());
+		var passwordV = $.trim($(".passwordV").val());
+		var phoneV = $.trim($(".phoneV").val());
+		var emailV = $.trim($(".emailV").val());
+		// var select_company = $("#select_company option:selected").attr("value");
+		// var select_media = $("#select_media1 option:selected").attr("value");
+		// var select_role = $("#select_role1 option:selected").attr("value");
+		var select_u_key = $("#select_u_key option:selected").attr("value");
+		var select_department = $("#select_department1 option:selected").attr("value")
+        var insId = $("#selectjg1 option:selected").attr("id")
+        var mediaId = $("#select_media1 option:selected").attr("id")
+		var roleId = $("#select_role1 option:selected").attr("value")
+		var option = {
+			"username": userName,
+			"roleId": roleId,
+			"password": passwordV,
+			"uk_id": select_u_key,
+			"personName": nameV,
+			"email": emailV,
+			"tel": phoneV,
+			"dep_id": select_department,
+			// "insId":select_company,
+            "mediaId":mediaId,
+            "insId":insId,
+		};
+		var phone_re = /^(?:13\d|15\d|18\d)\d{5}(\d{3}|\*{3})$/;
+		var mail_re = /^([a-zA-Z0-9_\.\-])+\@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/g;
+		if (phoneV != "" && !phone_re.test(phoneV)) {
+			alert("您的手机格式不正确");
+			return false;
+		}
+		if (emailV != "" && !mail_re.test(emailV)) {
+			alert("您的邮箱格式不正确");
+			return false;
+		}
+		if (userName == "") {
+			alert("用户名称不能为空！")
+		} else if (nameV == "") {
+			alert("真实姓名不能为空！")
+		} else if (phoneV == "") {
+			alert("电话不能为空！")
+		} else {
+			$.ajax({
+				type: "post",
+				url: "system/mod1/addUser",
+				dataType: "json",
+				data: option,
+				success: function(data) {
+					if (data.result == "ok") {
+						alert("添加成功！");
+						addUserAction(addUserConst.action, addUserConst.action_content, userName);
+						load_yonghu_list();
+					} else if (data.result == "exist") {
+						alert("当前添加用户已存在，请重新输入！");
+					} else {
+						alert("添加用户失败，请联系管理员");
+					}
+				}
+			});
+			$("#myModal").modal("hide");
+		}
+	}
+</script>

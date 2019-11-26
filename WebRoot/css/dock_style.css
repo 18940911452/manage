@@ -1,0 +1,216 @@
+.splitbar-horizontal {
+	height: 10px;
+	pointer-events: none;
+}
+
+.splitbar-vertical {
+	width: 10px;
+	pointer-events: none;
+}
+
+.splitbar-transparent {
+	background: transparent;
+}
+
+.panel-titlebar,
+.tab-handle-list-container {
+	background: rgba(0, 0, 0, .5);
+	cursor: move;
+}
+
+.tab-handle-selected {
+	background-color: rgba(255, 255, 255, .2);
+	color: #fff;
+}
+
+.tab-handle-content-seperator {
+	background-color: rgba(255, 255, 255, .2);
+}
+
+.dialog-floating {
+	background: rgba(0, 0, 0, .7);
+}
+.panel-titlebar,.tab-handle-list-container,.tab-handle-content-seperator{
+	display: none;
+}
+
+/*大屏编辑模式*/
+/*.edit-screen .dock-content {
+	background: rgba(0, 0, 0, .5);
+	cursor: all-scroll !important;
+}
+.edit-screen .dock-content:hover{
+	background: rgba(0, 0, 0, .2);
+}*/
+.edit-screen .dock-content>div{
+	pointer-events: none;
+}
+.edit-screen .panel-titlebar,.edit-screen .tab-handle-list-container,.edit-screen .tab-handle-content-seperator{
+	display: block;
+}
+.edit-screen .splitbar-vertical,.edit-screen .splitbar-horizontal{
+	pointer-events: inherit;
+}
+.edit-screen .panel-base{
+	/*position: relative;*/
+}
+.edit-screen .panel-titlebar{
+	position: absolute;
+}
+.edit-screen .panel-content{
+	/*height: 100% !important;*/
+}
+.edit-screen .index_top>h2{
+	display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background: rgba(0,0,0,.5);
+	
+}
+/*dock 定制*/
+.ribao .content-box .content_{
+    height: calc(100% - 20px);
+	
+}
+.ribao .module_box>div {
+	width: 100% !important;
+	height: 100% !important;
+	margin: 0 !important;
+}
+
+.chanpin {
+	top: initial !important;
+}
+
+#mod4_box {
+	overflow: hidden;
+	margin: 0;
+}
+
+.redian_list li {
+	width: 100%;
+}
+.nowCount{
+	font-size: 40px;
+    color: rgb(255,218,100);
+}
+.lastCount{
+	font-size: 20px;
+    color: rgb(255,218,100);
+}
+.search_infos_ipage {
+	height: 100%;
+	overflow-y: auto;
+}
+.search_infos_ipage .content_div .mainInfoList .mainInfo .textContantBox.textContantBoxBottom{
+	color: #fff;
+}
+.search_infos_ipage .content_div .mainInfoList .mainInfo .textContantBox.textContantBoxTop{
+	color: #ccc;
+}
+/*热点*/
+
+.redian_top {
+	height: 100%;
+}
+
+.scroll_style {
+	height: calc(100% - 70px);
+}
+
+.w100_80 {
+	width: calc(100% - 90px);
+}
+
+.new_w150 {
+	width: calc(100% - 350px);
+}
+
+
+/*影响力*/
+
+.redian_list1 li {
+	width: 100%;
+}
+
+.w350 {
+	width: calc(100% - 250px);
+}
+
+
+/*稿件动态*/
+
+.renwu_box {
+	height: calc(100% - 70px);
+	width: 100%;
+}
+
+.new_zi {
+	width: calc(100% - 100px) !important;
+	margin-left: 10px;
+}
+
+.new_renwu_right_a {
+	width: 100%;
+}
+
+.new_renwu_right {
+	padding-right: 10px;
+}
+
+
+/*生产力*/
+
+.screen-3 .screen-3-content {
+	width: 100%;
+}
+
+
+/*弹框*/
+
+.popup_ {
+	width: 100% !important;
+	height: 100% !important;
+	left: 0 !important;
+	top: 0 !important;
+}
+
+
+/*日报样式*/
+
+.ribao .gao_box {
+	height: auto !important;
+}
+
+.ribao #caiyongqudao {
+	height: 100% !important;
+}
+
+.ribao .scroll_style {
+	height: calc(100% - 16px);
+}
+
+.ribao .renwu_box {
+	height: calc(100% - 35px);
+	width: 100%;
+}
+
+.ribao .min_box,
+.ribao .max_box2,
+.ribao .max_box1,
+.ribao .renwu,
+.ribao .chanpin {
+	overflow: initial !important;
+}
+
+.ribao .module_box {
+	padding-top: 20px;
+	overflow: hidden;
+}
+
+.ribao #author_box .renwu_box {
+	height: calc(100% - 30px);
+	width: 98%;
+	position: relative;
+	margin-left: 1%;
+}

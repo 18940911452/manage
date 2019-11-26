@@ -1,0 +1,224 @@
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    <span class="department departmentTile">添加部门信息</span>
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="metadata_modal department">
+                    <div class="metadata_form">
+                        <h3>机构名称：</h3>
+                        <p>
+                            <select class="form-control" id="selectjg"></select>
+                        </p>
+                    </div>
+                    <div class="metadata_form">
+                        <h3>媒体名称：</h3>
+                        <p><select id="mediaName" class="form-control"></select></p>
+                    </div>
+                    <div class="metadata_form">
+                        <h3>部门名称：</h3>
+                        <p><input type="text" class="form-control bumen1"><span class="cr">*</span></p>
+                    </div>
+                    <div class="metadata_form">
+                        <h3>领导：</h3>
+                        <p><input type="text" class="form-control bumen2"></p>
+                    </div>
+                    <div class="metadata_form">
+                        <h3>联系人：</h3>
+                        <p><input type="text" class="form-control bumen3"></p>
+                    </div>
+                    <div class="metadata_form">
+                        <h3>地址：</h3>
+                        <p><input type="text" class="form-control bumen4"></p>
+                    </div>
+                    <div class="metadata_form">
+                        <h3>电话：</h3>
+                        <p><input type="text" class="form-control bumen5"></p>
+                    </div>
+<!--                     <div class="metadata_form"> -->
+<!--                         <h3>传真：</h3> -->
+<!--                         <p><input type="text" class="form-control bumen6"></p> -->
+<!--                     </div> -->
+                    <div class="metadata_form">
+                        <h3>邮件：</h3>
+                        <p><input type="text" class="form-control bumen7"></p>
+                    </div>
+                    <div class="metadata_form">
+<!--                         <h3>备注：</h3> -->
+<!--                         <p><input type="text" class="form-control bumen8"></p> -->
+                    </div>
+<!--                     <div class="metadata_form"> -->
+<!--                         <h3>所属单位：</h3> -->
+<!--                         <p><select id="danwei" class="form-control"></select></p> -->
+<!--                     </div> -->
+                    <div class="c"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="confirmBtn">
+                    确定
+                </button>
+                <input type="text" id="hidden_id" hidden>
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $.post("system/mod1/findInstitution",function ( data ) {
+        var str = ''
+        data.forEach( function ( v , i) {
+            str += "<option id="+v.id+">"+v.name+"</option>"
+        })
+        $("#selectjg").html(str);
+        $("#selectjg").unbind().change(function () {
+            var id= $('#selectjg option:selected').attr("id")?$('#selectjg option:selected').attr("id"):"";
+           $.post("system/mod1/findMediaByInsId",{insId:id},function ( info ) {
+                var str = "<option id=''></option>";
+                info.data.forEach( function ( v , i) {
+                    str += "<option id="+v.media_id+">"+v.media_name+"</option>"
+                })
+                $("#mediaName").empty().html(str);
+           })
+        })
+        var sId = $("#selectjg").find("option").eq(0).attr("id");
+        $.post("system/mod1/findMediaByInsId",{insId:sId},function ( info ) {
+                var str = "<option id=''></option>";
+                info.data.forEach( function ( v , i) {
+                    str += "<option id="+v.media_id+">"+v.media_name+"</option>"
+                })
+                $("#mediaName").html(str);
+        })
+    })
+    $("#confirmBtn").unbind("click").click(function(){
+        var hidden_idV = $("#hidden_id").val();
+        if(hidden_idV==""){
+            ////添加的方法
+            var name = $.trim($(".bumen1").val());
+             var leader = $.trim($(".bumen2").val());
+             var contacter = $.trim($(".bumen3").val());
+             var address = $.trim($(".bumen4").val());
+             var telephone = $.trim($(".bumen5").val());
+             var fax = $.trim($(".bumen6").val());
+             var email = $.trim($(".bumen7").val());
+//              var note = $.trim($(".bumen8").val());
+            var insId = $("#selectjg option:selected").attr("id");
+            var mediaId = $("#mediaName option:selected").attr("id");
+			 			
+			 var phone_re=/^(?:13\d|15\d|18\d)\d{5}(\d{3}|\*{3})$/;
+			 var mail_re=/^([a-zA-Z0-9_\.\-])+\@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/g;
+
+			 if(telephone != "" && !phone_re.test(telephone)){
+			 	alert("您的手机格式不正确");
+			 	return false;
+			 } 
+			 if(email != "" && !mail_re.test(email)){
+			 	alert("您的邮箱格式不正确");
+			 	return false;
+			 }
+            var option = {
+                'name':name,
+                'leader':leader,
+                'contacter':contacter,
+                'address':address,
+                'telephone':telephone,
+                'fax':fax,
+                'email':email,
+                'mediaId':mediaId,
+                'insId':insId
+            };
+            if(name == ""){
+                alert("部门名称不能为空！")
+            }else{
+            	$.ajax({
+			         type : "post", 
+			         url : "system/mod1/addDepartment", 
+			         dataType : "json",
+			         data: option,
+			         success : function(data){ 
+			        	 if(data.massage == "success"){
+                            alert("添加成功！");
+			        		//addUserAction(addDepartment.action,addDepartment.action_content,name);
+                            load_bumen_list();
+                            selectOption("#searchIpt")
+		                    }else{
+		                        alert("添加失败！");
+		                    } 
+			         } 
+			     }); 
+               $("#myModal").modal("hide");
+            }
+        }else{
+            ////编辑的方法
+            var id=$.trim($("#hidden_id").val());
+            var name = $.trim($(".bumen1").val());
+            var leader = $.trim($(".bumen2").val());
+            var contacter = $.trim($(".bumen3").val());
+            var address = $.trim($(".bumen4").val());
+            var telephone = $.trim($(".bumen5").val());
+            var fax = $.trim($(".bumen6").val());
+            var email = $.trim($(".bumen7").val());
+//             var note = $.trim($(".bumen8").val());
+            var mediaId = $("#mediaName option:selected").attr("value");
+            var insId = $("#selectjg option:selected").attr("id");
+            var mediaId = $("#mediaName option:selected").attr("id");
+            var option = {
+                'id':id,
+                'name':name,
+                'leader':leader,
+                'contacter':contacter,
+                'address':address,
+                'telephone':telephone,
+                'fax':fax,
+                'email':email,
+//                 'note':note,
+                'mediaId':mediaId,
+                'insId':insId
+            };
+            
+            var phone_re=/^(?:13\d|15\d|18\d)\d{5}(\d{3}|\*{3})$/;
+			var mail_re=/^([a-zA-Z0-9_\.\-])+\@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/g;
+
+			 if(telephone !="" && !phone_re.test(telephone)){
+			 	alert("您的手机格式不正确");
+			 	return false;
+			 } 
+			 if(email !="" && !mail_re.test(email)){
+			 	alert("您的邮箱格式不正确");
+			 	return false;
+			 }
+            if(name == ""){
+                alert("部门名称不能为空！")
+            }else {
+				$.ajax({
+			         type : "post", 
+			         url : "system/mod1/editDepartment", 
+			         dataType : "json",
+			         data: option,
+			         success : function(data){ 
+                         if(data.result == "ok"){
+                            alert("修改成功！");
+                            addUserAction(editDepartment.action,editDepartment.action_content,name);
+                            load_bumen_list(); 
+                            selectOption("#searchIpt")
+		                }else{
+		                    alert("修改失败！");
+		                } 
+			         } 
+			     }); 
+                $("#myModal").modal("hide");
+            }
+
+        }
+
+
+
+    });
+</script>

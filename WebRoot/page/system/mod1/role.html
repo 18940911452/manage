@@ -1,0 +1,737 @@
+
+
+
+
+<link rel="stylesheet" href="css/system/jsTree.css">
+<script src="js/system/jstree.js"></script>
+
+<style type="text/css">
+    body {
+        background: #fff;
+    }
+
+    .ibox {
+        padding: 30px;
+    }
+
+    .ibox-title {
+        border: 0;
+        border-bottom: 1px solid #eee;
+        padding: 0;
+        min-height: 42px;
+    }
+
+    .ibox-content {
+        padding: 0;
+        padding-top: 20px;
+    }
+
+    .ibox-title h5 {
+        padding: 5px 8px;
+        color: #25A0E1;
+        border-bottom: 5px solid #25A0E1;
+        margin: 0;
+        padding-bottom: 10px;
+        font-size: 20px;
+        font-family: '黑体';
+    }
+
+    #refresh_btn {
+        background: #25A0E1;
+        border: 0;
+    }
+
+    /*#user_list {
+        border: 1px solid #ccc;
+    }
+
+    #user_list th {
+        background: rgb(241, 241, 241);
+        line-height: 45px;
+        padding: 0;
+        text-align: center;
+    }
+
+    #user_list td {
+        line-height: 45px;
+        padding: 0;
+        text-align: center;
+    }*/
+
+    .edit {
+        cursor: pointer;
+    }
+
+    #user_name {
+        text-align: center;
+    }
+
+    #user_name label {
+        font-weight: 600;
+        font-size: 14px;
+    }
+
+    #user_name input {
+        width: 250px;
+        font-weight: 600;
+        font-size: 15px;
+    }
+
+    a:focus,
+    button:focus {
+        outline: none;
+    }
+
+    #save_role {
+        margin: 30px auto;
+        display: block;
+        background-color: #17a293;
+        border: none;
+    }
+    .edit{
+        position: relative;
+        right:0px;
+    }
+    .role_delete{
+        position: relative;
+        left:-5px;
+        color:#808080!important;
+        font-size:14px;
+        cursor: pointer;
+    }
+    /*.ipage-fenye{
+        clear: both;
+        width: 99.9%;
+        position: relative;
+        right: 6px;
+        bottom: 20px;
+        box-shadow: 0 0px 2px rgba(0, 0, 0, .15);
+    }*/
+    .operation_result{
+        color: red;
+    }
+    .main-content {
+        height: 100%;
+    }
+    #table_list .edit{
+        font-size: 16px;
+    }
+    #table_list .role_delete{
+        font-size: 16px;
+    }
+    #table_list table{
+        width: 100%;
+    }
+    .table.table-hide>tbody>tr>td{
+        text-align: center;
+    }
+    .table>thead>tr>th{
+        text-align: center;
+    }
+    .cm_hide{display:none;}
+</style>
+
+<body >
+
+<div class="dataflow_con col-md-12 c m mt10">
+    <div class="bd2">
+        <div class="metadata_weizhi">
+            <p class="nav-top-title">
+<!--                 <span class="yijiname">大数据资源池管理</span><em class="arrow_one">&gt;</em> -->
+<!--                 <span class="erjiname">系统配置管理</span><em class="arrow_two">&gt;</em> -->
+                <span class="sanjiname">角色管理</span>
+            </p>
+        </div>
+        <div class="col-md-12 dataflow_bg1 pt10">
+            <div>
+                <div class="col-md-10">
+
+                </div>
+                <div class="col-md-2 service_add tarb  h35">
+                	<a id=add_role_model typeD="1" data-toggle="modal" data-target="#myModal"><i id="addNewBox" class="fa fa-plus-circle"></i><span>新增角色</span></a>
+                    <!--<button class="btn" id=add_role_model style="padding: 0 5px;float: right;position: relative;bottom: 0px;background-color: #009ae2;color: #fff" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus no-margin"></i></button>-->
+                </div>
+            </div>
+            <div class="col-md-12 mth10 p0 metadata_list">
+                <h3 style="border:1px solid #ddd">
+                            <span class="service_w20 hf" style="width: 10%;">序号</span>
+                            <span class="service_w20 hf" style="width: 20%;">角色名称</span>
+                            <span class="service_w20 hf" style="width: 20%;">角色级别</span>
+                            <span class="service_w20 hf" style="width: 20%;">单位类型</span>
+                            <!-- <span class="service_w20 hf">部门名称</span> -->
+                            <span class="service_w20 hf" style="width: 20%;">创建时间</span>
+                            <span class="service_w20 hf" style="width: 10%;">操作</span>
+                </h3>
+                <ul id="table_list" class="bk"></ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="jurisdictionModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="opacity: 1"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title cb">配置权限</h4>
+            </div>
+            <div class="modal-body">
+                <div class="operation_type" style="display:none;"></div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row mt10" style="text-align: center;">
+                            <label for="exampleInputName2" class="col-md-4 cb" style="text-align: right;">角色名：</label>
+                            <div class="col-md-8"><input type="text" class="form-control" id="exampleInputName2" placeholder=""></div>
+                        </div>
+                            <div class="form-group row user_type_container mt10" style="height:68px;">
+                                <label for="exampleInputName2" class="col-md-4 cb" style="text-align: right;">角色级别：</label>
+                                <div id="jurisdiction" class="col-md-8">
+                                    <label class="thire1">
+                                            <input type="radio" name="is_validate" value="1"><span class="cb">超级管理员</span>
+                                    </label>
+                                    <label class="first">
+                                        <input type="radio" name="is_validate" value="2" checked><span class="cb">单位管理员</span>
+                                    </label>
+                                    <label class="second">
+                                        <input type="radio" name="is_validate" value="3"><span class="cb">部门管理员</span>
+                                    </label>
+                                    <label class="thire">
+                                        <input type="radio" name="is_validate" value="4"><span class="cb">普通用户</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group row  mt10" style="height:68px;">
+                                    <label for="exampleInputName2" class="col-md-4 cb" style="text-align: right;">角色类型：</label>
+                                    <div id="jueseType" class="col-md-8">
+                                        <label class="thire">
+                                                <input type="radio" name="is_validate1" value="1" checked><span class="cb">策划</span>
+                                        </label>
+                                        <label class="first">
+                                            <input type="radio" name="is_validate1" value="2" ><span class="cb">移动融媒</span>
+                                        </label>
+                                    </div>
+                            </div>
+                        <!-- <div class="form-group row mt10">
+                            <label for="exampleInputName2" class="col-md-4 cb" style="text-align: right;">所属单位：</label>
+                            <div  class="col-md-8">
+                                <select id="role_institution" name="" class="form-control" style="width: 250px">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row mt10">
+                            <label for="exampleInputName2" class="col-md-4 cb" style="text-align: right;">所属部门：</label>
+                            <div  class="col-md-8">
+                                <select id="role_department" name="" class="form-control" style="width: 250px">
+
+                                </select>
+                            </div>
+                        </div> -->
+                        <button class="btn btn-primary mt10" style="padding: 1px 12px;" id="save_role">保存</button>
+                        <div>
+                            <p class="operation_result"></p>
+                        </div>
+                    </div>
+                    <div class="col-md-6" style="border-left: 1px solid #ccc;">
+                        <div class="form-group" id="user_name" style="text-align: left;">
+                            <label for="exampleInputName2" class="cb">菜单权限：</label>
+                            <div id="partree">
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+<script type="text/javascript">
+    //获取单位列表
+    // $.post('system/mod1/queryInstitution',function (data) {
+    //     if (data!=null && data.manageInstitution!='') {
+    //         for(var i=0;i<data.length;i++){
+    //             if(i==0){
+    //                 obtainDepByInsId (data[i].manageInstitution.id);
+    //             }
+    //             $('#role_institution').append("<option value='"+ data[i].manageInstitution.id +"' selected='selected'>"+ data[i].manageInstitution.name +"</option>")
+    //         }
+    //     }
+    //     if (data.insId!='') {
+    //         $("#role_institution").find("option[value="+data.insId+"]").prop("selected",true);
+    //         $("#role_institution").attr("disabled",false);
+    //     }
+    // });
+    $('#role_institution').change(function () {
+        obtainDepByInsId ($(this).val())
+    });
+    //获取部门列表
+    function obtainDepByInsId(id) {
+        $.post('system/mod1/queryDepartment',{inst_id:id},function (data) {
+            $('#role_department').empty();
+            //var str = '<option value="-1">请选择</option>';
+            //var str = '<option value="-1">000</option>';
+            //$('#role_department').append(str);
+            for(var i=0;i<data.length;i++){
+                $('#role_department').append("<option value='"+ data[i].deptId +"'>"+ data[i].deptName +"</option>");
+            }
+           /* if (data.depObj!='') {
+                $.each(data.depObj, function(i,v) {
+                    $('#role_department').append("<option value="+v.depId+">"+v.depName+"</option>")
+                });
+            }*/
+            /*if (data.depId!='') {
+                $("#role_department").find("option[value="+data.depId+"]").prop("selected",true);
+                $("#role_department").attr("disabled",false);
+            }
+            if (pedId!='') {
+                $("#role_department").find("option[value="+pedId+"]").prop("selected",true);
+            }
+            if (data.level=='2') {
+                $("input[type=radio][name=is_validate][value="+2+"]").parent().empty();
+            }else if (data.level=='3') {
+                $("input[type=radio][name=is_validate][value="+2+"]").parent().empty();
+                $("input[type=radio][name=is_validate][value="+3+"]").parent().empty();
+            }*/
+        })
+    }
+
+    $("input[type=radio][name=is_validate]").unbind("click").click(function(){//普通用户
+        radio_click ()
+    })
+
+    function radio_click () {
+        var val = $("input[type=radio][name=is_validate]:checked").val();
+        enable_node(['28_anchor','29_anchor']);
+        $('#tree').jstree().show_node (['27_anchor'])
+        $('#tree').jstree().open_node  (['27_anchor'])
+        disable_node(['27_anchor']);
+        check_node('27_anchor');
+        var optype = $('#jurisdictionModal').find(".operation_type").html();
+        if (optype=='save') {
+            if (val==2) {
+                $("#role_institution").attr("disabled",false);
+                $("#role_department").find("option[value=-1]").prop("selected",true);
+                $("#role_department").attr("disabled",true);
+                check_node('29_anchor');
+                uncheck_node('28_anchor')
+                disable_node(['27_anchor','28_anchor','29_anchor','30_anchor','31_anchor','32_anchor','33_anchor'])
+
+            }else if (val==3) {
+                $("#role_institution").attr("disabled",false);
+                $("#role_department").attr("disabled",false);
+                uncheck_node(['28_anchor','29_anchor'])
+//					disable_node(['27_anchor','28_anchor'])
+                disable_node(['27_anchor','28_anchor','29_anchor','30_anchor','31_anchor','32_anchor','33_anchor'])
+            }else{
+                $("#role_department").attr("disabled",false);
+                uncheck_node(['27_anchor','28_anchor','29_anchor','30_anchor','31_anchor','32_anchor','33_anchor'])
+                $('#tree').jstree().hide_node (['27_anchor'])
+            }
+        }else{
+            if (val==2) {
+                check_node('29_anchor');
+                uncheck_node('28_anchor')
+//					disable_node(['26_anchor'])
+                disable_node(['27_anchor','28_anchor','29_anchor','30_anchor','31_anchor','32_anchor','33_anchor'])
+            }else if (val==3) {
+                uncheck_node(['28_anchor','29_anchor'])
+//					disable_node(['26_anchor','27_anchor'])
+                disable_node(['27_anchor','28_anchor','29_anchor','30_anchor','31_anchor','32_anchor','33_anchor'])
+            }else{
+                uncheck_node(['27_anchor','28_anchor','29_anchor','30_anchor','31_anchor','32_anchor','33_anchor'])
+                $('#tree').jstree().hide_node (['27_anchor'])
+            }
+        }
+
+
+    }
+
+    $('#tree').on("changed.jstree", function (e, data) {
+        console.log(data.selected);
+    });
+    //禁用节点的复选框
+    function disable_checkbox (obj) {
+        $('#tree').jstree().disable_checkbox(obj);
+    }
+
+    //启用节点的复选框
+    function enable_checkbox (obj) {
+        $('#tree').jstree().enable_checkbox(obj);
+    }
+
+    //禁用节点
+    function disable_node (obj) {
+        $('#tree').jstree().disable_node(obj);
+    }
+
+    //启用节点
+    function enable_node (obj) {
+        $('#tree').jstree().enable_node(obj);
+    }
+
+    //选中一个节点
+    function check_node (obj) {
+        $('#tree').jstree().check_node(obj);
+    }
+
+    //取消选中一个节点
+    function uncheck_node (obj) {
+        $('#tree').jstree().uncheck_node(obj);
+    }
+
+    function select_xtgl (data) {
+        console.log(data)
+//			radio_click ()
+    }
+
+    var checkbox_temp = ''
+    load_user_list();
+    function load_user_list() {
+        var option = new Object();
+        option.param = {
+            'path': "/dynamic/jiaose_list.html"
+        };
+        option.pageSize = 10;
+        //var option = {};
+        /*var data = {}
+        option.pageNo = 1;
+        option.pageSize = 10;
+        option.isExport = false;
+        option.path = "/dynamic/jiaose_list.html"
+        option.param = data;*/
+
+        iPage.page_foot_html = '<div class="page_info ipage-fenye"><div class="ipage-fenye-btn"><button class="startPage page_btn ipage-fenye-on">\u9996\u9875</button><button class="prePage page_btn ipage-fenye-on">\u4e0a\u9875</button><button class="nextPage page_btn ipage-fenye-on">\u4e0b\u9875</button><button class="endPage page_btn ipage-fenye-on" style="display:none;">\u5c3e\u9875</button><input class="pageNo_input" type="text" value="1"/><button class="ipage-fenye-on go_btn">GO</button></div><div class="ipage-fenye-info">\u4fe1\u606f\u603b\u6570\uff1a<span class="ipage-number total"></span>&nbsp;&nbsp;\u603b\u9875\u6570\uff1a<span class="ipage-number totalPage"></span>&nbsp;&nbsp;\u5f53\u524d\u9875\uff1a<span class="ipage-number pageNo"></span></div></div>';
+
+        option.callback = function () {
+            sysRoleDeleteBtnInit();
+        }
+        var obj = new iPage.PageLoad( "table_list", "system/mod1/getSysRoleList", option).init();
+
+    }
+    function sysRoleDeleteBtnInit(){
+        $("#user_list").find(".role_delete").unbind("click").click(function(){
+            //if(confirm("确定要删除吗？")){
+            if(confirm("确定要删除吗？")){
+                var id = $(this).data('id');
+                var roleName = $.trim($(this).parent().parent().find(".roleName").text());
+                $.get('system/mod1/deleteSysRole', {'id':id }, function(obj) {
+                    if("success"==obj.massage){
+                        //alert("现有角色已关联用户，无法删除。")
+                        alert("删除成功!")
+                        addUserAction(deleteRole.action,deleteRole.action_content,roleName);
+                        load_user_list();
+                    }else if("fail"==obj){
+                        //alert("删除失败");
+                        alert("删除失败!");
+                    }else{
+                    	alert("删除失败!")
+                    }
+                })
+            }
+        });
+    }
+    var datas;
+    var arr = [];
+    var arrs = [];
+     $.get('system/mod1/getSysAllPerm', function(data) {//从后台获取权限全集
+         $.each(data, function(i,v) {
+            var dd = {}
+            dd.id = v.id
+            dd.text = v.name
+            if (v.pid==0) {
+            dd.parent = '#'
+            }else{
+            dd.parent = v.pid
+            }
+            arrs.push(dd)
+            });
+     })
+    //初始化权限树全集
+ /*   var perms = ${__menu};
+    var menu_name = "name";
+    if (getCookie("userLanguage").substring(0, 2)=='pt') {
+        menu_name = "namePt";
+    }else if(getCookie("userLanguage").substring(0, 2)=='en'){
+        menu_name = "nameEn";
+    }
+    initPermTree(perms);
+
+    function initPermTree(data){
+        $.each(data, function(i,v) {
+            if(null!=v){
+                var dd = {}
+                dd.id = v.id
+                dd.text = v[menu_name]
+                if (v.pid==0) {
+                    dd.parent = '#'
+                }else{
+                    dd.parent = v.pid
+                }
+                arrs.push(dd)
+            }
+        });
+    }*/
+
+
+    function StringValFilter(str) {
+    	  var s = "";
+    	  if (str.length === 0) {
+    	    return "";
+    	  }
+    	  s = str.replace(/&amp;/g, "&");
+    	  s = s.replace(/&lt;/g, "<");
+    	  s = s.replace(/&gt;/g, ">");
+    	  s = s.replace(/&nbsp;/g, " ");
+    	  s = s.replace(/&#39;/g, "\'");
+    	  s = s.replace(/&quot;/g, "\"");
+    	  return s;
+    }
+    //配置权限--窗口
+    $('body').on('click', '.edit', function() {
+        var auto_id = $(this).data('id')
+        var name = $(this).parent().siblings('.roleName').html();
+        var type = $(this).data('type')
+        var ins_id = $(this).data('ins')
+        var dep_id = $(this).data('dep')
+        $("input[type=radio][name=is_validate1]").attr("disabled",false);
+        $('#exampleInputName2').val(StringValFilter(name))
+        $.get('system/mod1/queryRoleByid', {'id':auto_id }, function(obj) {
+            $('#save_role').data('id',auto_id)
+            $('#jurisdictionModal').find("#myModalLabel").html("${_res.system_041}");
+            // $("input[type=radio][name=is_validate]").attr("disabled",true);
+            // $("input[type=radio][name=is_validate1]").attr("disabled",true);
+            $("input[type=radio][name=is_validate][value="+obj.level+"]").prop("checked",true);
+            $("input[type=radio][name=is_validate1][value="+obj.sysType+"]").prop("checked",true);
+            $("#role_institution").prop("disabled",true);
+            $("#role_department").prop("disabled",true);
+            $("#role_institution option[value='"+ins_id+"']").prop("selected",true);
+            obtainDepByInsId(ins_id,dep_id);
+            $('#jurisdictionModal').find(".operation_type").html("update");
+            $('#jurisdictionModal').modal('show');
+            tree(obj.pidlist)
+        })
+    })
+    //添加权限--窗口
+    $("#add_role_model").unbind("click").click(function(){
+        var allArr = []
+        $.each(arrs, function(i,v) {
+            if(null!=v){
+                var obj = {};
+                obj.pid = v.id;
+                allArr.push(obj);
+            }
+        });
+        tree(allArr);
+        $('#jurisdictionModal').find("#myModalLabel").html("${_res.system_051}");
+        $('#exampleInputName2').prop("disabled",false);
+        $("input[type=radio][name=is_validate]").prop("disabled",false);
+        $("input[type=radio][name=is_validate]").eq(0).prop("checked",true);
+        $("input[type=radio][name=is_validate1]").prop("disabled",false);
+        $("input[type=radio][name=is_validate1]").eq(0).prop("checked",true);
+        $('#jurisdictionModal').find(".operation_type").html("save");
+        $('#jurisdictionModal').modal('show');
+        $("#role_institution option").eq(0).prop("selected",true);
+        
+        /*添加管理员权限*/
+        $.post("system/mod1/obtainInstatutionByUserLevel",function(data){
+			if(data.level == "1"){
+				$("#jurisdiction").find(".first").removeClass("cm_hide");
+				$("#jurisdiction").find(".second").removeClass("cm_hide");
+				$("#jurisdiction").find(".thire").removeClass("cm_hide");
+			}else if(data.level == "2"){
+				$("#jurisdiction").find(".first").addClass("cm_hide");
+				$("#jurisdiction").find(".second").removeClass("cm_hide");
+				$("#jurisdiction").find(".thire").removeClass("cm_hide");
+			}else if(data.level == "3"){
+				$("#jurisdiction").find(".first").addClass("cm_hide");
+				$("#jurisdiction").find(".second").addClass("cm_hide");
+				$("#jurisdiction").find(".thire").removeClass("cm_hide");
+			}else if(data.level == "4"){
+				$("#jurisdiction").find(".first").addClass("cm_hide");
+				$("#jurisdiction").find(".second").addClass("cm_hide");
+				$("#jurisdiction").find(".thire").addClass("cm_hide");
+			}
+		})
+        
+    });
+    //更新保存权限
+    $('#save_role').unbind('click').bind('click', function() {
+        $('#jurisdictionModal').find(".operation_result").html("");
+        var auto_id = $(this).data('id')
+        var optype = $('#jurisdictionModal').find(".operation_type").html();
+        var url = "system/mod1/updateSysRolePerm";
+        //var level = $("input[type=radio][name=is_validate]:checked").val();
+        var level = $(".user_type_container").find("input[type='radio'][name='is_validate']:checked").attr("value");
+        var sysType = $("#jueseType").find("input[type='radio'][name='is_validate1']:checked").attr("value");
+        var institution = $("#role_institution").val();
+        var department = $("#role_department").val();
+        var name = $('#exampleInputName2').val();
+        if (name=='') {
+            alert('请输入角色名');
+            //alert('${_res.system_109}');
+            return
+        }
+        if (department=='-1' && level!='2') {
+            alert('所属部门不能为空');
+            //alert('${_res.system_102}');
+            return
+        }
+        var title = "",errTitle="";
+        if(optype=="save"){
+            url = "system/mod1/addSysRole";
+            title = "添加成功";
+            errTitle = "添加失败";
+            // var param = {'name':name,'level':level,'permids':checkbox_temp,'sysType':sysType,'department':department,'institution':institution};
+            var param = {'name':name,'level':level,'permids':checkbox_temp,'sysType':sysType};
+        }
+        if (optype=="update") {
+            url = "system/mod1/updateSysRolePerm";
+            title = "修改成功"
+            errTitle = "修改失败";
+            var param = {'roleName':name,'permids':checkbox_temp,id:auto_id,'sysType':sysType,'level':level};
+        }
+        $.get(url,param,function (mark) {
+            if(optype=="save"){
+                if("exist"==mark){
+                    alert(errTitle)
+                    $('#jurisdictionModal').find(".operation_result").html("000");
+                    return;
+                }else if("fail"==mark){
+                    alert(errTitle)
+                    $('#jurisdictionModal').find(".operation_result").html("000");
+                    return;
+                }else{
+                    alert(title)
+                    $('#jurisdictionModal').modal('hide');
+                    load_user_list();
+                    addUserAction(addRole.action,addRole.action_content,name);
+                }
+            }else{
+                if (mark.massage) {
+                	addUserAction(editRole.action,editRole.action_content,name);
+                    alert(title)
+                    $('#jurisdictionModal').modal('hide');
+                    load_user_list();
+                }else {
+                    alert(errTitle)
+                }
+            }
+//             addUserActionRecord('管理系统首页>系统配置管理 ','点击','添加系统配置管理下角色管理字段');
+        })
+    })
+    //模态框隐藏时触发
+    $('#jurisdictionModal').on('hidden.bs.modal', function () {
+        $('#jurisdictionModal').find(":text").val("");
+        $("input[type=radio][name=is_validate][value=3]").attr("checked",true);
+        $('#jurisdictionModal').find(".operation_result").html("");
+    })
+
+    function tree(obj) {
+        $.jstree.destroy()
+        window.localStorage.jstree=''
+        $('#partree').html('<div id="tree"></div>')
+        datas = []
+        $.each(arrs, function(i,v) {
+            datas.push($.extend(true, {}, v))
+        });
+        var code = []
+        $.each(obj, function(i,v) {
+            code.push(v.pid)
+        });
+        for(x in datas){
+            var id = datas[x].id
+            for(v in code){
+                if (code[v] == id) {
+                    datas[x].state = {"selected": true,"opened" : true}
+                }
+            }
+        }
+        for(z in datas){
+            if (datas[z].state==null) {
+                $.each(datas,function (i,v) {
+                    if (datas[z].parent==v.id) {
+                        v.state=null
+                    }
+                })
+            }
+        }
+        for(a in datas){
+            if (datas[a].state==null) {
+                $.each(datas,function (i,v) {
+                    if (datas[a].parent==v.id) {
+                        v.state=null
+                    }
+                })
+            }
+        }
+        $('#tree').jstree({
+            'core': {
+                'expand_selected_onload':false,
+                'data': datas,
+            },
+            "checkbox": {
+                "keep_selected_style": false
+            },
+            "plugins": ["checkbox","state"],
+
+        });
+        var setint = setInterval(function () {
+            if ($('#tree').jstree().load_node('#1_anchor')) {
+                radio_click ()
+                clearInterval(setint)
+            }
+        },100);
+        $('#tree').on("changed.jstree", function(e, d) {
+            var arr = d.selected.concat()
+            $.each(d.selected, function(i, v) {
+                for(z in datas) {
+                    if(datas[z].id == v) {
+                        arr.push(datas[z].parent)
+                    }
+                }
+            });
+            $.each(arr, function(x, z) {
+                for(a in datas) {
+                    if(datas[a].id == z) {
+                        arr.push(datas[a].parent)
+                    }
+                }
+            });
+            checkbox_temp = ''
+            $.each(arr.unique3(), function(i, v) {
+                if(v != '#') {
+                    if(checkbox_temp == "") {
+                        checkbox_temp = v
+                    } else {
+                        checkbox_temp += "," +v;
+                    }
+                }
+            })
+        });
+//         addUserActionRecord('管理系统首页>系统配置管理 ','点击','修改系统配置管理下角色管理字段');
+    }
+
+    Array.prototype.unique3 = function() {
+        var res = [];
+        var json = {};
+        for(var i = 0; i < this.length; i++) {
+            if(!json[this[i]]) {
+                res.push(this[i]);
+                json[this[i]] = 1;
+            }
+        }
+        return res;
+    }
+
+    //默认展开部分
+    //		window.onload=function () {
+    //            $(".jstree-children .jstree-ocl").click(function () {
+    //                alert(1)
+    //            })
+    //        }
+</script>

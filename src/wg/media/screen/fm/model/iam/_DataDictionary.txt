@@ -1,0 +1,188 @@
+Table: iam_account	Remarks: 账号表,每个用户在账户表中对应一个账户
+------------+--------------+------+-----+---------+---------
+ Field      | Type         | Null | Key | Default | Remarks 
+------------+--------------+------+-----+---------+---------
+ id         | INT(10)      | NO   | PRI |         |         
+ user_id    | BIGINT(19)   | YES  |     |         | 用户ID    
+ account_id | BIGINT(19)   | YES  |     |         | 账户Id    
+ appId      | BIGINT(19)   | YES  |     |         | 应用ID    
+ enable     | BIT(1)       | YES  |     |         | 是否启用    
+ app_name   | VARCHAR(100) | YES  |     |         | 应用名称    
+ user_name  | VARCHAR(100) | YES  |     |         | 用户名     
+------------+--------------+------+-----+---------+---------
+
+Table: iam_app
+----------------+---------------+------+-----+-------------------+---------
+ Field          | Type          | Null | Key | Default           | Remarks 
+----------------+---------------+------+-----+-------------------+---------
+ app_id         | BIGINT(19)    | NO   | PRI |                   | 应用ID    
+ app_name       | VARCHAR(100)  | NO   |     |                   | 应用名称    
+ server_api_Key | VARCHAR(100)  | YES  |     |                   | 服务端apikey
+ client_api_key | VARCHAR(100)  | YES  |     |                   | 客户apikey
+ enabled        | BIT(1)        | YES  |     | 1                 | 是iam_ssoconfig否启用
+ strategy_id    | INT(10)       | YES  |     |                   | 应用的防御策略ID
+ owner_id       | BIGINT(19)    | YES  |     |                   | 应用创建者ID 
+ app_code       | VARCHAR(200)  | YES  |     |                   | 应用标识, 移动端SDK接入为包名
+ client_type    | VARCHAR(10)   | YES  |     |                   | 客户端类型   
+ sso_Type       | VARCHAR(20)   | YES  |     |                   | sso接入类型，cas oauth等
+ logout_url     | VARCHAR(200)  | YES  |     |                   | 退出地址    
+ decritpion     | VARCHAR(1000) | YES  |     |                   | 应用简要描述  
+ is_white       | BIT(1)        | NO   |     | 1                 | 是否是白名单  
+ create_date    | DATETIME(26)  | YES  |     | CURRENT_TIMESTAMP | 创建时间    
+ main_url       | VARCHAR(300)  | YES  |     |                   | 主页      
+ service        | VARCHAR(255)  | YES  |     |                   | 回调地址    
+ image_url      | VARCHAR(255)  | YES  |     |                   | 应用图标url 
+----------------+---------------+------+-----+-------------------+---------
+
+Table: iam_caibian_user	Remarks: sso账号与采编系统账号关联表
+------------------+--------------+------+-----+---------+---------
+ Field            | Type         | Null | Key | Default | Remarks 
+------------------+--------------+------+-----+---------+---------
+ id               | BIGINT(19)   | NO   | PRI |         |         
+ tenent_id        | INT(10)      | NO   |     |         | sso账号的租户id
+ user_name        | VARCHAR(100) | NO   |     |         | 用户名称,关联 iam_user的user_name
+ caibian_username | VARCHAR(100) | YES  |     |         | 关联采编的用户名
+ caibian_pwd      | VARCHAR(256) | YES  |     |         | 关联采编用户的密码，用Base64加密
+ insert_time      | DATETIME(26) | YES  |     |         | 插入时间    
+------------------+--------------+------+-----+---------+---------
+
+Table: iam_group	Remarks: 组织机构表
+-----------------+---------------------+------+-----+-------------------+---------
+ Field           | Type                | Null | Key | Default           | Remarks 
+-----------------+---------------------+------+-----+-------------------+---------
+ group_id        | BIGINT(19)          | NO   | PRI |                   |         
+ name            | VARCHAR(255)        | NO   |     |                   | 部门名称或下属机构名称
+ level           | VARCHAR(255)        | NO   |     | 0                 | 部门级别字符串 
+ parent_group_id | BIGINT UNSIGNED(20) | YES  |     |                   | 父级主键id  
+ seq             | BIGINT UNSIGNED(20) | NO   |     | 0                 | 排序号     
+ update_date     | DATETIME(26)        | YES  |     |                   | 更新时间    
+ create_date     | DATETIME(26)        | YES  |     | CURRENT_TIMESTAMP | 创建时间    
+ update_user     | BIGINT UNSIGNED(20) | YES  |     |                   | 修改人     
+ create_user     | BIGINT UNSIGNED(20) | YES  |     |                   | 创建人     
+ enable          | BIT(1)              | YES  |     | 1                 | 是否启用    
+ tenent_id       | INT(10)             | YES  |     |                   | 租户Id    
+-----------------+---------------------+------+-----+-------------------+---------
+
+Table: iam_menu	Remarks: 菜单表
+-------------+--------------+------+-----+-------------------+---------
+ Field       | Type         | Null | Key | Default           | Remarks 
+-------------+--------------+------+-----+-------------------+---------
+ id          | INT(10)      | NO   | PRI |                   | 菜单id    
+ title       | VARCHAR(100) | NO   |     |                   | 菜单名称    
+ menu_pid    | INT(10)      | YES  |     |                   | 上级菜单    
+ status      | BIT(1)       | YES  |     |                   | 菜单状态 true 正常，false删除
+ menu_type   | INT(10)      | NO   |     | 0                 | 权限类型，0目录，1菜单，2按钮
+ href        | VARCHAR(200) | YES  |     |                   | 权限地址    
+ menu_code   | VARCHAR(200) | YES  |     |                   | 菜单图标    
+ create_time | DATETIME(26) | YES  |     | CURRENT_TIMESTAMP | 创建时间    
+ update_time | DATETIME(26) | YES  |     |                   | 修改时间    
+-------------+--------------+------+-----+-------------------+---------
+
+Table: iam_pwd_policy
+-------------------------+---------------+------+-----+-------------------+---------
+ Field                   | Type          | Null | Key | Default           | Remarks 
+-------------------------+---------------+------+-----+-------------------+---------
+ policy_id               | INT(10)       | NO   | PRI |                   | 具体策略ID  
+ name                    | VARCHAR(100)  | NO   |     |                   | 密码策略名称  
+ description             | VARCHAR(1000) | YES  |     |                   | 描述      
+ enable                  | BIT(1)        | YES  |     |                   | 是否启用    
+ banned                  | BIT(1)        | YES  |     |                   | 是否启用黑名单 
+ min                     | INT(10)       | NO   |     |                   | 密码最小长度  
+ max                     | INT(10)       | NO   |     |                   | 密码最长长度  
+ max_repeat_character    | INT(10)       | YES  |     |                   | 最大重复单词数 
+ enable_non_alphanumeric | BIT(1)        | YES  |     | 1                 | 是否启用特殊字符
+ min_non_alphanumeric    | INT(10)       | YES  |     |                   | 特殊字符最小长度
+ enable_digits           | BIT(1)        | YES  |     | 0                 | 是否包含数字  
+ minDigits               | INT(10)       | YES  |     |                   | 数字最小长度  
+ enable_lowercase        | BIT(1)        | YES  |     | 0                 | 是否包含小写字符
+ min_lowercase           | INT(10)       | YES  |     |                   | 小写字符最小长度
+ enable_uppercase        | BIT(1)        | YES  |     | 0                 | 是否包含大写字符
+ min_uppercase           | INT(10)       | YES  |     |                   | 大写字符最小长度
+ retry_open              | BIT(1)        | YES  |     | 1                 | 登录时是否开启密码重试
+ require_verify_code     | BIT(1)        | YES  |     |                   | 密码输错是否需要图片验证码
+ retry_num               | INT(10)       | YES  |     |                   | 密码输错重试次数
+ lockTime                | INT(10)       | YES  |     |                   | 密码输错锁定时间
+ verify_code_num         | INT(10)       | YES  |     |                   | 密码输错几次需要图片验证码
+ create_time             | DATETIME(26)  | YES  |     | CURRENT_TIMESTAMP | 创建时间    
+ update_time             | DATETIME(26)  | YES  |     | CURRENT_TIMESTAMP | 更新时间时间  
+-------------------------+---------------+------+-----+-------------------+---------
+
+Table: iam_role	Remarks: 角色表
+-------------+--------------+------+-----+-------------------+---------
+ Field       | Type         | Null | Key | Default           | Remarks 
+-------------+--------------+------+-----+-------------------+---------
+ id          | INT(10)      | NO   | PRI |                   | 角色id    
+ role_name   | VARCHAR(50)  | NO   |     |                   |         
+ role_pid    | INT(10)      | YES  |     |                   | 上级角色id  
+ enabled     | BIT(1)       | YES  |     |                   | 1是可用,0是注销
+ role_code   | VARCHAR(100) | YES  |     |                   | 角色code  
+ create_time | DATETIME(26) | YES  |     | CURRENT_TIMESTAMP | 创建时间    
+ update_time | DATETIME(26) | YES  |     |                   | 修改时间    
+-------------+--------------+------+-----+-------------------+---------
+
+Table: iam_role_menu	Remarks: 角色菜单中间表
+---------------+--------------+------+-----+-------------------+---------
+ Field         | Type         | Null | Key | Default           | Remarks 
+---------------+--------------+------+-----+-------------------+---------
+ id            | BIGINT(19)   | NO   | PRI |                   | 自增id    
+ role_id       | INT(10)      | NO   |     |                   | 角色id    
+ permission_id | INT(10)      | YES  |     |                   | 权限id    
+ create_time   | DATETIME(26) | YES  |     | CURRENT_TIMESTAMP | 创建时间    
+---------------+--------------+------+-----+-------------------+---------
+
+Table: iam_tenant
+---------------+--------------+------+-----+-------------------+---------
+ Field         | Type         | Null | Key | Default           | Remarks 
+---------------+--------------+------+-----+-------------------+---------
+ id            | INT(10)      | NO   | PRI |                   |         
+ tenant        | VARCHAR(100) | NO   |     |                   |         
+ name          | VARCHAR(100) | YES  |     |                   |         
+ create_time   | DATETIME(26) | NO   |     | CURRENT_TIMESTAMP |         
+ enable        | BIT(1)       | YES  |     | 1                 |         
+ owner_id      | BIGINT(19)   | YES  |     |                   |         
+ owner_name    | VARCHAR(100) | YES  |     |                   |         
+ update_time   | DATETIME(26) | YES  |     |                   |         
+ contacts      | VARCHAR(100) | YES  |     |                   | 联系人     
+ contacts_info | VARCHAR(100) | YES  |     |                   | 联系方式    
+---------------+--------------+------+-----+-------------------+---------
+
+Table: iam_user
+-----------------+--------------+------+-----+-------------------+---------
+ Field           | Type         | Null | Key | Default           | Remarks 
+-----------------+--------------+------+-----+-------------------+---------
+ id              | BIGINT(19)   | NO   | PRI |                   | 用户id    
+ user_name       | VARCHAR(100) | NO   |     |                   | 用户名     
+ dispaly_name    | VARCHAR(100) | YES  |     |                   | 中文名     
+ password        | VARCHAR(100) | YES  |     |                   | 密码      
+ email           | VARCHAR(100) | YES  |     |                   | 邮箱      
+ mobile          | VARCHAR(20)  | YES  |     |                   | 手机号     
+ status          | INT(10)      | YES  |     |                   | 用户状态 0-未激活 1-正常 2-锁定 3-禁用 4-删除
+ group_id        | BIGINT(19)   | YES  |     |                   | 组织机构    
+ create_time     | DATETIME(26) | YES  |     | CURRENT_TIMESTAMP | 创建时间    
+ validate_time   | DATETIME(26) | YES  |     |                   | 失效时间    
+ update_time     | DATETIME(26) | YES  |     |                   | 更新时间    
+ update_pwd_time | DATETIME(26) | YES  |     |                   | 修改密码时间  
+ owner_id        | BIGINT(19)   | YES  |     |                   | 创建人     
+ tenent_id       | INT(10)      | YES  |     |                   | 用户所属租户  
+ pwd_id          | INT(10)      | YES  |     |                   | 密码策略ID  
+-----------------+--------------+------+-----+-------------------+---------
+
+Table: iam_user_role	Remarks: 管理员角色中间表
+-------------+--------------+------+-----+-------------------+---------
+ Field       | Type         | Null | Key | Default           | Remarks 
+-------------+--------------+------+-----+-------------------+---------
+ id          | INT(10)      | NO   | PRI |                   | 菜单功能id  
+ user_id     | BIGINT(19)   | NO   |     |                   | 用户seq_id
+ role_id     | INT(10)      | NO   |     |                   | 角色id    
+ create_time | DATETIME(26) | YES  |     | CURRENT_TIMESTAMP | 创建时间    
+ update_time | DATETIME(26) | YES  |     |                   | 修改时间    
+-------------+--------------+------+-----+-------------------+---------
+
+Table: iam_weak_password
+---------------+--------------+------+-----+---------+---------
+ Field         | Type         | Null | Key | Default | Remarks 
+---------------+--------------+------+-----+---------+---------
+ id            | INT(10)      | NO   | PRI |         |         
+ weak_password | VARCHAR(255) | NO   |     |         |         
+---------------+--------------+------+-----+---------+---------
+

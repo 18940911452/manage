@@ -1,0 +1,204 @@
+<div class="dataflow_con col-md-12 c m mt10">
+    <div class="bd2">
+        <div class="metadata_weizhi">
+            <p class="nav-top-title">
+                <!--                 <span class="yijiname">大数据资源池管理</span><em class="arrow_one">&gt;</em> -->
+                <!--                 <span class="erjiname">系统配置管理</span><em class="arrow_two">&gt;</em> -->
+                <span class="sanjiname">部门管理</span>
+            </p>
+        </div>
+        <div class="col-md-12 dataflow_bg1 pt10">
+            <div>
+                <div class="col-md-10">
+
+                </div>
+                <div class="col-md-12 service_add tarb  h35" style="margin-bottom: 8px;">
+                    <div class="col-md-11 service_add tarb  h35" style="padding:0px;">
+                        <span style="color:#000;font-size: 18px;">机构选择&nbsp;&nbsp;</span>
+                        <select id="searchIpt" placeholder="请输入查询条件..."
+                                style="width: 250px;height: 31px;line-height: 31px;color: #000;border-radius: 5px;">
+
+                        </select>
+                    </div>
+                    <div class="col-md-1 service_add tarb  h35" style="padding:0px;">
+                        <!-- <span id="searchBtn" style="background-color: #009ae2;color: #fff;padding: 5px 15px;border-radius: 5px;cursor: pointer;">搜索</span> -->
+                        <a id="addNewBox" typeD="1"><i class="fa fa-plus-circle"></i><span>新增部门</span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 mth10 p0">
+                <div id="department" class="metadata_list c m bk">
+                    <h3>
+                        <span class="service_w20 hf">媒体名称</span>
+                        <span class="service_w20 hf">部门名称</span>
+                        <span class="service_w20 hf">单位名称</span>
+                        <span class="service_w20 hf">创建时间</span>
+                        <span class="service_w20 hf">操作</span>
+                    </h3>
+                    <ul class="c m" id="bumen_list">
+                        <!--<li>
+                            <span class="service_w25">实体抽取服务</span>
+                            <span class="service_w25">192.168.10.25</span>
+                            <span class="service_w25">2018-08-17  12:01:01</span>
+                            <span class="service_w25"><i class="fa fa-edit"></i><i class="fa fa-trash"></i></span>
+                        </li>-->
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--加载弹出框-->
+<div class="department_detail"></div>
+<script>
+    $(".department_detail").load("detail/system/department.html");
+   
+    /*列表*/
+    function load_bumen_list(id) {
+        var option = new Object();
+        option.param = {
+            'path': "/dynamic/bumen_list.html",
+            'insId': id
+        };
+        option.pageNo = 1;
+        option.pageSize = 10;
+        option.callback = function () {
+
+        };
+        var obj = new iPage.PageLoad("bumen_list", "system/mod1/findDepartByInsIdPlus", option);
+        obj.init();
+//         addUserActionRecord('管理系统首页>系统配置管理 ','查询','查询系统配置管理下部门管理字段');
+    }
+
+    load_institution_list();
+
+    function load_institution_list() {
+        $.post('system/mod1/queryInstitution', function (data) {
+            if (data != '') {
+                for (var i = 0; i < data.length; i++) {
+                    $('#searchIpt').append("<option value='" + data[i].id + "' selected='selected'>" + data[i].name + "</option>")
+                }
+            }
+            if($("#searchIpt option").length>1) {
+                getId = 1;
+            }else {
+                getId = 0;
+            }
+            if (data.id != '') {
+                $("#searchIpt").find("option[value=" + data[getId].id + "]").prop("selected", true);
+                // $("#searchIpt").attr("disabled", false);
+            }
+            
+            load_bumen_list(data[getId].id);
+        });
+    }
+    $.post("system/mod1/suchUserLevel",function (data ) {   
+        if(data.level ==2) {
+            $("#searchIpt").attr("disabled","disabled").css({"background":"#e7eaf1"});
+        }
+    })
+    //切换机构列表  查询对应的部门
+    $("#searchIpt").change(function () {
+        var a = $("#searchIpt").find("option:selected").val();
+        load_bumen_list(a);
+    });
+
+
+    /*弹出框按钮*/
+    $("#addNewBox").unbind("click").click(function () {
+        $("#myModal").modal("show");
+        $("#selected").empty();
+        $(".bumen1").val("");
+        $(".bumen2").val("");
+        $(".bumen3").val("");
+        $(".bumen4").val("");
+        $(".bumen5").val("");
+        $(".bumen6").val("");
+        $(".bumen7").val("");
+        $(".bumen8").val("");
+        $("#hidden_id").val("");
+        $(".departmentTile").html("添加部门信息");
+        /*默认第一个选中*/
+        var id = $("#searchIpt option:selected").attr("value");
+        $("#selectjg").find("[id='"+id+"']").attr("selected", true);
+        $.post("system/mod1/findMediaByInsId",{insId:id},function ( info ) {
+                var str = "<option id=''></option>";
+                info.data.forEach( function ( v , i) {
+                    str += "<option id="+v.media_id+">"+v.media_name+"</option>"
+                })
+                $("#mediaName").empty().html(str);
+        })
+        // $("#selectjg option").find("option").first();
+        var dataType = $(this).attr("typeD");
+        if (dataType == "1") {
+            $("#confirmBtn").attr("dataT", "1");
+        }
+        /**/
+    });
+
+    function modify_label(obj) {
+        $("#myModal").modal("show");
+        var val_id = $.trim($(obj).parents(".lead_cate_list").find(".first").html());
+        $("#hidden_id").val(val_id);
+        $.post("system/mod1/echoDepartment", {id: val_id}, function (data) {
+            $(".bumen1").val(data.depName);
+            $(".bumen2").val(data.leader);
+            $(".bumen3").val(data.contacter);
+            $(".bumen4").val(data.address);
+            $(".bumen5").val(data.telephone);
+            $(".bumen6").val(data.fax);
+            $(".bumen7").val(data.email);   
+            $(".bumen8").val(data.note);
+            $(".departmentTile").html("修改部门信息");
+            $("#selectjg").find("option[id='"+data.instId+"']").attr("selected",true);
+            var id = $("#selectjg option:selected").attr("id");
+            $.post("system/mod1/findMediaByInsId",{insId:id},function ( info ) {
+                var str = "<option id=''></option>";
+                info.data.forEach( function ( v , i) {
+                    str += "<option id="+v.media_id+">"+v.media_name+"</option>"
+                })
+                $("#mediaName").html(str);
+                $("#mediaName").find("option[id='"+data.mediaId+"']").attr("selected",true);
+           })
+            
+            // $("#mediaName option").each(function () {  //遍历所有option
+            //     var txt = $(this).attr("value");   //获取option值
+            //     if (txt == data.mediaId) {
+            //         $(this).prop("selected", true);
+            //     }
+            // });
+        })
+    }
+
+
+
+    function remove_C(obj) {
+        var depid = $.trim($(obj).parents(".lead_cate_list").find(".first").html());
+        var instid = $.trim($(obj).parents(".lead_cate_list").find(".second").html());
+        var deptName = $.trim($(obj).parents(".lead_cate_list").find(".deptName").html());
+
+        if (confirm("确认删除吗")) {
+            $.post("system/mod1/deleteDepartment", {depId: depid, instid: instid}, function (data) {
+                if (data.massage == "success") {
+                    alert("删除成功！")
+                    var a = $("#searchIpt").find("option:selected").val();
+                    load_bumen_list(a);
+                    selectOption("#searchIpt")
+                } else {
+                    alert("删除失败！")
+                }
+
+            })
+        } else {
+            return
+        }
+    }
+
+    // 设置默认选中
+    function selectOption( item ) {
+        $(item).change();
+    }
+
+    
+</script>

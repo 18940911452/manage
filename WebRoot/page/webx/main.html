@@ -1,0 +1,106 @@
+<#include "/_largeScreen_al_layout.html"/>
+<@layout>
+	<style type="text/css">
+		li span{margin: 0;}
+	</style>
+		<div class="xiangBox">
+			<!--<div class="xiangHaderBox">
+				<ul>
+					<li class="fanhui"><i class="iconfont icon-zuo"></i></li>
+					<li>任务详情</li>
+					<li></li>
+				</ul>
+			</div>-->
+			<div class="xiangList">
+				<div class="xybox">
+					<ul>
+						<li><span class="title">名称：</span><div class="valueBox listDataTitle"></div></li>
+						<li><span class="title">描述：</span><div class="valueBox listDataMiao"></div></li>
+						<li><span class="title">进度：</span><div class="valueBox">
+							<div class="jinduBox">
+		        				<div class="jinduT" style="width: 0;"></div>
+		        			</div>
+						</div></li>
+						<li><span class="title">负责人：</span><div class="valueBox principal">
+							<ul></ul>
+						</div></li>
+						<li><span class="title">参与人：</span><div class="valueBox participant">
+							<ul>
+							</ul>
+						</div></li>
+						<li><span class="title">开始时间：</span><div class="valueBox" id="start_time">2018-11-12 12:00:00</div></li>
+					</ul>
+				</div>
+				<div class="xyshu news_time">
+					<div class="traceabilityList">
+						<ul class="cbp_tmtimeline">
+							<div class="line"></div>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!-- 更新进度 -->
+			<div class="upDataLoading">
+				<p class="updateL"><i class="iconfont icon-shuaxin"></i>更新进度</p>
+			</div>
+		</div>
+<script>
+					//获取地址栏参数
+	function GetQueryString(name) {
+	     var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+	     var r = window.location.search.substr(1).match(reg);
+	     if(r!=null)return  unescape(r[2]); return null;
+	}
+	var planDate;
+	var allData;
+	$.post('report/mod2/taskList',{userId:13,task_id:GetQueryString('id')},function(data){
+    		var res = data.data[0];
+    		allData=res
+				$('.listDataTitle').html(res.title);
+				$('.listDataMiao').html(res.task_desc);
+				$('#title3').css('width',res.plan);
+				$('#title3').html(res.plan);
+				planDate = res.plan;
+				$('.jinduT').css('width',res.plan);
+				$('.jinduT').html(res.plan);
+				$('#start_time').val(res.start_time);
+				$('#btn3').css('left',res.plan);
+				let html ='';
+				let html2 ='';
+				let html3 ='';
+				for(var i=0;i<res.principal.length;i++){
+					html+='<li><span class="titleIcon"><i class="iconfont icon-ren1"></i></span><span class="titleProp">'+res.principal[i].nick_name+'</span></li>'
+				}
+				for(var i=0;i<res.participant.length;i++){
+					html2+='<li><span class="titleIcon"><i class="iconfont icon-ren1"></i></span><span class="titleProp">'+res.participant[i].nick_name+'</span></li>'
+				}
+				if(res.planList!=null){
+					for(var i=0;i<res.planList.length;i++){
+						let date = res.planList[i].update_time.split('-');
+						let date3 = date[2].split(' ');
+						let date2 = date3[1].split(':');
+						html3+='<li><div class="cbp_tmtime"><span>'+date[1]+'-'+date3[0]+'</span><span>'+date2[0]+':'+date2[1]+'</span></div>'
+									+'<div class="cbp_tmlabel itemColor">'
+										+'<div class="mainInfoList clearfix"><div class="checkbox checkbox-info data-source pull-left"></div>'
+											+'<div class="mainInfo "><div style="display:flex; align-items: center;">'
+													+'<div class="infoTitle textContantBoxFunc" title="'+res.planList[i].task_con_pro+'">'+res.planList[i].task_con_pro+'</div></div>'
+												+'<div class="bottomBar"><span class="pull-left interactData" title="'+res.planList[i].nick_name+'">'+res.planList[i].nick_name+'</span></div>'
+											+'</div></div></div></li>'
+					}
+				}
+				
+				$('.principal ul').html(html)
+				$('.participant ul').html(html2)
+				$('.cbp_tmtimeline').append(html3)
+    	})
+	
+	$('.upDataLoading').click(function(){
+		window.open('webg?id='+GetQueryString('id')+'&plan='+planDate);
+		localStorage.setItem('allData',JSON.stringify(allData))
+	})
+	$('.fanhui').click(function(){
+		window.open('web?userId='+GetQueryString('id'))
+	})
+	</script>
+</@layout>
+

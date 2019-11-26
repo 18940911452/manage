@@ -1,0 +1,36 @@
+<ul>
+    <#if mInfoList?exists&&(mInfoList?size>0)>
+        <#list mInfoList as mi>
+            <li class="borderB">
+                <input type="hidden" class="page_data" data-total="${total}"/>
+                <span style="display:none;"><#if mi.serviceId??>${mi.serviceId}</#if></span>
+                <#if mi.tableName??>
+                	<span class="dataflow_w15 hf bgColor" title="${mi.tableName}"><#if mi.tableName??>${mi.tableName}</#if></span>
+                	<#else>
+                		<span class="dataflow_w15 hf bgColor"></span>
+                		</#if>
+                <#if mi.entableName??>
+                	<span class="dataflow_w10 hf bgColor" title="${mi.entableName}"><#if mi.entableName??>${mi.entableName}</#if></span>
+                	<#else>
+                		<span class="dataflow_w10 hf bgColor"></span>
+                		</#if>
+                <span class="dataflow_w20 hf bgColor" style="text-align: center;" title="${mi.dataBaseAddress}"><#if mi.dataBaseAddress??>${mi.dataBaseAddress}</#if></span>
+                <span class="dataflow_w5 hf bgColor" style="height:100%;" title="${mi.errCount}"><#if mi.errCount??>${mi.errCount}</#if></span>
+                
+               
+                
+                <span class="dataflow_w10 hf bgColor" title="${mi.esUpdatetime}"><#if mi.esUpdatetime??>${mi.esUpdatetime}</#if></span>
+                <span class="dataflow_w10 hf bgColor" title="${mi.dataBaseType}"><#if mi.dataBaseType??>${mi.dataBaseType}</#if></span>
+                <span class="dataflow_w5  hf bgColor" title="${mi.succount}"><#if mi.succount??>${mi.succount}</#if></span>
+                <span class="dataflow_w10 hf bgColor" title="${mi.beginTime}"><#if mi.beginTime??>${mi.beginTime}</#if></span>
+                <span class="dataflow_w5 hf bgColor" title='${mi.dataBaseName}'><#if mi.dataBaseName??>${mi.dataBaseName}</#if></span>
+                <span class="dataflow_w10 hf bgColor" title='${mi.endTime}'><#if mi.endTime??>${mi.endTime}</#if></span>
+            </li>
+        </#list>
+        <#else>
+
+            <script>
+                $("#dataflow_in_list").html("<img src='images/zanwu.png' class='imgStyle'>");
+            </script>
+    </#if>
+</ul>

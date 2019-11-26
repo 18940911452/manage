@@ -1,0 +1,43 @@
+<ul>
+    <#if list?exists&&(list?size>0)>
+        <#list list as mi>
+            <li class="borderB">
+                <input type="hidden" class="page_data" data-total="${total}"/>
+                <span style="display:none;" class="first"><#if mi.id??>${mi.id}</#if></span>
+                <span class="dataflow_w5 hf">${mi_index +1}</span>
+                <span class="dataflow_w10 hf bgColor" style="text-align: center;" title="${mi.readerDbType}"><#if mi.readerDbType??>${mi.readerDbType}</#if></span>
+                <span class="dataflow_w15 hf bgColor" style="height:100%;" title="${mi.tableName}"><#if mi.tableName??>${mi.tableName}</#if></span>
+                <span class="dataflow_w10 hf bgColor" title="${mi.synchronizeType}"><#if mi.synchronizeType??>${mi.synchronizeType}</#if></span>
+                <span class="dataflow_w10 hf bgColor" title="${mi.writerDbType}"><#if mi.writerDbType??>${mi.writerDbType}</#if></span>
+                <span class="dataflow_w15 hf bgColor" title="${mi.createTime}"><#if mi.createTime??>${mi.createTime}</#if></span>
+                <span class="dataflow_w15 hf bgColor" title="${mi.updateTime}"><#if mi.updateTime??>${mi.updateTime}</#if></span>
+                <span class="dataflow_w5 hf bgColor state_zt" title="${mi.status}"><#if mi.status??>${mi.status}</#if></span>
+                <#if mi.level??>
+                	<#if (mi.level ==1)>
+                		<span class="dataflow_w5 hf bgColor">紧急</span>
+                		<#elseif (mi.level ==2)>
+                			<span class="dataflow_w5 hf bgColor">高级</span>
+                			<#elseif (mi.level ==3)>
+                				<span class="dataflow_w5 hf bgColor">中级</span>
+                				<#elseif (mi.level ==4)>
+                					<span class="dataflow_w5 hf bgColor">普通</span>
+                					</#if>
+                </#if>
+                <#if mi.status??>
+                	<#if (mi.status == '暂停')>
+                		<span class="dataflow_w10 hf bgColor"><i class="fa fa-edit fz13" onclick="modify01(this)" title="修改"></i><i class="fa fa-close fz13" onclick="delete01(this)" title="删除"></i><i class="fa fa-play fz13" onclick="changeState(this)" title="暂停"></i></span>
+                		<#elseif (mi.status == '开启')>
+                			<span class="dataflow_w10 hf bgColor"><i class="fa fa-edit fz13" onclick="modify01(this)" title="修改"></i><i class="fa fa-close fz13" onclick="delete01(this)" title="删除"></i><i class="fa fa-pause fz13" onclick="changeState(this)" title="启动"></i></span>
+                			</#if>
+                </#if>
+                
+                
+            </li>
+        </#list>
+        <#else>
+
+            <script>
+                $("#disk_list01").html("<img src='images/zanwu.png' class='imgStyle'>");
+            </script>
+    </#if>
+</ul>

@@ -1,0 +1,35 @@
+<ul>
+    <#if page?exists&&(page?size>0)>
+        <#list page as mi>
+            <li class="borderB">
+                <input type="hidden" class="page_data" data-total="${total}"/>
+                <span class="first" style="display:none;"><#if mi.id??>${mi.id}</#if></span>
+                <span class="second" style="display:none;"><#if mi.createId??>${mi.createId}</#if></span>
+                <span class="databack_w20 hf"><#if mi.company??>${mi.company}</#if></span>
+	            <span class="databack_w20 hf"><#if mi.fileName??>${mi.fileName}</#if></span>
+	            <span class="databack_w10 hf"><#if mi.unit??>${mi.unit}</#if></span>
+	            <span class="databack_w10 hf"><#if mi.applicant??>${mi.applicant}</#if></span>
+	            <span class="databack_w20 hf"><#if mi.createTime??>${mi.createTime}</#if></span>
+	            <#if mi.state??>
+	            	<#if (mi.state==0)>
+	            		<span class="databack_w10 hf bgcolor01">待审核</span>
+	            		<span class="databack_w10 hf lastSpan"><i onclick="displayDetail(this)" title="查看详情" class="fa fa-eye cp"></i></span>
+	            		<#elseif (mi.state==1)>
+	            			<span class="databack_w10 hf bgcolor02">审核未通过</span>
+	            			<span class="databack_w10 hf lastSpan" title="查看详情"><i class="fa fa-eye cp Istyle"></i></span>
+	            			<#elseif (mi.state==2)>
+	            				<span class="databack_w10 hf bgcolor03">审核通过</span>
+	            				<span class="databack_w10 hf lastSpan"><i class="fa fa-eye cp Istyle"></i></span>
+	            			</#if>
+	            </#if>
+	            
+                
+            </li>
+        </#list>
+        <#else>
+
+            <script>
+                $("#databack_list").html("<img src='images/zanwu.png' class='imgStyle'>");
+            </script>
+    </#if>
+</ul>

@@ -1,0 +1,20 @@
+.analy_left_list ul{float: left;width: 100%;}
+.analy_left_list li{float: left;height: 40px;line-height: 40px;width: 100%;cursor: pointer;}
+.analy_left_list li em{float: left;width: 20px;height: 16px;font-style: normal;text-align: center;line-height: 16px;margin-top: 12px;margin-left: 10px;font-size: 14px;}
+.analy_left_list li a{float: left;width: calc(100% - 86px);overflow: hidden;text-overflow: ellipsis;white-space: nowrap;font-size: 14px;color: #fff;margin-left: 15px;}
+.analy_left_list li a:hover{text-decoration: none;}
+.analy_left_list li span{float: right;width: 40px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;color: #efa443;}
+.analy_left_list li span img{
+	height: 14px;margin-left: 5px;
+}
+.analy_left_list li:nth-child(-n+3) span{
+	color: #f00;
+}
+.analy_left_list li:nth-last-child(-n+3) span{
+	color: #119927;
+}
+.analy_left_list li:nth-of-type(odd){ background:rgba(38,38,48,0.9);}
+.huang{background: #601986;}
+.lan{background: #4616cc;}
+.lv{background: #1337c9;}
+.shenlan{background: #182460;}

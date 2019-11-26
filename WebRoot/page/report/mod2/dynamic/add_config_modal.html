@@ -1,0 +1,65 @@
+<div id="add_configModal" data-backdrop="static" data-keyboard="false" class="modal fade">
+	<div class="modal-dialog" role="document" style="width: 40%;margin-top: 110px;margin-bottom: 0;">
+		<div class="modal-content">
+			<div class="modal-header" style="background-image: url(images/bg.png);background-size: 100% 100%;background-repeat: no-repeat;color: white;font-size: 16px;">
+				添加专题
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			</div>
+			<div class="modal-body" style="padding: 10px 15px;">
+				<div class="clue_add_form clearfix" style="height: 200px;overflow-y: auto;">
+					<div class="col-md-12">
+						<span>专题名称：</span>
+						<input type="text" placeholder="请输入专题名称" class="form-control config_task_name" />
+					</div>
+					<div class="col-md-12">
+						<span>&nbsp;&nbsp;&nbsp;&nbsp;描述：</span><textarea rows="3" class="form-control config_keywrod"></textarea>
+					</div>
+				</div>
+				<div style="text-align: center;margin:15px 0;padding: 6px 150px;">
+					<button style="" type="button" class="btn btn-primary add_xiansuo_btn_ok">确认提交</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	
+	$(".addrow").unbind("click").click(function () {
+		$(".config_keywrod").last().parent().after('<div class="col-md-12"><span></span><input placeholder="请输入关键词" type="text" class="form-control config_keywrod"><i class="fa fa-minus-square deltrow"></i></div>');
+		$(".deltrow").unbind("click").click(function () {
+			$(this).parent().remove();			
+		});
+	});
+	
+	$(".add_xiansuo_btn_ok").unbind("click").click(function () {
+		let keyword = [];
+		$(".config_keywrod").each(function (item,i) {
+			keyword.push($.trim($(this).val()));
+		});
+		let param = {
+			top_name : $.trim($(".config_task_name").val()),
+			keyword : JSON.stringify(keyword),
+		}
+		$.post("report/mod2/addTopicalInfo",param,function (data) {
+			if(data.message == "success") {
+				swal({ 
+				   title: "添加成功!",
+				   type: "success",
+				   timer: 2000, 
+				   showConfirmButton: false 
+				});
+				$("#add_configModal").modal("hide");
+				load_configure_list();
+			} else {
+				swal({ 
+				   title: "添加失败!",
+				   type: "error",
+				   timer: 2000,
+				   showConfirmButton: false 
+				});
+			}
+		});
+		
+	});
+</script>

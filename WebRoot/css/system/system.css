@@ -1,0 +1,42 @@
+body{background: #F5F5F5;}
+			.metadata_top{text-align: center;height: 150px;line-height: 150px;border-bottom: 1px solid #ddd;background:url("../../images/system/navname/beijingnav.png")center center no-repeat;background-size:100% 100%;font-size: 1.5em;position: relative;}
+			.metadata_top a{position: absolute;right: 30px;color: #333;font-size: 1.5em;}
+			.keywordscategoryid1{color:#000;text-align:center;}
+			.ipage-fenye-info{color:#000;}
+			.metadata_w25{width:25%;}
+			.metadata_w20{width:20%;}
+			.service_w10{width:10%;display:inline-block;}
+			.service_w15{width:15%;display:inline-block;}
+			.service_w20{width:20%;display:inline-block;}
+			.service_w25{width:25%;display:inline-block;}
+			.tal{text-align:left;color:#000;}
+			.tar{text-align:right;color:#000; padding-right:0px;}
+			.mt10{margin-top:10px;height:34px;line-height:34px;}
+			.h34{height:34px;}
+			.br1{border-right:1px solid #ddd;height:100%;}
+			.cb{color:#000;}
+			.imgStyle{margin-top:4%;margin-left:40%;}
+			/*.oper_div{display:none;}*/
+			.metadata_form p{position:relative;}
+			.cr{color: red;position: absolute;top: 0px;right: -15px;}
+			.mr5{margin-right:5px;}
+			.navloge{position:absolute;left:85px;top:19px;}
+			.navBiaoti{position:absolute;color:#fff;top:-25px;left:235px;font-size:37px;}
+			.biaoti{position:absolute;color:#fff;left:235px;top:10px;font-size:30px;}
+			.returnH{color:#fff;position:absolute;top:20px;right:100px;}
+			.textS{top: -36px;color: #fff;font-size: 20px;position: absolute;right: 0px;width: 100px;}
+			.sfs{font-size:18px;}
+			.nav-top-title{color:#5d6b7d;padding-left:20px;font-size:16px;}
+			.pr0{padding-right:0px;}
+			.pt10{padding-top:10px;}
+			.hf{font-size:14px;font-family: "微软雅黑";height:39px;line-height:39px;color:#5f5f5f;}
+			.bd{border:1px solid #b1b2c4;border-radius:5px;}
+			.bk{border-radius: 5px;border: 1px solid #b1b2c4;}
+			.ipage-fenye-on{background:#027cc2;}
+			.bd2{border:2px solid #ccd1da;min-height:780px;background:#fff;border-radius:5px;}
+			.tarb{text-align:right;}
+			.oper_div{display:none;}
+			.bjimg{background:url("../../../images/system/navname/beijingse.png")repeat-x;}
+			.trS{border-bottom:1px solid #ccc;}
+			.cpS{cursor:pointer;color:#97a9c0 !important;}
+			.fz13{font-size:14px!important;margin-right:5px!important;}

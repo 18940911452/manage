@@ -1,0 +1,63 @@
+<div class="listTable">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>任务</th>
+					<th>状态</th>
+					<th>负责人</th>
+					<th>参与人</th>
+					<th>所属专题</th>
+					<th>开始时间</th>
+					<th>更新时间</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				<input type="hidden" class="page_data" data-total="${total}" />
+				<#if list?exists&&(list?size>0)>
+					<#list list as mi>
+				<tr b_id="${mi.task_id}">
+					<td>${mi.title}</td>
+					<td><#if mi.status ==1>
+						正在进行
+						<#elseif mi.status ==2>
+							已完成 
+						<#elseif mi.status ==2>
+							已取消
+						</#if>
+					</td>
+					<td>
+						<#if mi.principal?exists&&(mi.principal?size>0)>
+						<#list mi.principal as min>
+							${min.nick_name}
+						</#list>
+						<#else>
+							1
+						</#if>
+					</td>
+					<td><#if mi.participant?exists&&(mi.participant?size>0)>
+							
+						<#list mi.participant as min>
+							${min.nick_name}
+						</#list>
+						<#else>
+						</#if></td>
+					<td>${mi.top_name!''}</td>
+					<td>${mi.start_time}</td>
+					<td>${mi.update_time}</td>
+					<td>
+						<a class="tableEdit" title="编辑" b_id="${mi.task_id}" style="margin-right: 10px;">
+							<img src="img/config_eidt.png"/>
+						</a>
+						<!--<a class="tableDelete" title="删除" b_id="${mi.task_id}">
+							<img src="img/config_delete.png"/>
+						</a>-->
+					</td>
+				</tr>
+				</#list>
+					<#else>
+					<tr><td colspan="4"><img style='display:block;margin:60px auto 50px auto;width:auto;' src='img/bt-nodata-now.png' /></td></tr>
+				</#if>
+			</tbody>
+		</table>
+	</div>

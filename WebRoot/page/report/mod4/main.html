@@ -1,0 +1,74 @@
+<#include "/_largeScreen_al_layout.html"/>
+<@layout>
+<!-- 	<link rel="stylesheet" href="css/nav/main.css" />
+	<link rel="stylesheet" href="css/nav/circular.navigation.css" />
+	<script src="js/nav/modernizr-2.6.2.min.js"></script>
+	<script src="js/nav/polyfills.js"></script>
+ -->	
+ <style>
+ .bk_left , .bk_right{
+ 	height: 100%;
+    position: absolute;
+    width: 33%;
+    z-index: 1;
+    background:-webkit-linear-gradient(right, rgba(6, 38, 55,0.4) 10%,rgb(6, 38, 55,0.8) 30%,rgb(6, 38, 55,1) 100%);
+ }
+ .bk_right {
+ 	right: 0px;
+    width: 35.1%;
+    background:-webkit-linear-gradient(left, rgb(6, 38, 55,0.4) 10%,rgb(6, 38, 55,0.8) 30%,rgb(6, 38, 55,1) 100%);
+ }
+
+ .amap-container img {
+	 display: none;
+ }
+ </style>
+ <script src="js/nav/modernizr-2.6.2.min.js"></script>
+ 	<div class="bk_left"></div>
+	<div class="bk_right"></div>
+	<div id="app">
+		<div id="topModule" class="l2022" bg="" module=""></div>
+		<div id="headerBox">
+
+		</div>
+		<div id="my_dock_manager" class="my-dock-manager" style="position: relative;">
+			
+		</div>
+		<div id="bottomModule" class="l2022" bg="" module=""></div>
+		<!--模块-->
+		<div id="module_box" style="display: none;"></div> 
+	</div>
+	<div class="">
+		
+	</div>
+	<script type="text/javascript">
+		window.innerWidth = 3840;
+		var typeHide=1;
+		$.getJSON('json/view1_.json', function(data) {
+			loadInfoInit(data,'报道指挥')
+		})
+		var tId = 1,initAllFunc;
+		function callback(initAll) {
+			// initAll(tId)
+			initAllFunc=initAll
+		}
+		function tabInit(tId) {
+			initAllFunc(tId)
+		}
+		setTimeout(function(){
+			$('html').css({width: '3840px','overflow-x': 'auto'});
+		},2000)
+	</script>
+	<!-- <script src="js/nav/circular.navigation.js"></script> -->
+	
+	<!-- <style type="text/css">
+		body{
+			overflow-y: auto !important; 
+		}
+		#app{
+			width: 1920px;
+			height: 1080px;
+			background: url(img/zhihui.jpg) no-repeat;			
+		}
+	</style> -->
+</@layout>

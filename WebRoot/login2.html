@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-2.2.4.min.js" ></script>
+	</head>
+	<body>
+		
+	</body>
+</html>
+<script>
+	biography();
+	function biography(){
+			var url = decodeURI(window.location.search);
+			var loc = url.substring(url.lastIndexOf('?')+1, url.length);
+			if (loc != undefined && loc != '') {
+				var b = loc.substring(0, loc.indexOf("&"));
+				var b2 = loc.substring(loc.indexOf("&")+1);
+				abc(b,b2);
+			}
+			
+		}
+	
+	
+	function abc(loc,perm){
+		$.post("menu/",{sl:"nologin",code:loc,perm:perm},function(data){
+			if (data.status == "ok") {
+				window.location.href = "http://192.168.2.27:8088/"+data.url;
+			} else {
+				alert("用户名或密码错误!");
+			}
+		})
+	}
+</script>

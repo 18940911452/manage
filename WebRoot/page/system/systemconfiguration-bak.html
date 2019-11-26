@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>系统配置管理</title>
+		<link rel="stylesheet" href="../css/bootstrap.min.css" />
+		<link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="../css/style.css" />
+		<script type="text/javascript" src="../js/jquery-2.2.4.min.js" ></script>
+		<script type="text/javascript" src="../js/bootstrap.min.js" ></script>
+
+		<!--ipage-->
+		<script src="../js/web-plugin/iPage/sigroup.iPage.plugin.v4.3.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="../js/web-plugin/iPage/iPage.v4.css"/>
+		<link rel="stylesheet" href="../bower_components/font-awesome/css/font-awesome.min.css"  >
+		<link rel="stylesheet" type="text/css" href="../css/myCss.css" />
+		<style>
+			body{background: #F5F5F5;}
+			.keywordscategoryid1{color:#000;text-align:center;}
+			.ipage-fenye-info{color:#000;}
+			.metadata_w25{width:25%;}
+
+		</style>
+	</head>
+	<body>
+		<div class="service_top">
+			<p>系统配置管理</p>
+			<div class="table_nav_right">
+				<ul>
+					<li class="activeSpan" type="1"><span>部门管理</span></li>
+					<li type="2"><span>角色管理</span></li>
+					<li type="3"><span>用户管理</span></li>
+				</ul>
+			</div>
+			<a href="menu/"><i class="fa fa-home"></i></a>
+		</div>
+
+		<div class="load_div"></div>
+
+		<div class="service_con max_1200 c m">
+			<div class="col-md-12 service_bg">
+				<div>
+					<div class="col-md-10">
+						
+					</div>
+					<div class="col-md-2 service_add  h35">
+						<a id="addNewBox" typeD="1"><i class="fa fa-plus-circle"></i><span>新建服务</span></a>
+					</div>
+				</div>
+				<div id="department" class="service_list c m">
+					<h3>
+						<span class="service_w25">部门名称</span>
+						<span class="service_w25">单位名称</span>
+						<span class="service_w25">创建时间</span>
+						<span class="service_w25">操作</span>
+					</h3>
+					<ul class="c m" id="bumen_list">
+						<li>
+							<span class="service_w25">实体抽取服务</span>
+							<span class="service_w25">192.168.10.25</span>
+							<span class="service_w25">2018-08-17  12:01:01</span>
+							<span class="service_w25"><i class="fa fa-edit"></i><i class="fa fa-trash"></i></span>
+						</li>
+						<li>
+							<span class="service_w25">实体抽取服务</span>
+							<span class="service_w25">192.168.10.25</span>
+							<span class="service_w25">2018-08-17  12:01:01</span>
+							<span class="service_w25"><i class="fa fa-edit"></i><i class="fa fa-trash"></i></span>
+						</li>
+						<li>
+							<span class="service_w25">实体抽取服务</span>
+							<span class="service_w25">192.168.10.25</span>
+							<span class="service_w25">2018-08-17  12:01:01</span>
+							<span class="service_w25"><i class="fa fa-edit"></i><i class="fa fa-trash"></i></span>
+						</li>
+						<li>
+							<span class="service_w25">实体抽取服务</span>
+							<span class="service_w25">192.168.10.25</span>
+							<span class="service_w25">2018-08-17  12:01:01</span>
+							<span class="service_w25"><i class="fa fa-edit"></i><i class="fa fa-trash"></i></span>
+						</li>
+						<li>
+							<span class="service_w25">实体抽取服务</span>
+							<span class="service_w25">192.168.10.25</span>
+							<span class="service_w25">2018-08-17  12:01:01</span>
+							<span class="service_w25"><i class="fa fa-edit"></i><i class="fa fa-trash"></i></span>
+						</li>
+						<li>
+							<span class="service_w25">实体抽取服务</span>
+							<span class="service_w25">192.168.10.25</span>
+							<span class="service_w25">2018-08-17  12:01:01</span>
+							<span class="service_w25"><i class="fa fa-edit"></i><i class="fa fa-trash"></i></span>
+						</li>
+					</ul>
+				</div>
+				<div id="role" class="service_list c m cm_hide">
+					<h3>
+						<span class="service_w10">序号</span>
+						<span class="service_w10">角色名称</span>
+						<span class="service_w10">角色级别</span>
+						<span class="service_w25">单位名称</span>
+						<span class="service_w10">部门名称</span>
+						<span class="service_w25">创建时间</span>
+						<span class="service_w10">操作</span>
+					</h3>
+					<ul class="c m" id="jiaose_list">
+						<li>
+							<span class="service_w10">实体抽取服务</span>
+							<span class="service_w10">192.168.10.25</span>
+							<span class="service_w10">80天20时15分</span>
+							<span class="service_w25">108次</span>
+							<span class="service_w10">张某</span>
+							<span class="service_w25">2018-08-17  12:01:01</span>
+							<span class="service_w10"><i class="fa fa-edit"></i><i class="fa fa-trash"></i></span>
+						</li>
+						<li>
+							<span class="service_w10">实体抽取服务</span>
+							<span class="service_w10">192.168.10.25</span>
+							<span class="service_w10">80天20时15分</span>
+							<span class="service_w25">108次</span>
+							<span class="service_w10">张某</span>
+							<span class="service_w25">2018-08-17  12:01:01</span>
+							<span class="service_w10"><i class="fa fa-edit"></i><i class="fa fa-trash"></i></span>
+						</li>
+						<li>
+							<span class="service_w10">实体抽取服务</span>
+							<span class="service_w10">192.168.10.25</span>
+							<span class="service_w10">80天20时15分</span>
+							<span class="service_w25">108次</span>
+							<span class="service_w10">张某</span>
+							<span class="service_w25">2018-08-17  12:01:01</span>
+							<span class="service_w10"><i class="fa fa-edit"></i><i class="fa fa-trash"></i></span>
+						</li>
+						<li>
+							<span class="service_w10">实体抽取服务</span>
+							<span class="service_w10">192.168.10.25</span>
+							<span class="service_w10">80天20时15分</span>
+							<span class="service_w25">108次</span>
+							<span class="service_w10">张某</span>
+							<span class="service_w25">2018-08-17  12:01:01</span>
+							<span class="service_w10"><i class="fa fa-edit"></i><i class="fa fa-trash"></i></span>
+						</li>
+						<li>
+							<span class="service_w10">实体抽取服务</span>
+							<span class="service_w10">192.168.10.25</span>
+							<span class="service_w10">80天20时15分</span>
+							<span class="service_w25">108次</span>
+							<span class="service_w10">张某</span>
+							<span class="service_w25">2018-08-17  12:01:01</span>
+							<span class="service_w10"><i class="fa fa-edit"></i><i class="fa fa-trash"></i></span>
+						</li>
+						<li>
+							<span class="service_w10">实体抽取服务</span>
+							<span class="service_w10">192.168.10.25</span>
+							<span class="service_w10">80天20时15分</span>
+							<span class="service_w25">108次</span>
+							<span class="service_w10">张某</span>
+							<span class="service_w25">2018-08-17  12:01:01</span>
+							<span class="service_w10"><i class="fa fa-edit"></i><i class="fa fa-trash"></i></span>
+						</li>
+						<li>
+							<span class="service_w10">实体抽取服务</span>
+							<span class="service_w10">192.168.10.25</span>
+							<span class="service_w10">80天20时15分</span>
+							<span class="service_w25">108次</span>
+							<span class="service_w10">张某</span>
+							<span class="service_w25">2018-08-17  12:01:01</span>
+							<span class="service_w10"><i class="fa fa-edit"></i><i class="fa fa-trash"></i></span>
+						</li>
+					</ul>
+				</div>
+				<div id="user" class="service_list c m cm_hide">
+					<h3>
+						<span class="service_w10">序号</span>
+						<span class="service_w10">用户名称</span>
+						<span class="service_w10">真实姓名</span>
+						<span class="service_w10">角色名称</span>
+						<span class="service_w10">角色级别</span>
+						<span class="service_w20">单位名称</span>
+						<span class="service_w20">创建时间</span>
+						<span class="service_w10">操作</span>
+					</h3>
+					<ul class="c m" id="yonghu_list">
+						<li>
+							<span class="service_w10">实体抽取服务</span>
+							<span class="service_w10">192.168.10.25</span>
+							<span class="service_w10">正常</span>
+							<span class="service_w10">v1.0</span>
+							<span class="service_w10">80天20时15分</span>
+							<span class="service_w20">张某</span>
+							<span class="service_w20">2018-08-17  12:01:01</span>
+							<span class="service_w10"><i class="fa fa-edit"></i><i class="fa fa-trash"></i></span>
+						</li>
+						<li>
+							<span class="service_w10">实体抽取服务</span>
+							<span class="service_w10">192.168.10.25</span>
+							<span class="service_w10">正常</span>
+							<span class="service_w10">v1.0</span>
+							<span class="service_w10">80天20时15分</span>
+							<span class="service_w20">张某</span>
+							<span class="service_w20">2018-08-17  12:01:01</span>
+							<span class="service_w10"><i class="fa fa-edit"></i><i class="fa fa-trash"></i></span>
+						</li>
+						<li>
+							<span class="service_w10">实体抽取服务</span>
+							<span class="service_w10">192.168.10.25</span>
+							<span class="service_w10">正常</span>
+							<span class="service_w10">v1.0</span>
+							<span class="service_w10">80天20时15分</span>
+							<span class="service_w20">张某</span>
+							<span class="service_w20">2018-08-17  12:01:01</span>
+							<span class="service_w10"><i class="fa fa-edit"></i><i class="fa fa-trash"></i></span>
+						</li>
+						<li>
+							<span class="service_w10">实体抽取服务</span>
+							<span class="service_w10">192.168.10.25</span>
+							<span class="service_w10">正常</span>
+							<span class="service_w10">v1.0</span>
+							<span class="service_w10">80天20时15分</span>
+							<span class="service_w20">张某</span>
+							<span class="service_w20">2018-08-17  12:01:01</span>
+							<span class="service_w10"><i class="fa fa-edit"></i><i class="fa fa-trash"></i></span>
+						</li>
+						<li>
+							<span class="service_w10">实体抽取服务</span>
+							<span class="service_w10">192.168.10.25</span>
+							<span class="service_w10">正常</span>
+							<span class="service_w10">v1.0</span>
+							<span class="service_w10">80天20时15分</span>
+							<span class="service_w20">张某</span>
+							<span class="service_w20">2018-08-17  12:01:01</span>
+							<span class="service_w10"><i class="fa fa-edit"></i><i class="fa fa-trash"></i></span>
+						</li>
+						<li>
+							<span class="service_w10">实体抽取服务</span>
+							<span class="service_w10">192.168.10.25</span>
+							<span class="service_w10">正常</span>
+							<span class="service_w10">v1.0</span>
+							<span class="service_w10">80天20时15分</span>
+							<span class="service_w20">张某</span>
+							<span class="service_w20">2018-08-17  12:01:01</span>
+							<span class="service_w10"><i class="fa fa-edit"></i><i class="fa fa-trash"></i></span>
+						</li>
+						<li>
+							<span class="service_w10">实体抽取服务</span>
+							<span class="service_w10">192.168.10.25</span>
+							<span class="service_w10">正常</span>
+							<span class="service_w10">v1.0</span>
+							<span class="service_w10">80天20时15分</span>
+							<span class="service_w20">张某</span>
+							<span class="service_w20">2018-08-17  12:01:01</span>
+							<span class="service_w10"><i class="fa fa-edit"></i><i class="fa fa-trash"></i></span>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		<!-- 模态框（Modal） -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					<span class="department">添加部门信息</span>
+					<span class="user cm_hide">添加用户信息</span>
+				</h4>
+			</div>
+			<div class="modal-body">
+				<div class="metadata_modal department">
+					<div class="metadata_form">
+						<h3>部门名称：</h3>
+						<p><input type="text" class="form-control bumen1"></p>
+					</div>
+					<div class="metadata_form">
+						<h3>领导：</h3>
+						<p><input type="text" class="form-control bumen2"></p>
+					</div>
+					<div class="metadata_form">
+						<h3>联系人：</h3>
+						<p><input type="text" class="form-control bumen3"></p>
+					</div>
+					<div class="metadata_form">
+						<h3>地址：</h3>
+						<p><input type="text" class="form-control bumen4"></p>
+					</div>
+					<div class="metadata_form">
+						<h3>电话：</h3>
+						<p><input type="text" class="form-control bumen5"></p>
+					</div>
+					<div class="metadata_form">
+						<h3>传真：</h3>
+						<p><input type="text" class="form-control bumen6"></p>
+					</div>
+					<div class="metadata_form">
+						<h3>邮件：</h3>
+						<p><input type="text" class="form-control bumen7"></p>
+					</div>
+					<div class="metadata_form">
+						<h3>备注：</h3>
+						<p><input type="text" class="form-control bumen8"></p>
+					</div>
+					<div class="metadata_form">
+						<h3>所属单位：</h3>
+						<p><select id="selected" class="form-control"></select></p>
+					</div>
+					<div class="c"></div>
+				</div>
+				<div class="metadata_modal user cm_hide">
+					<div class="metadata_form">
+						<h3>用户名称：</h3>
+						<p><input type="text" class="form-control"></p>
+					</div>
+					<div class="metadata_form">
+						<h3>真实姓名：</h3>
+						<p><input type="text" class="form-control"></p>
+					</div>
+					<div class="metadata_form">
+						<h3>密码：</h3>
+						<p><input type="text" class="form-control"></p>
+					</div>
+					<div class="metadata_form">
+						<h3>电话：</h3>
+						<p><input type="text" class="form-control"></p>
+					</div>
+					<div class="metadata_form">
+						<h3>邮件：</h3>
+						<p><input type="text" class="form-control"></p>
+					</div>
+					<div class="metadata_form">
+						<h3>单位：</h3>
+						<p><input type="text" class="form-control"></p>
+					</div>
+					<div class="metadata_form">
+						<h3>部门：</h3>
+						<p><input type="text" class="form-control"></p>
+					</div>
+					<div class="metadata_form">
+						<h3>角色：</h3>
+						<p><input type="text" class="form-control"></p>
+					</div>
+					<div class="metadata_form">
+						<h3>u_key：</h3>
+						<p><input type="text" class="form-control"></p>
+					</div>
+					<div class="c"></div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-primary" id="confirmBtn">
+					确定
+				</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+	</body>
+</html>
+<script type="text/javascript">
+	$(".table_nav_right").find("li").unbind("click").click(function(){
+		var data_t = $(this).attr("type");
+		if(data_t == "1"){
+            $("#department").removeClass("cm_hide");
+            $("#role").addClass("cm_hide");
+            $("#user").addClass("cm_hide");
+			$(this).addClass("activeSpan").siblings().removeClass("activeSpan");
+            $("#addNewBox").attr("typeD","1");
+            load_bumen_list();
+		}else if(data_t == "2"){
+            $("#department").addClass("cm_hide");
+            $("#role").removeClass("cm_hide");
+            $("#user").addClass("cm_hide");
+			$(this).addClass("activeSpan").siblings().removeClass("activeSpan");
+            $("#confirmBtn").attr("dataT","2");
+            $("#addNewBox").attr("typeD","2");
+            load_jiaose_list();
+		}else if(data_t == "3"){
+            $("#department").addClass("cm_hide");
+            $("#role").addClass("cm_hide");
+            $("#user").removeClass("cm_hide");
+			$(this).addClass("activeSpan").siblings().removeClass("activeSpan");
+            $("#confirmBtn").attr("dataT","3");
+            $("#addNewBox").attr("typeD","3");
+            load_yonghu_list();
+		}
+	});
+	/*弹出框按钮*/
+    $("#addNewBox").unbind("click").click(function(){
+        $("#myModal").modal("show");
+        var dataType = $(this).attr("typeD");
+        if(dataType == "1"){
+            $("#confirmBtn").attr("dataT","1");
+
+            $(".department").removeClass("cm_hide");
+            $(".user").addClass("cm_hide");
+            $.post("../../system/mod1/queryInstitution",function(data){
+				for(var i=0;i<data.length;i++){
+				    var outhtml ="<option value='"+ data[i].manageInstitution.id +"' selected='selected'>"+ data[i].manageInstitution.name +"</option>";
+                }
+                $("#selected").append(outhtml);
+            });
+		}else if(dataType == "2"){
+            $("#confirmBtn").attr("dataT","2");
+
+            $(".department").addClass("cm_hide");
+            $(".user").addClass("cm_hide");
+		}else if(dataType == "3"){
+            $("#confirmBtn").attr("dataT","3");
+
+            $(".department").addClass("cm_hide");
+            $(".user").removeClass("cm_hide");
+		}
+
+		var type= $("aa").val();
+		if(type=="1"){
+		    $(".load_div").empty().load(1.html)
+		}else if(type=="2"){
+            $(".load_div").empty().load(2.html)
+		}else if(type=="3"){
+            $(".load_div").empty().load(3.html)
+        }
+
+
+	})
+</script>
+<script>
+	/*page页*/
+    load_bumen_list();
+    function load_bumen_list() {
+        var option = new Object();
+        option.param = {
+            'path': "../../dynamic/bumen_list.html"
+        };
+        option.pageNo = 1;
+        option.pageSize = 10;
+        option.callback = function() {
+
+        };
+        debugger
+        var obj = new iPage.PageLoad("bumen_list", "../../system/mod1/loadDepartment", option);
+        obj.init();
+    }
+
+    /*/!*所属单位查询*!/
+    $.post("../../system/mod1/queryInstitution",function(data){
+        console.log(data);
+        debugger
+
+    });*/
+
+    /*确认按钮点击*/
+    $("#confirmBtn").unbind("click").click(function(){
+        var dataT = $(this).attr("dataT");
+        if(dataT == "1"){
+            var name = $(".bumen1").val();
+            var leader = $(".bumen2").val();
+            var contacter = $(".bumen3").val();
+            var address = $(".bumen4").val();
+            var telephone = $(".bumen5").val();
+            var fax = $(".bumen6").val();
+            var email = $(".bumen7").val();
+            var note = $(".bumen8").val();
+            var inst_id = $("#select option:selected").attr("value");
+            console.log(inst_id);
+            $.post("../../system/mod1/addDepartment",{name:name,leader:leader,contacter:contacter,address:address,telephone:telephone,fax:fax,email:email,note:note,inst_id:inst_id},function(){
+                load_bumen_list();
+			})
+		}
+        $("#myModal").modal("hide");
+	});
+
+    function load_jiaose_list() {
+        var option = new Object();
+        option.param = {
+            'path': "../dynamic/jiaose_list.html"
+        };
+        option.pageNo = 1;
+        option.pageSize = 10;
+        option.callback = function() {
+
+        };
+        var obj = new iPage.PageLoad("jiaose_list", "../../system/mod1/loadInstitution", option);
+        obj.init();
+    }
+
+    function load_yonghu_list() {
+        var option = new Object();
+        option.param = {
+            'path': "../dynamic/yonghu_list.html"
+        };
+        option.pageNo = 1;
+        option.pageSize = 10;
+        option.callback = function() {
+
+        };
+        var obj = new iPage.PageLoad("yonghu_list", "../../system/mod1/loadInstitution", option);
+        obj.init();
+    }
+</script>

@@ -1,0 +1,79 @@
+<#include "/_largeScreen_al_layout.html"/>
+<@layout>
+ <div id="app">
+  	<div class="row" style="height: 100%;">
+  		<div class="col-md-12 xietongBox">
+  			<div class="col-md-10" style="padding-left: 5px;">
+  				<!--<div class="col-md-1" style="width: 100px;">
+  					<img style="width: 73%;margin-top: 10px;" src="images/logo.png"/>
+  				</div>-->
+  				<div class="col-md-11" style="padding: 0;">
+  					<p class="cheseText"><img src="images/q2/LOGO.png" style="height: 34px;"/><span class="cheseText2">管理平台</span></p>
+  				</div>
+  			</div>
+  			<div class="col-md-2">
+  				<div class="col-md-12 rightBox">
+  					<p><i class="iconfont icon-ren"></i><span>欢迎您，</span><span class="User"><#if session?exists && session.login_user?exists >${session.login_user.user_name}<#else>Admin</#if></span> <span class="logingT"><!-- <i class="iconfont icon-off"></i>退出</span> --></p>
+  				</div>
+  			</div>
+  		</div>
+  		<div class="col-md-12" style="height: calc(100% - 90px);">
+  			<div class="col-md-2 listMenu" style="width: 250px;padding: 0;">
+  				<div class="menubox">
+					<ul>
+						<!--<li><a><span><img style="width: 20px;margin-right: 5px;" src="img/setting_task.png"/></span><span>发生器管理</span><i class="fa iconfontRight fa-angle-down"></i></a>
+							<div class="menuListHide">
+								<ul>
+									<li data-ref="">传统媒体</li>
+									<li data-ref="">新媒体</li>
+									<li data-ref="">自媒体</li>
+									<li data-ref="">非媒体</li>
+								</ul>
+							</div>								
+						</li>-->
+						<li><a><span><img style="width: 20px;margin-right: 5px;" src="img/setting_task.png"/></span><span>任务管理</span><i class="fa iconfontRight fa-angle-down"></i></a>
+							<div class="menuListHide">
+								<ul>
+									<li data-ref="me" id="wofuz">我负责的</li>
+									<li data-ref="meCall">我参与的</li>
+									<li data-ref="chuangjian">我发起的</li>
+								</ul>
+							</div>								
+						</li>
+<!--						<li data-ref="configure"><a href="javascript:;"><span><img style="width: 20px;margin-right: 5px;" src="img/setting.png"/></span><span>主题配置</span></a></li>
+-->						<li data-ref="topic"><a href="javascript:;"><span><img style="width: 20px;margin-right: 5px;" src="img/setting.png"/></span><span>今日选题</span></a></li>
+						
+					</ul>
+				</div>
+  			</div>
+  			<div class="col-md-10" style="height: 100%;width: calc(100% - 250px);">
+  				<div class="loadPath"></div>
+  			</div>
+  		</div>
+  	</div>
+  </div>
+
+<script src="js/tagsinput.js" type="text/javascript" charset="utf-8"></script>
+<script>
+	(function(){
+		$('.menubox ul>li').unbind('click').click(function(event){
+			event.stopPropagation();
+			$('.menubox ul li').removeClass('active');
+			var srcRef = $(this).data('ref');
+			if(srcRef!=undefined){
+				$(this).addClass('active');
+				$('.loadPath').load('page/report/mod2/'+srcRef+".html")
+			}else{
+				if($(".menuListHide").css("display") == "none") {
+					$(".iconfontRight").addClass("fa-angle-down").removeClass("fa-angle-right");
+				} else {
+					$(".iconfontRight").addClass("fa-angle-right").removeClass("fa-angle-down");
+				}
+				$(this).find('.menuListHide').slideToggle();
+			}
+			
+		})
+		$('#wofuz').click()
+	})()
+</script>
+</@layout>

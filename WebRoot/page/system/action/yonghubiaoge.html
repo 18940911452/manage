@@ -1,0 +1,223 @@
+<div class="dataflow_con col-md-12 c m mt10">
+    <div class="bd2">
+        <div class="metadata_weizhi">
+            <p class="nav-top-title">
+                <span class="yijiname">大数据资源池管理</span><em class="arrow_one">&gt;</em>
+                <span class="erjiname">应用绩效管理</span><!--<em class="arrow_two">&gt;</em>-->
+            </p>
+            <div class="metadata_add">
+				<i id="add_jixiao" class="fa fa-plus-circle styleI" title="新增标签"></i>
+			</div>
+        </div>
+        <div class="col-md-12 dataflow_bg1 pt10">
+        	<div>
+                <div class="col-md-12 pr0">
+                	<div class="col-md-4 dataflow_states">
+                        <h3 class="w90px">用户名：</h3>
+                        <p><input type="text" class="form-control username"></p>
+                    </div>
+                    <div class="col-md-4 dataflow_states">
+                        <h3 class="w90px">动作：</h3>
+                        <p><input type="text" class="form-control action"></p>
+                    </div>
+                    <div class="col-md-4 dataflow_states">
+                        <h3 class="w90px">操作内容：</h3>
+                        <p><input type="text" class="form-control cation_content"></p>
+                    </div>
+                    <div class="col-md-4 dataflow_states">
+                        <h3 class="w90px">开始时间：</h3>
+                        <p><input type="text" class="Wdate form-control h35 stime" id="d4331" onclick="WdatePicker({dateFmt:'yyyy-M-d H:mm:ss',maxDate:'#F{$dp.$D(\'d4332\',{M:-1,d:-2})||$dp.$DV(\'2020/4/3\',{M:-1,d:-2})}'})"/></p>
+                    </div>
+                    <div class="col-md-4 dataflow_states">
+                        <h3 class="w90px">结束时间：</h3>
+                        <p><input type="text" class="Wdate form-control h35 etime" id="d4332" onclick="WdatePicker({dateFmt:'yyyy-M-d H:mm:ss',minDate:'#F{$dp.$D(\'d4331\',{M:1,d:-1});}',maxDate:'2020-4-3'})"/></p>
+                    </div>
+                    <div class="col-md-4 dataflow_states lh50px">
+                        <button class="btn btn-primary w150px" id="search_in">搜索</button>
+                    </div>
+                </div>
+                <div class="col-md-11 service_add h30">
+                </div>
+                <div class="col-md-1 service_add pr0 tar cm_hide">
+                    <a data-toggle="modal" data-target="#myModal" class="hidden_a"><i class="fa fa-plus-circle"></i><span>新建服务</span></a>
+                </div>
+            </div>
+            <div class="col-md-12 mth10 p0">
+                <div class="metadata_list liuchu c m bk h50">
+                <h3>
+                    <span class="service_w10 hf">用户名称</span>
+                    <span class="service_w10 hf">动作</span>
+                    <span class="service_w20 hf">地址</span>
+                    <span class="service_w15 hf">浏览器版本</span>
+                    <span class="service_w20 hf">操作内容</span>
+                    <span class="service_w15 hf">操作时间</span>
+                    <span class="service_w10 hf">操作</span>
+                </h3>
+                <ul class="c m" id="userbehavior_list">
+                    <!--<li>
+                        <span class="dataquality_w10 bgColor">实体抽取服务</span>
+                        <span class="dataquality_w10 bgColor">192.168.10.25</span>
+                        <span class="dataquality_w10  bgColor ser_zheng">正常</span>
+                        <span class="dataquality_w10 bgColor">2018-08-17</span>
+                        <span class="dataquality_w15 bgColor">80天20时15分</span>
+                        <span class="dataquality_w15 bgColor">108次</span>
+                        <span class="dataquality_w10 bgColor">张某</span>
+                        <span class="dataquality_w10 bgColor">/xxx.127.180.xxx</span>
+                        <span class="dataquality_w10 bgColor"><i class="fa fa-edit"></i><i class="fa fa-trash"></i></span>
+                    </li>-->
+                </ul>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--弹框-->
+<div class="modal fade myModalRule" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    标签
+                </h4>
+            </div>
+            <div class="modal-body" style="height:200px;">
+                <div class="metadata_modal">
+                    <div class="metadata_form">
+                        <h3 class="w23">事件前地址：</h3>
+                        <p style="position:relative;">
+                        	<input type="text" class="form-control address">
+                        </p>
+                    </div>
+                    <div class="metadata_form">
+                        <h3 class="w23">事件：</h3>
+                        <p style="position:relative;">
+                        	<input type="text" class="form-control action">
+                        </p>
+                    </div>
+                    <div class="metadata_form">
+                        <h3 class="w23">事件后地址：</h3>
+                        <p style="position:relative;">
+                        	<input type="text" class="form-control cation_content">
+                        </p>
+                    </div>
+                    <div class="metadata_form cm_hide">
+                        <h3 class="w23">浏览器名称及版本：</h3>
+                        <p style="position:relative;">
+                        	<input type="text" class="form-control browser">
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button  type="button" class="btn btn-primary confirm_add">确定</button>
+                <input type="text" class="hidden_btn_box" hidden>
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                </button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+	load_userbehavior_list("","","","","");
+   function load_userbehavior_list(username,stime,etime,action,cation_content) {
+   		
+        var option = new Object();
+        option.param = {
+        	'username':username,
+        	'stime':stime,
+        	'etime':etime,
+        	'action':action,
+        	'cation_content':cation_content,
+            'path': "/dynamic/userbehavior.html"
+        };
+        option.pageNo = 1;
+        option.pageSize = 10;
+        option.callback = function() {
+
+        };
+        var obj = new iPage.PageLoad("userbehavior_list", "system/action/getInfoAction", option);
+        obj.init();
+    }
+   
+   $("#search_in").unbind("click").click(function(){
+   		var username = $.trim($(".username").val());
+   		var stime = $.trim($(".stime").val());
+   		var etime = $.trim($(".etime").val());
+   		var action = $.trim($(".action").val());
+   		var cation_content = $.trim($(".cation_content").val());
+   		load_userbehavior_list(username,stime,etime,action,cation_content);
+   })
+   
+   /*添加*/
+  $("#add_jixiao").unbind("click").click(function(){
+  	$("#myModal").modal("show");
+  	$(".confirm_add").attr("data","0");
+  	$(".action").val("");
+	$(".address").val("");
+	$(".cation_content").val("");
+  })
+  
+  /*提交*/
+ $(".confirm_add").unbind("click").click(function(){
+ 	var type = $(this).attr("data");
+ 	if(type == "0"){
+ 		/*添加*/
+ 		var action = $.trim($(".action").val());
+	 	var address = $.trim($(".address").val());
+	 	var cation_content = $.trim($(".cation_content").val());
+	 	var sys = getBrowserInfo();
+	 	var browser=sys.browser + "：" + sys.ver;
+	 	$.post("system/action/addActioInfo",{address:address,action:action,cation_content:cation_content,browser:browser},function(data){
+	 		load_userbehavior_list("","","","","");
+	 		$("#myModal").modal("hide");
+	 	})
+ 	}else if(type == "1"){
+ 		/*修改*/
+ 		var action = $.trim($(".action").val());
+	 	var address = $.trim($(".address").val());
+	 	var cation_content = $.trim($(".cation_content").val());
+	 	var sys = getBrowserInfo();
+	 	var browser=sys.browser + "：" + sys.ver;
+	 	var id = $(".confirm_add").attr("dataTY");
+	 	var mac = "";
+	 	$.post("system/action/updateLog",{address:address,action:action,cation_content:cation_content,browser:browser,id:id,mac:mac},function(data){
+	 		load_userbehavior_list("","","","","");
+	 		$("#myModal").modal("hide");
+	 	})
+ 	}
+ 	
+ })
+ 
+ /*修改*/
+function modify1(obj){
+	$("#myModal").modal("show");
+  	$(".confirm_add").attr("data","1");
+	var id = $(obj).parent().parent().find("#second").text();
+	$(".confirm_add").attr("dataTY",id);
+	$.post("system/action/detailLog",{id:id},function(data){
+		$(".action").val(data.action);
+	 	$(".address").val(data.address);
+	 	$(".cation_content").val(data.cation_content);
+	})
+}
+
+/*删除*/
+function remove_ce(obj){
+	var id = $(obj).parent().parent().find("#second").text();
+	if(confirm("确认删除吗")){
+		$.post("system/action/delLog",{id:id},function(data){
+			load_userbehavior_list("","","","","");
+		})
+	}else{
+		return
+	}
+}
+</script>

@@ -1,0 +1,70 @@
+<#include "/_largeScreen_al_layout.html"/>
+<@layout>
+	<!--<div class="xiangHaderBox">
+		<ul>
+			<li class="fanhui"><i class="iconfont icon-zuo"></i></li>
+			<li>任务列表</li>
+			<li></li>
+		</ul>
+	</div>-->
+	<div class="listWebBox" id="main">
+	</div>
+<script>
+	$('.fanhui').click(function(){
+		window.open('web?userType=0')
+	})
+	function GetQueryString(name) {
+	     var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+	     var r = window.location.search.substr(1).match(reg);
+	     if(r!=null)return  unescape(r[2]); return null;
+	}
+	var id = GetQueryString('id');
+	if(id == undefined){
+		id =13
+	}
+	var page = 1, //分页码
+	    pageNo = false, //分页开关(滚动加载方法 1 中用的)
+	    timers = null; //定时器(滚动加载方法 2 中用的)
+	
+	//加载数据
+	var LoadingDataFn = function() {
+		$.post('report/mod2/taskList',{userId:id,pageNo:page,pageSize:20},function(data){
+			let res = data.data;
+			if(res.length>0){
+				var dom = '';
+				var imgSrc= 'jinxingzhong.png';
+			    for (var i = 0; i < res.length; i++) {
+			    	if(res[i].plan=='100%') imgSrc='finished.png'
+			        dom += '<div class="listBox" data-id="'+res[i].task_id+'">'
+					+'<div class="listimgLeft"><img src="img/'+imgSrc+'"/></div>'
+					+'<div class="textBox"><div class="listTitle">'+res[i].title+'</div>'
+						+'<div class="listDate"><span class="date"><i class="iconfont icon-shijian"></i>'+res[i].start_time+'</span><span class="userName"><i class="iconfont icon-ren1"></i>'+(res[i].creat_per==null?'--':res[i].creat_per)+'</span>'
+						+'</div></div></div>';
+			    }
+			    $('.listWebBox').append(dom);
+			    pageNo = true; 
+			}
+		})
+	};
+	LoadingDataFn();
+    //滚动加载任务列表
+    
+    $('#main').scroll(function() {
+	    //当时滚动条离底部60px时开始加载下一页的内容
+	    if (($(this)[0].scrollTop + $(this).height() + 60) >= $(this)[0].scrollHeight) {
+	        //这里用 [ off_on ] 来控制是否加载 （这样就解决了 当上页的条件满足时，一下子加载多次的问题啦）
+	        if (pageNo) {
+	            off_on = false;
+	            page++;
+	            LoadingDataFn();  //调用执行上面的加载方法
+	        }
+	    }
+	});
+    
+    //点击任务列表 加载详情
+    $('.listWebBox').on('click','.listBox',function(){
+    	window.open('webx?id='+$(this).data('id'))
+    	
+    })
+</script>
+</@layout>

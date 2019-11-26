@@ -1,0 +1,109 @@
+<#include "/_largeScreen_al_layout.html"/>
+<@layout>
+
+<div id="app">
+	<div class="row" style="height: 100%;">
+		<div class="col-md-12 xietongBox">
+			<div class="col-md-10" style="padding-left: 5px;">
+				<div class="col-md-11" style="padding: 0;">
+					<p class="cheseText">
+						<img src="images/q2/LOGO.png" style="height: 34px;" /><span
+							class="cheseText2">选题策划管理平台</span>
+					</p>
+				</div>
+			</div>
+			<div class="col-md-2">
+				<div class="col-md-12 rightBox">
+					<p>
+						<i class="iconfont icon-ren"></i><span>欢迎您，</span><span
+							class="User"><#if
+								session?exists && session.login_user?exists>${session.login_user.nick_name}<#else>Admin</#if></span>
+						<span class="logingT"><button type=""
+								class="btn btn-primary" id="btn-logout">
+								<i class="iconfont icon-off"></i>退出
+							</button></span>
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12" style="height: calc(100% - 60px);">
+			<div class="col-md-2 listMenu"
+				style="width: 66px; padding: 0; margin-right: 120px">
+				<div class="menubox">
+					<ul>
+
+						<li class="active muli"><a><span>任务</span><i
+								class="fa iconfontRight fa-angle-down"></i></a>
+							<div class="menuListHide">
+								<ul>
+									<li data-ref="chuangjian" id="wochuangjian">我发起的</li>
+									<li data-ref="me" id="wofuz" class="active">我负责的</li>
+									<li data-ref="meCall">我参与的</li>
+								</ul>
+							</div></li class="muli">
+						<!-- <li data-ref="topic" class="muli"><a href="javascript:;"><span>选题</span></a></li> -->
+						<li data-ref="configure" class="muli"><a href="javascript:;"><span>主题</span></a></li>
+
+					</ul>
+
+				</div>
+			</div>
+			<div class="col-md-10"
+				style="height: 100%; width: calc(100% - 250px);">
+				<div class="loadPath"></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="js/tagsinput.js" type="text/javascript" charset="utf-8"></script>
+<script>
+	$('#btn-logout').unbind('click').click(function() {
+		logoutclick();
+	})
+	function logoutclick() {
+		$.post('login/mod1/loginout', function(result) {
+			if (result.code == '0') {
+				window.location.href = "/login.html";
+			} else {
+				window.location.href = result;
+			}
+		});
+	}
+
+	(function() {
+		$('.menubox ul>li').unbind('click').click(
+				function(event) {
+					event.stopPropagation();
+					var srcRef = $(this).data('ref');
+					if (srcRef != undefined) { //一级 没有子元素
+						$(".menuListHide li").removeClass("active");
+						if ($(this).hasClass("muli")) {
+							$(".menuListHide").css("display", "none")
+						} else {
+							$(this).parent().parent().parent().siblings()
+									.removeClass('active');
+							$(this).parent().parent().parent().addClass(
+									'active')
+							$(".menuListHide").hide();
+						}
+						$(this).siblings().removeClass('active');
+						$(this).addClass('active')
+						$('.loadPath').load(
+								'page/report/mod2/' + srcRef + ".html")
+					} else { //二级 有子元素
+						$(this).siblings().removeClass('active');
+						$(this).addClass('active')
+						//$(this).find('.menuListHide').slideToggle();
+					}
+				})
+		$('.menubox ul>li').unbind('mouseover').mouseover(function() {
+			$(this).find(".menuListHide").show();
+		}).mouseout(function() {
+			$(this).find(".menuListHide").hide();
+		});
+
+		$('#wochuangjian').click()
+	})()
+</script>
+</@layout>

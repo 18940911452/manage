@@ -1,0 +1,24 @@
+<ul>
+    <#if list?exists&&(list?size>0)>
+        <#list list as mi>
+         <li>
+             <input type="hidden" class="page_data" data-total="${total}"/>
+             <span class="metadata_w10 hf" id="second" style="display:none;"><#if mi.id??>${mi.id}</#if></span>
+             <span class="metadata_w10 hf" id="first" style="display:none;"><#if mi.uid??>${mi.uid}</#if></span>
+             <span class="service_w10 hf" style="text-align: center;"><#if mi.username??>${mi.username}</#if></span>
+             <span class="service_w10 hf" style="text-align: center;"><#if mi.action??>${mi.action}</#if></span>
+             <span class="service_w20 hf" style="text-align: center;"><#if mi.address??>${mi.address}</#if></span>
+             <span class="service_w15 hf" style="text-align: center;"><#if mi.browser??>${mi.browser}</#if></span>
+             <span class="service_w20 hf" style="text-align: center;"><#if mi.cation_content??>${mi.cation_content}</#if></span>
+             <span class="service_w15 hf" style="text-align: center;"><#if mi.insert_time??>${mi.insert_time}</#if></span>
+             <span class="service_w10 hf" style="text-align: center;"><i class="fa fa-edit mr5" onclick="modify1(this)"></i><i class="fa fa-close fz13 cpS" title="删除" onclick="remove_ce(this)" ></i></span>
+             
+         </li>
+        </#list>
+    <#else>
+
+    <script>
+        $("#userbehavior_list").html("<img src='../images/zanwu.png'  class='imgStyle'>")
+    </script>
+</#if>
+</ul>

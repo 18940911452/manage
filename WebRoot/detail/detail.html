@@ -1,0 +1,211 @@
+<!-- 弹出详情 -->
+<div class="tanchu popup_" id="chartWidth">
+	<div class="tc_close"><i class="fa fa-times-circle tc_close close_style" style=""></i></div>
+	<div class="tc_title">
+		<div class="yy_reci1">
+		<h3 class="yc_bt"></h3>
+		<h4>
+			<span class="tc_time"></span>
+			<span class="tc_site"></span>
+			<span class="tc_sprovider_hide">
+				报料人:<font class="tc_sprovider"></font>
+			</span>
+			<span class="tc_sndeptname_hide">
+				<font class="tc_sndeptname"></font>
+			</span>
+		</h4>
+		
+		 <div class="tc_scroll">
+			<p class="tc_content"></p>
+			
+		</div>
+		</div>
+		<!--<div id="weibo_01" style="height:410px;overflow: hidden;"></div>-->
+		<div class="container1">
+	</div>
+	</div>
+</div>
+<!--weibo-->
+<!--tree-->
+<div class="tanchu_tree popup_">
+	<div class="tc_close"><i class="fa fa-times-circle tc_close_tree close_style" style=""></i></div>
+	<div class="tc_title">
+		<div class="yy_reci1">
+		<h3 class="yc_bt"></h3>
+		<h4>
+			<span class="tc_time"></span>
+			<span class="tc_site"></span>
+		</h4>
+		</div>
+		<div id="weibo_01" style="height:750px;overflow: hidden;"></div>
+	</div>
+</div>
+
+
+<!--大众视觉-->
+<div class="tanchuImg_ popup_">
+	<div class="tc_close"><i class="fa fa-times-circle tc_close_img_ close_style" style=""></i></div>
+	<div class="tc_title" style="text-align: center;">
+		<h3 class="yc_bt" style=""></h3>
+		<div class="" style="position: relative;display: inline-block;">
+			<img src=""/ style="height:478px;max-width: 730px;">
+			<div class="stextcontent" style="">
+				
+			</div>
+		</div>
+	</div>
+</div>
+<!--图片-->
+<div class="tanchuImg popup_">
+	<div class="tc_close"><i class="fa fa-times-circle tc_close_img close_style" style=""></i></div>
+	<div class="tc_title" style="text-align: center;">
+		<h3 class="yc_bt" style=""></h3>
+		<img src=""/ style="height:calc(100% - 70px);">
+	</div>
+</div>
+<!--图片-->
+<div class="tanchuImgDb popup_">
+	<div class="tc_close"><i class="fa fa-times-circle tc_close_img_db close_style" style=""></i></div>
+	<div class="tc_title" style="text-align: center;display: flex;">
+	</div>
+</div>
+
+<!-- 视频连线 -->
+<div class="tanchuLive popup_">
+	<div class="tc_close_live" style="position: relative;z-index: 1;"><i class="fa fa-times-circle tc_close close_style" style=""></i></div>
+	<!--<video id="my-video" class="video-js" controls preload="auto" width="750" height="500"  poster="MY_VIDEO_POSTER.jpg" data-setup="{}">
+		<source src="" type="rtmp/flv">
+	</video>-->
+	<button onclick="transformF()" title="向右旋转" style="position: absolute;right: 10px;top: 10px;background: transparent;color: #fff;font-size: 20px;z-index: 66;border: 0;outline: none;"><i class="fa fa-repeat"></i></button>
+	<div id="ckplayer_a1" style="width: 100%;height: 100%;">
+		<iframe id="video_iframe" style="width: calc(100% - 30px);height: 100%;border: 0;"></iframe>
+	</div>
+</div>
+
+<!-- 视频 -->
+<div class="tanchuVideo popup_">
+	<div class="tc_close_video"><i class="fa fa-times-circle tc_close close_style" style=""></i></div>
+	<video id="my-video" controls width="750" height="500"  autoplay="autoplay">
+		<source src="" type="video/mp4" />
+	</video>
+</div>
+
+<div class="tanchu_pic popup_">
+	<div class="tc_close_pic"><i class="fa fa-times-circle tc_close_pic close_style" style=""></i></div>
+	<div class="banmian">
+		<div class="banmian_left content" id="content-1">
+			<ul>
+				
+			</ul>
+		</div>
+		<div class="banmian_right">
+			<!--<img src="images/ban0.jpg"/>-->
+			<i class="font_du font_up fa fa-arrow-up"></i>
+			<i class="font_du font_down fa fa-arrow-down"></i>
+		</div>
+	</div>
+</div>
+
+<div class="tanchu_db_pic popup_">
+	<div class="tc_close_pic"><i class="fa fa-times-circle tc_close_db close_style" style=""></i></div>
+	<div class="banmianDb">
+		<div class="banmianDbTop">
+			<div class="banmianDbTools">
+				
+			</div>
+			<div class="banmian_img">
+				<img src="../images/luzhong1.jpg"/>
+				<img src="../images/luzhong2.jpg"/>
+				<img src="../images/luzhong3.jpg"/>
+				<img src="../images/luzhong4.jpg"/>
+			</div>
+		</div>
+	</div>
+</div>
+<style type="text/css">
+	.banmian_img::-webkit-scrollbar { width: 6px;height: 5px;}
+	.banmian_img::-webkit-scrollbar-track{-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0);border-radius: 10px;background-color:rgba(0,0,0,0);height: 2px;}
+	.banmian_img::-webkit-scrollbar-thumb{width: 5px;height: 2px;border-radius: 10px;-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0);background-color:rgba(241,241,241,0.5);}
+	.banmian_img {
+		overflow-y: auto;
+		white-space: nowrap;
+	}
+	.banmian_img img{
+		height:140px;
+		margin: 0 10px 10px;
+	}
+</style>
+<script type="text/javascript">
+	var current = 0;        
+    function transformF(){
+        current = (current+90)%360;
+//      $('.rong-calllib-remote canvas').css("transform" ,'rotate('+current+'deg)')
+        $('#video_iframe').contents().find('.agora_remote video').css("transform" ,'rotate('+current+'deg)')
+    };
+	$(function(){
+	var copyright =getUrlParam('showcopyright');
+	if(copyright==='true'){
+		$("#copyrightdiv").show();
+	}else{
+		$("#copyrightdiv").hide();
+	}
+	$(".tc_close_pic").unbind("click").click(function(){
+		$('.chanpin').show()
+		$(".tanchu_pic").hide();
+		$(".renwu").show();
+	});
+	$(".tc_close_db").unbind("click").click(function(){
+		$('.chanpin').show()
+		$(".tanchu_db_pic").hide();
+		$(".renwu").show();
+	});
+	$(".tc_close_live").unbind("click").click(function(){
+		var p = $(this).data('phone')
+//		$.get('authorLive_close',{pusherPhone:p},function (data) {
+//			console.log(data.message)
+//		});
+//		CallLib.hungupCall(conversationType,targetId, ErrorCode.HANGUP);
+//		clearTimeout(setLiveTimeout);
+		$(".tanchuLive").hide();
+		$(".renwu").show();
+	});
+	$(".tc_close_img").unbind("click").click(function(){
+		$('.chanpin').show()
+		$(".tanchuImg").hide();
+		$(".renwu").show();
+	});
+	$(".tc_close_img_db").unbind("click").click(function(){
+		$('.chanpin').show()
+		$(".tanchuImgDb").hide();
+		$(".renwu").show();
+	});
+	$(".tc_close_video").unbind("click").click(function(){
+		$('.chanpin').show()
+		$(".tanchuVideo").hide();
+		$(".renwu").show();
+		document.getElementById("my-video").pause();
+		$('#my-video').pause(); // 暂停
+	});
+	$(".tc_close_img_").unbind("click").click(function(){
+		$('.chanpin').show()
+		$(".tanchuImg_").hide();
+		$(".renwu").show();
+	});
+	$(".tc_close_tree").unbind("click").click(function(){
+		$(".tanchu_tree").hide();
+		$('.chanpin').show()
+		$(".renwu").show();
+	});
+	$('body').on('click','.banmian_left li',function(){
+		$(this).addClass("ban_active").siblings().removeClass("ban_active");
+		var chd_src=$(this).children("img").attr("src");
+		$(".banmian_right img").attr("src",chd_src);
+	});
+	$(".tc_close").unbind("click").click(function(){
+		$(".tanchu").hide();
+		$(".renwu").show();
+	});
+	
+	
+});
+</script>

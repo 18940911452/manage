@@ -1,0 +1,18 @@
+<ul>
+    <#if page?exists&&(page?size>0)>
+        <#list page as mi>
+            <li class="borderB">
+                <input type="hidden" class="page_data" data-total="${total}"/>
+                <span style="display:none;"><#if mi.serviceId??>${mi.serviceId}</#if></span>
+
+                <span class="dataflow_w10 bgColor hf" style="text-align: center;" title="${mi.serviceName}"><#if mi.serviceName??>${mi.serviceName}</#if></span><span class="dataflow_w10 hf bgColor" style="height:100%;" title="${mi.tableName}"><#if mi.tableName??>${mi.tableName}</#if></span><span class="dataflow_w10 hf bgColor" title="${mi.type}"><#if mi.type??>${mi.type}</#if></span><span class="dataflow_w5 hf bgColor">
+                <#if mi.status??><#if mi.status==1>正常<#elseif mi.status==2>异常<#else >未知</#if></#if></span><span class="dataflow_w10 hf bgColor" title="${mi.dataTotal}"><#if mi.dataTotal??>${mi.dataTotal}</#if></span><span class="dataflow_w10 hf bgColor" title="${mi.runTime}"><#if mi.runTime??>${mi.runTime}</#if></span><span class="dataflow_w20 hf bgColor" title="${mi.usePerson}"><#if mi.usePerson??>${mi.usePerson}</#if></span><span class="dataflow_w10 hf bgColor" title="${mi.maintainPerson}"><#if mi.maintainPerson??>${mi.maintainPerson}</#if></span><span class="dataflow_w10 hf bgColor" title="${mi.remark}"><#if mi.remark??>${mi.remark}</#if></span><span class="dataflow_w5 hf bgColor"><i class="fa fa-eye" onclick="view_details(this)" style="display:none;"></i><i class="fa fa-edit fz13 mr5 isc" title="修改" onclick="modify_label(this)"></i><i class="fa fa-close fz13 isc" title="删除" onclick="remove_C(this)"></i></span>
+            </li>
+        </#list>
+        <#else>
+
+            <script>
+                $("#dataflow_Out_list").html("<img src='images/zanwu.png' class='imgStyle'>");
+            </script>
+    </#if>
+</ul>

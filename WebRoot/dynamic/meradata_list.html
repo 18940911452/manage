@@ -1,0 +1,27 @@
+<ul>
+    <#if page?exists&&(page?size>0)>
+        <#list page as mi>
+         <li class="hf">
+             <input type="hidden" class="page_data" data-total="${total}"/>
+             <span class="first" style="display:none;"><#if mi.field_id??>${mi.field_id}</#if></span>
+             <span class="metadata_w20 hf" style="text-align: center;" title='${mi.name}'><#if mi.name??>${mi.name}</#if></span>
+             <span class="metadata_w15 hf" style="height:100%;" title='${mi.tag_name}'><#if mi.tag_name??>${mi.tag_name}</#if></span>
+             <span class="metadata_w20 hf" style="height:100%;" title='${mi.field}'><#if mi.field??>${mi.field}</#if></span>
+             <#if mi.bak??>
+             	<span class="metadata_w5 hf" style="height:100%;" title='${mi.bak}'><#if mi.bak??>${mi.bak}</#if></span>
+             	<#else>
+             		<span class="metadata_w5 hf" style="height:100%;"></span>
+             </#if>
+             <span class="metadata_w5 hf" style="text-align: center;"><#if mi.version??>${mi.version}</#if></span>
+             <span class="metadata_w15 hf"><#if mi.update_time??>${mi.update_time}</#if></span>
+             <span class="metadata_w15 hf"><#if mi.modifier??>${mi.modifier}</#if></span>
+             <span class="metadata_w5 hf"><i class="fa fa-eye" onclick="view_details(this)" style="display:none;"></i><i class="fa fa-edit fz13 mr5 tableIstyle" data_type_i="1" title="修改" onclick="modify_label(this)"></i><i class="fa fa-close fz13 tableIstyle" title="删除" onclick="remove_C(this)"></i></span>
+         </li>
+        </#list>
+    <#else>
+
+    <script>
+        $("#metadata_list").html("<img src='../images/zanwu.png'  class='imgStyle'>");
+    </script>
+</#if>
+</ul>

@@ -1,0 +1,19 @@
+#配置应用友盟appkey，appMasterSecret
+
+######################掌上融媒##########################################
+#安卓
+zsrm_android_appkey = 5d5cbc284ca357ae790005ae
+zsrm_android_appMasterSecret = wb3omltvlhcr9qsmfc0fhtmiokravxvo
+#苹果
+zsrm_ios_appkey = 5d6ccfce0cafb26ab500076a
+zsrm_ios_appMasterSecret = 4jhzsshqe4guzbmbbmj1wdic8qaeml3r
+######################掌上融媒###########################################
+
+######################融媒体新闻APP -海沧 #####################################
+#安卓
+rmtxw_android_appkey = 5d5cbc284ca357ae790005ae
+rmtxw_android_appMasterSecret = wb3omltvlhcr9qsmfc0fhtmiokravxvo
+#苹果
+rmtxw_ios_appkey = 5d6ccfce0cafb26ab500076a
+rmtxw_ios_appMasterSecret = 4jhzsshqe4guzbmbbmj1wdic8qaeml3r
+######################融媒体新闻APP-海沧######################################

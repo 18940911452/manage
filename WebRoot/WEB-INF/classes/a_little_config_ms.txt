@@ -1,0 +1,47 @@
+############媒体start###############
+#common
+
+############媒体start###############
+
+jdbc.ip.commandscreencommon=192.168.16.112:3306
+jdbc.db.commandscreencommon=dev_command_screen_common
+jdbc.map.commandscreencommon=wg.media.screen.fm.model.commandscreencommon._MappingKit
+jdbc.username.commandscreencommon=sprint01
+jdbc.password.commandscreencommon=Sprint02@mysql
+
+jdbc.ip.commandscreen=192.168.16.112:3306
+jdbc.db.commandscreen=dev_command_screen
+jdbc.map.commandscreen=wg.media.screen.fm.model.commandscreen._MappingKit
+jdbc.username.commandscreen=sprint01
+jdbc.password.commandscreen=Sprint02@mysql
+
+jdbc.ip.iam=192.168.16.112:3306
+jdbc.db.iam=iam
+jdbc.map.iam=wg.media.screen.fm.model.iam._MappingKit
+jdbc.username.iam=sprint01
+jdbc.password.iam=Sprint02@mysql
+system.code=1
+
+#极光
+#appKey=79bca58ae6f0cdbd6cac8910
+#appSecret=288518a253feaad1a09316d7
+appKey=f4efd981c416b4e182ad3222
+appSecret=c3e621024fa1d2da4f9f6b1f
+
+#声网
+appID=d4070396eba34cb2824cdd0084b32c07
+appCertificate=a906f3f7430c4cca85191df3cee7e8e7
+
+userUuid=d6c4f079463d480a92a7de9f5e9138fb
+
+
+# jdbc.ip.datasea=192.168.16.112:3306
+# jdbc.db.datasea=command_screen_common
+# jdbc.map.datasea=wg.media.screen.fm.model.datasea._MappingKit
+# jdbc.username.datasea=sprint01
+# jdbc.password.datasea=Sprint02@mysql
+# system.code=1
+# #极光
+# appKey=9e9d7ee41b7da28b6ecbde9c
+# appSecret=1009a80a9aa2f7993e4ae13a
+

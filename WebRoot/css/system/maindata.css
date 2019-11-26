@@ -1,0 +1,132 @@
+body{color: #333;height: 100%;width: 100%;overflow-x: hidden;font-family: "微软雅黑";background: #F5F5F5;font-size: 16px;}
+        .metadata_top{text-align: center;height: 150px;line-height: 150px;border-bottom: 1px solid #ddd;background:url("../../images/navname/beijingnav.png")center center no-repeat;background-size:100% 100%;font-size: 1.5em;position: relative;}
+        .metadata_top a{position: absolute;right: 30px;color: #333;font-size: 1.5em;}
+        .cm_hide{display:none;}
+        #addLabel{position:relative;text-align:left;padding-left:10px;background:url("../../images/navname/beijingse.png")repeat-x;border:2px solid #fff;border-bottom:2px solid #c9d4de;height:44px;line-height:44px;border-top-left-radius:5px;border-top-right-radius:5px;}
+        #addLabel .a_style{color:#20426f;font-size:18px;font-weight: bold;}
+        #addLabel .a_style i{font-size:22px;}
+        .lableName{position:absolute;top:0px;left:210px;width:500px;height:100px;line-height:100px;border: 1px solid #000;background:#fff;z-index:10;}
+        .lableValue{height:35px;}
+        #mydiv{width:300px;height:300px;background:red;position:absolute;bottom:0px;right:0px;}
+        .ipage-fenye-info{color:#000;}
+        .oper_div{display:none;}
+        .activeLIS{background-color:#e0e4ed !important;}
+        .imgStyle{margin-top:4%;margin-left:40%;}
+        .mr5{margin-right:5px;}
+        .navloge{position:absolute;left:85px;top:19px;}
+        .navBiaoti{position:absolute;color:#fff;top:-25px;left:235px;font-size:37px;}
+        .biaoti{position:absolute;color:#fff;left:235px;top:20px;font-size:30px;}
+        .returnH{color:#fff;position:absolute;top:20px;right:100px;}
+        .textS{top: -36px;color: #fff;font-size: 20px;position: absolute;right: 0px;width: 100px;}
+        .p0{padding:0px;}
+        .mt13{margin-top:13px;}
+        .mh770{min-height:780px;border-radius:5px;border:1px solid #b1b2c4 !important;}
+        .pr0{padding-right:0px;}
+        .nav-top{background: #fff;border: 1px solid #b1b2c4;min-height: 780px;border-radius:5px;}
+        .nav-top-title{padding-left:20px;}
+        .mth10{margin-top:15px;}
+        .bd{border:1px solid #b1b2c4;border-radius:5px;}
+        .bdp{border:1px solid #b1b2c4;box-sizing:border-box;}
+        .fz15{font-size:15px; margin-right:5px;}
+        .fz13{font-size:14px!important; margin-right:5px!important;;}
+        .yijiname{font-size:16px;color:#3c4d62;}
+        .hf{font-size:14px;font-family: "微软雅黑";height:39px;line-height:39px;color:#5f5f5f;text-align:center;}
+        .h50{min-height:300px;}
+        .h64p{height:64px;}
+        .styleI{font-size: 22px;color: #027cc2;cursor:pointer;}
+        .ipage-fenye-on{background:#027cc2;}
+        .tableIstyle{font-size: 18px;color: #97a9c0;}
+        .cl{color:#97a9c0;}
+        .mh300{min-height:300px;}
+        .dianji_btn{display:inline-block;width:80%;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+        .cp{cursor:pointer;}
+        .p5l38{padding:5px 0px 5px 18px;}
+        .bd1{border:1px solid #ccc;margin:0px;height:34px;line-height:34px;}
+        .h34{height:34px;line-height:34px;}
+        .m0{margin:0px;}
+        .h200p{height:200px;}
+        .h100p{max-height:100px;overflow-y: auto;}
+        .h100p1{height:100px;}
+        .pl10{padding-left:10px;}
+        .left_span02{margin-top:4px;margin-right:15px;display:inline-block;width:8px !important;height:24px !important;background:blue;}
+        .color1{color:#ff5a00;}
+        .pbd{background: url("../../images/navname/beijingse.png")repeat-x;}
+        
+        /*.content_content_left{float: left;width:5%;text-align:center;line-height:100px;}*/
+        /*.content_content_right{float: left;width:100%;padding:0px 5px 0px 10px;font-size:14px;}
+        .text_color{color:#3c4d62;font-family: "微软雅黑";}
+        .content_content_right_bottom_right{float:right;width:10%;}
+        .content_content_right_bottom .span_box{width:20%;display:inline-block;}
+		.content_content_right_bottom .span_box:nth-child(3){width:25%;display:inline-block;}
+		.span_style{font-weight: bold; width:50px;display:inline-block;}
+		.content_content{width:100%;height:732px;overflow-y: auto;}
+		.content_content ul li{border-bottom:1px solid rgba(135,135,135,0.4);height:100px;}
+		.wnte{overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}*/
+		.w100p{width:100px;}
+		.mh200ov{max-height:200px;overflow-y: auto;}
+		.left_span_i{float:left;width:2%;text-align:center;height:34px;line-height:34px;}
+		.h100{height:100px;width:100%;border-bottom:1px solid #ccc;}
+		.ml50{margin-left:50px;}
+		.bt1px{border-top:1px solid #ccc;,margin-top:10px;}
+		.h60{height:60px;line-height:34px;margin:0px;}
+		.bb1px{border-bottom:1px solid #ccc;}
+		.pl15{padding-left:15px;border-bottom:1px dashed #ccc;height:40px;line-height:40px;margin:0px;}
+		.bdno{border-bottom:none;}
+		.ml50px{margin-left:50px;}
+		.nameSpan{display:inline-block;height:30px;line-height:30px;border-radius:5px;padding:0px 5px;background:#009ae2;margin-right:10px;}
+		
+		.spanSty0101{float:right;margin-left:20px;padding-right:20px;cursor:pointer;position:relative;z-index:10;}
+		.tanchukuang{display:none;position:absolute;top:10px;left:-200px;width:200px;height:150px;background:#ccc;}
+		.closeSpan{position:absolute;top:-15px;right:0px;height:25px;font-size:24px;}
+		.spanSty0102{height:25px;line-height:25px;display:block;}
+		.mt18{margin-top:18px;}
+		.spanSty0103{float:right;padding-right:20px;}
+		.divSty01{width:100%;height:50px;line-height:50px;}
+		.pSty01{width:30%;float:left;margin:0px;padding-left:20px;}
+		.inputSty01{height:34px;width:60%;margin-top:8px;}
+		.h150p{height:150px;}
+		.span_h20{float:left;width:20%;height:34px;line-height:34px;text-align:center;border:1px solid #ccc;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+		.span_h10{float:left;width:10%;height:34px;line-height:34px;text-align:center;border:1px solid #ccc;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+		.fl{float:left;}
+		.mat10{margin-top:-10px;}
+		.mt13{margin-top:13px;padding-left:10px;}
+		.w130px{width:40%;text-align:right;}
+		.pt6{padding-top:6px;}
+		.ml130{margin-left:130px;}
+		.w100{width:100px;}
+		.p010px{padding:0px 10px 10px 10px;}
+		.spanSty0104{float:right;padding-right:20px;padding-top:5px;cursor:pointer;}
+		.spanSty0105{float:right;padding-right:20px;color:#009ae2;height:34px;line-height:34px;width:350px;}
+		.spanSty0106{display:block;height:34px;line-height:34px;}
+		.ml30px{margin-left:30px;}
+		.vtmt7p{vertical-align:top;margin-top:9px;margin-right:5px;}
+		.dpw80p{display:inline-block;width:80%;}
+		.spanSty01008{overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+		.w1200{width:60%;display:inline-block;vertical-align:top;}
+		.h684{height:584px;overflow-y: auto;}
+		table{width:100%;}
+		table tr td{border: 1px solid #35364a;color: #000;padding: 10px;}
+		.w80{width: 100px;text-align: center;}
+		.tac{text-align:center;}
+		.fontsW{font-size:16px;font-weight: bold;}
+		.spansTY01{position: absolute;top: 8px;background: rgb(255,250,232);display: inline-block;width: 50px;font-size:13px;line-height:0px;font-family: "Times New Roman";text-align: center;}
+    .spansty02{left: 0px;position: absolute;display: inline-block;top: 21px;font-family: "Times New Roman";line-height:0px;background: rgb(255,250,232);font-size: 12px;height:10px;width: 50px;text-align: center;}
+    .spansTY05{font-size:25px;text-align: center;display: inline-block;width: 50px;height: 20px;line-height: 20px;}
+    .w75{width:75%!important;}
+    .w60{width:60%!important;}
+    .imgStyle2{position:absolute;top:15%;left:45%;}
+    .maxw{display:inline-block;width:450px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+    .w120p{display:inline-block;width:100px;text-align:right;}
+    .pat0p{position:absolute;top:0px;right:10px;}
+    .w23{width:23%!important;float:left;line-height:34px;text-align:right;}
+    .w70{width:70%!important;float:left;}
+    .div_b{float: left;width: 75%;height: 200px;overflow-y: auto;}
+    .h4s{float: left;width: 100%;background: url("../../images/navname/beijingse.png")repeat-x;margin: 0px;}
+    .dataquality_w30{width: 30%;margin:0px;float: left;text-align: center;color: #5f5f5f;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;}
+    .dataquality_w70{width: 70%;float: left;text-align: center;color: #5f5f5f;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;}
+    .h400p{height:400px;}
+    .mg20{margin:20px 0px;}
+    .h39{height:39px;}
+    .bdb{border-bottom:1px dashed #b1b2c4;}
+    
+    
